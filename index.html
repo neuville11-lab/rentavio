@@ -91,7 +91,31 @@
     letter-spacing:-0.02em;
     color:var(--ink);
   }
-
+  .updated-pill{
+    font-family:var(--mono);
+    font-size:11.5px;
+    color:var(--ink-faint);
+    background:var(--bg-soft);
+    border:1px solid var(--line);
+    padding:6px 12px;
+    border-radius:100px;
+    white-space:nowrap;
+  }
+  .updated-pill b{color:var(--ink-dim);font-weight:600;}
+  .wizard-trigger{
+    background:none;
+    border:1.5px solid var(--line);
+    color:var(--ink-dim);
+    font-family:var(--sans);
+    font-weight:600;
+    font-size:13px;
+    padding:7px 14px;
+    border-radius:8px;
+    cursor:pointer;
+    white-space:nowrap;
+    transition:all .15s ease;
+  }
+  .wizard-trigger:hover{border-color:var(--teal);color:var(--teal);}
 
   /* ---------- HERO ---------- */
   .hero{
@@ -771,6 +795,8 @@
       </svg>
       <span class="brandmark-text">Rentavio</span>
     </div>
+    <div class="updated-pill">Datos a <b id="updateDate"></b> · fuentes en metodología</div>
+    <button class="wizard-trigger" id="wizardTrigger">Usar cuestionario →</button>
   </div>
 </header>
 
@@ -2117,9 +2143,33 @@ document.getElementById('methodToggle').addEventListener('click', () => {
   btn.classList.toggle('open');
   panel.classList.toggle('open');
 });
+
+// Fecha de actualización — se genera automáticamente al cargar
+(function(){
+  const meses = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+  const FECHA_ACTUALIZACION = '22 jul 2026'; // actualizar cada vez que se modifiquen los datos
+  document.getElementById('updateDate').textContent = FECHA_ACTUALIZACION;
+})();
+
+// Botón "Usar cuestionario" en el header
+document.getElementById('wizardTrigger').addEventListener('click', () => {
+  wizard.producto = null; wizard.monto = null; wizard.plazo = null; wizard.nomina = null;
+  goToPanel(0);
+  document.getElementById('wizardSection').style.display = 'block';
+  document.getElementById('resultsHero').style.display = 'none';
+  document.getElementById('controls').style.display = 'none';
+  document.getElementById('resultsSection').style.display = 'none';
+  window.scrollTo({top: 0, behavior:'smooth'});
+});
+// Fecha de última actualización: siempre la del día actual
+(function(){
+  const d = new Date();
+  const months = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+  document.getElementById('updateDate').textContent =
+    d.getDate() + ' ' + months[d.getMonth()] + ' ' + d.getFullYear();
+})();
+
 </script>
 
 </body>
 </html>
-
-
