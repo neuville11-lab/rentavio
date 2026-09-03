@@ -933,15 +933,8 @@
         <label>Nómina</label>
         <select id="filterNomina">
           <option value="todos">Da igual</option>
-          <option value="sin">Solo sin nómina</option>
-          <option value="con">Solo con nómina</option>
-        </select>
-      </div>
-      <div class="filter-group">
-        <label>Sin condiciones</label>
-        <select id="filterCondicion">
-          <option value="todos">Da igual</option>
-          <option value="sin">Solo sin nómina / vinculación</option>
+          <option value="con">Con nómina</option>
+          <option value="sin">Sin nómina</option>
         </select>
       </div>
       <div class="filter-group">
@@ -1933,7 +1926,6 @@ const DATA = [
 
 let activeCat = "todos";
 let activeTipo = "todos";
-let activeCondicion = "todos";
 let activeDificultad = "todos";
 let activeNomina = "todos";
 let activeSort = "rate";
@@ -1985,7 +1977,6 @@ function render(){
   let filtered = DATA.filter(d => {
     if(activeCat !== "todos" && d.cat !== activeCat) return false;
     if(activeTipo !== "todos" && d.tipo !== activeTipo) return false;
-    if(activeCondicion === "sin" && !d.sinCondicion) return false;
     if(activeNomina === "sin" && d.requiereNomina === true) return false;
     if(activeNomina === "con" && d.requiereNomina !== true) return false;
     if(activeDificultad !== "todos" && (d.dificultad || 1) > parseInt(activeDificultad)) return false;
@@ -2092,11 +2083,6 @@ document.getElementById('filterTipo').addEventListener('change', e => {
 
 document.getElementById('filterNomina').addEventListener('change', e => {
   activeNomina = e.target.value;
-  render();
-});
-
-document.getElementById('filterCondicion').addEventListener('change', e => {
-  activeCondicion = e.target.value;
   render();
 });
 
@@ -2260,10 +2246,9 @@ document.getElementById('skipWizard').addEventListener('click', () => {
 
 document.getElementById('redoWizard').addEventListener('click', () => {
   wizard.producto = null; wizard.monto = null; wizard.plazo = null; wizard.nomina = null;
-  activeCat = "todos"; activeTipo = "todos"; activeCondicion = "todos"; activeNomina = "todos"; activeDificultad = "todos"; activeSort = "rate";
+  activeCat = "todos"; activeTipo = "todos"; activeNomina = "todos"; activeDificultad = "todos"; activeSort = "rate";
   document.getElementById('filterTipo').value = "todos";
   document.getElementById('filterNomina').value = "todos";
-  document.getElementById('filterCondicion').value = "todos";
   document.getElementById('filterDificultad').value = "todos";
   document.querySelectorAll('.wopt').forEach(o => o.classList.remove('selected'));
   goToPanel(0);
