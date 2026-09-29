@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ibercaja sube su bono de nómina a 1.000€ — Rentavio</title>
+<meta name="description" content="La Cuenta Vamos de Ibercaja amplía el tope de saldo bonificado de 12.000€ a 20.000€ y el ingreso máximo del primer año pasa de 600€ a 1.000€. Condiciones y a quién le compensa.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect x='10' y='10' width='100' height='100' rx='22' fill='%230E6B5C'/%3E%3Cpath d='M40 86 V34 H64 C74 34 80 40 80 50 C80 58 75 63 67 65 L82 86' fill='none' stroke='white' stroke-width='9' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='94' cy='30' r='6' fill='%2300C896'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #FAFAF8;
+    --bg-raised: #FFFFFF;
+    --bg-soft: #F2F4F2;
+    --line: #E4E7E3;
+    --line-strong: #D3D7D1;
+    --ink: #0E1512;
+    --ink-dim: #4B564F;
+    --ink-faint: #8A938C;
+    --teal: #0E6B5C;
+    --teal-bright: #00C896;
+    --teal-soft: #E3F6EF;
+    --teal-soft-line: #BCE8DA;
+    --amber: #B5740C;
+    --amber-soft: #FBF1DD;
+    --sans: 'Inter', -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .wrap{max-width:720px;margin:0 auto;padding:0 28px;}
+
+  header{
+    border-bottom:1px solid var(--line);
+    padding:18px 0;
+    position:sticky;
+    top:0;
+    background:rgba(250,250,248,0.88);
+    backdrop-filter:blur(8px);
+    z-index:50;
+  }
+  .header-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+  .brandmark{display:flex;align-items:center;gap:9px;text-decoration:none;}
+  .brandmark-icon{width:28px;height:28px;flex-shrink:0;}
+  .brandmark-text{
+    font-weight:800;
+    font-size:18px;
+    letter-spacing:-0.02em;
+    color:var(--ink);
+  }
+  .header-nav{display:flex;align-items:center;gap:20px;}
+  .header-nav a{
+    font-weight:600;
+    font-size:13.5px;
+    color:var(--ink-faint);
+    text-decoration:none;
+  }
+  .header-nav a.active{color:var(--teal);}
+
+  .breadcrumb{
+    padding:24px 0 0;
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--ink-faint);
+  }
+  .breadcrumb a{color:var(--ink-faint);text-decoration:none;}
+  .breadcrumb a:hover{color:var(--teal);}
+
+  article{padding:20px 0 60px;}
+  .article-meta{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin:18px 0 14px;
+    flex-wrap:wrap;
+  }
+  .article-date{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--ink-faint);
+  }
+  .article-tag{
+    font-size:10.5px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    padding:3px 9px;
+    border-radius:100px;
+    background:var(--teal-soft);
+    color:var(--teal);
+    border:1px solid var(--teal-soft-line);
+  }
+  h1{
+    font-weight:800;
+    font-size:clamp(1.7rem, 3.6vw, 2.3rem);
+    letter-spacing:-0.02em;
+    line-height:1.15;
+    color:var(--ink);
+  }
+  .lead{
+    margin-top:14px;
+    font-size:1.05rem;
+    color:var(--ink-dim);
+    line-height:1.6;
+  }
+  .article-body{
+    margin-top:28px;
+    font-size:15.5px;
+    color:var(--ink-dim);
+    line-height:1.75;
+  }
+  .article-body p{margin-bottom:18px;}
+  .article-body h2{
+    font-weight:700;
+    font-size:1.25rem;
+    color:var(--ink);
+    margin:32px 0 12px;
+    letter-spacing:-0.01em;
+  }
+  .article-body strong{color:var(--ink);font-weight:700;}
+
+  .compare-cta{
+    margin-top:16px;
+    background:var(--bg-raised);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:20px 22px;
+    box-shadow:0 1px 2px rgba(14,21,18,0.04);
+  }
+  .compare-cta-label{
+    font-family:var(--mono);
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    color:var(--ink-faint);
+    margin-bottom:6px;
+  }
+  .compare-cta a{
+    font-weight:700;
+    font-size:15px;
+  }
+  .compare-cta p{
+    margin-top:4px;
+    font-size:13px;
+    color:var(--ink-faint);
+  }
+
+  .data-table{
+    margin:18px 0;
+    border:1px solid var(--line);
+    border-radius:12px;
+    overflow:hidden;
+    font-size:13.5px;
+  }
+  .data-row{
+    display:flex;
+    justify-content:space-between;
+    padding:11px 16px;
+    border-bottom:1px solid var(--line);
+  }
+  .data-row:last-child{border-bottom:none;}
+  .data-row:nth-child(odd){background:var(--bg-soft);}
+  .data-label{color:var(--ink-faint);font-weight:500;}
+  .data-value{color:var(--ink);font-weight:700;font-family:var(--mono);}
+
+  .substack-note{
+    margin-top:36px;
+    padding-top:24px;
+    border-top:1px solid var(--line);
+    font-size:13.5px;
+    color:var(--ink-faint);
+  }
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:32px 0 48px;
+  }
+  footer p{
+    font-size:12.5px;
+    color:var(--ink-faint);
+    line-height:1.6;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-row">
+    <a href="../index.html" class="brandmark">
+      <svg class="brandmark-icon" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="10" width="100" height="100" rx="22" fill="#0E6B5C"/>
+        <path d="M40 86 V34 H64 C74 34 80 40 80 50 C80 58 75 63 67 65 L82 86"
+              fill="none" stroke="white" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="94" cy="30" r="6" fill="#00C896"/>
+      </svg>
+      <span class="brandmark-text">Rentavio</span>
+    </a>
+    <nav class="header-nav">
+      <a href="../index.html">Comparador</a>
+      <a href="../blog.html" class="active">Notas</a>
+    </nav>
+  </div>
+</header>
+
+<div class="breadcrumb wrap">
+  <a href="../blog.html">← Todas las notas</a>
+</div>
+
+<article class="wrap">
+  <div class="article-meta">
+    <span class="article-date">18 SEPTIEMBRE 2026</span>
+    <span class="article-tag">Cuenta nómina</span>
+  </div>
+  <h1>Ibercaja sube su bono de nómina de 600€ a 1.000€</h1>
+  <p class="lead">La Cuenta Vamos amplía el tope de saldo bonificado y el ingreso máximo del primer año — de largo, la subida más grande de esta actualización.</p>
+
+  <div class="article-body">
+    <p>Ibercaja ha actualizado las condiciones de su <strong>Cuenta Vamos</strong>, la cuenta nómina que combina una remuneración alta el primer año con un bono decreciente el segundo. El cambio afecta a dos cifras clave: el tope de saldo que se remunera y el importe total que se puede llegar a cobrar.</p>
+
+    <h2>Qué ha cambiado exactamente</h2>
+    <div class="data-table">
+      <div class="data-row"><span class="data-label">Tope de saldo bonificado</span><span class="data-value">12.000€ → 20.000€</span></div>
+      <div class="data-row"><span class="data-label">Ingreso máximo 1er año</span><span class="data-value">600€ → 1.000€</span></div>
+      <div class="data-row"><span class="data-label">Ingreso máximo 2º año</span><span class="data-value">240€ → 400€</span></div>
+      <div class="data-row"><span class="data-label">TAE (sin cambios)</span><span class="data-value">5,09% / 2,01%</span></div>
+    </div>
+
+    <p>La estructura de tipos no cambia: sigue siendo <strong>5,09% TAE el primer año</strong> y <strong>2,01% TAE el segundo</strong>. Lo que sube es el límite de saldo sobre el que se aplica ese tipo — al pasar de 12.000€ a 20.000€, el importe máximo que se puede ganar en euros crece de forma proporcional.</p>
+
+    <h2>Las condiciones no han cambiado</h2>
+    <p>Sigue siendo necesario ser <strong>nuevo cliente</strong>, domiciliar una nómina de al menos <strong>600€/mes</strong>, domiciliar <strong>6 recibos al semestre</strong> y realizar al menos <strong>6 movimientos de pago al semestre</strong> con la tarjeta asociada. Ninguno de estos requisitos se ha endurecido — solo ha subido el premio.</p>
+
+    <h2>¿Para quién tiene sentido ahora?</h2>
+    <p>Antes, alguien con más de 12.000€ ahorrados dejaba ese exceso sin la remuneración alta. Ahora ese margen se amplía a 20.000€, lo que hace la oferta bastante más atractiva para quien tenga un colchón de ahorro de tamaño medio y esté dispuesto a cumplir los requisitos de actividad (recibos y tarjeta) durante el primer año.</p>
+
+    <div class="compare-cta">
+      <div class="compare-cta-label">Ver en el comparador</div>
+      <a href="../index.html">Ibercaja — Cuenta Vamos →</a>
+      <p>Compara esta oferta con el resto de cuentas nómina disponibles ahora mismo.</p>
+    </div>
+
+    <p class="substack-note">Si quieres una lectura más a fondo sobre si merece la pena mover tu nómina solo por una promoción como esta, lo cuento con más detalle en mi <a href="#">Substack</a>.</p>
+  </div>
+</article>
+
+<footer>
+  <div class="wrap">
+    <p>Nota informativa basada en fuentes públicas y la web oficial de Ibercaja. No es asesoramiento financiero — verifica siempre las condiciones actuales antes de decidir.</p>
+  </div>
+</footer>
+
+</body>
+</html>

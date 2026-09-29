@@ -91,6 +91,101 @@
     letter-spacing:-0.02em;
     color:var(--ink);
   }
+  .header-nav{
+    display:flex;
+    align-items:center;
+    gap:20px;
+  }
+  .header-nav a{
+    font-family:var(--sans);
+    font-weight:600;
+    font-size:13.5px;
+    color:var(--ink-faint);
+    text-decoration:none;
+    transition:color .15s ease;
+  }
+  .header-nav a:hover{color:var(--teal);}
+  .header-nav a.active{color:var(--teal);}
+  .nav-notas{position:relative;}
+  .notas-pulse{
+    position:absolute;
+    top:-3px;
+    right:-9px;
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--teal-bright);
+  }
+  .notas-pulse::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:50%;
+    background:var(--teal-bright);
+    animation:notasPing 1.8s cubic-bezier(0,0,0.2,1) infinite;
+  }
+  @keyframes notasPing{
+    0%{transform:scale(1);opacity:0.8;}
+    75%, 100%{transform:scale(2.8);opacity:0;}
+  }
+
+  /* ---------- HERO BANNER ---------- */
+  .hero-banner{
+    background:linear-gradient(135deg, #0E6B5C 0%, #0B5647 100%);
+    padding:22px 0;
+    overflow:hidden;
+    position:relative;
+  }
+  .hero-banner-inner{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:24px;
+    flex-wrap:wrap;
+    text-align:center;
+  }
+  .hero-banner-icons{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-shrink:0;
+  }
+  .hb-icon{
+    width:38px;
+    height:38px;
+    filter:drop-shadow(0 2px 6px rgba(0,0,0,0.18));
+  }
+  .hb-icon-1{ animation:hbFloat 3.2s ease-in-out infinite; }
+  .hb-icon-2{ animation:hbFloat 3.2s ease-in-out infinite; animation-delay:0.4s; }
+  .hb-icon-3{ animation:hbFloat 3.2s ease-in-out infinite; animation-delay:0.8s; }
+  @keyframes hbFloat{
+    0%, 100%{ transform:translateY(0); }
+    50%{ transform:translateY(-5px); }
+  }
+  .hero-banner-text{
+    display:flex;
+    flex-direction:column;
+    gap:3px;
+  }
+  .hb-title{
+    font-family:var(--sans);
+    font-weight:800;
+    font-size:1.15rem;
+    letter-spacing:-0.015em;
+    color:#ffffff;
+  }
+  .hb-sub{
+    font-family:var(--sans);
+    font-weight:500;
+    font-size:13px;
+    color:#CFEBE2;
+  }
+  @media (max-width:640px){
+    .hero-banner-inner{gap:14px;}
+    .hb-icon{width:30px;height:30px;}
+    .hb-title{font-size:1rem;}
+    .hb-sub{font-size:12px;}
+  }
 
 
   /* ---------- HERO ---------- */
@@ -799,8 +894,37 @@
       </svg>
       <span class="brandmark-text">Rentavio</span>
     </div>
+    <nav class="header-nav">
+      <a href="index.html" class="active">Comparador</a>
+      <a href="blog.html" class="nav-notas">Notas<span class="notas-pulse"></span></a>
+    </nav>
   </div>
 </header>
+
+<!-- ===================== BANNER ===================== -->
+<div class="hero-banner">
+  <div class="wrap hero-banner-inner">
+    <div class="hero-banner-icons">
+      <svg class="hb-icon hb-icon-1" viewBox="0 0 48 48" fill="none">
+        <rect x="6" y="26" width="9" height="16" rx="2.5" fill="#EAF6F1"/>
+        <rect x="19.5" y="18" width="9" height="24" rx="2.5" fill="#EAF6F1" opacity="0.85"/>
+        <rect x="33" y="8" width="9" height="34" rx="2.5" fill="#00E0A8"/>
+      </svg>
+      <svg class="hb-icon hb-icon-2" viewBox="0 0 48 48" fill="none">
+        <path d="M24 5 L41 12 V22 C41 33 34 41 24 44 C14 41 7 33 7 22 V12 Z" fill="#0A5346" stroke="#EAF6F1" stroke-width="2"/>
+        <path d="M16.5 24 L21.5 29 L32 17.5" stroke="#00E0A8" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+      <svg class="hb-icon hb-icon-3" viewBox="0 0 48 48" fill="none">
+        <circle cx="24" cy="24" r="18" fill="#EAF6F1"/>
+        <text x="24" y="31" text-anchor="middle" font-family="Inter,sans-serif" font-weight="800" font-size="20" fill="#0E6B5C">€</text>
+      </svg>
+    </div>
+    <div class="hero-banner-text">
+      <span class="hb-title">Tu dinero, trabajando de verdad</span>
+      <span class="hb-sub">Comparamos las mejores cuentas, depósitos y bonificaciones del mercado — actualizado y verificado</span>
+    </div>
+  </div>
+</div>
 
 <!-- ===================== WIZARD ===================== -->
 <section class="wizard" id="wizardSection" style="display:none;">
@@ -1045,7 +1169,7 @@ const DATA = [
   // ===================== CUENTAS REMUNERADAS — SIN CONDICIONES =====================
   {
     cat:"remunerada", tipo:"neobanco", entidad:"Renault Bank", producto:"Cuenta Remunerada",
-    rate:2.17, rateLabel:"TAE", desc:"Remuneración fija sin condiciones de nómina, vinculación ni ser nuevo cliente.",
+    rate:2.27, rateLabel:"TAE", desc:"Remuneración fija sin condiciones de nómina, vinculación ni ser nuevo cliente.",
     cap:"Sin límite anunciado", condiciones:[["Saldo máx.","Sin tope público"],["Permanencia","No"],["Nómina","No"]],
     verdict:"De las pocas opciones que no depende de ser nuevo cliente ni de promoción con fecha de caducidad — lo que ves es lo que hay.",
     deadline:"Condiciones hasta 29/07/2026", top:false, sinCondicion:true,
@@ -1075,9 +1199,9 @@ const DATA = [
   },
   {
     cat:"remunerada", tipo:"neobanco", entidad:"Indexa Capital", producto:"Cuenta Remunerada (A&G Banco)",
-    rate:1.75, rateLabel:"TAE", desc:"Gestionada por A&G Banco S.A.U. El tipo se referencia al BCE menos 0,50 puntos, así que varía con la política monetaria.",
+    rate:2.00, rateLabel:"TAE", desc:"Gestionada por A&G Banco S.A.U. El tipo se referencia al BCE menos 0,50 puntos, así que varía con la política monetaria.",
     cap:"Desde 20.000€", condiciones:[["Mínimo","20.000€"],["Permanencia","No"],["Referenciado a","BCE - 0,50%"]],
-    verdict:"El mínimo de 20.000€ la descarta para ahorro pequeño, pero el tipo flotante referenciado al BCE es más transparente que una promoción con fecha de caducidad oculta.",
+    verdict:"Subió a 2,00% TAE en septiembre. El mínimo de 20.000€ la descarta para ahorro pequeño, pero el tipo flotante referenciado al BCE es más transparente que una promoción con fecha de caducidad oculta.",
     deadline:null, top:false, sinCondicion:true,
     montoMin:20000, montoMax:999999999, plazos:["disponible","corto","medio","largo"], requiereNomina:false, extranjero:false,
     dificultad:2,
@@ -1167,10 +1291,10 @@ const DATA = [
   // ===================== CUENTAS REMUNERADAS — CON CONDICIONES =====================
   {
     cat:"remunerada", tipo:"neobanco", entidad:"Revolut", producto:"Cuenta Remunerada (nuevos clientes)",
-    rate:3.51, rateLabel:"TAE", desc:"Hasta el 16/10/2026 para nuevos clientes, hasta 25.000€. Por encima de ese importe o sin ser nuevo cliente, el tipo cae a entre 1,15% y 2,27% según plan.",
+    rate:3.51, rateLabel:"TAE", desc:"Durante 4 meses desde el registro para nuevos clientes, hasta 25.000€. Por encima de ese importe o sin ser nuevo cliente, el tipo cae a entre 1,15% y 2,27% según plan.",
     cap:"Hasta 25.000€", condiciones:[["Saldo máx.","25.000€"],["Nuevo cliente","Sí"],["Nómina","No"]],
     verdict:"La más agresiva en rentabilidad pura, pero caduca el 16 de octubre y solo aplica a nuevos clientes — después el tipo baja mucho según el plan.",
-    deadline:"Registro hasta 16/08/2026 · Promo hasta 16/10/2026", top:true, sinCondicion:true,
+    deadline:"Promo por 4 meses desde el registro", top:true, sinCondicion:true,
     montoMin:0, montoMax:25000, plazos:["disponible","corto","medio","largo"], requiereNomina:false, extranjero:false,
     dificultad:2,
     url:"https://www.revolut.com/es-ES/instant-access-savings/"
@@ -1213,11 +1337,11 @@ const DATA = [
     deadline:"12 meses desde apertura", top:false, sinCondicion:false,
     montoMin:0, montoMax:999999999, plazos:["disponible","corto","medio","largo"], requiereNomina:false, extranjero:false,
     dificultad:2,
-    url:"https://www.openbank.es/cuenta-ahorro-bienvenida"
+    url:"https://www.openbank.es/cuenta-remunerada"
   },
   {
     cat:"remunerada", tipo:"tradicional", entidad:"Bankinter", producto:"Cuenta Digital (nuevos clientes)",
-    rate:2.50, rateLabel:"TAE", desc:"2,50% TAE hasta 100.000€ para nuevos clientes + 600€ (50€/mes durante 12 meses) si se domicilia nómina mín. 850€. Compatible con la Cuenta No-Nómina del mismo banco.",
+    rate:3.00, rateLabel:"TAE", desc:"3,00% TAE hasta 100.000€ para nuevos clientes + 600€ (50€/mes durante 12 meses) si se domicilia nómina mín. 850€. Compatible con la Cuenta No-Nómina del mismo banco.",
     cap:"Hasta 100.000€", condiciones:[["Saldo máx.","100.000€"],["Nuevo cliente","Sí"],["Nómina 600€","Opt. 850€ mín."]],
     verdict:"El tope de 100.000€ es de los más altos del comparador sin pedir nómina — buena opción si manejas un colchón grande y quieres simplicidad.",
     deadline:"Hasta 14/09/2026", top:false, sinCondicion:true,
@@ -1337,7 +1461,7 @@ const DATA = [
   },
   {
     cat:"remunerada", tipo:"neobanco", entidad:"MyInvestor", producto:"Cuenta Remunerada (plan premium o inversión)",
-    rate:3.25, rateLabel:"TAE hasta 70k€", desc:"3,25% TAE con plan premium (7,99€/mes) si incrementas saldo en 1k€ hasta 70k€. 2,50% TAE para nuevos clientes o quien incremente saldo. Sin plan: 1,00-2,00% TAE según inversión mensual.",
+    rate:2.60, rateLabel:"TAE hasta 70k€", desc:"2,60% TAE con plan premium (7,99€/mes) si incrementas saldo en 1k€ hasta 70k€. 2,50% TAE para nuevos clientes o quien incremente saldo. Sin plan: 1,00%, 1,75% o 2,50% TAE según inversión mensual.",
     cap:"Hasta 70.000€", condiciones:[["Plan premium","7,99€/mes → 2,35%"],["Sin plan","Según inversión mensual"],["Saldo máx.","70.000€"]],
     verdict:"Tiene sentido solo si ya planeabas invertir con MyInvestor — pagar 7,99€/mes solo por la remuneración de la cuenta rara vez compensa frente a otras opciones gratuitas del comparador.",
     deadline:null, top:false, sinCondicion:false,
@@ -1409,7 +1533,7 @@ const DATA = [
   // ===================== DEPÓSITOS — SIN CONDICIONES =====================
   {
     cat:"deposito", tipo:"neobanco", entidad:"Banco Finantia", producto:"Depósito no cancelable 36 meses",
-    rate:3.00, rateLabel:"TAE", desc:"Sin condiciones de vinculación. También disponible a 12 y 18 meses al 3,00% y 24 meses al 3,00% (todos no cancelables). Versión cancelable al 2,70% a 36 meses.",
+    rate:3.00, rateLabel:"TAE", desc:"Sin condiciones de vinculación. También disponible a 12 y 18 meses al 3,00% y 24 meses al 3,00% (todos no cancelables). Versión cancelable al 2,70% a 12, 18 y 24 meses.",
     cap:"Desde 50.000€", condiciones:[["Plazo","36 meses"],["Mínimo","50.000€"],["Cancelable","No"]],
     verdict:"El mínimo de 50.000€ es el más alto del comparador — solo tiene sentido para patrimonios grandes que pueden inmovilizar esa cantidad sin tocarla.",
     deadline:null, top:false, sinCondicion:true,
@@ -1429,7 +1553,7 @@ const DATA = [
   },
   {
     cat:"deposito", tipo:"neobanco", entidad:"EBN Banco", producto:"Depósito 48 meses",
-    rate:3.20, rateLabel:"TAE", desc:"El plazo más largo de su gama (3, 6, 12, 18, 24, 36, 42 y 48 meses), con el tipo más alto en el extremo de 48 meses.",
+    rate:3.10, rateLabel:"TAE", desc:"Gama actualizada: 2,40% a 3m, 2,50% a 6m, 2,75% a 12-18m, 2,80% a 24-36m, 2,90% a 42m y 3,10% a 48 meses. Mínimo 5.000€.",
     cap:"Desde 5.000€", condiciones:[["Plazo","48 meses"],["Mínimo","5.000€"],["Nómina","No"]],
     verdict:"EBN ofrece toda una escalera de plazos — si 4 años te parece mucho, su versión a 12 o 24 meses (2,60-2,70%) es casi igual de competitiva con mucho menos compromiso de tiempo.",
     deadline:null, top:false, sinCondicion:true,
@@ -1439,7 +1563,7 @@ const DATA = [
   },
   {
     cat:"deposito", tipo:"neobanco", entidad:"Banco BiG", producto:"Depósito no cancelable 12 meses",
-    rate:2.50, rateLabel:"TAE", desc:"Versión no cancelable a 12 meses, mínimo 10.000€. También disponible la versión cancelable al mismo tipo desde solo 1.000€.",
+    rate:2.75, rateLabel:"TAE", desc:"2,75% TAE no cancelable a 12 meses, mínimo 10.000€. También disponible la versión cancelable al 2,50% a 3 meses, 2,65% a 6 meses y 2,75% a 1 año, desde 1.000€.",
     cap:"Desde 10.000€", condiciones:[["Plazo","12 meses"],["Mínimo","10.000€"],["Cancelable","No"]],
     verdict:"Mismo tipo que la versión cancelable desde 1.000€ — no hay razón para elegir la no cancelable salvo que ya tengas claro que no vas a necesitar el dinero antes.",
     deadline:null, top:false, sinCondicion:true,
@@ -1479,7 +1603,7 @@ const DATA = [
   },
   {
     cat:"deposito", tipo:"tradicional", entidad:"Deutsche Bank", producto:"Depósito Confianza 12 meses (base)",
-    rate:2.25, rateLabel:"TAE", desc:"Tipo base sin condiciones adicionales. Sube hasta 3,25% combinando nómina, tarjeta y fondo de inversión (ver oferta con condiciones).",
+    rate:2.50, rateLabel:"TAE", desc:"Tipo base sin condiciones adicionales. Sube hasta 3,25% combinando nómina, tarjeta y fondo de inversión (ver oferta con condiciones).",
     cap:"25.000€ – 150.000€", condiciones:[["Plazo","12 meses"],["Mínimo","25.000€"],["Máximo","150.000€"]],
     verdict:"El tipo base ya es competitivo sin nada más — la versión con condiciones solo merece la pena si ya tenías pensado mover nómina, tarjeta y fondos a Deutsche Bank.",
     deadline:null, top:false, sinCondicion:true,
@@ -1509,7 +1633,7 @@ const DATA = [
   },
   {
     cat:"deposito", tipo:"tradicional", entidad:"ING", producto:"Depósito Naranja 24 meses",
-    rate:2.20, rateLabel:"TAE >100k€", desc:"Tramos por importe: 1,65% TAE (<50k€), 1,90% (50-100k€) y 2,10% (>100k€) a 12 meses; 1,80%, 2,05% y 2,20% a 18 meses; 2,15%, 2,25% y 2,30% a 24 meses.",
+    rate:2.60, rateLabel:"TAE >100k€", desc:"Tramos por importe: 2,00% (<50k€), 2,15% (50-100k€) y 2,30% (>100k€) a 12 meses; 2,00% y 2,25% a 6 meses (>50k€); 2,15% (<50k€), 2,35% (50-100k€) y 2,60% (>100k€) a 24 meses.",
     cap:"Tipo sube con el importe", condiciones:[["Plazo","24 meses"],["<50k€","2,15%"],[">100k€","2,30%"]],
     verdict:"El tipo escalonado por importe es poco habitual — cuanto más dinero metas, mejor tipo consigues, al revés de lo que pasa con los topes de muchas cuentas remuneradas.",
     deadline:null, top:false, sinCondicion:true,
@@ -1519,7 +1643,7 @@ const DATA = [
   },
   {
     cat:"deposito", tipo:"neobanco", entidad:"MyInvestor", producto:"Depósito cancelable 1 mes",
-    rate:2.05, rateLabel:"TAE", desc:"2,05% TAE a 1 mes y 2,00% a 3, 6 y 12 meses. Mínimo 10.000€. MyInvestor sube estos tipos con condiciones (ver oferta con condiciones).",
+    rate:2.25, rateLabel:"TAE", desc:"2,25% TAE a 1, 3 y 6 meses, y 3,00% a 12 meses. Mínimo 10.000€. MyInvestor sube estos tipos con condiciones (ver oferta con condiciones).",
     cap:"Desde 10.000€", condiciones:[["Plazo","1 mes"],["Mínimo","10.000€"],["Cancelable","Sí"]],
     verdict:"Para plazos tan cortos como 1 mes, este tipo es de los más altos del comparador — útil si necesitas el dinero pronto pero no quieres dejarlo sin remunerar.",
     deadline:null, top:false, sinCondicion:true,
@@ -1529,7 +1653,7 @@ const DATA = [
   },
   {
     cat:"deposito", tipo:"neobanco", entidad:"Self Bank", producto:"Depósito cancelable 12 meses",
-    rate:2.10, rateLabel:"TAE", desc:"2,00% a 3 meses, 2,05% a 6 meses y 2,10% a 1 año. Mínimo 1.000€, máximo 1.000.000€. Cancelables. Sin condiciones.",
+    rate:2.50, rateLabel:"TAE", desc:"2,00% a 3 meses, 2,05% a 6 meses y 2,50% a 1 año. Mínimo 1.000€, máximo 1.000.000€. Cancelables. Sin condiciones.",
     cap:"1.000€ – 1.000.000€", condiciones:[["Plazo","12 meses"],["Mínimo","1.000€"],["Máximo","1.000.000€"]],
     verdict:"El rango de importe admitido es de los más amplios del comparador, desde ahorro modesto hasta patrimonios grandes, todo al mismo tipo.",
     deadline:null, top:false, sinCondicion:true,
@@ -1591,7 +1715,7 @@ const DATA = [
   // ===================== DEPÓSITOS — CON CONDICIONES =====================
   {
     cat:"deposito", tipo:"tradicional", entidad:"Deutsche Bank", producto:"Depósito Confianza 12 meses (máximo)",
-    rate:3.25, rateLabel:"TAE máx.", desc:"El tipo base es 2,25%; sube 0,20 puntos por domiciliar nómina (mín. 2.000€), 0,20 por tarjeta de crédito con 6.000€/año de gasto, y 0,60 por contratar 15.000€ en un fondo de inversión de DB.",
+    rate:3.50, rateLabel:"TAE máx.", desc:"El tipo base es 2,50%; sube 0,40 puntos por domiciliar nómina (mín. 2.000€), 0,20 por tarjeta de crédito con 6.000€/año de gasto, y 0,40 por contratar 15.000€ en un fondo de inversión de DB.",
     cap:"25.000€ – 150.000€", condiciones:[["Plazo","12 meses"],["Mínimo","25.000€"],["TAE base","2,25%"]],
     verdict:"El 3,25% exige nómina + tarjeta + fondo de 15.000€ simultáneamente — sin esas tres piezas a la vez, te quedas en el 2,25% base, que ya es bueno por sí solo.",
     deadline:null, top:true, sinCondicion:false,
@@ -1601,7 +1725,7 @@ const DATA = [
   },
   {
     cat:"deposito", tipo:"neobanco", entidad:"Banco BiG", producto:"Depósito nuevos clientes 1 mes",
-    rate:4.00, rateLabel:"TAE", desc:"El tipo más alto del comparador para nuevos clientes, pero a solo 1 mes de plazo. También ofrecen 3,25% a 3 meses y 2,75% a 6 meses en la misma promoción.",
+    rate:4.00, rateLabel:"TAE", desc:"El tipo más alto del comparador para nuevos clientes, pero a solo 1 mes de plazo. También ofrecen 3,50% a 3 meses y 3,00% a 6 meses en la misma promoción.",
     cap:"Consultar mínimo", condiciones:[["Plazo","1 mes"],["Nuevo cliente","Sí"],["Alternativas","3,25% a 3M, 2,75% a 6M"]],
     verdict:"Un 4% suena espectacular pero solo dura 1 mes — el rendimiento absoluto en euros es modesto; útil más como gancho promocional que como estrategia de ahorro real.",
     deadline:null, top:true, sinCondicion:false,
@@ -1661,7 +1785,7 @@ const DATA = [
   },
   {
     cat:"deposito", tipo:"neobanco", entidad:"Arquia", producto:"Depósito nuevos clientes 18 meses",
-    rate:2.50, rateLabel:"TAE", desc:"Para dinero nuevo, hasta 200.000€. Requiere cumplir una de tres condiciones: nómina/autónomo domiciliada, fondo de inversión o plan de pensiones de 10.000€+, o seguro de salud HNA mediado por Arquia.",
+    rate:3.25, rateLabel:"TAE", desc:"3,25% TAE a 6 meses (hasta 30.000€) o 2,50% a 18 meses (hasta 200.000€) para dinero nuevo. Requiere cumplir una de tres condiciones: nómina/autónomo domiciliada, fondo de inversión o plan de pensiones de 10.000€+, o seguro de salud HNA mediado por Arquia.",
     cap:"Hasta 200.000€", condiciones:[["Plazo","18 meses"],["Mínimo","10.000€"],["Una de 3 condiciones","Nómina, fondo o seguro"]],
     verdict:"Las tres vías alternativas de entrada (nómina, fondo, o seguro) le dan flexibilidad real frente a depósitos que solo aceptan nómina como condición única.",
     deadline:null, top:false, sinCondicion:false,
@@ -1671,7 +1795,7 @@ const DATA = [
   },
   {
     cat:"deposito", tipo:"tradicional", entidad:"Banca March", producto:"Depósito nuevos clientes 12 meses",
-    rate:2.50, rateLabel:"TAE", desc:"2,26% TAE a 6 meses y 2,50% TAE a 12 meses para nuevos clientes. Mínimo 30.000€.",
+    rate:2.80, rateLabel:"TAE", desc:"2,26% TAE a 6 meses y 2,80% TAE a 12 meses para nuevos clientes. Mínimo 30.000€.",
     cap:"Desde 30.000€", condiciones:[["Plazo","12 meses"],["Mínimo","30.000€"],["Nuevo cliente","Sí"]],
     verdict:"El mínimo de 30.000€ la reserva para patrimonios medios-altos — no es una opción para ahorro modesto.",
     deadline:null, top:false, sinCondicion:true,
@@ -1681,7 +1805,7 @@ const DATA = [
   },
   {
     cat:"deposito", tipo:"neobanco", entidad:"MyInvestor", producto:"Depósito con inversión en robo advisor",
-    rate:4.00, rateLabel:"TAE 1 mes (plan premium, hasta 5k€)", desc:"Con 150€ invertidos en robo advisor: 2,25% a 1, 3, 6 y 12 meses (mín. 10.000€). Sin eso: 2,05% a 1 mes y 2,00% al resto. Con plan premium (7,99€/mes): 3,00% a 3 meses hasta 25.000€.",
+    rate:3.50, rateLabel:"TAE 1 mes (plan premium, hasta 5k€)", desc:"Con 150€ invertidos en robo advisor: 2,50% a 1, 3 y 6 meses, y 3,10% a 12 meses (mín. 10.000€). Sin eso: 2,05% a 1 mes y 2,00% al resto. Con plan premium (7,99€/mes): 3,25% a 3 meses o 3,50% hasta 25.000€.",
     cap:"Desde 10.000€", condiciones:[["Inversión mín.","150€ en robo advisor"],["Mínimo depósito","10.000€"],["Plan premium","Mejora aún más el tipo"]],
     verdict:"La estructura por capas (base, con inversión mínima, con plan premium) es de las más complejas del comparador — confirma exactamente qué tramo te aplica antes de contratar.",
     deadline:null, top:true, sinCondicion:false,
@@ -1733,11 +1857,11 @@ const DATA = [
   },
   {
     cat:"nomina", tipo:"tradicional", entidad:"Ibercaja", producto:"Cuenta Vamos",
-    rate:840, rateLabel:"€ en 2 años", isMoney:true, desc:"5,09% hasta 12.000€ el primer año (hasta 600€) y 2,01% hasta 12.000€ el segundo año (hasta 240€). Requiere ser nuevo cliente, domiciliar nómina mín. 600€/mes, 6 recibos al semestre y 6 movimientos con tarjeta.",
-    cap:"Hasta 12.000€", condiciones:[["Saldo máx.","12.000€"],["Nómina mín.","600€/mes"],["Recibos","6 al semestre"]],
-    verdict:"El tipo del primer año es altísimo, pero limitado a 12.000€ — el beneficio real en euros (600€) está bien pero no es tan dramático como el porcentaje sugiere.",
+    rate:1400, rateLabel:"€ en 2 años", isMoney:true, desc:"5,09% hasta 20.000€ el primer año (hasta 1.000€) y 2,01% hasta 20.000€ el segundo año (hasta 400€). Requiere ser nuevo cliente, domiciliar nómina mín. 600€/mes, 6 recibos al semestre y 6 movimientos con tarjeta.",
+    cap:"Hasta 20.000€", condiciones:[["Saldo máx.","20.000€"],["Nómina mín.","600€/mes"],["Recibos","6 al semestre"]],
+    verdict:"Subió el tope de 12.000€ a 20.000€ y el beneficio total pasó de 600€ a 1.000€ el primer año — ahora es de las nóminas más rentables del comparador para quien pueda mantener ese saldo.",
     deadline:null, top:false, sinCondicion:false,
-    montoMin:0, montoMax:12000, plazos:["disponible","corto","medio","largo"], requiereNomina:true, extranjero:false,
+    montoMin:0, montoMax:20000, plazos:["disponible","corto","medio","largo"], requiereNomina:true, extranjero:false,
     dificultad:4,
     url:"https://www.ibercaja.es/particulares/cuentas-tarjetas/cuentas/cuenta-vamos/"
   },
@@ -1793,9 +1917,9 @@ const DATA = [
   },
   {
     cat:"nomina", tipo:"tradicional", entidad:"Bankinter", producto:"Cuenta Nómina",
-    rate:683, rateLabel:"€ total 2 años", isMoney:true, desc:"5,00% hasta 10.000€ el primer año (hasta 487€) + 2,00% hasta 10.000€ el segundo año (hasta 196€). Requiere nómina mín. 800€/mes, 3 recibos al trimestre y 3 movimientos con tarjeta (no necesario con pensión).",
-    cap:"Hasta 10.000€", condiciones:[["Nómina mín.","800€/mes"],["Saldo máx.","10.000€"],["Recibos","3/trimestre"]],
-    verdict:"El tope de 10.000€ limita el beneficio real frente al porcentaje llamativo — calcula en euros, no en TAE, para comparar de forma justa.",
+    rate:600, rateLabel:"€ bonif.", isMoney:true, desc:"600€ por domiciliar nómina (mín. 850€/mes) + cuenta remunerada al 3,00% TAE hasta 100.000€. Requiere ser nuevo cliente. Existe otra opción de Bankinter con 5,00% TAE el primer año pero requiere recibos y movimientos de tarjeta en vez del bono fijo — consulta el desglose completo en la web.",
+    cap:"600€ + 3,00% TAE hasta 100.000€", condiciones:[["Nómina mín.","850€/mes"],["Nuevo cliente","Sí"],["TAE cuenta","3,00% hasta 100k€"]],
+    verdict:"Combina un bono fijo de 600€ con una TAE del 3,00% hasta 100.000€ — de las nóminas más completas del comparador, y con un requisito de nómina relativamente bajo (850€/mes).",
     deadline:null, top:false, sinCondicion:false,
     montoMin:0, montoMax:10000, plazos:["disponible","corto","medio","largo"], requiereNomina:true, extranjero:false,
     dificultad:4,
@@ -1813,7 +1937,7 @@ const DATA = [
   },
   {
     cat:"nomina", tipo:"tradicional", entidad:"Santander", producto:"Cuenta Online (opción iPhone)",
-    rate:0, rateLabel:"Renting iPhone 17 Pro, 36 meses", isMoney:false, desc:"En vez de efectivo, renting de un iPhone 17 Pro (u otro modelo) durante 36 meses. Requiere nómina superior a 3.000€/mes para el iPhone 17 Pro (entre 1.200€ y 3.000€ da derecho al iPhone 17 normal). No haber domiciliado nómina antes desde enero de 2025.",
+    rate:0, rateLabel:"Renting iPhone 18 Pro, 36 meses", isMoney:false, desc:"En vez de efectivo, renting de un iPhone 18 Pro (u otro modelo) durante 36 meses. Requiere nómina superior a 3.000€/mes para el modelo Pro (entre 1.200€ y 3.000€ da derecho al modelo estándar). No haber domiciliado nómina antes desde enero de 2025.",
     cap:"iPhone 17 Pro o 17 según nómina", condiciones:[["Nómina mín.","1.200€ (17), 3.000€ (17 Pro)"],["Permanencia","36 meses"],["Recibos","2/mes"]],
     verdict:"Una alternativa curiosa al efectivo, pero exige nómina alta para el modelo Pro y te ata 3 años — al terminar puedes quedarte el móvil pagando una cantidad simbólica.",
     deadline:null, top:false, sinCondicion:false,
@@ -1853,10 +1977,10 @@ const DATA = [
   },
   {
     cat:"nomina", tipo:"tradicional", entidad:"ING", producto:"Cuenta Nómina ING",
-    rate:400, rateLabel:"€ bonif.", isMoney:true, desc:"400€ por domiciliar nómina o ingreso recurrente de mínimo 700€/mes, exclusivo para quien nunca ha sido cliente de ING. Requiere traer Bizum antes del 31/07/2026.",
-    cap:"400€ netos", condiciones:[["Nómina mín.","700€"],["Permanencia","No especificada"],["Plazo Bizum","Antes del 31/07/2026"]],
+    rate:400, rateLabel:"€ bonif.", isMoney:true, desc:"400€ por domiciliar nómina de cualquier importe o ingresos recurrentes de mínimo 700€/mes, exclusivo para nuevos clientes. Requiere domiciliar Bizum durante 12 meses.",
+    cap:"400€ netos", condiciones:[["Nómina mín.","700€ o cualquier importe"],["Nuevo cliente","Sí"],["Bizum","12 meses"]],
     verdict:"De las condiciones más simples de cumplir: solo nómina y Bizum, sin tramos complicados ni permanencias largas anunciadas.",
-    deadline:"Bizum antes del 31/07/2026", top:false, sinCondicion:false,
+    deadline:null, top:false, sinCondicion:false,
     montoMin:0, montoMax:999999999, plazos:["disponible","corto","medio","largo"], requiereNomina:true, extranjero:false,
     dificultad:3,
     url:"https://www.ing.es/cuenta-nomina-ing"
