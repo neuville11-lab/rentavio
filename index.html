@@ -475,32 +475,53 @@
 
   .filter-row{
     display:flex;
-    gap:12px;
+    gap:22px;
     align-items:center;
     flex-wrap:wrap;
     padding-bottom:20px;
     border-bottom:1px solid var(--line);
   }
-  .filter-row select, .filter-row input{
-    background:var(--bg-raised);
-    border:1.5px solid var(--line);
-    color:var(--ink);
-    font-family:var(--sans);
-    font-weight:500;
-    font-size:13.5px;
-    padding:9px 12px;
-    border-radius:8px;
+  .chip-group{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    flex-wrap:wrap;
   }
-  .filter-row label{
-    font-size:12px;
+  .chip-group-label{
+    font-size:11.5px;
     color:var(--ink-faint);
     font-family:var(--sans);
-    font-weight:600;
+    font-weight:700;
     text-transform:uppercase;
-    letter-spacing:0.03em;
-    margin-right:6px;
+    letter-spacing:0.04em;
   }
-  .filter-group{display:flex;align-items:center;}
+  .chip-set{
+    display:flex;
+    gap:6px;
+    flex-wrap:wrap;
+  }
+  .chip{
+    background:var(--bg-raised);
+    border:1.5px solid var(--line);
+    color:var(--ink-dim);
+    font-family:var(--sans);
+    font-weight:600;
+    font-size:12.5px;
+    padding:7px 13px;
+    border-radius:100px;
+    cursor:pointer;
+    transition:all .15s ease;
+    white-space:nowrap;
+  }
+  .chip:hover{
+    border-color:var(--teal-soft-line);
+    color:var(--teal);
+  }
+  .chip.active{
+    background:var(--teal);
+    border-color:var(--teal);
+    color:#fff;
+  }
   .sort-toggle{
     margin-left:auto;
     display:flex;
@@ -896,6 +917,7 @@
     </div>
     <nav class="header-nav">
       <a href="index.html" class="active">Comparador</a>
+      <a href="simulador.html">Simulador</a>
       <a href="blog.html" class="nav-notas">Notas<span class="notas-pulse"></span></a>
     </nav>
   </div>
@@ -921,7 +943,7 @@
     </div>
     <div class="hero-banner-text">
       <span class="hb-title">Tu dinero, trabajando de verdad</span>
-      <span class="hb-sub">Comparamos las mejores cuentas, depósitos y bonificaciones del mercado — actualizado y verificado</span>
+      <span class="hb-sub">Comparamos las mejores cuentas, depósitos y bonificaciones del mercado — rentabilidad, requisitos y vigencia explicados</span>
     </div>
   </div>
 </div>
@@ -1045,34 +1067,25 @@
       <button class="tab-btn" data-cat="nomina">Cuentas con bonificación <span class="count">(16)</span></button>
     </div>
     <div class="filter-row">
-      <div class="filter-group">
-        <label>Tipo de entidad</label>
-        <select id="filterTipo">
-          <option value="todos">Todas</option>
-          <option value="tradicional">Banca tradicional</option>
-          <option value="neobanco">Neobanco / fintech</option>
-        </select>
+      <div class="chip-group">
+        <span class="chip-group-label">Nómina</span>
+        <div class="chip-set" id="filterNomina" data-value="todos">
+          <button class="chip active" data-value="todos">Da igual</button>
+          <button class="chip" data-value="con">Con nómina</button>
+          <button class="chip" data-value="sin">Sin nómina</button>
+        </div>
       </div>
-      <div class="filter-group">
-        <label>Nómina</label>
-        <select id="filterNomina">
-          <option value="todos">Da igual</option>
-          <option value="con">Con nómina</option>
-          <option value="sin">Sin nómina</option>
-        </select>
-      </div>
-      <div class="filter-group">
-        <label>Facilidad</label>
-        <select id="filterDificultad">
-          <option value="todos">Da igual</option>
-          <option value="1">Solo inmediatas</option>
-          <option value="2">Inmediatas y fáciles</option>
-          <option value="3">Hasta moderadas</option>
-        </select>
+      <div class="chip-group">
+        <span class="chip-group-label">Facilidad</span>
+        <div class="chip-set" id="filterDificultad" data-value="todos">
+          <button class="chip active" data-value="todos">Da igual</button>
+          <button class="chip" data-value="1">Solo inmediatas</button>
+          <button class="chip" data-value="2">Inmediatas y fáciles</button>
+          <button class="chip" data-value="3">Hasta moderadas</button>
+        </div>
       </div>
       <div class="sort-toggle" id="sortToggle">
         <button class="active" data-sort="rate">Por rentabilidad</button>
-        <button data-sort="name">Por entidad</button>
         <button data-sort="dificultad">Por facilidad</button>
       </div>
     </div>
@@ -1108,7 +1121,7 @@
         </div>
         <div>
           <h3>Actualización de datos</h3>
-          <p>Este mercado cambia mes a mes: las promociones tienen fecha de caducidad y los bancos ajustan tipos según el BCE. Esta tabla refleja el corte del 18 de junio de 2026 — antes de mover tu dinero, confirma la condición vigente en la web oficial del banco.</p>
+          <p>Este mercado cambia mes a mes: las promociones tienen fecha de caducidad y los bancos ajustan tipos según el BCE. Última revisión general de esta tabla: 18 de junio de 2026. Algunas condiciones pueden haber cambiado o vencido; confirma la vigencia en la web oficial del banco antes de contratar.</p>
         </div>
       </div>
     </div>
@@ -2049,7 +2062,7 @@ const DATA = [
 ];
 
 let activeCat = "todos";
-let activeTipo = "todos";
+
 let activeDificultad = "todos";
 let activeNomina = "todos";
 let activeSort = "rate";
@@ -2076,6 +2089,14 @@ function fmtRate(item){
   return `${item.rate.toLocaleString('es-ES',{minimumFractionDigits: item.rate % 1 === 0 ? 0 : 2})}%`;
 }
 
+function setChipGroup(groupId, value){
+  const group = document.getElementById(groupId);
+  if(!group) return;
+  group.querySelectorAll('.chip').forEach(c => {
+    c.classList.toggle('active', c.dataset.value === value);
+  });
+}
+
 function passesWizard(item){
   if(wizard.producto && wizard.producto !== "todos" && item.cat !== wizard.producto) return false;
   if(wizard.monto){
@@ -2100,7 +2121,6 @@ const DIFICULTAD_INFO = {
 function render(){
   let filtered = DATA.filter(d => {
     if(activeCat !== "todos" && d.cat !== activeCat) return false;
-    if(activeTipo !== "todos" && d.tipo !== activeTipo) return false;
     if(activeNomina === "sin" && d.requiereNomina === true) return false;
     if(activeNomina === "con" && d.requiereNomina !== true) return false;
     if(activeDificultad !== "todos" && (d.dificultad || 1) > parseInt(activeDificultad)) return false;
@@ -2195,23 +2215,28 @@ document.getElementById('tabs').addEventListener('click', e => {
 
   // Sincronizar también el filtro visible de nómina, para que no quede una condición fantasma activa
   activeNomina = wizard.nomina || "todos";
-  document.getElementById('filterNomina').value = activeNomina;
+  setChipGroup('filterNomina', activeNomina);
 
   render();
 });
 
-document.getElementById('filterTipo').addEventListener('change', e => {
-  activeTipo = e.target.value;
+document.getElementById('filterNomina').addEventListener('click', e => {
+  const chip = e.target.closest('.chip');
+  if(!chip) return;
+  const group = document.getElementById('filterNomina');
+  group.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+  chip.classList.add('active');
+  activeNomina = chip.dataset.value;
   render();
 });
 
-document.getElementById('filterNomina').addEventListener('change', e => {
-  activeNomina = e.target.value;
-  render();
-});
-
-document.getElementById('filterDificultad').addEventListener('change', e => {
-  activeDificultad = e.target.value;
+document.getElementById('filterDificultad').addEventListener('click', e => {
+  const chip = e.target.closest('.chip');
+  if(!chip) return;
+  const group = document.getElementById('filterDificultad');
+  group.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+  chip.classList.add('active');
+  activeDificultad = chip.dataset.value;
   render();
 });
 
@@ -2273,7 +2298,7 @@ function finishWizard(){
 
   // Sync the standalone filter to match the wizard answer
   activeNomina = wizard.nomina || "todos";
-  document.getElementById('filterNomina').value = activeNomina;
+  setChipGroup('filterNomina', activeNomina);
 
   document.getElementById('wizardSection').style.display = 'none';
   document.getElementById('resultsHero').style.display = 'block';
@@ -2370,10 +2395,9 @@ document.getElementById('skipWizard').addEventListener('click', () => {
 
 document.getElementById('redoWizard').addEventListener('click', () => {
   wizard.producto = null; wizard.monto = null; wizard.plazo = null; wizard.nomina = null;
-  activeCat = "todos"; activeTipo = "todos"; activeNomina = "todos"; activeDificultad = "todos"; activeSort = "rate";
-  document.getElementById('filterTipo').value = "todos";
-  document.getElementById('filterNomina').value = "todos";
-  document.getElementById('filterDificultad').value = "todos";
+  activeCat = "todos"; activeNomina = "todos"; activeDificultad = "todos"; activeSort = "rate";
+  setChipGroup('filterNomina', "todos");
+  setChipGroup('filterDificultad', "todos");
   document.querySelectorAll('.wopt').forEach(o => o.classList.remove('selected'));
   goToPanel(0);
   document.getElementById('wizardSection').style.display = 'block';
@@ -2392,6 +2416,7 @@ document.getElementById('methodToggle').addEventListener('click', () => {
   btn.classList.toggle('open');
   panel.classList.toggle('open');
 });
+
 
 </script>
 
