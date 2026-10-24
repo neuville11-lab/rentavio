@@ -1070,9 +1070,9 @@
 <div class="controls" id="controls">
   <div class="wrap">
     <div class="tabs" id="tabs">
-      <button class="tab-btn active" data-cat="todos">Todos <span class="count">(87)</span></button>
-      <button class="tab-btn" data-cat="remunerada">Cuentas remuneradas <span class="count">(38)</span></button>
-      <button class="tab-btn" data-cat="deposito">Depósitos a plazo <span class="count">(33)</span></button>
+      <button class="tab-btn active" data-cat="todos">Todos <span class="count">(125)</span></button>
+      <button class="tab-btn" data-cat="remunerada">Cuentas remuneradas <span class="count">(40)</span></button>
+      <button class="tab-btn" data-cat="deposito">Depósitos a plazo <span class="count">(69)</span></button>
       <button class="tab-btn" data-cat="nomina">Cuentas con bonificación <span class="count">(16)</span></button>
     </div>
     <div class="filter-row">
@@ -1103,7 +1103,7 @@
 
 <section class="results" id="resultsSection">
   <div class="wrap">
-    <div class="results-count" id="resultsCount">87 ofertas</div>
+    <div class="results-count" id="resultsCount">125 ofertas</div>
     <div id="cardContainer"></div>
   </div>
 </section>
@@ -1122,7 +1122,7 @@
         </div>
         <div>
           <h3>Fiscalidad</h3>
-          <p>Los intereses de cuentas y depósitos tributan como rendimiento del capital mobiliario: 19% hasta 6.000€, 21% entre 6.000€ y 50.000€, 23% entre 50.000€ y 200.000€, y 27% por encima. Los regalos por domiciliar nómina también tributan y Hacienda los recibe directamente del banco.</p>
+          <p>Los intereses de cuentas y depósitos tributan como rendimiento del capital mobiliario: 19% hasta 6.000€, 21% entre 6.000€ y 50.000€, 23% entre 50.000€ y 200.000€, 27% entre 200.000€ y 300.000€, y 30% por encima. Los regalos por domiciliar nómina también tributan y Hacienda los recibe directamente del banco.</p>
         </div>
         <div>
           <h3>Garantía de depósitos</h3>
@@ -1130,7 +1130,7 @@
         </div>
         <div>
           <h3>Actualización de datos</h3>
-          <p>Este mercado cambia mes a mes: las promociones tienen fecha de caducidad y los bancos ajustan tipos según el BCE. Revisión de esta selección: 23 de octubre de 2026. Las campañas tienen fechas distintas; revisa siempre las condiciones vigentes en la web oficial del banco antes de contratar.</p>
+          <p>Este mercado cambia mes a mes: las promociones tienen fecha de caducidad y los bancos ajustan tipos según el BCE. Revisión de esta selección: 24 de octubre de 2026. Las campañas tienen fechas distintas; revisa siempre las condiciones vigentes en la web oficial del banco antes de contratar.</p>
         </div>
       </div>
     </div>
@@ -1139,7 +1139,7 @@
 
 <footer>
   <div class="wrap foot-row">
-    <p>Datos recopilados de fuentes públicas (comparadores especializados y webs oficiales de cada entidad) a fecha 23 de octubre de 2026. No es asesoramiento financiero ni recomendación de contratación — verifica siempre las condiciones actuales antes de decidir.</p>
+    <p>Datos recopilados de fuentes públicas (comparadores especializados y webs oficiales de cada entidad) a fecha 24 de octubre de 2026. No es asesoramiento financiero ni recomendación de contratación — verifica siempre las condiciones actuales antes de decidir.</p>
     <div class="signature">— El coste del dinero parado</div>
   </div>
 </footer>
@@ -6444,6 +6444,20 @@ const DATA = [
     "dificultad": 1
   }
 ].filter(item => !["expired", "unverified"].includes(item.status));
+
+function syncOfferTabCounts() {
+  const counts = DATA.reduce((totals, item) => {
+    totals[item.cat] = (totals[item.cat] || 0) + 1;
+    return totals;
+  }, {});
+  document.querySelectorAll(".tab-btn[data-cat]").forEach(button => {
+    const count = button.querySelector(".count");
+    if (!count) return;
+    const total = button.dataset.cat === "todos" ? DATA.length : (counts[button.dataset.cat] || 0);
+    count.textContent = `(${total})`;
+  });
+}
+syncOfferTabCounts();
 
 let activeCat = "todos";
 
