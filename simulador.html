@@ -400,24 +400,24 @@ const DATA = [
     "producto": "Cuenta Contigo (nuevos clientes)",
     "rate": 2.61,
     "rateLabel": "TAE orientativa 1er año",
-    "desc": "Para altas entre el 21/10 y el 18/11/2026: 3,00% TIN hasta el 31/03/2027. El 2,61% TAE es un ejemplo que supone 2,25% TIN desde abril; ese tipo futuro no está garantizado. Clientes anteriores: 2,27% TAE hasta el 03/11/2026.",
-    "cap": "Sin máximo anunciado",
+    "desc": "Cuenta Contigo para nuevas altas: 3,00% TIN hasta 31/03/2027, según la campaña vigente. La rentabilidad anual estimada puede variar al finalizar el tipo promocional. Tipo base de la Cuenta Remunerada indicado en la documentación: 2,27% TAE.",
+    "cap": "Promoción temporal; consultar saldo máximo",
     "condiciones": [
       [
-        "Alta nueva",
-        "21/10–18/11/2026"
+        "Campaña",
+        "3,00% TIN hasta 31/03/2027"
       ],
       [
-        "TIN promo",
-        "3,00% hasta 31/03/2027"
+        "TAE periodo completo",
+        "Variable según tipo posterior"
       ],
       [
-        "Disponibilidad",
-        "Total; sin tarjeta ni recibos"
+        "Cuenta base",
+        "2,27% TAE indicada"
       ]
     ],
-    "verdict": "La TAE del primer año es orientativa porque el tipo baja a partir de abril y entonces dependerá de la oferta vigente.",
-    "deadline": "Contratación hasta 18/11/2026",
+    "verdict": "Separa el TIN promocional temporal de la TAE y del tipo base.",
+    "deadline": "Alta hasta 18/11/2026",
     "top": false,
     "sinCondicion": false,
     "montoMin": 0,
@@ -431,7 +431,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 1,
-    "url": "https://renaultbank.es/productos/"
+    "url": "https://renaultbank.es/productos/",
+    "actualizado": "24/10/2026"
   },
   {
     "cat": "remunerada",
@@ -2193,26 +2194,26 @@ const DATA = [
     "tipo": "tradicional",
     "entidad": "Banco Pichincha",
     "producto": "Depósito cancelable 12 meses",
-    "rate": 2.32,
-    "rateLabel": "TAE",
-    "desc": "La ficha comparativa anterior indicaba 2,32% TAE, pero no se ha podido confirmar ese tipo en la fuente pública oficial actual. Se oculta temporalmente del ranking hasta validar la tasa vigente.",
-    "cap": "Sin mínimo – 5.000.000€",
+    "rate": 2.77,
+    "rateLabel": "TAE 12 meses",
+    "desc": "Depósito cancelable al 2,77% TAE a 12 meses, según la documentación recibida. Consulta importe mínimo y condiciones de cancelación.",
+    "cap": "Consultar mínimo",
     "condiciones": [
       [
         "Plazo",
         "12 meses"
       ],
       [
-        "Mínimo",
-        "Sin mínimo"
+        "TAE",
+        "2,77%"
       ],
       [
-        "Máximo",
-        "5.000.000€"
+        "Cancelación",
+        "Sí, según condiciones"
       ]
     ],
-    "verdict": "No mostrar un tipo numérico que no pueda contrastarse con las condiciones vigentes del banco.",
-    "deadline": "Rentabilidad de 2,32% TAE sin confirmar en fuente oficial pública",
+    "verdict": "La cifra anterior de 2,32% no coincidía con los datos recibidos; comprueba la penalización de cancelación anticipada.",
+    "deadline": null,
     "top": false,
     "sinCondicion": true,
     "montoMin": 0,
@@ -2223,8 +2224,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 1,
-    "url": "https://www.bancopichincha.es/particulares/ahorro/deposito-plazo-fijo",
-    "status": "unverified"
+    "url": "https://www.bancopichincha.es/particulares/ahorro/deposito-pichincha",
+    "actualizado": "24/10/2026"
   },
   {
     "cat": "deposito",
@@ -2342,25 +2343,29 @@ const DATA = [
     "tipo": "neobanco",
     "entidad": "Self Bank",
     "producto": "Depósito cancelable 12 meses",
-    "rate": 2.75,
+    "rate": 2.5,
     "rateLabel": "TAE 12 meses",
-    "desc": "Depósito Self Bank a 12 meses con nuevo dinero, desde 6.000€ hasta 1.000.000€. La cancelación anticipada no paga el interés del plazo.",
-    "cap": "6.000€ – 1.000.000€",
+    "desc": "2,55% TAE a 3 y 6 meses, 2,50% a 12 meses y 2,75% a 24 meses, con importes de 1.000€ a 1.000.000€, según la documentación recibida.",
+    "cap": "1.000€–1.000.000€",
     "condiciones": [
       [
-        "Plazo",
-        "12 meses"
+        "3 meses",
+        "2,55%"
       ],
       [
-        "Mínimo",
-        "6.000€"
+        "6 meses",
+        "2,55%"
       ],
       [
-        "Nuevo dinero",
-        "Sí"
+        "12 meses",
+        "2,50%"
+      ],
+      [
+        "24 meses",
+        "2,75%"
       ]
     ],
-    "verdict": "La TAE requiere aportar dinero nuevo; comprueba la fecha de corte y la cancelación anticipada.",
+    "verdict": "El tipo cambia con el plazo; esta tarjeta muestra 12 meses.",
     "deadline": null,
     "top": false,
     "sinCondicion": true,
@@ -2372,7 +2377,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 1,
-    "url": "https://www.selfbank.es/ahorrar/depositos"
+    "url": "https://www.selfbank.es/ahorrar/depositos",
+    "actualizado": "24/10/2026"
   },
   {
     "cat": "deposito",
@@ -2420,9 +2426,9 @@ const DATA = [
     "tipo": "tradicional",
     "entidad": "Openbank",
     "producto": "Depósito cancelable 6 meses (base)",
-    "rate": 1.25,
-    "rateLabel": "TAE",
-    "desc": "1,25% TAE a 6 meses sin condiciones. Con ingresos de 900€/mes, sube a 2,50% a 6 meses (ver oferta con condiciones).",
+    "rate": 2.75,
+    "rateLabel": "TAE 6 meses",
+    "desc": "Depósito cancelable al 2,75% TAE a 6 meses, según la documentación recibida. Openbank indica un tipo superior con nómina o ingresos elegibles.",
     "cap": "Consultar mínimo",
     "condiciones": [
       [
@@ -2430,15 +2436,15 @@ const DATA = [
         "6 meses"
       ],
       [
-        "Cancelable",
-        "Sí"
+        "TAE base",
+        "2,75%"
       ],
       [
-        "Ingresos",
-        "No requeridos"
+        "Con ingresos",
+        "3,25% según campaña"
       ]
     ],
-    "verdict": "El salto de 1,00 puntos por domiciliar 900€/mes en ingresos es considerable — revisa si te compensa frente a la versión sin condiciones.",
+    "verdict": "La tasa base y la mejora por ingresos son dos ofertas distintas.",
     "deadline": null,
     "top": false,
     "sinCondicion": true,
@@ -2450,16 +2456,17 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 1,
-    "url": "https://www.openbank.es/deposito-a-plazo-fijo"
+    "url": "https://www.openbank.es/deposito-a-plazo-fijo",
+    "actualizado": "24/10/2026"
   },
   {
     "cat": "deposito",
     "tipo": "tradicional",
     "entidad": "Openbank",
     "producto": "Depósito cancelable 6 meses (con ingresos)",
-    "rate": 2.5,
-    "rateLabel": "TAE",
-    "desc": "2,50% TAE a 6 meses domiciliando ingresos mensuales de 900€/mes. Sin cumplir esa condición, el tipo baja a 1,25%.",
+    "rate": 3.25,
+    "rateLabel": "TAE 6 meses con ingresos",
+    "desc": "Depósito a 6 meses al 3,25% TAE con nómina o ingresos mensuales de al menos 900€, según la documentación recibida.",
     "cap": "Consultar mínimo",
     "condiciones": [
       [
@@ -2467,15 +2474,15 @@ const DATA = [
         "6 meses"
       ],
       [
-        "Ingresos mín.",
-        "900€/mes"
+        "TAE",
+        "3,25%"
       ],
       [
-        "Cancelable",
-        "Sí"
+        "Nómina/ingresos",
+        "≥900€/mes"
       ]
     ],
-    "verdict": "El doble de rentabilidad frente a la versión sin condiciones, a cambio de domiciliar solo un ingreso mensual — una condición relativamente ligera de cumplir.",
+    "verdict": "El tipo superior requiere ingresos mensuales elegibles; revisa las bases.",
     "deadline": null,
     "top": false,
     "sinCondicion": false,
@@ -2487,7 +2494,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 2,
-    "url": "https://www.openbank.es/deposito-a-plazo-fijo"
+    "url": "https://www.openbank.es/deposito-a-plazo-fijo",
+    "actualizado": "24/10/2026"
   },
   {
     "cat": "deposito",
@@ -2607,27 +2615,27 @@ const DATA = [
     "cat": "deposito",
     "tipo": "neobanco",
     "entidad": "Banco BiG",
-    "producto": "Depósito nuevos clientes 1 mes",
-    "rate": 4,
-    "rateLabel": "TAE",
-    "desc": "El tipo más alto del comparador para nuevos clientes, pero a solo 1 mes de plazo. También ofrecen 3,50% a 3 meses y 3,00% a 6 meses en la misma promoción.",
-    "cap": "Consultar mínimo",
+    "producto": "Depósito nuevos clientes 3 meses",
+    "rate": 3.5,
+    "rateLabel": "TAE 3 meses para nuevos clientes",
+    "desc": "Depósito para nuevos clientes al 3,50% TAE a 3 meses y 3,00% a 6 meses, según la documentación recibida. El depósito a 3 meses requiere un mínimo de 1.000€.",
+    "cap": "Desde 1.000€",
     "condiciones": [
-      [
-        "Plazo",
-        "1 mes"
-      ],
       [
         "Nuevo cliente",
         "Sí"
       ],
       [
-        "Alternativas",
-        "3,25% a 3M, 2,75% a 6M"
+        "3 meses",
+        "3,50% TAE"
+      ],
+      [
+        "6 meses",
+        "3,00% TAE"
       ]
     ],
-    "verdict": "Un 4% suena espectacular pero solo dura 1 mes — el rendimiento absoluto en euros es modesto; útil más como gancho promocional que como estrategia de ahorro real.",
-    "deadline": "La oferta de 4% a 1 mes ya no aparece en la gama vigente de Banco BiG",
+    "verdict": "La oferta anterior del 4% a un mes ya no aparece; esta ficha recoge la promoción facilitada.",
+    "deadline": null,
     "top": true,
     "sinCondicion": false,
     "montoMin": 0,
@@ -2639,7 +2647,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 2,
     "url": "https://www.bancobig.es/ahorrar/depositos-a-plazo-fijo/",
-    "status": "expired"
+    "actualizado": "24/10/2026"
   },
   {
     "cat": "deposito",
@@ -2647,25 +2655,29 @@ const DATA = [
     "entidad": "ING",
     "producto": "Depósito Naranja 3 meses (nuevos clientes)",
     "rate": 3,
-    "rateLabel": "TAE",
-    "desc": "Exclusivo para nuevos clientes, a corto plazo de solo 3 meses.",
-    "cap": "Hasta 50.000€",
+    "rateLabel": "TAE 3 meses para nuevos clientes",
+    "desc": "Depósito Bienvenida de ING al 3,00% TAE a 3 meses para nuevos clientes. La página oficial consultada anuncia la campaña hasta el 31/12/2026.",
+    "cap": "Consultar mínimo y máximo",
     "condiciones": [
       [
         "Plazo",
         "3 meses"
       ],
       [
-        "Máximo",
-        "50.000€"
+        "TAE",
+        "3,00%"
       ],
       [
         "Nuevo cliente",
         "Sí"
+      ],
+      [
+        "Campaña",
+        "Hasta 31/12/2026"
       ]
     ],
-    "verdict": "Esta oferta ya ha vencido (3 de julio de 2026). Consulta la web de ING para ver si han lanzado una nueva promoción equivalente.",
-    "deadline": "Promoción de bienvenida al 3% vencida; ING ofrece una nueva campaña solo cuando aparezca en sus condiciones vigentes",
+    "verdict": "La web oficial consultada confirma que la oferta está vigente.",
+    "deadline": "Hasta 31/12/2026",
     "top": false,
     "sinCondicion": true,
     "montoMin": 0,
@@ -2676,8 +2688,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 2,
-    "url": "https://www.ing.es/cuenta-naranja",
-    "status": "expired"
+    "url": "https://www.ing.es/depositos-naranja",
+    "actualizado": "24/10/2026"
   },
   {
     "cat": "deposito",
@@ -2760,23 +2772,27 @@ const DATA = [
     "producto": "Depósito nueva pensión 12 meses",
     "rate": 3.03,
     "rateLabel": "TAE 12 meses",
-    "desc": "3,03% TAE a 12 meses, con liquidación trimestral, para nuevas pensiones de al menos 900€/mes: importe del depósito de 6.000€ a 50.000€, no renovable. Cancelación anticipada con comisión del 2%. La campaña de pensión ofrece aparte hasta 750€ brutos, con permanencia de 36 meses.",
-    "cap": "6.000€ – 50.000€",
+    "desc": "Depósito oficial Nueva Pensión al 3,03% TAE a 12 meses, no renovable, para clientes que domicilien por primera vez una pensión de al menos 900€/mes. Importes de 6.000€ a 50.000€. Bonificación de pensión de hasta 750€ es una campaña separada.",
+    "cap": "6.000€–50.000€",
     "condiciones": [
       [
+        "Plazo",
+        "12 meses, no renovable"
+      ],
+      [
+        "TAE",
+        "3,03%"
+      ],
+      [
         "Pensión nueva",
-        "Mínimo 900€/mes"
+        "≥900€/mes"
       ],
       [
-        "Depósito",
-        "6.000€–50.000€, 12 meses"
-      ],
-      [
-        "Bono pensión",
-        "Hasta 750€; mantener pensión 36 meses"
+        "Importe",
+        "6.000€–50.000€"
       ]
     ],
-    "verdict": "El 3,03% corresponde al depósito. El bono de hasta 750€ es independiente y exige mantener la pensión durante 36 meses.",
+    "verdict": "La web oficial confirma 3,03% TAE; el bono de hasta 750€ exige mantener la pensión 36 meses.",
     "deadline": "Bono de pensión hasta 31/12/2026",
     "top": true,
     "sinCondicion": false,
@@ -2788,7 +2804,8 @@ const DATA = [
     "requiereNomina": true,
     "extranjero": false,
     "dificultad": 3,
-    "url": "https://www.cajamar.es/es/particulares/productos-y-servicios/ahorro-e-inversion/depositos/deposito-nueva-pension/"
+    "url": "https://www.cajamar.es/es/particulares/productos-y-servicios/ahorro-e-inversion/depositos/deposito-nueva-pension/",
+    "actualizado": "24/10/2026"
   },
   {
     "cat": "deposito",
@@ -3505,26 +3522,26 @@ const DATA = [
     "tipo": "neobanco",
     "entidad": "imagin",
     "producto": "Cuenta Nómina imagin",
-    "rate": 250,
-    "rateLabel": "250€ netos (150€ desde 900€)",
+    "rate": 308.64,
+    "rateLabel": "Hasta 308,64€ netos",
     "isMoney": true,
-    "desc": "Promoción para nuevos clientes: 250€ netos con nómina desde 1.500€, o 150€ netos entre 900€ y 1.499,99€. Hay que inscribirse, domiciliarla en cuatro meses y mantenerla 48 meses.",
-    "cap": "Según importe de nómina",
+    "desc": "308,64€ netos con primera nómina desde 1.500€/mes o 185,19€ netos entre 900€ y 1.499,99€. Permanencia de 48 meses según la documentación recibida.",
+    "cap": "185,19€ o 308,64€ netos",
     "condiciones": [
       [
-        "Nuevo cliente",
-        "Sí"
+        "Nómina",
+        "≥900€/mes"
       ],
       [
-        "Nómina",
-        "Desde 900€/mes"
+        "Incentivo",
+        "185,19€ o 308,64€ netos"
       ],
       [
         "Permanencia",
         "48 meses"
       ]
     ],
-    "verdict": "La permanencia de cuatro años es larga para un incentivo de 150–250€ netos.",
+    "verdict": "La permanencia de cuatro años es larga; compara el incentivo con el tiempo comprometido.",
     "deadline": null,
     "top": false,
     "sinCondicion": false,
@@ -3536,37 +3553,38 @@ const DATA = [
     "requiereNomina": true,
     "extranjero": false,
     "dificultad": 3,
-    "url": "https://www.imagin.com/"
+    "url": "https://www.imagin.com/",
+    "actualizado": "24/10/2026"
   },
   {
     "cat": "nomina",
     "tipo": "tradicional",
     "entidad": "CaixaBank",
     "producto": "Cuenta Online",
-    "rate": 250,
-    "rateLabel": "Hasta 250€ netos en efectivo",
+    "rate": 308.64,
+    "rateLabel": "Hasta 308,64€ netos en efectivo",
     "isMoney": true,
-    "desc": "El efectivo llega a 250€ netos con nómina desde 1.500€/mes o a 150€ netos desde 900€/mes. Como alternativa, CaixaBank ofrece premios no canjeables por efectivo, como un cupón Facilitea de hasta 945€ o un dispositivo Samsung. Requiere 3 recibos y 3 compras con tarjeta por trimestre, además de mantener la nómina 24 meses y seguir como cliente otros 24 meses.",
-    "cap": "Efectivo: 150€–250€ netos; premio alternativo hasta 945€",
+    "desc": "Efectivo de 185,19€ a 308,64€ netos según nómina, o premio alternativo (cupón Facilitea, TV o móvil). Requiere nueva domiciliación, 24 meses con nómina y 24 meses adicionales como cliente, además de 3 recibos y 3 pagos con tarjeta por trimestre.",
+    "cap": "185,19€–308,64€ netos o premio",
     "condiciones": [
       [
         "Nómina",
         "Desde 900€/mes"
       ],
       [
+        "Permanencia",
+        "24 meses nómina + 24 cliente"
+      ],
+      [
         "Actividad",
         "3 recibos + 3 compras/trimestre"
       ],
       [
-        "Permanencia",
-        "24 meses con nómina + 24 meses como cliente"
-      ],
-      [
-        "Alternativas",
-        "Premios en especie; no son efectivo"
+        "Premio",
+        "No equivale a efectivo"
       ]
     ],
-    "verdict": "El cupón de hasta 945€ es un premio alternativo, no dinero en efectivo. La opción de efectivo llega a 250€ netos.",
+    "verdict": "El valor de un premio en especie no se presenta como dinero disponible.",
     "deadline": null,
     "top": false,
     "sinCondicion": false,
@@ -3578,7 +3596,8 @@ const DATA = [
     "requiereNomina": true,
     "extranjero": false,
     "dificultad": 4,
-    "url": "https://www.caixabank.es/particular/domiciliar-nomina.html"
+    "url": "https://www.caixabank.es/particular/domiciliar-nomina.html",
+    "actualizado": "24/10/2026"
   },
   {
     "cat": "nomina",
@@ -3668,31 +3687,31 @@ const DATA = [
     "actualizado": "24/10/2026"
   },
   {
-    "cat": "remunerada",
+    "cat": "nomina",
     "tipo": "tradicional",
     "entidad": "Openbank",
-    "producto": "Trae tu nómina (incentivo + inversión)",
-    "rate": 1300,
-    "rateLabel": "Hasta 1.300€ brutos potenciales",
+    "producto": "Trae tu nómina (cashback recibos)",
+    "rate": 0.5,
+    "rateLabel": "0,5% devolución de recibos",
     "isMoney": false,
-    "desc": "Con código NOMINA300F: 300€ directos y 1% de lo aportado a fondos durante 6 meses, con máximo 1.000€ de cashback. Nómina mínima 900€ y al menos 2.000€ invertidos en Openbank. Alta hasta 31/12/2026; invertir implica riesgo.",
-    "cap": "300€ + hasta 1.000€ cashback",
+    "desc": "Devolución del 0,5% de recibos de luz, gas, teléfono, móvil e internet. Requiere domiciliar nómina, pensión o prestación por desempleo desde 900€, o una transferencia mensual elegible. Puede combinarse con otras promociones según bases.",
+    "cap": "0,5% de recibos",
     "condiciones": [
       [
-        "Nómina",
+        "Ingreso elegible",
         "≥900€/mes"
       ],
       [
-        "Inversión mínima",
-        "2.000€ en Openbank"
+        "Devolución",
+        "0,5% de recibos"
       ],
       [
-        "Alta / cashback",
-        "31/12/2026 / 6 meses"
+        "Combinable",
+        "Según bases"
       ]
     ],
-    "verdict": "El cashback depende de nuevas aportaciones a fondos y asumir riesgo de inversión; no lo compares con un bono garantizado.",
-    "deadline": "Alta hasta 31/12/2026",
+    "verdict": "No es un bono fijo: el importe depende del coste de los recibos elegibles.",
+    "deadline": null,
     "top": false,
     "sinCondicion": false,
     "montoMin": 0,
@@ -3706,7 +3725,8 @@ const DATA = [
     "requiereNomina": true,
     "extranjero": false,
     "dificultad": 3,
-    "url": "https://www.openbank.es/ofertas-bancarias/trae-tu-nomina"
+    "url": "https://www.openbank.es/ofertas-bancarias/hasta-360-euros-trae-tu-nomina",
+    "actualizado": "24/10/2026"
   },
   {
     "cat": "remunerada",
