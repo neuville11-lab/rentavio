@@ -204,6 +204,15 @@
     font-size:14px;
     color:var(--ink-dim);
   }
+
+  /* Keep all three navigation links visible on mobile. */
+  @media (max-width:560px){
+    header{padding:12px 0;}
+    .header-row{display:flex;flex-direction:column;align-items:stretch;gap:10px;padding:0 16px;}
+    .brandmark{align-self:flex-start;}
+    .header-nav{width:100%;justify-content:space-between;gap:8px;flex-wrap:nowrap;}
+    .header-nav a{font-size:12.5px;white-space:nowrap;}
+  }
 </style>
 </head>
 <body>
@@ -236,15 +245,26 @@
 
 <section class="article-list">
   <div class="wrap" id="articleContainer">
+    <!-- Actualización más reciente -->
+    <a href="actualizaciones-octubre-2026.html" class="article-card">
+      <div class="article-meta">
+        <span class="article-date">24 OCT 2026</span>
+        <span class="article-tag">Cuentas y depósitos</span>
+      </div>
+      <div class="article-title">Ofertas bancarias de octubre: cuentas, depósitos y fechas límite</div>
+      <div class="article-excerpt">Sabadell al 2,75% TAE, BBVA hasta 1.060€, Bankinter al 3% y depósitos actualizados de Cajamar y MyInvestor. Condiciones y fuentes oficiales.</div>
+      <span class="article-readmore">Leer la actualización →</span>
+    </a>
+
     <!-- Los artículos se listan aquí. Añade uno nuevo copiando el bloque de ejemplo. -->
 
     <a href="ibercaja-sube-bono-nomina-1000.html" class="article-card">
       <div class="article-meta">
-        <span class="article-date">18 SEP 2026</span>
+        <span class="article-date">23 OCT 2026</span>
         <span class="article-tag">Cuenta nómina</span>
       </div>
-      <div class="article-title">Ibercaja sube su bono de nómina de 600€ a 1.000€</div>
-      <div class="article-excerpt">La Cuenta Vamos amplía el tope de saldo bonificado de 12.000€ a 20.000€, y el ingreso máximo del primer año pasa de 600€ a 1.000€. Esto es lo que cambia y para quién tiene sentido ahora.</div>
+      <div class="article-title">Ibercaja: la Cuenta Vamos remunera hasta 20.000€</div>
+      <div class="article-excerpt">5,10% TAE el primer año y 2,02% el segundo. Hasta 1.400€ brutos en intereses en dos años, con nómina, tarjeta, recibos y banca digital.</div>
       <span class="article-readmore">Leer la nota →</span>
     </a>
 
