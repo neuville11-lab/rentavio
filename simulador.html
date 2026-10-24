@@ -1091,26 +1091,30 @@ const DATA = [
     "tipo": "tradicional",
     "entidad": "Bankinter",
     "producto": "Cuenta Digital (nuevos clientes)",
-    "rate": 2.5,
-    "rateLabel": "TAE hasta 100.000€",
-    "desc": "La ficha oficial consultada indica 2,50% TAE hasta 100.000€ para nuevos clientes. Además puede obtenerse un bono de 50€ brutos/mes durante hasta 12 meses al domiciliar nómina o pensión desde 850€.",
+    "rate": 3,
+    "rateLabel": "TAE hasta 100.000€; alta hasta 28/10",
+    "desc": "Campaña oficial para nuevos clientes: 3,00% TAE hasta 100.000€ desde el primer euro, contratando del 15/09 al 28/10/2026. Tipo garantizado hasta el 30/04/2027. Hasta 600€ brutos adicionales por nómina desde 850€/mes durante 12 meses, según bases.",
     "cap": "Hasta 100.000€",
     "condiciones": [
       [
-        "Nuevo cliente",
-        "Sí"
+        "Campaña de alta",
+        "15/09–28/10/2026"
       ],
       [
-        "Tipo oficial consultado",
-        "2,50% TAE"
+        "Tipo",
+        "3,00% TAE"
       ],
       [
-        "Bono nómina/pensión",
-        "50€/mes hasta 12 meses desde 850€"
+        "Garantizado hasta",
+        "30/04/2027"
+      ],
+      [
+        "Nómina opcional",
+        "≥850€/mes; hasta 600€"
       ]
     ],
-    "verdict": "La ficha oficial no coincide con el 3,00% de los datos recibidos; se publica el tipo vigente consultado.",
-    "deadline": null,
+    "verdict": "La comunicación oficial del 15/09 confirma 3% TAE hasta el 28 de octubre y garantía del tipo hasta el 30/04/2027. El bono por nómina es independiente.",
+    "deadline": "Nueva alta hasta 28/10/2026",
     "top": true,
     "sinCondicion": false,
     "montoMin": 0,
@@ -1124,7 +1128,7 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 3,
-    "url": "https://www.bankinter.com/banca/nav/cuenta-corriente-digital-landing",
+    "url": "https://www.bankinter.com/webcorporativa/sala-de-comunicacion/noticias/negocio/bankinter-eleva-al-3--tae-la-remuneracion-de-su-cuenta-digital-y-mantiene-el-incentivo-adicional-de-hasta-600-euros-por-domiciliacion-de-nomina",
     "actualizado": "24/10/2026"
   },
   {
@@ -2903,29 +2907,33 @@ const DATA = [
     "entidad": "MyInvestor",
     "producto": "Depósito Premium 12 meses",
     "rate": 3.5,
-    "rateLabel": "TAE 3 meses; hasta 25.000€",
-    "desc": "La documentación recibida indica que el plan Premium (7,99€/mes) permite hasta 3,50% TAE a 3 meses y hasta 25.000€; también existe un depósito al 3,25% TAE a 3 meses bajo plan Premium. Confirma el plazo y saldo antes de contratar.",
-    "cap": "Hasta 25.000€; plan 7,99€/mes",
+    "rateLabel": "TAE 12 meses; hasta 25.000€",
+    "desc": "Depósito Premium: 3,50% TAE a 12 meses para importes de 1.000€ a 25.000€, requiere plan Premium de pago. La oferta de depósitos Premium aparece anunciada hasta 31/10/2026 en la web de MyInvestor.",
+    "cap": "1.000€–25.000€; plan Premium",
     "condiciones": [
       [
-        "Plazo indicado",
-        "3 meses"
+        "Plazo",
+        "12 meses"
       ],
       [
-        "Tipo máximo",
-        "3,50% TAE"
+        "TAE",
+        "3,50%"
       ],
       [
-        "Saldo máximo",
-        "25.000€"
+        "Importe",
+        "1.000€–25.000€"
       ],
       [
-        "Coste Premium",
-        "7,99€/mes"
+        "Plan",
+        "Premium de pago"
+      ],
+      [
+        "Campaña",
+        "Hasta 31/10/2026"
       ]
     ],
-    "verdict": "La ficha de esta oferta es sensible al plazo y al coste del plan; no compares el tipo bruto sin restar los 7,99€/mes.",
-    "deadline": null,
+    "verdict": "Resta el coste de la suscripción Premium y confirma que la campaña siga abierta antes de contratar.",
+    "deadline": "Oferta indicada hasta 31/10/2026",
     "top": true,
     "sinCondicion": false,
     "montoMin": 1000,
@@ -2937,7 +2945,7 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 3,
-    "url": "https://myinvestor.es/cuentas-tarjetas/depositos/",
+    "url": "https://myinvestor.es/depositos/",
     "actualizado": "24/10/2026"
   },
   {
@@ -3368,30 +3376,30 @@ const DATA = [
     "entidad": "Bankinter",
     "producto": "Cuenta Nómina",
     "rate": 600,
-    "rateLabel": "€ brutos + cuenta al 2,50% TAE",
+    "rateLabel": "Hasta 600€ brutos + Cuenta Digital al 3%",
     "isMoney": true,
-    "desc": "50€ brutos al mes durante hasta 12 meses por domiciliar nómina o pensión desde 850€, además del tipo de la Cuenta Digital (2,50% TAE hasta 100.000€ según página oficial consultada). Solo nuevos clientes; el abono depende de mantener la nómina/pensión elegible.",
+    "desc": "Hasta 600€ brutos por domiciliar nómina o pensión de al menos 850€ (50€/mes durante 12 meses), además de la Cuenta Digital al 3,00% TAE hasta 100.000€ para nuevas altas hasta el 28/10/2026. Tipo garantizado hasta el 30/04/2027.",
     "cap": "Hasta 600€ + intereses",
     "condiciones": [
       [
-        "Ingreso",
+        "Nómina/pensión",
         "≥850€/mes"
       ],
       [
         "Bono",
-        "50€/mes hasta 12 meses"
+        "50€/mes durante 12 meses"
       ],
       [
-        "Nuevo cliente",
-        "Sí"
+        "Nueva alta",
+        "Hasta 28/10/2026"
       ],
       [
         "TAE",
-        "2,50% hasta 100.000€"
+        "3,00% hasta 100.000€"
       ]
     ],
-    "verdict": "Bono e intereses son partidas distintas. La promoción puede finalizar al alcanzar el máximo de contrataciones.",
-    "deadline": null,
+    "verdict": "El bono mensual y la remuneración son beneficios separados; el tipo del 3% tiene ventana de contratación y periodo garantizado propios.",
+    "deadline": "Alta hasta 28/10/2026",
     "top": false,
     "sinCondicion": false,
     "montoMin": 0,
@@ -3405,7 +3413,7 @@ const DATA = [
     "requiereNomina": true,
     "extranjero": false,
     "dificultad": 4,
-    "url": "https://www.bankinter.com/banca/nav/cuenta-corriente-digital-landing",
+    "url": "https://www.bankinter.com/webcorporativa/sala-de-comunicacion/noticias/negocio/bankinter-eleva-al-3--tae-la-remuneracion-de-su-cuenta-digital-y-mantiene-el-incentivo-adicional-de-hasta-600-euros-por-domiciliacion-de-nomina",
     "actualizado": "24/10/2026"
   },
   {
