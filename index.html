@@ -1234,24 +1234,24 @@ const DATA = [
     "entidad": "Cajamar",
     "producto": "Cuenta Online (sin condiciones)",
     "rate": 1.76,
-    "rateLabel": "TAE hasta 50k€",
-    "desc": "1,76% hasta 50.000€ y 1,00% por encima de esa cifra, sin necesidad de domiciliar nada.",
-    "cap": "1,76% hasta 50.000€, 1,00% resto",
+    "rateLabel": "TAE hasta 50.000€",
+    "desc": "1,76% hasta 50.000€ y 1,00% sobre el exceso, sin nómina según la documentación recibida.",
+    "cap": "1,76% hasta 50.000€; 1,00% exceso",
     "condiciones": [
       [
-        "Saldo máx.",
-        "50.000€ al tipo alto"
+        "Hasta 50.000€",
+        "1,76%"
       ],
       [
-        "Permanencia",
-        "No"
+        "Exceso",
+        "1,00%"
       ],
       [
         "Nómina",
         "No"
       ]
     ],
-    "verdict": "Tramo alto competitivo para saldos medios, y a diferencia de su versión con Bizum, este no caduca a los 6 meses.",
+    "verdict": "El tipo efectivo depende del saldo: el exceso sobre 50.000€ recibe una remuneración menor.",
     "deadline": null,
     "top": false,
     "sinCondicion": true,
@@ -1266,7 +1266,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 1,
-    "url": "https://www.grupocooperativocajamar.es/es/particulares/productos-y-servicios/cuentas/cuenta-wefferent-ahorro/"
+    "url": "https://www.grupocooperativocajamar.es/es/particulares/productos-y-servicios/cuentas/cuenta-wefferent-ahorro/",
+    "actualizado": "24/10/2026"
   },
   {
     "cat": "remunerada",
@@ -1275,23 +1276,23 @@ const DATA = [
     "producto": "Cuenta Remunerada",
     "rate": 2.02,
     "rateLabel": "TAE",
-    "desc": "2,02% TAE (2,00% TIN), sin límite de saldo ni vinculación. Intereses mensuales y disponibilidad inmediata.",
-    "cap": "Sin límite anunciado",
+    "desc": "2,02% TAE indicado en la documentación facilitada. Pibank es una marca de Banco Pichincha; no son dos entidades para calcular la cobertura del FGD.",
+    "cap": "Consultar límite vigente",
     "condiciones": [
       [
         "TAE",
         "2,02%"
       ],
       [
-        "Saldo máx.",
-        "Sin límite publicado"
+        "Nómina",
+        "No"
       ],
       [
-        "Liquidez",
-        "Inmediata"
+        "Entidad",
+        "Banco Pichincha"
       ]
     ],
-    "verdict": "Cuenta sencilla y líquida; Pibank y Banco Pichincha pertenecen a la misma entidad y comparten garantía de depósitos.",
+    "verdict": "Pibank y Banco Pichincha pertenecen a la misma entidad; considera sus saldos conjuntamente para la cobertura.",
     "deadline": null,
     "top": false,
     "sinCondicion": true,
@@ -1306,7 +1307,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 1,
-    "url": "https://www.pibank.es/cuenta-remunerada/"
+    "url": "https://www.pibank.es/cuenta-remunerada/",
+    "actualizado": "24/10/2026"
   },
   {
     "cat": "remunerada",
@@ -1555,23 +1557,23 @@ const DATA = [
     "producto": "Cuenta Remunerada (sin condiciones)",
     "rate": 0.5,
     "rateLabel": "TAE",
-    "desc": "Tipo base sin coste ni vinculación. Sube al 1,30% con el plan de pago Metal (ver oferta con condiciones).",
-    "cap": "Sin tope público",
+    "desc": "Tipo base 0,50% TAE. La documentación recibida indica 1,30% con plan Metal, de pago.",
+    "cap": "Consultar condiciones del plan",
     "condiciones": [
       [
-        "Saldo máx.",
-        "Sin tope público"
+        "Base",
+        "0,50%"
       ],
       [
-        "Permanencia",
-        "No"
+        "Metal",
+        "1,30%"
       ],
       [
-        "Nómina",
-        "No"
+        "Coste Metal",
+        "16,90€/mes indicado"
       ]
     ],
-    "verdict": "Bajo en comparación directa — N26 compite más en experiencia de app que en rentabilidad del efectivo parado.",
+    "verdict": "Resta el coste del plan al beneficio incremental antes de comparar.",
     "deadline": null,
     "top": false,
     "sinCondicion": true,
@@ -1586,7 +1588,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 1,
-    "url": "https://n26.com/es-es/cuenta-ahorro"
+    "url": "https://n26.com/es-es/cuenta-ahorro",
+    "actualizado": "24/10/2026"
   },
   {
     "cat": "remunerada",
@@ -1595,23 +1598,23 @@ const DATA = [
     "producto": "Cuenta Naranja (sin condiciones)",
     "rate": 0.3,
     "rateLabel": "TAE",
-    "desc": "Remuneración indefinida sin condiciones. Sube al 1,00% domiciliando nómina o ingresos recurrentes.",
-    "cap": "Sin tope",
+    "desc": "Tipo base 0,30% TAE. La documentación indica 1,00% con nómina/ingresos recurrentes o durante un año para nuevas altas.",
+    "cap": "Consultar saldo máximo",
     "condiciones": [
       [
-        "Saldo máx.",
-        "Sin tope"
+        "Base",
+        "0,30%"
       ],
       [
-        "Permanencia",
-        "No"
+        "Con ingresos",
+        "1,00%"
       ],
       [
-        "Nómina",
-        "No"
+        "Nuevos clientes",
+        "1,00% durante 1 año"
       ]
     ],
-    "verdict": "Casi simbólica como rentabilidad, pero es de las pocas que no caduca ni depende de una promoción — útil como referencia de la \"banca de siempre\" sin maquillaje.",
+    "verdict": "Los tipos promocionales dependen de los requisitos; no los confundas con el tipo base.",
     "deadline": null,
     "top": false,
     "sinCondicion": true,
@@ -1626,7 +1629,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 1,
-    "url": "https://www.ing.es/cuenta-naranja"
+    "url": "https://www.ing.es/cuenta-naranja",
+    "actualizado": "24/10/2026"
   },
   {
     "cat": "remunerada",
@@ -1674,25 +1678,25 @@ const DATA = [
     "entidad": "Revolut",
     "producto": "Cuenta Remunerada (nuevos clientes)",
     "rate": 3.51,
-    "rateLabel": "TAE",
-    "desc": "Campaña para nuevos clientes elegibles: 3,51% TAE (3,45% TIN) hasta 25.000€ durante 120 días desde la apertura. La campaña sigue disponible hasta que Revolut la retire; después se aplica el tipo de la cuenta según el plan.",
+    "rateLabel": "TAE durante 120 días",
+    "desc": "Campaña para nuevos clientes elegibles: 3,51% TAE (3,45% TIN) hasta 25.000€ durante 120 días desde la apertura. Disponible hasta retirada por Revolut; después se aplica el tipo según el plan.",
     "cap": "Hasta 25.000€",
     "condiciones": [
       [
-        "Saldo máx.",
-        "25.000€"
-      ],
-      [
         "Nuevo cliente",
-        "Sí"
+        "Sí, elegible"
       ],
       [
-        "Nómina",
-        "No"
+        "Promoción",
+        "120 días desde apertura"
+      ],
+      [
+        "Después",
+        "Tipo según plan"
       ]
     ],
-    "verdict": "La campaña oficial no indica como fin el 16 de octubre: se ofrece hasta que Revolut la retire. El 3,51% TAE dura 120 días desde la apertura y se limita a 25.000€; después rige el tipo del plan.",
-    "deadline": "120 días desde apertura; campaña hasta retirada",
+    "verdict": "La campaña no caducó el 16 de octubre: los 120 días empiezan con la apertura y la oferta sigue hasta que Revolut la retire.",
+    "deadline": "120 días desde apertura; hasta retirada",
     "top": true,
     "sinCondicion": true,
     "montoMin": 0,
@@ -1706,7 +1710,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 2,
-    "url": "https://www.revolut.com/es-ES/legal/IAS-Promotion-2026/"
+    "url": "https://www.revolut.com/es-ES/legal/IAS-Promotion-2026/",
+    "actualizado": "24/10/2026"
   },
   {
     "cat": "remunerada",
@@ -1752,23 +1757,23 @@ const DATA = [
     "producto": "Cuenta Remunerada (nuevos clientes)",
     "rate": 3.04,
     "rateLabel": "TAE hasta 50.000€",
-    "desc": "Tipo promocional para nuevos clientes hasta 50.000€; por encima se aplica el tipo estándar variable, actualmente 2,27% TAE. Intereses mensuales y saldo disponible.",
-    "cap": "3,04% hasta 50.000€; resto al tipo estándar",
+    "desc": "Tipo indicado 3,04% para nuevos clientes y hasta 50.000€. El efectivo puede distribuirse entre bancos asociados; consulta dónde queda depositado y qué protección aplica a cada saldo.",
+    "cap": "Hasta 50.000€",
     "condiciones": [
       [
         "Nuevo cliente",
         "Sí"
       ],
       [
-        "Saldo al tipo alto",
+        "Saldo al tipo",
         "Hasta 50.000€"
       ],
       [
-        "Intereses",
-        "Mensuales"
+        "Distribución",
+        "Bancos asociados, según asignación"
       ]
     ],
-    "verdict": "Compara por separado el saldo que supera 50.000€: no recibe el tipo de bienvenida.",
+    "verdict": "La oferta no se presenta como ilimitada; verifica la entidad depositaria asignada.",
     "deadline": null,
     "top": true,
     "sinCondicion": true,
@@ -1783,7 +1788,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 2,
-    "url": "https://traderepublic.com/es-es/interes"
+    "url": "https://traderepublic.com/es-es/interes",
+    "actualizado": "24/10/2026"
   },
   {
     "cat": "remunerada",
@@ -1831,25 +1837,29 @@ const DATA = [
     "entidad": "Openbank",
     "producto": "Cuenta Remunerada (nuevos clientes)",
     "rate": 3.25,
-    "rateLabel": "TAE primer año",
-    "desc": "Para nuevos clientes: 3,25% TAE durante el primer año al activar Bizum. Además, 200€ brutos por domiciliar dos recibos usando el código OPEN325; alta hasta el 29/10/2026.",
-    "cap": "Sin límite de saldo anunciado",
+    "rateLabel": "TAE durante 1 año",
+    "desc": "3,25% TAE durante un año para nuevos clientes que traigan Bizum. Hasta 200€ brutos extra por domiciliar dos recibos: 20€/mes durante 10 meses; código hasta 29/10/2026.",
+    "cap": "Sin límite indicado",
     "condiciones": [
+      [
+        "TAE",
+        "3,25% durante 1 año"
+      ],
       [
         "Nuevo cliente",
         "Sí"
       ],
       [
         "Bizum",
-        "Activado"
+        "Requerido"
       ],
       [
-        "Código OPEN325",
-        "Alta hasta 29/10/2026"
+        "Recibos",
+        "Hasta 200€; alta hasta 29/10/2026"
       ]
     ],
-    "verdict": "El tipo promocional y el incentivo de recibos son beneficios distintos; el incentivo vence antes que el periodo de remuneración.",
-    "deadline": "Alta hasta 29/10/2026",
+    "verdict": "Tras el primer año se aplica el tipo vigente de la Cuenta de Ahorro. El incentivo de recibos tiene fecha límite propia.",
+    "deadline": "Alta con código hasta 29/10/2026",
     "top": false,
     "sinCondicion": false,
     "montoMin": 0,
@@ -1863,37 +1873,34 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 2,
-    "url": "https://www.openbank.es/cuenta-remunerada"
+    "url": "https://www.openbank.es/cuenta-remunerada",
+    "actualizado": "24/10/2026"
   },
   {
     "cat": "remunerada",
     "tipo": "tradicional",
     "entidad": "Bankinter",
     "producto": "Cuenta Digital (nuevos clientes)",
-    "rate": 3,
+    "rate": 2.5,
     "rateLabel": "TAE hasta 100.000€",
-    "desc": "Cuenta Digital para nuevos clientes: 3% TAE hasta 100.000€, contratando hasta el 28/10/2026; el tipo queda garantizado hasta el 30/04/2027. Se pueden añadir hasta 600€ brutos por nómina o pensión de al menos 850€/mes mantenida durante 12 meses.",
+    "desc": "La ficha oficial consultada indica 2,50% TAE hasta 100.000€ para nuevos clientes. Además puede obtenerse un bono de 50€ brutos/mes durante hasta 12 meses al domiciliar nómina o pensión desde 850€.",
     "cap": "Hasta 100.000€",
     "condiciones": [
       [
-        "Saldo remunerado",
-        "Hasta 100.000€"
+        "Nuevo cliente",
+        "Sí"
       ],
       [
-        "Alta",
-        "Hasta 28/10/2026"
+        "Tipo oficial consultado",
+        "2,50% TAE"
       ],
       [
-        "Tipo garantizado",
-        "Hasta 30/04/2027"
-      ],
-      [
-        "Bono nómina",
-        "Hasta 600€ brutos; 850€/mes y mantener 12 meses"
+        "Bono nómina/pensión",
+        "50€/mes hasta 12 meses desde 850€"
       ]
     ],
-    "verdict": "La rentabilidad del saldo es independiente del bono. El tipo del 3% se contrata hasta el 28 de octubre y queda garantizado hasta el 30 de abril de 2027.",
-    "deadline": "Alta hasta 28/10/2026; tipo garantizado hasta 30/04/2027",
+    "verdict": "La ficha oficial no coincide con el 3,00% de los datos recibidos; se publica el tipo vigente consultado.",
+    "deadline": null,
     "top": true,
     "sinCondicion": false,
     "montoMin": 0,
@@ -1907,7 +1914,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 3,
-    "url": "https://www.bankinter.com/banca/nav/cuenta-corriente-digital-landing?gclsrc=aw.ds"
+    "url": "https://www.bankinter.com/banca/nav/cuenta-corriente-digital-landing",
+    "actualizado": "24/10/2026"
   },
   {
     "cat": "remunerada",
@@ -1916,24 +1924,24 @@ const DATA = [
     "producto": "Cuenta Online (nuevos clientes, dinero nuevo)",
     "rate": 2.75,
     "rateLabel": "TAE hasta 100.000€",
-    "desc": "Cuenta B100 para nuevos clientes: 2,75% TAE hasta 100.000€ con la promoción vigente. Tipo promocional hasta el 30/06/2027 para quienes contraten antes del 31/12/2026.",
+    "desc": "Promoción oficial para nuevos clientes sin Cuenta B100 en los últimos 12 meses: 2,75% TAE garantizada hasta 31/12/2026; saldo remunerado hasta 100.000€ hasta el 30/06/2027.",
     "cap": "Hasta 100.000€",
     "condiciones": [
       [
         "Nuevo cliente",
-        "Sí"
+        "Sin Cuenta B100 últimos 12 meses"
       ],
       [
-        "Alta",
+        "Tipo garantizado",
         "Hasta 31/12/2026"
       ],
       [
-        "Tipo promocional",
-        "Hasta 30/06/2027"
+        "Saldo promocional",
+        "Hasta 100.000€"
       ]
     ],
-    "verdict": "Comprueba que la fecha de alta y el saldo se ajustan a las bases de la campaña.",
-    "deadline": "Alta hasta 31/12/2026",
+    "verdict": "La TAE garantizada y el periodo durante el que se remunera el saldo son fechas diferentes.",
+    "deadline": "Tipo garantizado hasta 31/12/2026",
     "top": false,
     "sinCondicion": true,
     "montoMin": 0,
@@ -1947,7 +1955,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 2,
-    "url": "https://b100.es/es/banco/cuentas/cuenta-online/"
+    "url": "https://b100.es/es/banco/cuentas/cuenta-online/",
+    "actualizado": "24/10/2026"
   },
   {
     "cat": "remunerada",
@@ -1955,24 +1964,24 @@ const DATA = [
     "entidad": "B100",
     "producto": "Cuenta Online (objetivos de actividad)",
     "rate": 3.15,
-    "rateLabel": "TAE con actividad, hasta 50.000€",
-    "desc": "B100 paga 3,15% TAE hasta 50.000€ si haces al menos 8 compras mensuales con tarjeta y gastas 200€ al mes. Sin el objetivo de actividad, el tipo es inferior.",
+    "rateLabel": "TAE hasta 50.000€",
+    "desc": "Hasta 3,15% TAE en Cuenta Health: requiere al menos 8 compras al mes con tarjeta y 200€ de gasto; los traspasos dependen de objetivos diarios de pasos o desconexión. Si no se usa la tarjeta, B100 publica otro tipo para los primeros 50.000€.",
     "cap": "Hasta 50.000€",
     "condiciones": [
       [
         "Compras",
-        "8 al mes"
+        "8/mes y 200€"
       ],
       [
-        "Gasto mínimo",
-        "200€/mes"
+        "Objetivos",
+        "Hasta 30€/día por cada uno"
       ],
       [
-        "Sin actividad",
-        "2,60% TAE"
+        "Saldo",
+        "Primeros 50.000€"
       ]
     ],
-    "verdict": "El tipo máximo depende de mantener el gasto mensual; valora el coste de la actividad antes de contar el 3,15% como seguro.",
+    "verdict": "No es una rentabilidad pasiva: se deben cumplir los requisitos de actividad y traspasos.",
     "deadline": null,
     "top": false,
     "sinCondicion": false,
@@ -1987,7 +1996,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 4,
-    "url": "https://b100.es/es/banco/cuentas/cuenta-online/"
+    "url": "https://b100.es/es/banco/cuentas/cuenta-online/",
+    "actualizado": "24/10/2026"
   },
   {
     "cat": "remunerada",
@@ -2036,24 +2046,28 @@ const DATA = [
     "producto": "Cuenta Online",
     "rate": 2.75,
     "rateLabel": "TAE hasta 100.000€",
-    "desc": "Para nuevos clientes: 2,75% TAE hasta 100.000€ de saldo medio, en campaña del 08/10 al 12/11/2026. La bonificación adicional de nómina y Bizum es una promoción separada.",
+    "desc": "Para nuevos clientes: 2,75% TAE hasta 100.000€, hasta 400€ por nómina y Bizum y 3% de devolución de recibos de luz y gas, según la documentación recibida.",
     "cap": "Hasta 100.000€",
     "condiciones": [
       [
-        "Saldo remunerado",
-        "Hasta 100.000€"
+        "TAE",
+        "2,75%"
       ],
       [
-        "Alta",
-        "Del 08/10 al 12/11/2026"
+        "Saldo máximo",
+        "100.000€"
       ],
       [
-        "Nómina + Bizum",
-        "Solo para la bonificación adicional de 400€"
+        "Bono nómina + Bizum",
+        "Hasta 400€"
+      ],
+      [
+        "Recibos",
+        "3% luz y gas"
       ]
     ],
-    "verdict": "La remuneración del 2,75% no exige domiciliar nómina; los 400€ extra sí dependen de una campaña adicional.",
-    "deadline": "Alta hasta 12/11/2026",
+    "verdict": "Interés, bono y devolución son conceptos separados y sujetos a sus bases.",
+    "deadline": null,
     "top": false,
     "sinCondicion": false,
     "montoMin": 0,
@@ -2067,7 +2081,8 @@ const DATA = [
     "requiereNomina": "recomendada",
     "extranjero": false,
     "dificultad": 4,
-    "url": "https://cuentaonline.bancsabadell.com/"
+    "url": "https://cuentaonline.bancsabadell.com/",
+    "actualizado": "24/10/2026"
   },
   {
     "cat": "remunerada",
@@ -2232,25 +2247,29 @@ const DATA = [
     "entidad": "Kutxabank",
     "producto": "Cuenta Online (nuevos clientes)",
     "rate": 3.1,
-    "rateLabel": "TAE primer año",
-    "desc": "Cuenta online para nuevos clientes: hasta 3,10% TAE el primer año y hasta 0,75% TAE el segundo, con límite de saldo según condiciones de Kutxabank. Confirma el tope antes de contratar.",
-    "cap": "Ver límite de saldo en condiciones",
+    "rateLabel": "TAE año 1 hasta 100.000€; 0,75% año 2",
+    "desc": "3,10% TAE los primeros 12 meses hasta 100.000€ y 0,75% el segundo año. Solo nuevas altas digitales dentro de la ventana publicada, del 05/10/2026 al 22/11/2026.",
+    "cap": "Hasta 100.000€",
     "condiciones": [
+      [
+        "Año 1",
+        "3,10% TAE"
+      ],
+      [
+        "Año 2",
+        "0,75% TAE"
+      ],
+      [
+        "Alta digital",
+        "05/10–22/11/2026"
+      ],
       [
         "Nuevo cliente",
         "Sí"
-      ],
-      [
-        "Primer año",
-        "Hasta 3,10% TAE"
-      ],
-      [
-        "Segundo año",
-        "Hasta 0,75% TAE"
       ]
     ],
-    "verdict": "La rentabilidad baja en el segundo año; la cifra máxima depende de los requisitos y el saldo admitido.",
-    "deadline": "12 meses desde apertura",
+    "verdict": "La ventana de alta tiene fecha de fin; la campaña de nómina de Kutxabank es una promoción distinta.",
+    "deadline": "Alta hasta 22/11/2026",
     "top": false,
     "sinCondicion": true,
     "montoMin": 0,
@@ -2264,7 +2283,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 2,
-    "url": "https://portal.kutxabank.es/cs/Satellite/kb/es/particulares/cuenta-remunerada/pys?c=PyS&cid=1306601848440&d=Touch&hizkuntza=es&localizador=1298547039252&pagename=PortalBBK%2FPortalKutxabank%2FPyS%2FPK_PyS&sitio=PortalBBK%2FPortalKutxabank"
+    "url": "https://portal.kutxabank.es/cs/Satellite/kb/es/particulares/cuenta-remunerada/pys",
+    "actualizado": "24/10/2026"
   },
   {
     "cat": "remunerada",
@@ -2312,25 +2332,25 @@ const DATA = [
     "entidad": "Bankinter",
     "producto": "Cuenta Digital (con nómina y Bizum)",
     "rate": 2,
-    "rateLabel": "TAE 1 año",
-    "desc": "Hasta 50.000€ durante un año para nuevos clientes que domicilien nómina y Bizum. Sin esos dos requisitos, el tipo baja a 1,62%. El dinero que exceda 5.000€ se traspasa automáticamente a una cuenta corriente al 0%, aunque se puede retirar después.",
-    "cap": "Hasta 50.000€",
+    "rateLabel": "TAE hasta 50.000€ año 1",
+    "desc": "La Cuenta Inteligente Digital puede remunerar hasta 2,00% TAE el primer año si se domicilia nómina/pensión/desempleo/cuota de autónomos y se activa Bizum; sin requisitos, hasta 1,62% según la ficha recibida. Los primeros 5.000€ del compartimento del día a día no se remuneran.",
+    "cap": "Hasta 50.000€ ahorro; primeros 5.000€ al 0%",
     "condiciones": [
       [
-        "Saldo máx.",
-        "50.000€"
+        "Con nómina + Bizum",
+        "Hasta 2,00% TAE"
       ],
       [
-        "Nómina + Bizum",
-        "Requeridos"
+        "Sin requisitos",
+        "Hasta 1,62% TAE"
       ],
       [
-        "Sin ambos",
-        "1,62% TAE"
+        "Cuenta corriente",
+        "Primeros 5.000€ al 0%"
       ]
     ],
-    "verdict": "El traspaso automático del exceso de 5.000€ a una cuenta sin remunerar es la letra pequeña que hay que vigilar — revisa el saldo con frecuencia o perderás rentabilidad sin darte cuenta.",
-    "deadline": "12 meses desde apertura",
+    "verdict": "La cuenta usa dos compartimentos y tipos distintos; no apliques el tipo máximo a todo el saldo.",
+    "deadline": null,
     "top": false,
     "sinCondicion": false,
     "montoMin": 0,
@@ -2344,7 +2364,8 @@ const DATA = [
     "requiereNomina": true,
     "extranjero": false,
     "dificultad": 4,
-    "url": "https://www.bankinter.com/banca/cuentas-tarjetas/cuentas/cuenta-inteligente-digital"
+    "url": "https://www.bankinter.com/banca/cuentas-tarjetas/cuentas/cuenta-inteligente-digital",
+    "actualizado": "24/10/2026"
   },
   {
     "cat": "remunerada",
@@ -2671,24 +2692,24 @@ const DATA = [
     "producto": "Depósito 3 años",
     "rate": 3.34,
     "rateLabel": "TAE 36 meses",
-    "desc": "Depósito Tú+ no cancelable, de 500€ a 1.000.000€, con liquidación trimestral. Oferta vigente hasta el 03/11/2026.",
-    "cap": "500€ – 1.000.000€",
+    "desc": "Tipos comunicados: 3,03% a 12 meses, 3,24% a 24 y 3,34% a 36 meses. Mínimo 500€.",
+    "cap": "Desde 500€",
     "condiciones": [
       [
-        "Plazo",
-        "36 meses"
+        "12 meses",
+        "3,03%"
       ],
       [
-        "Liquidación",
-        "Trimestral"
+        "24 meses",
+        "3,24%"
       ],
       [
-        "Cancelación",
-        "No disponible"
+        "36 meses",
+        "3,34%"
       ]
     ],
-    "verdict": "Buen tipo para tres años, pero el capital puede quedar inmovilizado durante todo el plazo.",
-    "deadline": "Condiciones hasta 03/11/2026",
+    "verdict": "Este registro muestra el plazo de 36 meses; confirma la liquidez y penalización en la ficha exacta.",
+    "deadline": null,
     "top": false,
     "sinCondicion": true,
     "montoMin": 500,
@@ -2699,7 +2720,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 1,
-    "url": "https://renaultbank.es/productos/"
+    "url": "https://renaultbank.es/productos/",
+    "actualizado": "24/10/2026"
   },
   {
     "cat": "deposito",
@@ -2708,23 +2730,35 @@ const DATA = [
     "producto": "Depósito 48 meses",
     "rate": 3.1,
     "rateLabel": "TAE 48 meses",
-    "desc": "Depósito no cancelable desde 5.000€ hasta 400.000€. EBN publica además plazos a 3, 6, 12, 18, 24, 36 y 42 meses con tipos distintos.",
-    "cap": "5.000€ – 400.000€",
+    "desc": "Tipos comunicados: 2,40% a 3 meses; 2,50% a 6; 2,75% a 12/18; 2,80% a 24/36; 2,90% a 42; 3,10% a 48 meses. Mínimo 5.000€.",
+    "cap": "Desde 5.000€",
     "condiciones": [
       [
-        "Plazo",
-        "48 meses"
+        "3 meses",
+        "2,40%"
       ],
       [
-        "Mínimo",
-        "5.000€"
+        "6 meses",
+        "2,50%"
       ],
       [
-        "Cancelación",
-        "No permitida"
+        "12/18",
+        "2,75%"
+      ],
+      [
+        "24/36",
+        "2,80%"
+      ],
+      [
+        "42",
+        "2,90%"
+      ],
+      [
+        "48",
+        "3,10%"
       ]
     ],
-    "verdict": "El mayor tipo de EBN exige cuatro años de inmovilización; compara también sus plazos más cortos.",
+    "verdict": "El plazo y la liquidez dependen del producto concreto; compruébalos en la contratación.",
     "deadline": null,
     "top": false,
     "sinCondicion": true,
@@ -2736,32 +2770,33 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 1,
-    "url": "https://www.ebnbanco.com/ahorro/deposito-sinycon-plus/"
+    "url": "https://www.ebnbanco.com/ahorro/deposito-sinycon-plus/",
+    "actualizado": "24/10/2026"
   },
   {
     "cat": "deposito",
     "tipo": "neobanco",
     "entidad": "Banco BiG",
     "producto": "Depósito no cancelable 12 meses",
-    "rate": 2.65,
+    "rate": 2.75,
     "rateLabel": "TAE 12 meses",
-    "desc": "Depósito Renta Mensual no cancelable, con pago de intereses mensual y sin gastos de mantenimiento. Requiere abrir una cuenta corriente de Banco BiG.",
-    "cap": "Consultar mínimo y máximo",
+    "desc": "Depósitos no cancelables indicados: 2,65% a 6 meses y 2,75% a 12 meses, mínimo 10.000€.",
+    "cap": "Desde 10.000€",
     "condiciones": [
       [
-        "Plazo",
-        "12 meses"
+        "6 meses",
+        "2,65%"
       ],
       [
-        "Intereses",
-        "Mensuales"
+        "12 meses",
+        "2,75%"
       ],
       [
-        "Cancelación anticipada",
-        "No permitida"
+        "Cancelación",
+        "No"
       ]
     ],
-    "verdict": "El abono mensual da liquidez a los intereses, pero no al principal del depósito.",
+    "verdict": "No mezcles los tipos de depósitos no cancelables con las ofertas cancelables de Banco BiG.",
     "deadline": null,
     "top": false,
     "sinCondicion": true,
@@ -2773,7 +2808,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 1,
-    "url": "https://www.bancobig.es/ahorrar/depositos-a-plazo-fijo/"
+    "url": "https://www.bancobig.es/ahorrar/depositos-a-plazo-fijo/",
+    "actualizado": "24/10/2026"
   },
   {
     "cat": "deposito",
@@ -2782,23 +2818,27 @@ const DATA = [
     "producto": "Depósito 24 meses",
     "rate": 3.25,
     "rateLabel": "TAE 24 meses",
-    "desc": "Depósito Cetelem: 3,25% TAE a 24 meses, desde 1€ hasta 250.000€. Los intereses se liquidan trimestralmente en los plazos largos.",
-    "cap": "1€ – 250.000€",
+    "desc": "Tipos comunicados: 2,70% a 3 meses; 2,90% a 6; 3,10% a 12 y 3,25% a 24 meses. Importe mínimo 1€ según la documentación recibida.",
+    "cap": "Desde 1€",
     "condiciones": [
       [
-        "Plazo",
-        "24 meses"
+        "3 meses",
+        "2,70%"
       ],
       [
-        "Mínimo",
-        "1€"
+        "6 meses",
+        "2,90%"
       ],
       [
-        "Máximo",
-        "250.000€"
+        "12 meses",
+        "3,10%"
+      ],
+      [
+        "24 meses",
+        "3,25%"
       ]
     ],
-    "verdict": "El plazo largo tiene el mejor tipo de su gama; revisa la penalización si prevés necesitar el dinero.",
+    "verdict": "Esta tarjeta corresponde al plazo de 24 meses; cada vencimiento tiene su propio tipo.",
     "deadline": null,
     "top": true,
     "sinCondicion": true,
@@ -2810,7 +2850,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 1,
-    "url": "https://www.cetelem.es/ahorro-y-depositos-cetelem/"
+    "url": "https://www.cetelem.es/ahorro-y-depositos-cetelem/",
+    "actualizado": "24/10/2026"
   },
   {
     "cat": "deposito",
@@ -3721,30 +3762,30 @@ const DATA = [
     "entidad": "BBVA",
     "producto": "Cuenta Online",
     "rate": 1060,
-    "rateLabel": "Hasta 1.060€ (promo PLAN1060)",
+    "rateLabel": "€ máximos brutos potenciales el primer año",
     "isMoney": true,
-    "desc": "Promoción para nuevos clientes con código PLAN1060 al abrir hasta el 10/11/2026: hasta 400€ por nómina/pensión superior a 800€ o cuota de autónomos, 120€ por tarjeta, 120€ por Bizum y 120€ por recibos durante el primer año; hasta 300€ adicionales al mantener 10.000€ de saldo el primer año. Cada extra tiene sus propios requisitos y límites mensuales.",
-    "cap": "Hasta 760€ por actividad + hasta 300€ por saldo",
+    "desc": "Hasta 1.060€ con código PLAN1060 al abrir antes del 10/11/2026: 400€ por ingresos elegibles >800€, hasta 120€ por tarjeta, 120€ por Bizum, 120€ por recibos y 300€ por mantener 10.000€ de saldo durante el año.",
+    "cap": "Hasta 1.060€; parte requiere mantener 10.000€",
     "condiciones": [
       [
         "Código",
-        "PLAN1060 al abrir hasta 10/11/2026"
+        "PLAN1060 hasta 10/11/2026"
       ],
       [
-        "Nómina / pensión / autónomo",
-        "Hasta 400€"
+        "Ingresos",
+        ">800€"
       ],
       [
-        "Tarjeta, Bizum y recibos",
-        "Hasta 120€ por cada concepto"
+        "Uso",
+        "Tarjeta, Bizum y recibos"
       ],
       [
-        "Saldo medio",
-        "Hasta 300€ por mantener 10.000€"
+        "Saldo para extra",
+        "10.000€"
       ]
     ],
-    "verdict": "Los 1.060€ suman varios incentivos opcionales; para el máximo hay que cumplir cada requisito y mantener 10.000€ de saldo durante el primer año.",
-    "deadline": "Código PLAN1060 hasta 10/11/2026",
+    "verdict": "La cifra máxima suma varios incentivos mensuales y no es un pago inicial garantizado.",
+    "deadline": "Alta hasta 10/11/2026",
     "top": true,
     "sinCondicion": false,
     "montoMin": 0,
@@ -3758,7 +3799,8 @@ const DATA = [
     "requiereNomina": true,
     "extranjero": false,
     "dificultad": 4,
-    "url": "https://www.bbva.es/personas/productos/cuentas/cuenta-nomina.html"
+    "url": "https://www.bbva.es/personas/productos/cuentas/cuenta-nomina.html",
+    "actualizado": "24/10/2026"
   },
   {
     "cat": "nomina",
@@ -3934,26 +3976,26 @@ const DATA = [
     "entidad": "Kutxabank",
     "producto": "Cuenta Online",
     "rate": 600,
-    "rateLabel": "€ bonif. máx.",
+    "rateLabel": "€ brutos máximo por nómina",
     "isMoney": true,
-    "desc": "600€ para nóminas de 2.500€/mes o más (1.800€ si tienes 30 años o menos), o 300€ para nóminas desde 800€/mes. Requiere Bizum activo y saldo mínimo de 250€. Permanencia 36 meses (12 si eres joven con el bono de 300€).",
-    "cap": "Según importe de nómina",
+    "desc": "Por primera nómina/pensión: 300€ desde 800€/mes; 600€ desde 2.500€/mes (o 1.800€ si tienes 30 años o menos). Requiere Bizum y 250€ de saldo. Permanencia 36 meses, salvo el caso joven de 300€ con 12 meses.",
+    "cap": "300€ o 600€",
     "condiciones": [
       [
-        "Nómina mín.",
-        "800€"
+        "Ingreso",
+        "≥800€/mes"
       ],
       [
-        "600€ si nómina",
-        "≥2.500€ (o ≥1.800€ ≤30 años)"
+        "Bizum y saldo",
+        "Sí; saldo ≥250€"
       ],
       [
         "Permanencia",
-        "36 meses (12 jóvenes)"
+        "36 meses; 12 en caso joven indicado"
       ]
     ],
-    "verdict": "El trato especial para menores de 30 años (permanencia de solo 12 meses) es poco habitual — si encajas en ese perfil, el compromiso real es mucho menor.",
-    "deadline": "Campaña de Kutxabank finalizó el 30/06/2026",
+    "verdict": "Es independiente de la remuneración de la cuenta al 3,10%; ambas ofertas no deben sumarse sin verificar elegibilidad.",
+    "deadline": "Hasta 31/12/2026",
     "top": false,
     "sinCondicion": false,
     "montoMin": 0,
@@ -3967,8 +4009,9 @@ const DATA = [
     "requiereNomina": true,
     "extranjero": false,
     "dificultad": 4,
-    "url": "https://portal.kutxabank.es/cs/Satellite/kb/es/particulares/trae-tu-nomina-1/pys?utm_campaign=cuentas-tarjetas_trae-tu-nomina_2026&utm_source=kutxabank&utm_medium=portal-banner-lateral&utm_content=banner_cas",
-    "status": "expired"
+    "url": "https://portal.kutxabank.es/cs/Satellite/kb/es/particulares/trae-tu-nomina-1/pys",
+    "status": "expired",
+    "actualizado": "24/10/2026"
   },
   {
     "cat": "nomina",
@@ -4098,27 +4141,31 @@ const DATA = [
     "tipo": "tradicional",
     "entidad": "Bankinter",
     "producto": "Cuenta Nómina",
-    "rate": 683.52,
-    "rateLabel": "Hasta 683,52€ brutos en 2 años",
+    "rate": 600,
+    "rateLabel": "€ brutos + cuenta al 2,50% TAE",
     "isMoney": true,
-    "desc": "Cuenta Nómina Bankinter: 5% TAE el primer año y 2% el segundo sobre un máximo diario de 10.000€. Nómina mínima 800€/mes, 3 pagos con tarjeta y 3 recibos por trimestre; abono semestral. Sin permanencia obligatoria.",
-    "cap": "Saldo remunerado hasta 10.000€",
+    "desc": "50€ brutos al mes durante hasta 12 meses por domiciliar nómina o pensión desde 850€, además del tipo de la Cuenta Digital (2,50% TAE hasta 100.000€ según página oficial consultada). Solo nuevos clientes; el abono depende de mantener la nómina/pensión elegible.",
+    "cap": "Hasta 600€ + intereses",
     "condiciones": [
       [
+        "Ingreso",
+        "≥850€/mes"
+      ],
+      [
+        "Bono",
+        "50€/mes hasta 12 meses"
+      ],
+      [
+        "Nuevo cliente",
+        "Sí"
+      ],
+      [
         "TAE",
-        "5% año 1; 2% año 2"
-      ],
-      [
-        "Nómina",
-        "≥800€/mes"
-      ],
-      [
-        "Actividad",
-        "3 pagos + 3 recibos/trimestre"
+        "2,50% hasta 100.000€"
       ]
     ],
-    "verdict": "Los 683,52€ son intereses brutos máximos calculados sobre 10.000€ durante dos años, no un pago en efectivo.",
-    "deadline": "Promoción hasta 31/03/2027",
+    "verdict": "Bono e intereses son partidas distintas. La promoción puede finalizar al alcanzar el máximo de contrataciones.",
+    "deadline": null,
     "top": false,
     "sinCondicion": false,
     "montoMin": 0,
@@ -4132,7 +4179,8 @@ const DATA = [
     "requiereNomina": true,
     "extranjero": false,
     "dificultad": 4,
-    "url": "https://www.bankinter.com/banca/nav/cuenta-nomina-sin-comisiones-remunerada-landing?gclid=Cj0KCQiAjbagBhD3ARIsANRrqEucDQ5WRhkexl8_89ZiG0rzpFhKI-soDjFOFdH0VhQ-h-Hw_7805RYaAu1lEALw_wcB&gclsrc=aw.ds"
+    "url": "https://www.bankinter.com/banca/nav/cuenta-corriente-digital-landing",
+    "actualizado": "24/10/2026"
   },
   {
     "cat": "nomina",
@@ -4140,25 +4188,29 @@ const DATA = [
     "entidad": "Santander",
     "producto": "Cuenta Online (opción efectivo)",
     "rate": 840,
-    "rateLabel": "Hasta 840€ brutos en 2 años",
+    "rateLabel": "€ máximos brutos en 24 meses",
     "isMoney": true,
-    "desc": "Santander reparte el incentivo durante 24 meses: hasta 360€ por nómina, 240€ por Bizum y 240€ por domiciliar recibos, con requisitos de uso e importe mínimo de ingresos.",
-    "cap": "Pagos mensuales durante 24 meses",
+    "desc": "Hasta 180€/año por nómina, 120€/año por Bizum y 120€/año por domiciliar dos recibos al mes durante dos años. Requiere no tener nómina al inicio y nómina/ingreso elegible desde 800€/mes.",
+    "cap": "Hasta 840€ en 24 meses",
     "condiciones": [
       [
-        "Nómina",
-        "Desde 800€/mes"
+        "Ingreso",
+        "≥800€/mes"
       ],
       [
         "Bizum",
-        "3 operaciones/mes"
+        "3 operaciones/mes o pago elegible"
       ],
       [
         "Recibos",
         "2 al mes"
+      ],
+      [
+        "Duración",
+        "24 meses"
       ]
     ],
-    "verdict": "El máximo requiere cumplir a la vez varios requisitos cada mes durante dos años.",
+    "verdict": "El máximo requiere cumplir varias condiciones mensuales durante dos años; no es un abono único.",
     "deadline": null,
     "top": false,
     "sinCondicion": false,
@@ -4173,7 +4225,8 @@ const DATA = [
     "requiereNomina": true,
     "extranjero": false,
     "dificultad": 4,
-    "url": "https://www.bancosantander.es/particulares/cuentas-tarjetas/cuentas-corrientes/cuentas-nomina"
+    "url": "https://www.bancosantander.es/particulares/cuentas-tarjetas/cuentas-corrientes/cuentas-nomina",
+    "actualizado": "24/10/2026"
   },
   {
     "cat": "nomina",
@@ -4340,25 +4393,29 @@ const DATA = [
     "entidad": "ING",
     "producto": "Cuenta Nómina ING",
     "rate": 400,
-    "rateLabel": "400€ brutos",
+    "rateLabel": "€ brutos máximo",
     "isMoney": true,
-    "desc": "ING: nuevos clientes que abran Cuenta Nómina con código ING400 antes del 31/10/2026 y mantengan nómina de cualquier importe o ingreso mensual de al menos 700€, además de Bizum, durante 12 meses. Abono antes del 31/12/2026.",
-    "cap": "400€ brutos (sujeto a retención)",
+    "desc": "400€ para nuevos clientes con código ING400 y alta antes del 31/10/2026, nómina de cualquier importe o ingresos recurrentes desde 700€, más Bizum durante 12 meses. Abono previsto antes del 31/12/2026.",
+    "cap": "400€ brutos",
     "condiciones": [
       [
-        "Nuevo cliente",
-        "Sí"
+        "Alta",
+        "Antes del 31/10/2026"
       ],
       [
-        "Nómina o ingreso",
-        "700€/mes o nómina"
+        "Ingreso",
+        "Nómina o ≥700€/mes"
       ],
       [
         "Bizum",
         "12 meses"
+      ],
+      [
+        "Pago",
+        "Antes del 31/12/2026"
       ]
     ],
-    "verdict": "La campaña de alta termina el 31 de octubre; exige mantener ingresos y Bizum durante un año.",
+    "verdict": "La fecha de alta está próxima; vuelve a comprobar la página después del 31 de octubre.",
     "deadline": "Alta hasta 31/10/2026",
     "top": false,
     "sinCondicion": false,
@@ -4373,7 +4430,8 @@ const DATA = [
     "requiereNomina": true,
     "extranjero": false,
     "dificultad": 3,
-    "url": "https://www.ing.es/cuenta-nomina-ing"
+    "url": "https://www.ing.es/cuenta-nomina-ing",
+    "actualizado": "24/10/2026"
   },
   {
     "cat": "remunerada",
@@ -4422,24 +4480,28 @@ const DATA = [
     "entidad": "Pibank",
     "producto": "Cuenta Nómina (con nómina)",
     "rate": 2.52,
-    "rateLabel": "TAE hasta 2,52% según saldo",
-    "desc": "0% TIN sobre los primeros 5.000€ y 2,50% TIN sobre el excedente, sin límite máximo, con nómina, pensión o ingresos recurrentes desde 1.000€/mes. La TAE efectiva depende del saldo: con 100.000€, Pibank publica un ejemplo de 2,40% TAE.",
-    "cap": "0% en primeros 5.000€; 2,50% TIN sobre el resto",
+    "rateLabel": "TAE máxima según saldo",
+    "desc": "0% TIN para los primeros 5.000€ y 2,50% TIN sobre el exceso; exige nómina, pensión o ingresos recurrentes de al menos 1.000€/mes. La TAE depende del saldo (la documentación cita 2,40% con 100.000€).",
+    "cap": "0% primeros 5.000€; 2,50% TIN sobre exceso",
     "condiciones": [
       [
         "Primeros 5.000€",
-        "0% TIN / 0% TAE"
+        "0% TIN"
       ],
       [
-        "Excedente",
-        "2,50% TIN; TAE según saldo"
+        "Exceso",
+        "2,50% TIN"
       ],
       [
         "Ingreso recurrente",
-        "Mínimo 1.000€/mes"
+        "≥1.000€/mes"
+      ],
+      [
+        "TAE",
+        "Depende del saldo"
       ]
     ],
-    "verdict": "El 2,52% TAE es un máximo que depende del saldo; no se aplica al total desde el primer euro.",
+    "verdict": "El tipo máximo no se aplica a todo el saldo desde el primer euro.",
     "deadline": null,
     "top": false,
     "sinCondicion": false,
@@ -4454,7 +4516,8 @@ const DATA = [
     "requiereNomina": true,
     "extranjero": false,
     "dificultad": 3,
-    "url": "https://www.pibank.es/cuenta-nomina/"
+    "url": "https://www.pibank.es/cuenta-nomina/",
+    "actualizado": "24/10/2026"
   },
   {
     "cat": "deposito",
@@ -4537,24 +4600,24 @@ const DATA = [
     "entidad": "Volkswagen Bank",
     "producto": "Depósito VW Bank",
     "rate": 3.15,
-    "rateLabel": "TAE 12 meses",
-    "desc": "Depósito VW Bank de 12 meses con 3,15% TAE/TIN según el ejemplo vigente; requiere Cuenta W y cumplir las condiciones de contratación. Importe mínimo del depósito: 5.000€.",
-    "cap": "Mínimo 5.000€",
+    "rateLabel": "TAE hasta 12 meses",
+    "desc": "Depósitos cancelables indicados: 1,90% TAE a 6 meses y 3,15% TAE a 12 meses; mínimo de 5.000€ para el plazo de 12 meses según la documentación recibida.",
+    "cap": "Desde 5.000€ a 12 meses",
     "condiciones": [
       [
-        "Plazo",
-        "12 meses"
+        "6 meses",
+        "1,90%"
       ],
       [
-        "Mínimo",
-        "5.000€"
+        "12 meses",
+        "3,15%"
       ],
       [
-        "Cuenta asociada",
-        "Cuenta W"
+        "Liquidez",
+        "Cancelable según condiciones"
       ]
     ],
-    "verdict": "La remuneración depende de cumplir las condiciones de contratación y mantiene el dinero inmovilizado hasta vencimiento.",
+    "verdict": "Cada plazo tiene tipo y condiciones propios; confirma los términos de cancelación en la ficha oficial.",
     "deadline": null,
     "top": false,
     "sinCondicion": true,
@@ -4567,7 +4630,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 1,
-    "url": "https://www.vwfs.es/banca/deposito-vw-bank.html"
+    "url": "https://www.vwfs.es/banca/deposito-vw-bank.html",
+    "actualizado": "24/10/2026"
   },
   {
     "cat": "deposito",
@@ -4607,8 +4671,1249 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.cuentafacto.es/"
+  },
+  {
+    "cat": "deposito",
+    "tipo": "tradicional",
+    "entidad": "Banco Finantia",
+    "producto": "Depósito no cancelable 12 meses",
+    "rate": 3.2,
+    "rateLabel": "TAE 12 meses",
+    "desc": "Oferta indicada en la documentación recibida: 3.2% TAE a 12 meses; mínimo 50.000€. No cancelable.",
+    "cap": "Mínimo 50.000€",
+    "condiciones": [
+      [
+        "TAE",
+        "3.2%"
+      ],
+      [
+        "Plazo",
+        "12 meses"
+      ],
+      [
+        "Mínimo",
+        "50.000€"
+      ],
+      [
+        "Liquidez",
+        "No cancelable"
+      ]
+    ],
+    "verdict": "Confirma en la ficha oficial el plazo, el importe mínimo, la liquidación y las condiciones de cancelación antes de contratar.",
+    "deadline": null,
+    "top": false,
+    "sinCondicion": true,
+    "montoMin": 50000,
+    "montoMax": 999999999,
+    "plazos": [
+      "medio",
+      "largo"
+    ],
+    "requiereNomina": false,
+    "extranjero": false,
+    "dificultad": 1,
+    "url": "https://www.finantia.es/es/banca-personal/depositos-a-plazo/",
+    "actualizado": "24/10/2026"
+  },
+  {
+    "cat": "deposito",
+    "tipo": "tradicional",
+    "entidad": "Banco Finantia",
+    "producto": "Depósito no cancelable 18 meses",
+    "rate": 3.2,
+    "rateLabel": "TAE 18 meses",
+    "desc": "Oferta indicada en la documentación recibida: 3.2% TAE a 18 meses; mínimo 50.000€. No cancelable.",
+    "cap": "Mínimo 50.000€",
+    "condiciones": [
+      [
+        "TAE",
+        "3.2%"
+      ],
+      [
+        "Plazo",
+        "18 meses"
+      ],
+      [
+        "Mínimo",
+        "50.000€"
+      ],
+      [
+        "Liquidez",
+        "No cancelable"
+      ]
+    ],
+    "verdict": "Confirma en la ficha oficial el plazo, el importe mínimo, la liquidación y las condiciones de cancelación antes de contratar.",
+    "deadline": null,
+    "top": false,
+    "sinCondicion": true,
+    "montoMin": 50000,
+    "montoMax": 999999999,
+    "plazos": [
+      "medio",
+      "largo"
+    ],
+    "requiereNomina": false,
+    "extranjero": false,
+    "dificultad": 1,
+    "url": "https://www.finantia.es/es/banca-personal/depositos-a-plazo/",
+    "actualizado": "24/10/2026"
+  },
+  {
+    "cat": "deposito",
+    "tipo": "tradicional",
+    "entidad": "Banco Finantia",
+    "producto": "Depósito no cancelable 24 meses",
+    "rate": 3.15,
+    "rateLabel": "TAE 24 meses",
+    "desc": "Oferta indicada en la documentación recibida: 3.15% TAE a 24 meses; mínimo 50.000€. No cancelable.",
+    "cap": "Mínimo 50.000€",
+    "condiciones": [
+      [
+        "TAE",
+        "3.15%"
+      ],
+      [
+        "Plazo",
+        "24 meses"
+      ],
+      [
+        "Mínimo",
+        "50.000€"
+      ],
+      [
+        "Liquidez",
+        "No cancelable"
+      ]
+    ],
+    "verdict": "Confirma en la ficha oficial el plazo, el importe mínimo, la liquidación y las condiciones de cancelación antes de contratar.",
+    "deadline": null,
+    "top": false,
+    "sinCondicion": true,
+    "montoMin": 50000,
+    "montoMax": 999999999,
+    "plazos": [
+      "medio",
+      "largo"
+    ],
+    "requiereNomina": false,
+    "extranjero": false,
+    "dificultad": 1,
+    "url": "https://www.finantia.es/es/banca-personal/depositos-a-plazo/",
+    "actualizado": "24/10/2026"
+  },
+  {
+    "cat": "deposito",
+    "tipo": "tradicional",
+    "entidad": "Banco Finantia",
+    "producto": "Depósito cancelable 12 meses",
+    "rate": 2.7,
+    "rateLabel": "TAE 12 meses",
+    "desc": "Oferta indicada en la documentación recibida: 2.7% TAE a 12 meses; mínimo 50.000€. Cancelable según ficha.",
+    "cap": "Mínimo 50.000€",
+    "condiciones": [
+      [
+        "TAE",
+        "2.7%"
+      ],
+      [
+        "Plazo",
+        "12 meses"
+      ],
+      [
+        "Mínimo",
+        "50.000€"
+      ],
+      [
+        "Liquidez",
+        "Cancelable según ficha"
+      ]
+    ],
+    "verdict": "Confirma en la ficha oficial el plazo, el importe mínimo, la liquidación y las condiciones de cancelación antes de contratar.",
+    "deadline": null,
+    "top": false,
+    "sinCondicion": true,
+    "montoMin": 50000,
+    "montoMax": 999999999,
+    "plazos": [
+      "medio",
+      "largo"
+    ],
+    "requiereNomina": false,
+    "extranjero": false,
+    "dificultad": 1,
+    "url": "https://www.finantia.es/es/banca-personal/depositos-a-plazo/",
+    "actualizado": "24/10/2026"
+  },
+  {
+    "cat": "deposito",
+    "tipo": "tradicional",
+    "entidad": "Banco Finantia",
+    "producto": "Depósito cancelable 18 meses",
+    "rate": 2.7,
+    "rateLabel": "TAE 18 meses",
+    "desc": "Oferta indicada en la documentación recibida: 2.7% TAE a 18 meses; mínimo 50.000€. Cancelable según ficha.",
+    "cap": "Mínimo 50.000€",
+    "condiciones": [
+      [
+        "TAE",
+        "2.7%"
+      ],
+      [
+        "Plazo",
+        "18 meses"
+      ],
+      [
+        "Mínimo",
+        "50.000€"
+      ],
+      [
+        "Liquidez",
+        "Cancelable según ficha"
+      ]
+    ],
+    "verdict": "Confirma en la ficha oficial el plazo, el importe mínimo, la liquidación y las condiciones de cancelación antes de contratar.",
+    "deadline": null,
+    "top": false,
+    "sinCondicion": true,
+    "montoMin": 50000,
+    "montoMax": 999999999,
+    "plazos": [
+      "medio",
+      "largo"
+    ],
+    "requiereNomina": false,
+    "extranjero": false,
+    "dificultad": 1,
+    "url": "https://www.finantia.es/es/banca-personal/depositos-a-plazo/",
+    "actualizado": "24/10/2026"
+  },
+  {
+    "cat": "deposito",
+    "tipo": "tradicional",
+    "entidad": "Banco Finantia",
+    "producto": "Depósito cancelable 24 meses",
+    "rate": 2.75,
+    "rateLabel": "TAE 24 meses",
+    "desc": "Oferta indicada en la documentación recibida: 2.75% TAE a 24 meses; mínimo 50.000€. Cancelable según ficha.",
+    "cap": "Mínimo 50.000€",
+    "condiciones": [
+      [
+        "TAE",
+        "2.75%"
+      ],
+      [
+        "Plazo",
+        "24 meses"
+      ],
+      [
+        "Mínimo",
+        "50.000€"
+      ],
+      [
+        "Liquidez",
+        "Cancelable según ficha"
+      ]
+    ],
+    "verdict": "Confirma en la ficha oficial el plazo, el importe mínimo, la liquidación y las condiciones de cancelación antes de contratar.",
+    "deadline": null,
+    "top": false,
+    "sinCondicion": true,
+    "montoMin": 50000,
+    "montoMax": 999999999,
+    "plazos": [
+      "medio",
+      "largo"
+    ],
+    "requiereNomina": false,
+    "extranjero": false,
+    "dificultad": 1,
+    "url": "https://www.finantia.es/es/banca-personal/depositos-a-plazo/",
+    "actualizado": "24/10/2026"
+  },
+  {
+    "cat": "deposito",
+    "tipo": "tradicional",
+    "entidad": "Banco Finantia",
+    "producto": "Depósito cancelable 36 meses",
+    "rate": 2.9,
+    "rateLabel": "TAE 36 meses",
+    "desc": "Oferta indicada en la documentación recibida: 2.9% TAE a 36 meses; mínimo 50.000€. Cancelable según ficha.",
+    "cap": "Mínimo 50.000€",
+    "condiciones": [
+      [
+        "TAE",
+        "2.9%"
+      ],
+      [
+        "Plazo",
+        "36 meses"
+      ],
+      [
+        "Mínimo",
+        "50.000€"
+      ],
+      [
+        "Liquidez",
+        "Cancelable según ficha"
+      ]
+    ],
+    "verdict": "Confirma en la ficha oficial el plazo, el importe mínimo, la liquidación y las condiciones de cancelación antes de contratar.",
+    "deadline": null,
+    "top": false,
+    "sinCondicion": true,
+    "montoMin": 50000,
+    "montoMax": 999999999,
+    "plazos": [
+      "corto",
+      "medio"
+    ],
+    "requiereNomina": false,
+    "extranjero": false,
+    "dificultad": 1,
+    "url": "https://www.finantia.es/es/banca-personal/depositos-a-plazo/",
+    "actualizado": "24/10/2026"
+  },
+  {
+    "cat": "deposito",
+    "tipo": "tradicional",
+    "entidad": "Renault Bank",
+    "producto": "Depósito 12 meses",
+    "rate": 3.03,
+    "rateLabel": "TAE 12 meses",
+    "desc": "Oferta indicada en la documentación recibida: 3.03% TAE a 12 meses; mínimo 500€. Consultar cancelación.",
+    "cap": "Mínimo 500€",
+    "condiciones": [
+      [
+        "TAE",
+        "3.03%"
+      ],
+      [
+        "Plazo",
+        "12 meses"
+      ],
+      [
+        "Mínimo",
+        "500€"
+      ],
+      [
+        "Liquidez",
+        "Consultar cancelación"
+      ]
+    ],
+    "verdict": "Confirma en la ficha oficial el plazo, el importe mínimo, la liquidación y las condiciones de cancelación antes de contratar.",
+    "deadline": null,
+    "top": false,
+    "sinCondicion": true,
+    "montoMin": 500,
+    "montoMax": 999999999,
+    "plazos": [
+      "medio",
+      "largo"
+    ],
+    "requiereNomina": false,
+    "extranjero": false,
+    "dificultad": 1,
+    "url": "https://renaultbank.es/productos/",
+    "actualizado": "24/10/2026"
+  },
+  {
+    "cat": "deposito",
+    "tipo": "tradicional",
+    "entidad": "Renault Bank",
+    "producto": "Depósito 24 meses",
+    "rate": 3.24,
+    "rateLabel": "TAE 24 meses",
+    "desc": "Oferta indicada en la documentación recibida: 3.24% TAE a 24 meses; mínimo 500€. Consultar cancelación.",
+    "cap": "Mínimo 500€",
+    "condiciones": [
+      [
+        "TAE",
+        "3.24%"
+      ],
+      [
+        "Plazo",
+        "24 meses"
+      ],
+      [
+        "Mínimo",
+        "500€"
+      ],
+      [
+        "Liquidez",
+        "Consultar cancelación"
+      ]
+    ],
+    "verdict": "Confirma en la ficha oficial el plazo, el importe mínimo, la liquidación y las condiciones de cancelación antes de contratar.",
+    "deadline": null,
+    "top": false,
+    "sinCondicion": true,
+    "montoMin": 500,
+    "montoMax": 999999999,
+    "plazos": [
+      "medio",
+      "largo"
+    ],
+    "requiereNomina": false,
+    "extranjero": false,
+    "dificultad": 1,
+    "url": "https://renaultbank.es/productos/",
+    "actualizado": "24/10/2026"
+  },
+  {
+    "cat": "deposito",
+    "tipo": "tradicional",
+    "entidad": "Cetelem",
+    "producto": "Depósito 3 meses",
+    "rate": 2.7,
+    "rateLabel": "TAE 3 meses",
+    "desc": "Oferta indicada en la documentación recibida: 2.7% TAE a 3 meses; mínimo 1€. Consultar cancelación.",
+    "cap": "Mínimo 1€",
+    "condiciones": [
+      [
+        "TAE",
+        "2.7%"
+      ],
+      [
+        "Plazo",
+        "3 meses"
+      ],
+      [
+        "Mínimo",
+        "1€"
+      ],
+      [
+        "Liquidez",
+        "Consultar cancelación"
+      ]
+    ],
+    "verdict": "Confirma en la ficha oficial el plazo, el importe mínimo, la liquidación y las condiciones de cancelación antes de contratar.",
+    "deadline": null,
+    "top": false,
+    "sinCondicion": true,
+    "montoMin": 1,
+    "montoMax": 999999999,
+    "plazos": [
+      "corto"
+    ],
+    "requiereNomina": false,
+    "extranjero": false,
+    "dificultad": 1,
+    "url": "https://www.cetelem.es/ahorro-y-depositos-cetelem/",
+    "actualizado": "24/10/2026"
+  },
+  {
+    "cat": "deposito",
+    "tipo": "tradicional",
+    "entidad": "Cetelem",
+    "producto": "Depósito 6 meses",
+    "rate": 2.9,
+    "rateLabel": "TAE 6 meses",
+    "desc": "Oferta indicada en la documentación recibida: 2.9% TAE a 6 meses; mínimo 1€. Consultar cancelación.",
+    "cap": "Mínimo 1€",
+    "condiciones": [
+      [
+        "TAE",
+        "2.9%"
+      ],
+      [
+        "Plazo",
+        "6 meses"
+      ],
+      [
+        "Mínimo",
+        "1€"
+      ],
+      [
+        "Liquidez",
+        "Consultar cancelación"
+      ]
+    ],
+    "verdict": "Confirma en la ficha oficial el plazo, el importe mínimo, la liquidación y las condiciones de cancelación antes de contratar.",
+    "deadline": null,
+    "top": false,
+    "sinCondicion": true,
+    "montoMin": 1,
+    "montoMax": 999999999,
+    "plazos": [
+      "corto",
+      "medio"
+    ],
+    "requiereNomina": false,
+    "extranjero": false,
+    "dificultad": 1,
+    "url": "https://www.cetelem.es/ahorro-y-depositos-cetelem/",
+    "actualizado": "24/10/2026"
+  },
+  {
+    "cat": "deposito",
+    "tipo": "tradicional",
+    "entidad": "Cetelem",
+    "producto": "Depósito 12 meses",
+    "rate": 3.1,
+    "rateLabel": "TAE 12 meses",
+    "desc": "Oferta indicada en la documentación recibida: 3.1% TAE a 12 meses; mínimo 1€. Consultar cancelación.",
+    "cap": "Mínimo 1€",
+    "condiciones": [
+      [
+        "TAE",
+        "3.1%"
+      ],
+      [
+        "Plazo",
+        "12 meses"
+      ],
+      [
+        "Mínimo",
+        "1€"
+      ],
+      [
+        "Liquidez",
+        "Consultar cancelación"
+      ]
+    ],
+    "verdict": "Confirma en la ficha oficial el plazo, el importe mínimo, la liquidación y las condiciones de cancelación antes de contratar.",
+    "deadline": null,
+    "top": false,
+    "sinCondicion": true,
+    "montoMin": 1,
+    "montoMax": 999999999,
+    "plazos": [
+      "medio",
+      "largo"
+    ],
+    "requiereNomina": false,
+    "extranjero": false,
+    "dificultad": 1,
+    "url": "https://www.cetelem.es/ahorro-y-depositos-cetelem/",
+    "actualizado": "24/10/2026"
+  },
+  {
+    "cat": "deposito",
+    "tipo": "tradicional",
+    "entidad": "MyInvestor",
+    "producto": "Depósito 3 meses",
+    "rate": 2.25,
+    "rateLabel": "TAE 3 meses",
+    "desc": "Oferta indicada en la documentación recibida: 2.25% TAE a 3 meses; mínimo 10.000€. Cancelable según ficha.",
+    "cap": "Mínimo 10.000€",
+    "condiciones": [
+      [
+        "TAE",
+        "2.25%"
+      ],
+      [
+        "Plazo",
+        "3 meses"
+      ],
+      [
+        "Mínimo",
+        "10.000€"
+      ],
+      [
+        "Liquidez",
+        "Cancelable según ficha"
+      ]
+    ],
+    "verdict": "Confirma en la ficha oficial el plazo, el importe mínimo, la liquidación y las condiciones de cancelación antes de contratar.",
+    "deadline": null,
+    "top": false,
+    "sinCondicion": true,
+    "montoMin": 10000,
+    "montoMax": 999999999,
+    "plazos": [
+      "corto"
+    ],
+    "requiereNomina": false,
+    "extranjero": false,
+    "dificultad": 1,
+    "url": "https://myinvestor.es/cuentas-tarjetas/depositos/",
+    "actualizado": "24/10/2026"
+  },
+  {
+    "cat": "deposito",
+    "tipo": "tradicional",
+    "entidad": "MyInvestor",
+    "producto": "Depósito 6 meses",
+    "rate": 2.75,
+    "rateLabel": "TAE 6 meses",
+    "desc": "Oferta indicada en la documentación recibida: 2.75% TAE a 6 meses; mínimo 10.000€. Cancelable según ficha.",
+    "cap": "Mínimo 10.000€",
+    "condiciones": [
+      [
+        "TAE",
+        "2.75%"
+      ],
+      [
+        "Plazo",
+        "6 meses"
+      ],
+      [
+        "Mínimo",
+        "10.000€"
+      ],
+      [
+        "Liquidez",
+        "Cancelable según ficha"
+      ]
+    ],
+    "verdict": "Confirma en la ficha oficial el plazo, el importe mínimo, la liquidación y las condiciones de cancelación antes de contratar.",
+    "deadline": null,
+    "top": false,
+    "sinCondicion": true,
+    "montoMin": 10000,
+    "montoMax": 999999999,
+    "plazos": [
+      "corto",
+      "medio"
+    ],
+    "requiereNomina": false,
+    "extranjero": false,
+    "dificultad": 1,
+    "url": "https://myinvestor.es/cuentas-tarjetas/depositos/",
+    "actualizado": "24/10/2026"
+  },
+  {
+    "cat": "deposito",
+    "tipo": "tradicional",
+    "entidad": "MyInvestor",
+    "producto": "Depósito 12 meses",
+    "rate": 3,
+    "rateLabel": "TAE 12 meses",
+    "desc": "Oferta indicada en la documentación recibida: 3% TAE a 12 meses; mínimo 10.000€. Cancelable según ficha.",
+    "cap": "Mínimo 10.000€",
+    "condiciones": [
+      [
+        "TAE",
+        "3%"
+      ],
+      [
+        "Plazo",
+        "12 meses"
+      ],
+      [
+        "Mínimo",
+        "10.000€"
+      ],
+      [
+        "Liquidez",
+        "Cancelable según ficha"
+      ]
+    ],
+    "verdict": "Confirma en la ficha oficial el plazo, el importe mínimo, la liquidación y las condiciones de cancelación antes de contratar.",
+    "deadline": null,
+    "top": false,
+    "sinCondicion": true,
+    "montoMin": 10000,
+    "montoMax": 999999999,
+    "plazos": [
+      "medio",
+      "largo"
+    ],
+    "requiereNomina": false,
+    "extranjero": false,
+    "dificultad": 1,
+    "url": "https://myinvestor.es/cuentas-tarjetas/depositos/",
+    "actualizado": "24/10/2026"
+  },
+  {
+    "cat": "deposito",
+    "tipo": "tradicional",
+    "entidad": "Banco BiG",
+    "producto": "Depósito cancelable 3 meses",
+    "rate": 2.5,
+    "rateLabel": "TAE 3 meses",
+    "desc": "Oferta indicada en la documentación recibida: 2.5% TAE a 3 meses; mínimo 1.000€. Cancelable.",
+    "cap": "Mínimo 1.000€",
+    "condiciones": [
+      [
+        "TAE",
+        "2.5%"
+      ],
+      [
+        "Plazo",
+        "3 meses"
+      ],
+      [
+        "Mínimo",
+        "1.000€"
+      ],
+      [
+        "Liquidez",
+        "Cancelable"
+      ]
+    ],
+    "verdict": "Confirma en la ficha oficial el plazo, el importe mínimo, la liquidación y las condiciones de cancelación antes de contratar.",
+    "deadline": null,
+    "top": false,
+    "sinCondicion": true,
+    "montoMin": 1000,
+    "montoMax": 999999999,
+    "plazos": [
+      "corto"
+    ],
+    "requiereNomina": false,
+    "extranjero": false,
+    "dificultad": 1,
+    "url": "https://www.bancobig.es/ahorrar/depositos-a-plazo-fijo/",
+    "actualizado": "24/10/2026"
+  },
+  {
+    "cat": "deposito",
+    "tipo": "tradicional",
+    "entidad": "Banco BiG",
+    "producto": "Depósito cancelable 6 meses",
+    "rate": 2.75,
+    "rateLabel": "TAE 6 meses",
+    "desc": "Oferta indicada en la documentación recibida: 2.75% TAE a 6 meses; mínimo 1.000€. Cancelable.",
+    "cap": "Mínimo 1.000€",
+    "condiciones": [
+      [
+        "TAE",
+        "2.75%"
+      ],
+      [
+        "Plazo",
+        "6 meses"
+      ],
+      [
+        "Mínimo",
+        "1.000€"
+      ],
+      [
+        "Liquidez",
+        "Cancelable"
+      ]
+    ],
+    "verdict": "Confirma en la ficha oficial el plazo, el importe mínimo, la liquidación y las condiciones de cancelación antes de contratar.",
+    "deadline": null,
+    "top": false,
+    "sinCondicion": true,
+    "montoMin": 1000,
+    "montoMax": 999999999,
+    "plazos": [
+      "corto",
+      "medio"
+    ],
+    "requiereNomina": false,
+    "extranjero": false,
+    "dificultad": 1,
+    "url": "https://www.bancobig.es/ahorrar/depositos-a-plazo-fijo/",
+    "actualizado": "24/10/2026"
+  },
+  {
+    "cat": "deposito",
+    "tipo": "tradicional",
+    "entidad": "Banco BiG",
+    "producto": "Depósito cancelable 12 meses",
+    "rate": 2.9,
+    "rateLabel": "TAE 12 meses",
+    "desc": "Oferta indicada en la documentación recibida: 2.9% TAE a 12 meses; mínimo 1.000€. Cancelable.",
+    "cap": "Mínimo 1.000€",
+    "condiciones": [
+      [
+        "TAE",
+        "2.9%"
+      ],
+      [
+        "Plazo",
+        "12 meses"
+      ],
+      [
+        "Mínimo",
+        "1.000€"
+      ],
+      [
+        "Liquidez",
+        "Cancelable"
+      ]
+    ],
+    "verdict": "Confirma en la ficha oficial el plazo, el importe mínimo, la liquidación y las condiciones de cancelación antes de contratar.",
+    "deadline": null,
+    "top": false,
+    "sinCondicion": true,
+    "montoMin": 1000,
+    "montoMax": 999999999,
+    "plazos": [
+      "medio",
+      "largo"
+    ],
+    "requiereNomina": false,
+    "extranjero": false,
+    "dificultad": 1,
+    "url": "https://www.bancobig.es/ahorrar/depositos-a-plazo-fijo/",
+    "actualizado": "24/10/2026"
+  },
+  {
+    "cat": "deposito",
+    "tipo": "tradicional",
+    "entidad": "Banco BiG",
+    "producto": "Depósito no cancelable 6 meses",
+    "rate": 2.65,
+    "rateLabel": "TAE 6 meses",
+    "desc": "Oferta indicada en la documentación recibida: 2.65% TAE a 6 meses; mínimo 10.000€. No cancelable.",
+    "cap": "Mínimo 10.000€",
+    "condiciones": [
+      [
+        "TAE",
+        "2.65%"
+      ],
+      [
+        "Plazo",
+        "6 meses"
+      ],
+      [
+        "Mínimo",
+        "10.000€"
+      ],
+      [
+        "Liquidez",
+        "No cancelable"
+      ]
+    ],
+    "verdict": "Confirma en la ficha oficial el plazo, el importe mínimo, la liquidación y las condiciones de cancelación antes de contratar.",
+    "deadline": null,
+    "top": false,
+    "sinCondicion": true,
+    "montoMin": 10000,
+    "montoMax": 999999999,
+    "plazos": [
+      "corto",
+      "medio"
+    ],
+    "requiereNomina": false,
+    "extranjero": false,
+    "dificultad": 1,
+    "url": "https://www.bancobig.es/ahorrar/depositos-a-plazo-fijo/",
+    "actualizado": "24/10/2026"
+  },
+  {
+    "cat": "deposito",
+    "tipo": "tradicional",
+    "entidad": "EBN Banco",
+    "producto": "Depósito 3 meses",
+    "rate": 2.4,
+    "rateLabel": "TAE 3 meses",
+    "desc": "Oferta indicada en la documentación recibida: 2.4% TAE a 3 meses; mínimo 5.000€. Consultar liquidez.",
+    "cap": "Mínimo 5.000€",
+    "condiciones": [
+      [
+        "TAE",
+        "2.4%"
+      ],
+      [
+        "Plazo",
+        "3 meses"
+      ],
+      [
+        "Mínimo",
+        "5.000€"
+      ],
+      [
+        "Liquidez",
+        "Consultar liquidez"
+      ]
+    ],
+    "verdict": "Confirma en la ficha oficial el plazo, el importe mínimo, la liquidación y las condiciones de cancelación antes de contratar.",
+    "deadline": null,
+    "top": false,
+    "sinCondicion": true,
+    "montoMin": 5000,
+    "montoMax": 999999999,
+    "plazos": [
+      "corto"
+    ],
+    "requiereNomina": false,
+    "extranjero": false,
+    "dificultad": 1,
+    "url": "https://www.ebnbanco.com/ahorro/deposito-sinycon-plus/",
+    "actualizado": "24/10/2026"
+  },
+  {
+    "cat": "deposito",
+    "tipo": "tradicional",
+    "entidad": "EBN Banco",
+    "producto": "Depósito 6 meses",
+    "rate": 2.5,
+    "rateLabel": "TAE 6 meses",
+    "desc": "Oferta indicada en la documentación recibida: 2.5% TAE a 6 meses; mínimo 5.000€. Consultar liquidez.",
+    "cap": "Mínimo 5.000€",
+    "condiciones": [
+      [
+        "TAE",
+        "2.5%"
+      ],
+      [
+        "Plazo",
+        "6 meses"
+      ],
+      [
+        "Mínimo",
+        "5.000€"
+      ],
+      [
+        "Liquidez",
+        "Consultar liquidez"
+      ]
+    ],
+    "verdict": "Confirma en la ficha oficial el plazo, el importe mínimo, la liquidación y las condiciones de cancelación antes de contratar.",
+    "deadline": null,
+    "top": false,
+    "sinCondicion": true,
+    "montoMin": 5000,
+    "montoMax": 999999999,
+    "plazos": [
+      "corto",
+      "medio"
+    ],
+    "requiereNomina": false,
+    "extranjero": false,
+    "dificultad": 1,
+    "url": "https://www.ebnbanco.com/ahorro/deposito-sinycon-plus/",
+    "actualizado": "24/10/2026"
+  },
+  {
+    "cat": "deposito",
+    "tipo": "tradicional",
+    "entidad": "EBN Banco",
+    "producto": "Depósito 12 meses",
+    "rate": 2.75,
+    "rateLabel": "TAE 12 meses",
+    "desc": "Oferta indicada en la documentación recibida: 2.75% TAE a 12 meses; mínimo 5.000€. Consultar liquidez.",
+    "cap": "Mínimo 5.000€",
+    "condiciones": [
+      [
+        "TAE",
+        "2.75%"
+      ],
+      [
+        "Plazo",
+        "12 meses"
+      ],
+      [
+        "Mínimo",
+        "5.000€"
+      ],
+      [
+        "Liquidez",
+        "Consultar liquidez"
+      ]
+    ],
+    "verdict": "Confirma en la ficha oficial el plazo, el importe mínimo, la liquidación y las condiciones de cancelación antes de contratar.",
+    "deadline": null,
+    "top": false,
+    "sinCondicion": true,
+    "montoMin": 5000,
+    "montoMax": 999999999,
+    "plazos": [
+      "medio",
+      "largo"
+    ],
+    "requiereNomina": false,
+    "extranjero": false,
+    "dificultad": 1,
+    "url": "https://www.ebnbanco.com/ahorro/deposito-sinycon-plus/",
+    "actualizado": "24/10/2026"
+  },
+  {
+    "cat": "deposito",
+    "tipo": "tradicional",
+    "entidad": "EBN Banco",
+    "producto": "Depósito 18 meses",
+    "rate": 2.75,
+    "rateLabel": "TAE 18 meses",
+    "desc": "Oferta indicada en la documentación recibida: 2.75% TAE a 18 meses; mínimo 5.000€. Consultar liquidez.",
+    "cap": "Mínimo 5.000€",
+    "condiciones": [
+      [
+        "TAE",
+        "2.75%"
+      ],
+      [
+        "Plazo",
+        "18 meses"
+      ],
+      [
+        "Mínimo",
+        "5.000€"
+      ],
+      [
+        "Liquidez",
+        "Consultar liquidez"
+      ]
+    ],
+    "verdict": "Confirma en la ficha oficial el plazo, el importe mínimo, la liquidación y las condiciones de cancelación antes de contratar.",
+    "deadline": null,
+    "top": false,
+    "sinCondicion": true,
+    "montoMin": 5000,
+    "montoMax": 999999999,
+    "plazos": [
+      "medio",
+      "largo"
+    ],
+    "requiereNomina": false,
+    "extranjero": false,
+    "dificultad": 1,
+    "url": "https://www.ebnbanco.com/ahorro/deposito-sinycon-plus/",
+    "actualizado": "24/10/2026"
+  },
+  {
+    "cat": "deposito",
+    "tipo": "tradicional",
+    "entidad": "EBN Banco",
+    "producto": "Depósito 24 meses",
+    "rate": 2.8,
+    "rateLabel": "TAE 24 meses",
+    "desc": "Oferta indicada en la documentación recibida: 2.8% TAE a 24 meses; mínimo 5.000€. Consultar liquidez.",
+    "cap": "Mínimo 5.000€",
+    "condiciones": [
+      [
+        "TAE",
+        "2.8%"
+      ],
+      [
+        "Plazo",
+        "24 meses"
+      ],
+      [
+        "Mínimo",
+        "5.000€"
+      ],
+      [
+        "Liquidez",
+        "Consultar liquidez"
+      ]
+    ],
+    "verdict": "Confirma en la ficha oficial el plazo, el importe mínimo, la liquidación y las condiciones de cancelación antes de contratar.",
+    "deadline": null,
+    "top": false,
+    "sinCondicion": true,
+    "montoMin": 5000,
+    "montoMax": 999999999,
+    "plazos": [
+      "medio",
+      "largo"
+    ],
+    "requiereNomina": false,
+    "extranjero": false,
+    "dificultad": 1,
+    "url": "https://www.ebnbanco.com/ahorro/deposito-sinycon-plus/",
+    "actualizado": "24/10/2026"
+  },
+  {
+    "cat": "deposito",
+    "tipo": "tradicional",
+    "entidad": "EBN Banco",
+    "producto": "Depósito 36 meses",
+    "rate": 2.8,
+    "rateLabel": "TAE 36 meses",
+    "desc": "Oferta indicada en la documentación recibida: 2.8% TAE a 36 meses; mínimo 5.000€. Consultar liquidez.",
+    "cap": "Mínimo 5.000€",
+    "condiciones": [
+      [
+        "TAE",
+        "2.8%"
+      ],
+      [
+        "Plazo",
+        "36 meses"
+      ],
+      [
+        "Mínimo",
+        "5.000€"
+      ],
+      [
+        "Liquidez",
+        "Consultar liquidez"
+      ]
+    ],
+    "verdict": "Confirma en la ficha oficial el plazo, el importe mínimo, la liquidación y las condiciones de cancelación antes de contratar.",
+    "deadline": null,
+    "top": false,
+    "sinCondicion": true,
+    "montoMin": 5000,
+    "montoMax": 999999999,
+    "plazos": [
+      "corto",
+      "medio"
+    ],
+    "requiereNomina": false,
+    "extranjero": false,
+    "dificultad": 1,
+    "url": "https://www.ebnbanco.com/ahorro/deposito-sinycon-plus/",
+    "actualizado": "24/10/2026"
+  },
+  {
+    "cat": "deposito",
+    "tipo": "tradicional",
+    "entidad": "EBN Banco",
+    "producto": "Depósito 42 meses",
+    "rate": 2.9,
+    "rateLabel": "TAE 42 meses",
+    "desc": "Oferta indicada en la documentación recibida: 2.9% TAE a 42 meses; mínimo 5.000€. Consultar liquidez.",
+    "cap": "Mínimo 5.000€",
+    "condiciones": [
+      [
+        "TAE",
+        "2.9%"
+      ],
+      [
+        "Plazo",
+        "42 meses"
+      ],
+      [
+        "Mínimo",
+        "5.000€"
+      ],
+      [
+        "Liquidez",
+        "Consultar liquidez"
+      ]
+    ],
+    "verdict": "Confirma en la ficha oficial el plazo, el importe mínimo, la liquidación y las condiciones de cancelación antes de contratar.",
+    "deadline": null,
+    "top": false,
+    "sinCondicion": true,
+    "montoMin": 5000,
+    "montoMax": 999999999,
+    "plazos": [
+      "largo"
+    ],
+    "requiereNomina": false,
+    "extranjero": false,
+    "dificultad": 1,
+    "url": "https://www.ebnbanco.com/ahorro/deposito-sinycon-plus/",
+    "actualizado": "24/10/2026"
+  },
+  {
+    "cat": "deposito",
+    "tipo": "tradicional",
+    "entidad": "Volkswagen Bank",
+    "producto": "Depósito cancelable 6 meses",
+    "rate": 1.9,
+    "rateLabel": "TAE 6 meses",
+    "desc": "Oferta indicada en la documentación recibida: 1.9% TAE a 6 meses; mínimo Consultar mínimo. Cancelable.",
+    "cap": "Mínimo Consultar mínimo",
+    "condiciones": [
+      [
+        "TAE",
+        "1.9%"
+      ],
+      [
+        "Plazo",
+        "6 meses"
+      ],
+      [
+        "Mínimo",
+        "Consultar mínimo"
+      ],
+      [
+        "Liquidez",
+        "Cancelable"
+      ]
+    ],
+    "verdict": "Confirma en la ficha oficial el plazo, el importe mínimo, la liquidación y las condiciones de cancelación antes de contratar.",
+    "deadline": null,
+    "top": false,
+    "sinCondicion": true,
+    "montoMin": 0,
+    "montoMax": 999999999,
+    "plazos": [
+      "corto",
+      "medio"
+    ],
+    "requiereNomina": false,
+    "extranjero": false,
+    "dificultad": 1,
+    "url": "https://www.vwfs.es/banca/deposito-vw-bank.html",
+    "actualizado": "24/10/2026"
+  },
+  {
+    "cat": "deposito",
+    "tipo": "tradicional",
+    "entidad": "Volkswagen Bank",
+    "producto": "Depósito cancelable 12 meses",
+    "rate": 3.15,
+    "rateLabel": "TAE 12 meses",
+    "desc": "Oferta indicada en la documentación recibida: 3.15% TAE a 12 meses; mínimo 5.000€. Cancelable según ficha.",
+    "cap": "Mínimo 5.000€",
+    "condiciones": [
+      [
+        "TAE",
+        "3.15%"
+      ],
+      [
+        "Plazo",
+        "12 meses"
+      ],
+      [
+        "Mínimo",
+        "5.000€"
+      ],
+      [
+        "Liquidez",
+        "Cancelable según ficha"
+      ]
+    ],
+    "verdict": "Confirma en la ficha oficial el plazo, el importe mínimo, la liquidación y las condiciones de cancelación antes de contratar.",
+    "deadline": null,
+    "top": false,
+    "sinCondicion": true,
+    "montoMin": 5000,
+    "montoMax": 999999999,
+    "plazos": [
+      "medio",
+      "largo"
+    ],
+    "requiereNomina": false,
+    "extranjero": false,
+    "dificultad": 1,
+    "url": "https://www.vwfs.es/banca/deposito-vw-bank.html",
+    "actualizado": "24/10/2026"
+  },
+  {
+    "cat": "remunerada",
+    "tipo": "tradicional",
+    "entidad": "Cetelem",
+    "producto": "Cuenta Ahorro base (clientes conocidos)",
+    "rate": 1.75,
+    "rateLabel": "1.75% TAE",
+    "desc": "Oferta indicada en la documentación recibida: 1.75% TAE a disponible; mínimo Sin límite. Disponible.",
+    "cap": "Mínimo Sin límite",
+    "condiciones": [
+      [
+        "TAE",
+        "1.75%"
+      ],
+      [
+        "Plazo",
+        "Disponible"
+      ],
+      [
+        "Mínimo",
+        "Sin límite"
+      ],
+      [
+        "Liquidez",
+        "Disponible"
+      ]
+    ],
+    "verdict": "Confirma en la ficha oficial el plazo, el importe mínimo, la liquidación y las condiciones de cancelación antes de contratar.",
+    "deadline": null,
+    "top": false,
+    "sinCondicion": true,
+    "montoMin": 0,
+    "montoMax": 999999999,
+    "plazos": [
+      "largo"
+    ],
+    "requiereNomina": false,
+    "extranjero": false,
+    "dificultad": 1,
+    "url": "https://www.cetelem.es/cuenta-ahorro-cetelem",
+    "actualizado": "24/10/2026"
   }
-].filter(item => !["expired", "unverified"].includes(item.status));
+]filter(item => !["expired", "unverified"].includes(item.status));
 
 let activeCat = "todos";
 
