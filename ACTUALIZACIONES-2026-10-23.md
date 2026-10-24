@@ -10,7 +10,7 @@
 - Actualizado el Depósito Extra CBNK a 2,371% TAE, con 20.000€ mínimo, incremento de saldo y vencimiento promocional el 31 de octubre.
 - Corregido el mínimo y máximo del Depósito Premium MyInvestor (1.000€–25.000€) y los límites de varias promociones en el simulador.
 - El potencial Sabadell se calcula como ejemplo de intereses con 100.000€ de saldo medio más el bono condicionado; se muestran por separado efectivo, premios y rendimientos.
-- Las promociones sin vigencia se ocultan (BiG 4% a 1 mes, ING bienvenida al 3% y campaña Kutxabank ya vencida). Los tipos de Pichincha y Klarna que no se han podido comprobar en sus fuentes públicas actuales se ocultan como no verificados.
+- Las promociones sin vigencia se ocultan (BiG 4% a 1 mes y campaña Kutxabank ya vencida). El Depósito Bienvenida de ING se mantiene activo al 3% TAE durante 3 meses, con campaña hasta el 31/12/2026. Los tipos de Pichincha y Klarna que no se han podido comprobar en sus fuentes públicas actuales se ocultan como no verificados.
 - En móvil, Comparador, Simulador y Notas quedan visibles siempre en una segunda fila del encabezado.
 - Añadida una nota de octubre a Notas con enlaces a las fuentes oficiales y corregida la nota de Ibercaja a 5,10% TAE el primer año y 2,02% el segundo, hasta 20.000€.
 
