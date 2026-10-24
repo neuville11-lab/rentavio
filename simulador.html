@@ -843,25 +843,29 @@ const DATA = [
     "entidad": "MyInvestor",
     "producto": "Cuenta Remunerada (nuevos clientes)",
     "rate": 2.5,
-    "rateLabel": "TAE primeros 6 meses",
-    "desc": "Para cuentas abiertas desde el 01/09/2026: 2,50% TAE durante 6 meses hasta 70.000€; después, 0,30% TAE. Sin nómina ni inversión durante la promoción.",
-    "cap": "Hasta 70.000€",
+    "rateLabel": "TAE hasta 70.000€",
+    "desc": "2,50% TAE para nuevos clientes o clientes existentes que incrementen su saldo al menos 1.000€, hasta 70.000€ de saldo nuevo, según la documentación recibida. Sin estas condiciones, la remuneración base indicada es 0,30%.",
+    "cap": "Hasta 70.000€ de saldo nuevo",
     "condiciones": [
       [
-        "Alta nueva",
-        "Desde 01/09/2026"
+        "Nuevo cliente / saldo nuevo",
+        "2,50% TAE"
       ],
       [
-        "Promoción",
-        "6 meses"
+        "Aumento mínimo",
+        "1.000€"
       ],
       [
-        "Después",
+        "Tope",
+        "70.000€"
+      ],
+      [
+        "Tipo base",
         "0,30% TAE"
       ]
     ],
-    "verdict": "El tipo promocional dura seis meses; para comparar, separa el primer semestre del tipo posterior.",
-    "deadline": "6 meses desde la apertura",
+    "verdict": "Comprueba cómo define MyInvestor el saldo nuevo y que el importe remunerado corresponde al incremento elegible.",
+    "deadline": null,
     "top": false,
     "sinCondicion": false,
     "montoMin": 0,
@@ -875,7 +879,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 1,
-    "url": "https://myinvestor.es/cuentas-tarjetas/cuentas/"
+    "url": "https://myinvestor.es/cuentas-tarjetas/cuentas/",
+    "actualizado": "24/10/2026"
   },
   {
     "cat": "remunerada",
@@ -1210,24 +1215,28 @@ const DATA = [
     "entidad": "Cetelem",
     "producto": "Cuenta Ahorro Cetelem",
     "rate": 2.49,
-    "rateLabel": "TAE",
-    "desc": "2,49% TAE, sin condiciones, comisiones ni límite de saldo anunciado. Dinero disponible y posibilidad de cotitular.",
-    "cap": "Sin límite anunciado",
+    "rateLabel": "TAE anual representativa; promo 3% TIN 3 meses",
+    "desc": "La página oficial consultada indica 3,00% TIN durante tres meses para nuevos clientes y 2,28% TIN después; sin límite ni condiciones. La TAE anual representativa publicada es 2,49%.",
+    "cap": "Sin límite indicado",
     "condiciones": [
       [
-        "TAE",
+        "Promoción inicial",
+        "3,00% TIN primeros 3 meses"
+      ],
+      [
+        "Después",
+        "2,28% TIN según ficha"
+      ],
+      [
+        "TAE anual de ejemplo",
         "2,49%"
       ],
       [
-        "Vinculación",
-        "No"
-      ],
-      [
-        "Liquidez",
-        "Disponible"
+        "Nuevo cliente",
+        "Sí"
       ]
     ],
-    "verdict": "Tipo simple y sin requisitos de cliente nuevo; consulta en la ficha la protección del depósito y el modo de liquidación.",
+    "verdict": "Se utiliza la TAE anual representativa para el orden comparativo; el TIN promocional temporal no se compara como si fuera una TAE anual.",
     "deadline": null,
     "top": false,
     "sinCondicion": true,
@@ -1242,7 +1251,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 2,
-    "url": "https://www.cetelem.es/cuenta-ahorro-cetelem"
+    "url": "https://www.cetelem.es/cuenta-ahorro-cetelem",
+    "actualizado": "24/10/2026"
   },
   {
     "cat": "remunerada",
@@ -1659,23 +1669,27 @@ const DATA = [
     "producto": "Cuenta Online (con nómina)",
     "rate": 2.55,
     "rateLabel": "TAE hasta 50.000€",
-    "desc": "Cuenta online para nuevos clientes: 2,55% TAE sobre un máximo de 50.000€, garantizado hasta el 31/03/2027. La nómina puede sumar 350€ o 450€ brutos y Bizum hasta 120€.",
+    "desc": "Cuenta Online: 2,55% TAE hasta 50.000€, garantizada hasta el 31/03/2027 para nuevos clientes que abran hasta el 31/01/2027. El bono de nómina y el cashback Bizum se muestran en el apartado de nómina.",
     "cap": "Hasta 50.000€",
     "condiciones": [
       [
-        "Nuevo cliente",
-        "Sí"
+        "Saldo máximo",
+        "50.000€"
       ],
       [
-        "Tipo garantizado",
-        "Hasta 31/03/2027"
+        "Promoción",
+        "2,55% TAE"
+      ],
+      [
+        "Garantizada hasta",
+        "31/03/2027"
       ],
       [
         "Bono nómina/Bizum",
-        "Hasta 570€"
+        "Ver apartado Nómina"
       ]
     ],
-    "verdict": "Rentabilidad y bonos tienen fechas y requisitos diferentes; la promoción salarial está abierta también a clientes actuales que cumplan las bases.",
+    "verdict": "La tasa, el incentivo de nómina y el cashback tienen requisitos y límites distintos; no sumes el máximo de cada uno sin cumplir las bases.",
     "deadline": "Alta hasta 31/01/2027",
     "top": false,
     "sinCondicion": false,
@@ -1690,7 +1704,8 @@ const DATA = [
     "requiereNomina": "recomendada",
     "extranjero": false,
     "dificultad": 3,
-    "url": "https://www.unicajabanco.es/es/cuenta-online"
+    "url": "https://www.unicajabanco.es/es/cuenta-online",
+    "actualizado": "24/10/2026"
   },
   {
     "cat": "remunerada",
@@ -2888,29 +2903,29 @@ const DATA = [
     "entidad": "MyInvestor",
     "producto": "Depósito Premium 12 meses",
     "rate": 3.5,
-    "rateLabel": "TAE (plan Premium)",
-    "desc": "Depósito MyInvestor Premium a 12 meses al 3,50% TAE, para importes de 1.000€ a 25.000€. La oferta publicada vence el 31/10/2026 y requiere tener contratado el plan Premium de pago.",
-    "cap": "1.000€ – 25.000€",
+    "rateLabel": "TAE 3 meses; hasta 25.000€",
+    "desc": "La documentación recibida indica que el plan Premium (7,99€/mes) permite hasta 3,50% TAE a 3 meses y hasta 25.000€; también existe un depósito al 3,25% TAE a 3 meses bajo plan Premium. Confirma el plazo y saldo antes de contratar.",
+    "cap": "Hasta 25.000€; plan 7,99€/mes",
     "condiciones": [
       [
-        "Plazo",
-        "12 meses"
+        "Plazo indicado",
+        "3 meses"
       ],
       [
-        "Importe",
-        "1.000€–25.000€"
+        "Tipo máximo",
+        "3,50% TAE"
       ],
       [
-        "Plan Premium",
-        "De pago"
+        "Saldo máximo",
+        "25.000€"
       ],
       [
-        "Vigencia",
-        "Hasta 31/10/2026"
+        "Coste Premium",
+        "7,99€/mes"
       ]
     ],
-    "verdict": "Compara lo que cobras con el coste del plan Premium, que es un servicio de pago. La promoción termina el 31 de octubre.",
-    "deadline": "Oferta hasta 31/10/2026",
+    "verdict": "La ficha de esta oferta es sensible al plazo y al coste del plan; no compares el tipo bruto sin restar los 7,99€/mes.",
+    "deadline": null,
     "top": true,
     "sinCondicion": false,
     "montoMin": 1000,
@@ -2922,7 +2937,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 3,
-    "url": "https://myinvestor.es/cuentas-tarjetas/depositos/"
+    "url": "https://myinvestor.es/cuentas-tarjetas/depositos/",
+    "actualizado": "24/10/2026"
   },
   {
     "cat": "deposito",
@@ -3306,26 +3322,30 @@ const DATA = [
     "entidad": "Unicaja",
     "producto": "Cuenta Online (nómina + Bizum)",
     "rate": 570,
-    "rateLabel": "Hasta 570€ brutos + 2,55% TAE",
+    "rateLabel": "Hasta 570€ en bonos/cashback",
     "isMoney": true,
-    "desc": "Unicaja ofrece 2,55% TAE hasta 50.000€ a nuevos clientes (garantizado hasta 31/03/2027), hasta 450€ brutos por domiciliar nómina y hasta 120€ por activar y usar Bizum. Alta de la cuenta remunerada hasta 31/01/2027; bono de nómina hasta esa fecha.",
-    "cap": "Hasta 50.000€; bonos hasta 570€",
+    "desc": "Hasta 450€ brutos por domiciliar nómina/pensión (350€ desde 600€ netos; 450€ desde 1.200€) más hasta 120€ de cashback Bizum durante 12 meses. La cuenta remunera además al 2,55% TAE hasta 50.000€; la oferta de alta tiene fecha límite 31/01/2027.",
+    "cap": "Hasta 570€ + 2,55% TAE hasta 50.000€",
     "condiciones": [
       [
-        "TAE",
-        "2,55% hasta 50.000€"
+        "Nómina/pensión",
+        "Desde 600€ netos"
       ],
       [
-        "Bono nómina",
+        "Bono",
         "350€ o 450€"
       ],
       [
         "Bizum",
-        "Hasta 120€"
+        "5% cashback, máximo 10€/mes"
+      ],
+      [
+        "TAE",
+        "2,55% hasta 50.000€"
       ]
     ],
-    "verdict": "El tipo de ahorro y los bonos tienen requisitos distintos; el pago de nómina no exige permanencia, pero sí haber cumplido condiciones.",
-    "deadline": "Promociones hasta 31/01/2027",
+    "verdict": "La web oficial anuncia hasta 570€ (450€ de bono más 120€ de cashback), además de los intereses. Los importes no son un único pago inicial.",
+    "deadline": "Alta hasta 31/01/2027",
     "top": false,
     "sinCondicion": false,
     "montoMin": 0,
@@ -3339,7 +3359,8 @@ const DATA = [
     "requiereNomina": true,
     "extranjero": false,
     "dificultad": 3,
-    "url": "https://www.unicajabanco.es/es/cuenta-online"
+    "url": "https://www.unicajabanco.es/es/cuenta-online",
+    "actualizado": "24/10/2026"
   },
   {
     "cat": "nomina",
@@ -3843,25 +3864,29 @@ const DATA = [
     "tipo": "neobanco",
     "entidad": "BFF (Cuenta Facto)",
     "producto": "Depósito Facto a 9 meses",
-    "rate": 2.78,
-    "rateLabel": "TAE a 9 meses",
-    "desc": "BFF Bank ofrece 2,78% TAE a 9 meses, desde 5.000€. El depósito no permite cancelación anticipada y está cubierto por el Fondo de Garantía de Depósitos italiano.",
+    "rate": 2.779,
+    "rateLabel": "TAE máxima; 210–449 días",
+    "desc": "Tipos comunicados por plazo exacto: 2,218% de 90–92 días; 2,422% de 93–209; 2,779% de 210–449; y 2,015% de 450–1.827 días. Mínimo 5.000€.",
     "cap": "Desde 5.000€",
     "condiciones": [
       [
-        "Plazo",
-        "9 meses"
+        "90–92 días",
+        "2,218%"
       ],
       [
-        "Mínimo",
-        "5.000€"
+        "93–209 días",
+        "2,422%"
       ],
       [
-        "Cancelación anticipada",
-        "No disponible"
+        "210–449 días",
+        "2,779%"
+      ],
+      [
+        "450–1.827 días",
+        "2,015%"
       ]
     ],
-    "verdict": "TAE máxima de este tramo; el tipo varía si eliges otro número de días.",
+    "verdict": "La TAE máxima se aplica solo a un rango de vencimientos concreto; compara el plazo exacto que necesitas.",
     "deadline": null,
     "top": false,
     "sinCondicion": true,
@@ -3875,7 +3900,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 1,
-    "url": "https://www.cuentafacto.es/"
+    "url": "https://www.cuentafacto.es/",
+    "actualizado": "24/10/2026"
   },
   {
     "cat": "deposito",
