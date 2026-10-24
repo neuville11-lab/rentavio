@@ -31,17 +31,27 @@
 - [Globalcaja — alta online](https://www.globalcaja.es/hazte-cliente)
 - [Unicaja — Cuenta Online](https://www.unicajabanco.es/es/cuenta-online)
 
+## Fuentes añadidas en la revisión del 24 de octubre
+
+- [Revolut — términos de campaña de ahorro 2026](https://www.revolut.com/es-ES/legal/IAS-Promotion-2026/)
+- [B100 — cuenta remunerada y condiciones](https://b100.es/es/banco/cuentas/cuenta-online/)
+- [Kutxabank — Cuenta Remunerada](https://portal.kutxabank.es/cs/Satellite/kb/es/particulares/cuenta-remunerada/pys)
+- [Openbank — Cuenta Remunerada](https://www.openbank.es/cuenta-remunerada)
+- [ING — Depósito Bienvenida](https://www.ing.es/depositos-naranja)
+- [Cajamar — Depósito Nueva Pensión](https://www.cajamar.es/es/particulares/productos-y-servicios/ahorro-e-inversion/depositos/deposito-nueva-pension/)
+
 ## Texto preparado para X
 
- > Ofertas bancarias actualizadas (24/10): Bankinter 3% TAE hasta 100.000€ con alta hasta 28/10; Openbank 3,25% TAE + recibos hasta 29/10; BBVA hasta 1.060€ con PLAN1060 hasta 10/11. Consulta plazos, requisitos y TIN/TAE en Rentavio.
+> Rentavio actualizado (24/10): Bankinter 3% TAE hasta el 28/10; Openbank 3,25% TAE + hasta 200€ por recibos, alta hasta el 29/10; BBVA hasta 1.060€ con PLAN1060 hasta el 10/11. Requisitos, plazos y TIN/TAE en Rentavio.
 
 ## Guion breve para Gamma
 
 1. **Qué cambió esta semana** — fecha de revisión, ofertas con nueva TAE y campañas que vencen pronto.
-2. **Sabadell y BBVA** — 2,75% TAE + bono condicionado; desglose real del PLAN1060.
-3. **Bankinter y Cajamar** — cuenta digital al 3%; depósito de pensión al 3,03%; requisitos y límites.
-4. **Depósitos de octubre** — MyInvestor Premium 3,50% y CBNK Extra 2,371%; plazo, importe y fecha de fin.
-5. **Cómo elegir** — comparar rendimiento neto, saldo, permanencia y liquidez; enlace a Rentavio.
+2. **Cuentas para nuevos clientes** — Openbank 3,25%, Bankinter 3% hasta 28/10, Kutxabank 3,10% y B100 2,75% promocional.
+3. **Depósitos por plazo** — tipos separados por vencimiento, importe mínimo y cancelación; MyInvestor Premium hasta 31/10.
+4. **Promociones de nómina** — BBVA hasta 1.060€, Unicaja hasta 570€ y condiciones de permanencia.
+5. **TIN, TAE y duración** — Cetelem y Revolut como ejemplos; cómo comparar sin confundir un tipo temporal con el anual.
+6. **Cómo elegir** — rendimiento bruto, saldo, coste del plan, permanencia y liquidez; enlace a Rentavio.
 
 
 
@@ -57,5 +67,8 @@
 - Bankinter: confirmada por la comunicación oficial la oferta del 3% TAE hasta 100.000€ para nuevas altas hasta el 28/10; tipo garantizado hasta el 30/04/2027 y bono de nómina por separado.
 - Unicaja: corregido el máximo combinado publicado a 570€ (hasta 450€ de nómina más hasta 120€ de cashback Bizum) y separada la remuneración del 2,55% TAE hasta 50.000€.
 - Se actualizaron los enlaces de fuentes y la nota editorial con fecha de revisión 24/10/2026.
+- ING: reactivado el Depósito Bienvenida al 3% TAE durante 3 meses, con campaña oficial hasta el 31/12/2026.
+- Banco BiG: reemplazada la ficha vencida del 4% a 1 mes por la promoción facilitada para nuevos clientes al 3,50% a 3 meses y 3,00% a 6 meses.
+- Se añadieron las cuentas base de Renault Bank y MyInvestor, depósitos de Deutsche Bank, Arquia, Banca March, Self Bank, ING y WiZink, y la devolución del 0,5% de recibos de Openbank.
 - Los importes de campañas corresponden a las bases consultadas en la fecha indicada; algunas promociones pueden cambiar antes de su vencimiento.
 
