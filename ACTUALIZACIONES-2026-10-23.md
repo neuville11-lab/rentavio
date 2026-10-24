@@ -1,4 +1,4 @@
-# Actualizaciones Rentavio — 23 de octubre de 2026
+# Actualizaciones Rentavio — revisión del 24 de octubre de 2026
 
 ## Cambios en comparador y simulador
 
@@ -33,7 +33,7 @@
 
 ## Texto preparado para X
 
-> Ofertas bancarias actualizadas (23/10): Sabadell 2,75% TAE hasta 100.000€ + 400€ con nómina y Bizum; BBVA hasta 1.060€ con PLAN1060 hasta el 10/11; Bankinter 3% TAE hasta 100.000€ y Cajamar 3,03% TAE en su depósito para nuevas pensiones. Ojo con condiciones, plazos y premios en especie. Comparador y simulador: rentavio.xyz
+ > Ofertas bancarias actualizadas (24/10): Bankinter 3% TAE hasta 100.000€ con alta hasta 28/10; Openbank 3,25% TAE + recibos hasta 29/10; BBVA hasta 1.060€ con PLAN1060 hasta 10/11. Consulta plazos, requisitos y TIN/TAE en Rentavio.
 
 ## Guion breve para Gamma
 
@@ -42,4 +42,20 @@
 3. **Bankinter y Cajamar** — cuenta digital al 3%; depósito de pensión al 3,03%; requisitos y límites.
 4. **Depósitos de octubre** — MyInvestor Premium 3,50% y CBNK Extra 2,371%; plazo, importe y fecha de fin.
 5. **Cómo elegir** — comparar rendimiento neto, saldo, permanencia y liquidez; enlace a Rentavio.
+
+
+
+## Correcciones y ampliación del 24 de octubre
+
+- Se incorporó la documentación facilitada para cuentas remuneradas, depósitos y promociones de nómina, ampliando el comparador y sincronizando el simulador.
+- Se añadieron depósitos por plazo e importe mínimo, evitando juntar tasas de vencimientos diferentes en una sola cifra.
+- Kutxabank: actualizada a 3,10% TAE el primer año y 0,75% el segundo, hasta 100.000€, con ventana de alta digital del 05/10 al 22/11/2026.
+- B100: separadas la promoción de 2,75% TAE para nuevas altas y la cuenta Health de hasta 3,15% TAE con requisitos de actividad; la primera figura garantizada hasta el 31/12/2026.
+- Cetelem: corregido el uso de TIN/TAE: 3,00% TIN inicial durante tres meses, 2,28% TIN después según su ficha y 2,49% TAE anual representativa para comparar.
+- Revolut: retirada la fecha errónea del 16/10; los términos oficiales indican 3,51% TAE durante 120 días desde la apertura, hasta 25.000€, para nuevos clientes elegibles, hasta que la entidad retire la campaña.
+- Openbank: 3,25% TAE durante un año por Bizum; los 200€ extra por recibos tienen fecha de alta hasta el 29/10/2026.
+- Bankinter: confirmada por la comunicación oficial la oferta del 3% TAE hasta 100.000€ para nuevas altas hasta el 28/10; tipo garantizado hasta el 30/04/2027 y bono de nómina por separado.
+- Unicaja: corregido el máximo combinado publicado a 570€ (hasta 450€ de nómina más hasta 120€ de cashback Bizum) y separada la remuneración del 2,55% TAE hasta 50.000€.
+- Se actualizaron los enlaces de fuentes y la nota editorial con fecha de revisión 24/10/2026.
+- Los importes de campañas corresponden a las bases consultadas en la fecha indicada; algunas promociones pueden cambiar antes de su vencimiento.
 
