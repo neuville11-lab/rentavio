@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+<title id="title">Más de 10.000 euros: una cuenta o varias</title>
+<desc id="desc">Ilustración de dos cuentas de ahorro remuneradas y monedas, para representar cómo repartir ahorros entre entidades.</desc>
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0E6B5C"/><stop offset="1" stop-color="#073D35"/></linearGradient>
+ <linearGradient id="card" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#DDF5EC"/></linearGradient>
+ <linearGradient id="coin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7D887"/><stop offset="1" stop-color="#B5740C"/></linearGradient>
+ <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#052A25" flood-opacity=".28"/></filter>
+ <pattern id="dots" width="34" height="34" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.5" fill="#A8E6D2" opacity=".17"/></pattern>
+</defs>
+<rect width="1200" height="630" fill="url(#bg)"/><rect width="1200" height="630" fill="url(#dots)"/>
+<circle cx="1100" cy="78" r="220" fill="#00C896" opacity=".09"/><circle cx="1000" cy="630" r="320" fill="#6CCEB0" opacity=".08"/>
+<g font-family="Inter,Arial,sans-serif">
+ <rect x="72" y="70" width="42" height="42" rx="12" fill="#00C896"/><path d="M85 99V82h8c4 0 6 2 6 5 0 3-2 5-5 5l6 7" fill="none" stroke="#073D35" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+ <text x="127" y="98" fill="#D6EEE6" font-size="17" font-weight="700" letter-spacing="2">RENTAVIO · GUÍA PRÁCTICA</text>
+ <text x="72" y="218" fill="#FFFFFF" font-size="66" font-weight="800" letter-spacing="-3">Más de 10.000 €</text>
+ <text x="76" y="278" fill="#A8E6D2" font-size="32" font-weight="700">¿Una cuenta o varias?</text>
+ <text x="76" y="330" fill="#D6EEE6" font-size="22">Cómo repartir tus ahorros según los límites,</text>
+ <text x="76" y="362" fill="#D6EEE6" font-size="22">el tipo y las condiciones de cada cuenta.</text>
+ <rect x="76" y="425" width="176" height="45" rx="22" fill="#FFFFFF" opacity=".12"/><text x="164" y="454" fill="#FFFFFF" text-anchor="middle" font-size="16" font-weight="700">GUÍA DE AHORRO</text>
+</g>
+<g filter="url(#shadow)" transform="translate(730 105) rotate(5 190 150)">
+ <rect width="370" height="228" rx="24" fill="url(#card)"/>
+ <circle cx="42" cy="43" r="15" fill="#0E6B5C"/><path d="M35 46h14M42 37v18" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+ <text x="70" y="49" fill="#4B564F" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="700">CUENTA A</text>
+ <text x="34" y="112" fill="#0E1512" font-family="Inter,Arial,sans-serif" font-size="18">Hasta</text><text x="34" y="158" fill="#0E6B5C" font-family="Inter,Arial,sans-serif" font-size="40" font-weight="800">10.000 €</text>
+ <rect x="34" y="184" width="302" height="11" rx="6" fill="#C8E8DC"/><rect x="34" y="184" width="235" height="11" rx="6" fill="#00C896"/>
+</g>
+<g filter="url(#shadow)" transform="translate(795 352) rotate(-5 170 103)">
+ <rect width="310" height="176" rx="22" fill="#FFFFFF"/>
+ <circle cx="39" cy="40" r="14" fill="#B5740C"/><path d="M33 40h12M39 34v12" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+ <text x="66" y="46" fill="#4B564F" font-family="Inter,Arial,sans-serif" font-size="15" font-weight="700">CUENTA B</text>
+ <text x="28" y="98" fill="#0E1512" font-family="Inter,Arial,sans-serif" font-size="17">El resto del ahorro</text>
+ <text x="28" y="137" fill="#B5740C" font-family="Inter,Arial,sans-serif" font-size="30" font-weight="800">+ intereses</text>
+</g>
+<g fill="url(#coin)" stroke="#FBE8AF" stroke-width="3">
+ <ellipse cx="746" cy="505" rx="38" ry="13"/><path d="M708 505v20c0 8 17 15 38 15s38-7 38-15v-20"/><ellipse cx="746" cy="505" rx="38" ry="13"/>
+ <ellipse cx="691" cy="541" rx="35" ry="12"/><path d="M656 541v16c0 7 16 13 35 13s35-6 35-13v-16"/><ellipse cx="691" cy="541" rx="35" ry="12"/>
+</g>
+<text x="746" y="516" fill="#744B04" font-family="Inter,Arial,sans-serif" font-weight="800" text-anchor="middle" font-size="19">€</text>
+<text x="691" y="551" fill="#744B04" font-family="Inter,Arial,sans-serif" font-weight="800" text-anchor="middle" font-size="17">€</text>
+</svg>

@@ -3,280 +3,67 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Notas — Rentavio</title>
+<meta name="description" content="Guía práctica para repartir más de 10.000 euros entre cuentas remuneradas, comparar límites y estimar intereses brutos y netos.">
+<title>Blog de ahorro — Rentavio</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect x='10' y='10' width='100' height='100' rx='22' fill='%230E6B5C'/%3E%3Cpath d='M40 86 V34 H64 C74 34 80 40 80 50 C80 58 75 63 67 65 L82 86' fill='none' stroke='white' stroke-width='9' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='94' cy='30' r='6' fill='%2300C896'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg: #FAFAF8;
-    --bg-raised: #FFFFFF;
-    --bg-soft: #F2F4F2;
-    --line: #E4E7E3;
-    --line-strong: #D3D7D1;
-    --ink: #0E1512;
-    --ink-dim: #4B564F;
-    --ink-faint: #8A938C;
-    --teal: #0E6B5C;
-    --teal-bright: #00C896;
-    --teal-soft: #E3F6EF;
-    --teal-soft-line: #BCE8DA;
-    --amber: #B5740C;
-    --amber-soft: #FBF1DD;
-    --sans: 'Inter', -apple-system, sans-serif;
-    --mono: 'JetBrains Mono', monospace;
-    --shadow-sm: 0 1px 2px rgba(14,21,18,0.04), 0 1px 1px rgba(14,21,18,0.03);
-    --shadow-md: 0 4px 16px rgba(14,21,18,0.06), 0 1px 3px rgba(14,21,18,0.04);
-  }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    background:var(--bg);
-    color:var(--ink);
-    font-family:var(--sans);
-    line-height:1.5;
-    -webkit-font-smoothing:antialiased;
-  }
-  a{color:inherit;text-decoration:none;}
-  ::selection{background:var(--teal-soft-line);color:var(--ink);}
-  .wrap{max-width:900px;margin:0 auto;padding:0 28px;}
-
-  /* ---------- HEADER (idéntico al comparador) ---------- */
-  header{
-    border-bottom:1px solid var(--line);
-    padding:18px 0;
-    position:sticky;
-    top:0;
-    background:rgba(250,250,248,0.88);
-    backdrop-filter:blur(8px);
-    z-index:50;
-  }
-  .header-row{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:16px;
-    max-width:1180px;
-    margin:0 auto;
-    padding:0 28px;
-  }
-  .brandmark{display:flex;align-items:center;gap:9px;}
-  .brandmark-icon{width:28px;height:28px;flex-shrink:0;}
-  .brandmark-text{
-    font-family:var(--sans);
-    font-weight:800;
-    font-size:18px;
-    letter-spacing:-0.02em;
-    color:var(--ink);
-  }
-  .header-nav{
-    display:flex;
-    align-items:center;
-    gap:20px;
-  }
-  .header-nav a{
-    font-family:var(--sans);
-    font-weight:600;
-    font-size:13.5px;
-    color:var(--ink-faint);
-    transition:color .15s ease;
-  }
-  .header-nav a:hover{color:var(--teal);}
-  .header-nav a.active{color:var(--teal);}
-
-  /* ---------- BANNER ---------- */
-  .page-banner{
-    background:linear-gradient(135deg, #0E6B5C 0%, #0B5647 100%);
-    padding:44px 0 40px;
-  }
-  .page-banner h1{
-    font-family:var(--sans);
-    font-weight:800;
-    font-size:clamp(1.7rem, 3.4vw, 2.3rem);
-    letter-spacing:-0.02em;
-    color:#ffffff;
-  }
-  .page-banner p{
-    margin-top:8px;
-    font-size:14.5px;
-    color:#CFEBE2;
-    max-width:520px;
-  }
-
-  /* ---------- ARTICLE LIST ---------- */
-  .article-list{padding:40px 0 80px;}
-  .article-card{
-    display:block;
-    background:var(--bg-raised);
-    border:1px solid var(--line);
-    border-radius:16px;
-    padding:24px 26px;
-    margin-bottom:14px;
-    transition:all .15s ease;
-    box-shadow:var(--shadow-sm);
-  }
-  .article-card:hover{
-    box-shadow:var(--shadow-md);
-    transform:translateY(-1px);
-    border-color:var(--line-strong);
-  }
-  .article-meta{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    margin-bottom:10px;
-    flex-wrap:wrap;
-  }
-  .article-date{
-    font-family:var(--mono);
-    font-size:11.5px;
-    color:var(--ink-faint);
-    font-weight:500;
-  }
-  .article-tag{
-    font-family:var(--sans);
-    font-size:10.5px;
-    font-weight:700;
-    text-transform:uppercase;
-    letter-spacing:0.04em;
-    padding:3px 9px;
-    border-radius:100px;
-    background:var(--teal-soft);
-    color:var(--teal);
-    border:1px solid var(--teal-soft-line);
-  }
-  .article-title{
-    font-family:var(--sans);
-    font-weight:700;
-    font-size:1.2rem;
-    color:var(--ink);
-    letter-spacing:-0.01em;
-    margin-bottom:6px;
-  }
-  .article-excerpt{
-    font-size:14px;
-    color:var(--ink-dim);
-    line-height:1.55;
-  }
-  .article-readmore{
-    display:inline-flex;
-    align-items:center;
-    gap:4px;
-    margin-top:12px;
-    font-family:var(--sans);
-    font-weight:600;
-    font-size:13px;
-    color:var(--teal);
-  }
-
-  .empty-note{
-    background:var(--bg-soft);
-    border:1.5px dashed var(--line-strong);
-    border-radius:16px;
-    padding:32px 28px;
-    text-align:center;
-    color:var(--ink-faint);
-    font-size:13.5px;
-  }
-
-  /* ---------- FOOTER ---------- */
-  footer{
-    border-top:1px solid var(--line);
-    padding:32px 0 48px;
-  }
-  footer p{
-    font-size:12.5px;
-    color:var(--ink-faint);
-    line-height:1.6;
-    max-width:640px;
-    margin:0 auto;
-  }
-  .foot-row{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:12px;
-  }
-  footer .signature{
-    font-family:var(--sans);
-    font-weight:700;
-    font-size:14px;
-    color:var(--ink-dim);
-  }
-
-  /* Keep all three navigation links visible on mobile. */
-  @media (max-width:560px){
-    header{padding:12px 0;}
-    .header-row{display:flex;flex-direction:column;align-items:stretch;gap:10px;padding:0 16px;}
-    .brandmark{align-self:flex-start;}
-    .header-nav{width:100%;justify-content:space-between;gap:8px;flex-wrap:nowrap;}
-    .header-nav a{font-size:12.5px;white-space:nowrap;}
-  }
+:root{--bg:#FAFAF8;--white:#fff;--soft:#F2F4F2;--line:#E4E7E3;--line-strong:#D3D7D1;--ink:#0E1512;--dim:#4B564F;--faint:#8A938C;--teal:#0E6B5C;--bright:#00C896;--teal-soft:#E3F6EF;--teal-line:#BCE8DA;--amber:#B5740C;--amber-soft:#FBF1DD;--sans:'Inter',-apple-system,sans-serif;--mono:'JetBrains Mono',monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+header{position:sticky;top:0;z-index:50;background:rgba(250,250,248,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:18px 0}
+.header-row{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brandmark{display:flex;align-items:center;gap:9px;font-weight:800;font-size:18px}
+.brandmark-icon{width:28px;height:28px}
+.header-nav{display:flex;align-items:center;gap:20px}
+.header-nav a{font-size:13.5px;font-weight:600;color:var(--faint)}
+.header-nav a:hover,.header-nav a.active{color:var(--teal)}
+.page-banner{padding:46px 0 42px;background:linear-gradient(135deg,#0E6B5C,#0B5647);color:#fff}
+.eyebrow{font:600 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#A8E6D2}
+.page-banner h1{margin-top:8px;font-size:clamp(2rem,4vw,3rem);letter-spacing:-.035em}
+.page-banner p{margin-top:10px;max-width:620px;color:#D6EEE6;font-size:15px}
+.article-list{padding:38px 0 76px}
+.article-card{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);overflow:hidden;background:var(--white);border:1px solid var(--line);border-radius:20px;box-shadow:0 8px 26px rgba(14,21,18,.06);transition:transform .18s ease,box-shadow .18s ease}
+.article-card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(14,21,18,.1)}
+.article-card-image{display:block;min-height:300px;background:#0B5647;overflow:hidden}
+.article-card-image img{display:block;width:100%;height:100%;min-height:300px;object-fit:cover;transition:transform .35s ease}
+.article-card:hover .article-card-image img{transform:scale(1.025)}
+.article-card-content{padding:34px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.article-meta{display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin-bottom:14px}
+.article-date{font:500 11px var(--mono);color:var(--faint)}
+.article-tag{padding:4px 9px;border-radius:99px;background:var(--teal-soft);border:1px solid var(--teal-line);color:var(--teal);font-size:10px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+.article-title{font-size:clamp(1.45rem,2.8vw,2rem);line-height:1.15;letter-spacing:-.03em;font-weight:800}
+.article-excerpt{margin-top:12px;color:var(--dim);font-size:14px;line-height:1.65}
+.article-readmore{margin-top:20px;color:var(--teal);font-size:13px;font-weight:700}
+footer{border-top:1px solid var(--line);padding:28px 0 40px}
+.foot-row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+footer p{max-width:720px;color:var(--faint);font-size:12px;line-height:1.6}
+.signature{font-weight:700;color:var(--dim);font-size:14px}
+@media(max-width:700px){.wrap{padding:0 16px}.page-banner{padding:34px 0 30px}.article-list{padding:22px 0 48px}.article-card{grid-template-columns:1fr;border-radius:16px}.article-card-image,.article-card-image img{min-height:0;height:auto;aspect-ratio:1.9/1}.article-card-content{padding:22px}.article-title{font-size:1.45rem}}
+@media(max-width:560px){header{padding:12px 0}.header-row{flex-direction:column;align-items:stretch;gap:10px;padding:0 16px}.brandmark{align-self:flex-start}.header-nav{width:100%;justify-content:space-between;gap:8px}.header-nav a{font-size:12.5px;white-space:nowrap}}
 </style>
 </head>
 <body>
-
-<header>
-  <div class="header-row">
-    <a href="index.html" class="brandmark">
-      <svg class="brandmark-icon" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-        <rect x="10" y="10" width="100" height="100" rx="22" fill="#0E6B5C"/>
-        <path d="M40 86 V34 H64 C74 34 80 40 80 50 C80 58 75 63 67 65 L82 86"
-              fill="none" stroke="white" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
-        <circle cx="94" cy="30" r="6" fill="#00C896"/>
-      </svg>
-      <span class="brandmark-text">Rentavio</span>
-    </a>
-    <nav class="header-nav">
-      <a href="index.html">Comparador</a>
-      <a href="simulador.html">Simulador</a>
-      <a href="blog.html" class="active">Notas</a>
-    </nav>
-  </div>
-</header>
-
-<div class="page-banner">
-  <div class="wrap">
-    <h1>Notas rápidas sobre cambios reales</h1>
-    <p>Cada vez que una entidad sube, baja o cambia las condiciones de una oferta, lo registramos aquí — con la fecha exacta y el dato concreto, sin relleno.</p>
-  </div>
-</div>
-
-<section class="article-list">
-  <div class="wrap" id="articleContainer">
-    <!-- Actualización más reciente -->
-    <a href="actualizaciones-octubre-2026.html" class="article-card">
-      <div class="article-meta">
-        <span class="article-date">24 OCT 2026</span>
-        <span class="article-tag">Cuentas y depósitos</span>
-      </div>
-      <div class="article-title">Ofertas bancarias de octubre: cuentas, depósitos y fechas límite</div>
-      <div class="article-excerpt">Sabadell al 2,75% TAE, BBVA hasta 1.060€, Bankinter al 3% y depósitos actualizados de Cajamar y MyInvestor. Condiciones y fuentes oficiales.</div>
-      <span class="article-readmore">Leer la actualización →</span>
-    </a>
-
-    <!-- Los artículos se listan aquí. Añade uno nuevo copiando el bloque de ejemplo. -->
-
-    <a href="ibercaja-sube-bono-nomina-1000.html" class="article-card">
-      <div class="article-meta">
-        <span class="article-date">23 OCT 2026</span>
-        <span class="article-tag">Cuenta nómina</span>
-      </div>
-      <div class="article-title">Ibercaja: la Cuenta Vamos remunera hasta 20.000€</div>
-      <div class="article-excerpt">5,10% TAE el primer año y 2,02% el segundo. Hasta 1.400€ brutos en intereses en dos años, con nómina, tarjeta, recibos y banca digital.</div>
-      <span class="article-readmore">Leer la nota →</span>
-    </a>
-
-  </div>
-</section>
-
-<footer>
-  <div class="wrap foot-row">
-    <p>Notas informativas basadas en fuentes públicas y webs oficiales de cada entidad. No es asesoramiento financiero — verifica siempre las condiciones actuales antes de decidir.</p>
-    <div class="signature">— Rentavio</div>
-  </div>
-</footer>
-
-</body>
-</html>
+<header><div class="wrap header-row">
+<a href="index.html" class="brandmark"><svg class="brandmark-icon" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="10" y="10" width="100" height="100" rx="22" fill="#0E6B5C"/><path d="M40 86 V34 H64 C74 34 80 40 80 50 C80 58 75 63 67 65 L82 86" fill="none" stroke="white" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><circle cx="94" cy="30" r="6" fill="#00C896"/></svg><span>Rentavio</span></a>
+<nav class="header-nav" aria-label="Navegación principal"><a href="index.html">Comparador</a><a href="simulador.html">Simulador</a><a href="blog.html" class="active" aria-current="page">Blog</a></nav>
+</div></header>
+<main>
+<section class="page-banner"><div class="wrap"><div class="eyebrow">Ideas claras para cuidar tus ahorros</div><h1>Blog de Rentavio</h1><p>Guías prácticas para comparar cuentas, entender sus límites y decidir dónde guardar cada parte de tus ahorros.</p></div></section>
+<section class="article-list"><div class="wrap">
+<a href="repartir-cuentas-remuneradas-mas-10000.html" class="article-card">
+<span class="article-card-image"><img src="ahorros-mas-de-10000.svg" alt="Ilustración: más de 10.000 euros repartidos entre dos cuentas remuneradas"></span>
+<div class="article-card-content">
+<div class="article-meta"><span class="article-date">27 OCT 2026 · 7 MIN</span><span class="article-tag">Cuentas remuneradas</span></div>
+<h2 class="article-title">¿Tienes más de 10.000 €? Cómo repartir tus ahorros entre cuentas remuneradas</h2>
+<p class="article-excerpt">Una cuenta con un tipo alto puede tener un límite. Vemos tres formas de organizar 20.000 €, con estimaciones brutas y netas, condiciones y fechas para revisar.</p>
+<span class="article-readmore">Leer la guía <span aria-hidden="true">→</span></span>
+</div></a>
+</div></section>
+</main>
+<footer><div class="wrap foot-row"><p>Información revisada el 27 de octubre de 2026. Las campañas cambian; verifica siempre la ficha oficial antes de abrir una cuenta. Rentavio no presta asesoramiento financiero.</p><div class="signature">— Rentavio</div></div></footer>
+</body></html>
