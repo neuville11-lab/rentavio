@@ -1,3 +1,4 @@
+# Public site pages are listed in this sitemap.
 User-agent: *
 Allow: /
 
