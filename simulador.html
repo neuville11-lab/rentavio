@@ -203,6 +203,19 @@
   .sim-allocation-row{display:grid;grid-template-columns:minmax(130px,1fr) 110px 130px 130px;gap:10px;padding:11px 14px;border-top:1px solid var(--line);font-size:12px;align-items:center;}
   .sim-allocation-row strong{font-family:var(--mono);font-size:12px;}
   .sim-allocation-head{background:var(--bg-soft);font-weight:700;color:var(--ink-faint);}
+  .sim-allocation-details{margin-top:7px;}
+  .sim-allocation-details summary{display:inline-flex;align-items:center;gap:6px;color:var(--teal);font-weight:700;font-size:11.5px;cursor:pointer;list-style:none;}
+  .sim-allocation-details summary::-webkit-details-marker{display:none;}
+  .sim-allocation-details summary::after{content:"＋";font-size:13px;}
+  .sim-allocation-details[open] summary::after{content:"−";}
+  .sim-allocation-detail-body{padding:9px 0 3px;display:grid;gap:8px;color:var(--ink-dim);line-height:1.55;}
+  .sim-allocation-detail-body p{font-size:11.5px;}
+  .sim-allocation-conditions{display:grid;gap:5px;}
+  .sim-allocation-conditions span{font-size:11px;color:var(--ink-faint);}
+  .sim-allocation-conditions b{font-family:var(--mono);color:var(--ink);margin-right:5px;}
+  .sim-allocation-verdict{border-left:2px solid var(--teal-soft-line);padding-left:8px;}
+  .sim-allocation-promo{font-weight:700;color:var(--teal);text-decoration:none;font-size:11.5px;}
+  .sim-allocation-promo:hover{text-decoration:underline;}
   .sim-card-yield{margin:12px 0;padding-top:10px;border-top:1px solid var(--line);font-size:12px;line-height:1.7;color:var(--ink-dim);}
   .sim-card-yield strong{font-family:var(--mono);color:var(--ink);}
   @media(max-width:640px){.sim-allocation-row{grid-template-columns:1fr 1fr}.sim-allocation-head{display:none;}}
@@ -403,7 +416,6 @@
         <div class="simulador-field">
           <label>¿Domicilias nómina?</label>
           <div class="chip-set" id="simNomina" data-value="todos">
-            <button class="chip active" data-value="todos">Da igual</button>
             <button class="chip" data-value="con">Sí</button>
             <button class="chip" data-value="sin">No</button>
           </div>
@@ -5729,8 +5741,8 @@ let simNominaValue = "todos";
 let simMultipleValue = "single";
 document.getElementById('simNomina').addEventListener('click', (e) => {
   const btn=e.target.closest('.chip');if(!btn)return;
-  simNominaValue=btn.dataset.value;
-  document.querySelectorAll('#simNomina .chip').forEach(c=>c.classList.toggle('active',c===btn));
+  simNominaValue=btn.dataset.value===simNominaValue?'todos':btn.dataset.value;
+  document.querySelectorAll('#simNomina .chip').forEach(c=>c.classList.toggle('active',c.dataset.value===simNominaValue));
 });
 document.getElementById('simMultiple').addEventListener('click',(e)=>{
   const btn=e.target.closest('.chip');if(!btn)return;
@@ -5826,7 +5838,11 @@ document.getElementById('simBtn').addEventListener('click',()=>{
     const gain=simGrossInterest(item,allocation,months);allocations.push({item,amount:allocation,gross:gain});gross+=gain;left-=allocation;used.add(item.entidad);
   }
   if(!allocations.length){result.innerHTML='<div class="sim-empty">No encontramos una combinación compatible con los límites de importe conocidos.</div>';return;}
-  const rows=allocations.map(a=>`<div class="sim-allocation-row"><span>${a.item.entidad}<br><small>${a.item.producto} · ${fmtSimRate(a.item)}</small></span><strong>${simMoney(a.amount)}</strong><span>Bruto: <strong>${simMoney(a.gross)}</strong></span><span>Neto: <strong>${simMoney(a.gross*0.81)}</strong></span></div>`).join('');
+  const rows=allocations.map(a=>{
+    const conditions=(a.item.condiciones||[]).map(([label,value])=>`<span><b>${label}</b>${value}</span>`).join('');
+    const promo=a.item.url?`<a class="sim-allocation-promo" href="${a.item.url}" target="_blank" rel="noopener noreferrer">Ir a la promoción →</a>`:'<span class="sim-tax-note">Consulta la web de la entidad para ver la oferta vigente.</span>';
+    return `<div class="sim-allocation-row"><span>${a.item.entidad}<br><small>${a.item.producto} · ${fmtSimRate(a.item)}</small><details class="sim-allocation-details"><summary>Ver condiciones</summary><div class="sim-allocation-detail-body"><p>${a.item.desc||''}</p>${conditions?`<div class="sim-allocation-conditions">${conditions}</div>`:''}${a.item.verdict?`<p class="sim-allocation-verdict">${a.item.verdict}</p>`:''}${promo}</div></details></span><strong>${simMoney(a.amount)}</strong><span>Bruto: <strong>${simMoney(a.gross)}</strong></span><span>Neto: <strong>${simMoney(a.gross*0.81)}</strong></span></div>`;
+  }).join('');
   const warning=left>0.009?`<div class="sim-warning">Quedan ${simMoney(left)} sin asignar: no hemos encontrado otro límite verificado que admita ese importe.</div>`:'';
   result.innerHTML=simSummaryHtml(amount,gross,months)+`<div class="sim-allocation"><div class="sim-allocation-title">Reparto sugerido entre ${allocations.length} ${allocations.length===1?'entidad':'entidades'}</div><div class="sim-allocation-row sim-allocation-head"><span>Producto</span><span>Invertido</span><span>Interés bruto</span><span>Interés neto</span></div>${rows}</div>${warning}`;
 });
