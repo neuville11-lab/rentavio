@@ -473,6 +473,7 @@
   }
   .tab-btn.active .count{color:#fff;opacity:0.7;}
 
+  .mobile-filter-toggle{display:none;}
   .filter-row{
     display:flex;
     gap:22px;
@@ -909,13 +910,59 @@
     color:var(--ink-dim);
   }
 
-  /* Navigation stays fully visible on narrow screens. */
+  /* Mobile layouts keep navigation compact and put advanced filters behind a control. */
   @media (max-width:560px){
-    header{padding:12px 0;}
-    .header-row{display:flex;flex-direction:column;align-items:stretch;gap:10px;padding:0 16px;}
-    .brandmark{align-self:flex-start;}
-    .header-nav{width:100%;justify-content:space-between;gap:8px;flex-wrap:nowrap;}
-    .header-nav a{font-size:12.5px;white-space:nowrap;}
+    header{padding:11px 0;}
+    .header-row{gap:8px;padding:0 16px;}
+    .brandmark{gap:6px;}
+    .brandmark-icon{width:25px;height:25px;}
+    .brandmark-text{font-size:15px;}
+    .header-nav{width:auto;gap:clamp(8px,2.5vw,14px);flex-wrap:nowrap;}
+    .header-nav a{font-size:clamp(10px,2.9vw,12px);white-space:nowrap;}
+    .notas-pulse{right:-5px;}
+    .hero-banner{padding:22px 0;}
+    .hero-banner-inner{gap:10px;}
+    .hb-sub{line-height:1.55;}
+    .wrap{padding-left:20px;padding-right:20px;}
+    .controls{position:static;padding-top:20px;}
+    .tabs{gap:9px;padding:16px 0 12px;}
+    .tab-btn{padding:10px 15px;font-size:13px;}
+    .mobile-filter-toggle{
+      display:flex;align-items:center;justify-content:space-between;width:100%;
+      margin:4px 0 12px;padding:12px 14px;border:1px solid var(--line);
+      border-radius:12px;background:var(--bg-raised);color:var(--ink-dim);
+      font:600 13px var(--sans);cursor:pointer;box-shadow:var(--shadow-sm);
+    }
+    .mobile-filter-toggle[aria-expanded="true"]{border-color:var(--teal-soft-line);color:var(--teal);}
+    .mobile-filter-toggle .filter-toggle-icon{font-size:17px;font-weight:400;line-height:1;}
+    .filter-row{display:none;align-items:stretch;gap:18px;padding:4px 0 18px;}
+    .filter-row.is-open{display:flex;}
+    .chip-group{align-items:flex-start;flex-direction:column;gap:8px;}
+    .chip-set{gap:8px;}
+    .chip{padding:8px 12px;font-size:12px;}
+    .sort-toggle{margin-left:0;align-self:flex-start;}
+    .sort-toggle button{padding:9px 12px;}
+    .results{padding:24px 0 56px;}
+    .results-count{margin-bottom:18px;font-size:12px;}
+    .card{padding:22px 19px;margin-bottom:18px;border-radius:18px;gap:18px;}
+    .card-toprow{column-gap:9px;row-gap:10px;margin-bottom:10px;}
+    .entity-name{font-size:1.12rem;}
+    .product-name{line-height:1.5;}
+    .card-desc{font-size:14px;line-height:1.7;margin-top:9px;}
+    .card-details{margin-top:14px;}
+    .card-details summary{font-size:13px;padding:2px 0;}
+    .card-rate{padding-top:3px;}
+    .rate-num{font-size:1.8rem;}
+    .rate-cap{white-space:normal;max-width:none;line-height:1.55;}
+    .card-fgd{line-height:1.5;}
+    .card-fgd .offer-btn{margin-top:6px;min-height:44px;}
+  }
+  @media (max-width:370px){
+    .brandmark-text{display:none;}
+    .header-nav{gap:8px;}
+    .header-nav a{font-size:10px;}
+    .wrap{padding-left:16px;padding-right:16px;}
+    .card{padding:19px 16px;}
   }
 
   /* Ajustes específicos para móviles */
@@ -1154,7 +1201,10 @@
       <button class="tab-btn" data-cat="deposito">Depósitos a plazo <span class="count">(69)</span></button>
       <button class="tab-btn" data-cat="nomina">Cuentas con bonificación <span class="count">(16)</span></button>
     </div>
-    <div class="filter-row">
+    <button class="mobile-filter-toggle" id="mobileFilterToggle" type="button" aria-expanded="false" aria-controls="filterRow">
+      <span>Más filtros y orden</span><span class="filter-toggle-icon" aria-hidden="true">＋</span>
+    </button>
+    <div class="filter-row" id="filterRow">
       <div class="chip-group">
         <span class="chip-group-label">Nómina</span>
         <div class="chip-set" id="filterNomina" data-value="todos">
@@ -6538,6 +6588,16 @@ let activeCat = "todos";
 let activeDificultad = "todos";
 let activeNomina = "todos";
 let activeSort = "rate";
+
+const mobileFilterToggle = document.getElementById('mobileFilterToggle');
+const filterRow = document.getElementById('filterRow');
+mobileFilterToggle.addEventListener('click', () => {
+  const isOpen = mobileFilterToggle.getAttribute('aria-expanded') === 'true';
+  mobileFilterToggle.setAttribute('aria-expanded', String(!isOpen));
+  filterRow.classList.toggle('is-open', !isOpen);
+  mobileFilterToggle.querySelector('span:first-child').textContent = isOpen ? 'Más filtros y orden' : 'Ocultar filtros';
+  mobileFilterToggle.querySelector('.filter-toggle-icon').textContent = isOpen ? '＋' : '−';
+});
 
 // Wizard state
 const wizard = {
