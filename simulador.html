@@ -307,6 +307,53 @@
     .header-nav{width:100%;justify-content:space-between;gap:8px;flex-wrap:nowrap;}
     .header-nav a{font-size:12.5px;white-space:nowrap;}
   }
+
+  /* Ajustes específicos para móviles */
+  @media (max-width:860px){
+    .simulador-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;}
+    .simulador-field input[type="number"]{width:100%;}
+    .sim-select{width:100%;min-width:0;}
+    .simulador-btn{grid-column:1/-1;min-height:46px;}
+  }
+  @media (max-width:640px){
+    html{scroll-padding-top:16px;}
+    body{overflow-x:hidden;}
+    .wrap{padding-left:16px;padding-right:16px;}
+    .page-banner{padding:34px 0 30px;}
+    .page-banner h1{font-size:1.8rem;}
+    .page-banner p{font-size:14px;line-height:1.55;}
+    .simulador-section{padding:20px 0 48px;}
+    .simulador{padding:18px 16px;border-radius:16px;}
+    .simulador-form{grid-template-columns:minmax(0,1fr);gap:16px;margin-top:16px;}
+    .simulador-field{min-width:0;}
+    .simulador-field input[type="number"],.sim-select{width:100%;min-width:0;min-height:46px;font-size:16px;}
+    .chip-set{width:100%;gap:6px;}
+    .chip-set .chip{flex:1 1 72px;min-height:42px;padding:8px 9px;font-size:12px;}
+    #simMultiple .chip{flex-basis:calc(50% - 3px);padding-left:6px;padding-right:6px;}
+    .simulador-btn{grid-column:auto;width:100%;min-height:48px;padding:12px 16px;white-space:normal;}
+    .sim-summary{padding:16px;margin-top:18px;}
+    .sim-summary-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 10px;}
+    .sim-summary-item{min-width:0;}
+    .sim-summary-item span{font-size:10.5px;line-height:1.35;}
+    .sim-summary-item strong{font-size:clamp(13px,4.2vw,17px);overflow-wrap:anywhere;}
+    .sim-tax-note,.sim-warning{font-size:11px;}
+    .sim-allocation-title{padding:11px 12px;font-size:12px;}
+    .sim-allocation-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:10px;font-size:11px;}
+    .sim-allocation-row>span{min-width:0;overflow-wrap:anywhere;}
+    .sim-allocation-row strong{font-size:11px;overflow-wrap:anywhere;}
+    .sim-result-grid{grid-template-columns:minmax(0,1fr);gap:10px;margin-top:18px;}
+    .sim-card{padding:16px;}
+    .sim-empty{padding:22px 12px;font-size:13px;}
+    footer{padding:26px 0 36px;}
+  }
+  @media (max-width:380px){
+    .header-nav{gap:5px;}
+    .header-nav a{font-size:11.5px;}
+    .simulador{padding:16px 12px;}
+    .chip-set .chip{font-size:11.5px;padding-left:6px;padding-right:6px;}
+    .sim-allocation-row{padding:9px;gap:6px;}
+  }
+
 </style>
 </head>
 <body>
