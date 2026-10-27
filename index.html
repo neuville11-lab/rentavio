@@ -6577,6 +6577,7 @@ function render(){
             <div class="card-detail-body">
               <p>${item.desc}</p>
               <div class="card-conditions">${condHtml}</div>
+              <p class="card-cap-detail"><strong>${item.rateLabel}:</strong> ${item.cap}</p>
               <div class="card-verdict">${item.verdict}</div>
               <div class="dif-row" title="${difInfo.label}: ${difInfo.desc}">
                 <span class="dif-bars">${difBars}</span>
@@ -6587,8 +6588,7 @@ function render(){
         </div>
         <div class="card-rate">
           <div class="rate-num ${item.cat === 'nomina' ? 'rust' : ''}">${fmtRate(item)}</div>
-          <div class="rate-label">${item.rateLabel}</div>
-          <div class="rate-cap">${item.cap}</div>
+
         </div>
         <div class="card-fgd">
           <div class="fgd-flag"><span class="fgd-dot"></span>${catLabel}</div>
