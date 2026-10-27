@@ -1208,18 +1208,16 @@
       <div class="chip-group">
         <span class="chip-group-label">Nómina</span>
         <div class="chip-set" id="filterNomina" data-value="todos">
-          <button class="chip active" data-value="todos">Da igual</button>
-          <button class="chip" data-value="con">Con nómina</button>
-          <button class="chip" data-value="sin">Sin nómina</button>
+          <button class="chip" data-value="con">Sí</button>
+          <button class="chip" data-value="sin">No</button>
         </div>
       </div>
       <div class="chip-group">
         <span class="chip-group-label">Facilidad</span>
         <div class="chip-set" id="filterDificultad" data-value="todos">
-          <button class="chip active" data-value="todos">Da igual</button>
-          <button class="chip" data-value="1">Solo inmediatas</button>
-          <button class="chip" data-value="2">Inmediatas y fáciles</button>
-          <button class="chip" data-value="3">Hasta moderadas</button>
+          <button class="chip" data-value="facil">Fácil</button>
+          <button class="chip" data-value="moderada">Moderada</button>
+          <button class="chip" data-value="dificil">Difícil</button>
         </div>
       </div>
       <div class="sort-toggle" id="sortToggle">
@@ -6655,7 +6653,9 @@ function render(){
     if(activeCat !== "todos" && d.cat !== activeCat) return false;
     if(activeNomina === "sin" && d.requiereNomina === true) return false;
     if(activeNomina === "con" && d.requiereNomina !== true) return false;
-    if(activeDificultad !== "todos" && (d.dificultad || 1) > parseInt(activeDificultad)) return false;
+    if(activeDificultad === "facil" && (d.dificultad || 1) > 2) return false;
+    if(activeDificultad === "moderada" && (d.dificultad || 1) !== 3) return false;
+    if(activeDificultad === "dificil" && (d.dificultad || 1) < 4) return false;
     if(!passesWizard(d)) return false;
     return true;
   });
@@ -6761,20 +6761,16 @@ document.getElementById('tabs').addEventListener('click', e => {
 document.getElementById('filterNomina').addEventListener('click', e => {
   const chip = e.target.closest('.chip');
   if(!chip) return;
-  const group = document.getElementById('filterNomina');
-  group.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
-  chip.classList.add('active');
-  activeNomina = chip.dataset.value;
+  activeNomina = chip.dataset.value === activeNomina ? "todos" : chip.dataset.value;
+  setChipGroup('filterNomina', activeNomina);
   render();
 });
 
 document.getElementById('filterDificultad').addEventListener('click', e => {
   const chip = e.target.closest('.chip');
   if(!chip) return;
-  const group = document.getElementById('filterDificultad');
-  group.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
-  chip.classList.add('active');
-  activeDificultad = chip.dataset.value;
+  activeDificultad = chip.dataset.value === activeDificultad ? "todos" : chip.dataset.value;
+  setChipGroup('filterDificultad', activeDificultad);
   render();
 });
 
