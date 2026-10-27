@@ -189,6 +189,24 @@
   }
   .simulador-btn:hover{background:#0B5647;}
 
+  .sim-select{font-family:var(--mono);font-size:14px;font-weight:600;padding:11px 14px;border:1.5px solid var(--line-strong);border-radius:10px;background:var(--bg-soft);color:var(--ink);min-width:150px;}
+  .sim-summary{margin-top:24px;padding:20px;background:#fff;border:1px solid var(--teal-soft-line);border-radius:14px;}
+  .sim-summary-title{font-size:13px;font-weight:700;color:var(--ink-dim);margin-bottom:14px;}
+  .sim-summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:12px;}
+  .sim-summary-item{display:flex;flex-direction:column;gap:3px;}
+  .sim-summary-item span{font-size:11px;color:var(--ink-faint);}
+  .sim-summary-item strong{font-family:var(--mono);font-size:18px;color:var(--ink);}
+  .sim-summary-item.highlight strong{color:var(--teal);}
+  .sim-tax-note,.sim-warning{display:block;margin-top:12px;font-size:11.5px;line-height:1.5;color:var(--ink-faint);}
+  .sim-allocation{margin-top:20px;border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+  .sim-allocation-title{padding:12px 14px;background:#fff;font-weight:700;font-size:13px;}
+  .sim-allocation-row{display:grid;grid-template-columns:minmax(130px,1fr) 110px 130px 130px;gap:10px;padding:11px 14px;border-top:1px solid var(--line);font-size:12px;align-items:center;}
+  .sim-allocation-row strong{font-family:var(--mono);font-size:12px;}
+  .sim-allocation-head{background:var(--bg-soft);font-weight:700;color:var(--ink-faint);}
+  .sim-card-yield{margin:12px 0;padding-top:10px;border-top:1px solid var(--line);font-size:12px;line-height:1.7;color:var(--ink-dim);}
+  .sim-card-yield strong{font-family:var(--mono);color:var(--ink);}
+  @media(max-width:640px){.sim-allocation-row{grid-template-columns:1fr 1fr}.sim-allocation-head{display:none;}}
+
   .sim-result-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
@@ -315,7 +333,7 @@
 <div class="page-banner">
   <div class="wrap">
     <h1>Simulador personal</h1>
-    <p>Dime cuánto dinero tienes y si quieres domiciliar la nómina, y te muestro las 3 cuentas o depósitos con mejor rentabilidad para tu caso.</p>
+    <p>Indica el importe, el plazo y si quieres repartirlo entre entidades. Verás qué opciones encajan y cuánto podrías obtener antes y después de la retención estimada.</p>
   </div>
 </div>
 
@@ -328,6 +346,14 @@
           <input type="number" id="simMonto" placeholder="Ej. 10000" min="0" step="100">
         </div>
         <div class="simulador-field">
+          <label for="simPeriod">¿Durante cuánto tiempo?</label>
+          <select id="simPeriod" class="sim-select">
+            <option value="3">3 meses</option>
+            <option value="6">6 meses</option>
+            <option value="12" selected>12 meses</option>
+          </select>
+        </div>
+        <div class="simulador-field">
           <label>¿Domicilias nómina?</label>
           <div class="chip-set" id="simNomina" data-value="todos">
             <button class="chip active" data-value="todos">Da igual</button>
@@ -335,7 +361,14 @@
             <button class="chip" data-value="sin">No</button>
           </div>
         </div>
-        <button class="simulador-btn" id="simBtn">Ver mis 3 mejores opciones</button>
+        <div class="simulador-field">
+          <label>¿Quieres repartirlo entre varias entidades?</label>
+          <div class="chip-set" id="simMultiple">
+            <button class="chip active" data-value="single">No, una entidad</button>
+            <button class="chip" data-value="multiple">Sí, varias</button>
+          </div>
+        </div>
+        <button class="simulador-btn" id="simBtn">Calcular rentabilidad</button>
       </div>
       <div id="simResult"></div>
     </div>
@@ -2615,39 +2648,26 @@ const DATA = [
     "cat": "deposito",
     "tipo": "neobanco",
     "entidad": "Banco BiG",
-    "producto": "Depósito nuevos clientes 3 meses",
-    "rate": 3.5,
+    "producto": "Gran Depósito 3 meses (nuevos clientes)",
+    "rate": 4,
     "rateLabel": "TAE 3 meses para nuevos clientes",
-    "desc": "Depósito para nuevos clientes al 3,50% TAE a 3 meses y 3,00% a 6 meses, según la documentación recibida. El depósito a 3 meses requiere un mínimo de 1.000€.",
-    "cap": "Desde 1.000€",
-    "condiciones": [
-      [
-        "Nuevo cliente",
-        "Sí"
-      ],
-      [
-        "3 meses",
-        "3,50% TAE"
-      ],
-      [
-        "6 meses",
-        "3,00% TAE"
-      ]
-    ],
-    "verdict": "La oferta anterior del 4% a un mes ya no aparece; esta ficha recoge la promoción facilitada.",
+    "desc": "Gran Depósito a 3 meses al 4,00% TAE, solo para nuevos clientes con dinero procedente de otra entidad. Importe mínimo 10.000€ y máximo 75.000€. Intereses abonados al vencimiento; no admite ingresos ni reembolsos parciales. La cancelación anticipada supone perder los intereses.",
+    "cap": "10.000€–75.000€; nuevos clientes",
+    "condiciones": [["TAE","4,00%"],["Plazo","3 meses"],["Mínimo","10.000€"],["Máximo","75.000€"],["Elegibilidad","Nuevo cliente; dinero externo"],["Cancelación","Total; pérdida de intereses"]]
+    "verdict": "El 4% TAE corresponde al Gran Depósito de 3 meses para nuevos clientes; no se aplica a los demás depósitos BiG.",
     "deadline": null,
     "top": true,
     "sinCondicion": false,
-    "montoMin": 0,
-    "montoMax": 999999999,
+    "montoMin": 10000,
+    "montoMax": 75000,
     "plazos": [
       "corto"
     ],
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 2,
-    "url": "https://www.bancobig.es/ahorrar/depositos-a-plazo-fijo/",
-    "actualizado": "24/10/2026"
+    "url": "https://www.bancobig.es/ahorrar/depositos-a-plazo-fijo/detalles/gran-deposito-3-meses",
+    "actualizado": "27/10/2026"
   },
   {
     "cat": "deposito",
@@ -5659,59 +5679,111 @@ const DATA = [
 ].filter(item => !["expired", "unverified"].includes(item.status));
 
 let simNominaValue = "todos";
-
+let simMultipleValue = "single";
 document.getElementById('simNomina').addEventListener('click', (e) => {
-  const btn = e.target.closest('.chip');
-  if(!btn) return;
-  simNominaValue = btn.dataset.value;
-  document.querySelectorAll('#simNomina .chip').forEach(c => c.classList.toggle('active', c === btn));
+  const btn=e.target.closest('.chip');if(!btn)return;
+  simNominaValue=btn.dataset.value;
+  document.querySelectorAll('#simNomina .chip').forEach(c=>c.classList.toggle('active',c===btn));
 });
-
-function fmtSimRate(item){
-  if(item.isMoney) return item.rateLabel || `${item.rate}€`;
-  return `${item.rate.toFixed(2)}%`;
+document.getElementById('simMultiple').addEventListener('click',(e)=>{
+  const btn=e.target.closest('.chip');if(!btn)return;
+  simMultipleValue=btn.dataset.value;
+  document.querySelectorAll('#simMultiple .chip').forEach(c=>c.classList.toggle('active',c===btn));
+});
+function fmtSimRate(item){return item.isMoney?(item.rateLabel||`${item.rate}€`):`${item.rate.toFixed(2)}%`;}
+const simMoney=value=>new Intl.NumberFormat('es-ES',{style:'currency',currency:'EUR',maximumFractionDigits:2}).format(value);
+function parseSimEuro(text){
+  if(!text)return NaN;let value=String(text).replace(/[^0-9.,]/g,'');if(!value)return NaN;
+  if(value.includes(',')&&value.includes('.'))value=value.replace(/\./g,'').replace(',','.');
+  else if(value.includes(','))value=value.replace(',','.');
+  else value=value.replace(/\.(?=\d{3}(?:\D|$))/g,'');
+  return Number(value);
 }
-
-document.getElementById('simBtn').addEventListener('click', () => {
-  const monto = parseFloat(document.getElementById('simMonto').value);
-  const resultDiv = document.getElementById('simResult');
-
-  if(!monto || monto <= 0){
-    resultDiv.innerHTML = `<div class="sim-empty">Introduce una cantidad de dinero para ver tus mejores opciones.</div>`;
-    return;
+function simBounds(item){
+  let min=Number(item.montoMin)||0,max=(Number.isFinite(Number(item.montoMax))&&Number(item.montoMax)<999999999)?Number(item.montoMax):null;
+  const cap=String(item.cap||'');
+  const range=cap.match(/([\d.]+(?:,\d+)?)\s*€\s*[–-]\s*([\d.]+(?:,\d+)?)\s*€/);
+  if(range){const low=parseSimEuro(range[1]),high=parseSimEuro(range[2]);if(Number.isFinite(low))min=Math.max(min,low);if(Number.isFinite(high))max=high;}
+  if(max===null){
+    const lead=cap.match(/^\s*(?:hasta|máx(?:imo)?\.?|saldo máximo)\s*([\d.]+(?:,\d+)?)\s*€/i);
+    const labelled=cap.match(/(?:saldo|ahorro|remunerad[oa])[^.;]{0,45}(?:hasta|máx(?:imo)?\.?)\s*([\d.]+(?:,\d+)?)\s*€/i);
+    const match=lead||labelled;if(match){const parsed=parseSimEuro(match[1]);if(Number.isFinite(parsed))max=parsed;}
   }
-
-  let candidates = DATA.filter(d => {
-    if(d.isMoney) return false; // excluimos bonificaciones en efectivo para comparar TAE homogéneas
-    if(d.montoMin && monto < d.montoMin) return false;
-    if(d.montoMax && monto > d.montoMax) return false;
-    if(simNominaValue === "sin" && d.requiereNomina === true) return false;
-    if(simNominaValue === "con" && d.requiereNomina !== true) return false;
-    return true;
-  });
-
-  candidates.sort((a,b) => b.rate - a.rate);
-  const top3 = candidates.slice(0, 3);
-
-  if(top3.length === 0){
-    resultDiv.innerHTML = `<div class="sim-empty">No hemos encontrado ninguna opción que encaje con esos filtros. Prueba a cambiar la cantidad o la nómina.</div>`;
-    return;
+  if(min===0){const m=cap.match(/(?:desde|mín(?:imo)?\.?)\s*([\d.]+(?:,\d+)?)\s*€/i);if(m){const parsed=parseSimEuro(m[1]);if(Number.isFinite(parsed))min=parsed;}}
+  if(max===null&&/sin tope|sin límite|sin limite|sin máximo publicado|sin maximo publicado|sin máximo remunerad[oa]/i.test(cap))max=Infinity;
+  return {min,max};
+}
+function simTermMatches(item,months){
+  if(item.cat!=='deposito')return true;
+  const m=String(item.producto||'').match(/(\d+)\s*mes(?:es)?/i);return !!m&&Number(m[1])===months;
+}
+function simGrossInterest(item,principal,months){
+  const rate=Number(item.rate)||0;
+  if(item.entidad==='Bankinter'&&/Cuenta (?:No-Nómina|Nómina)/i.test(item.producto||'')){
+    if(months<=12)return principal*(Math.pow(1+rate/100,months/12)-1);
+    const y1=principal*rate/100,second=/2[,.]00%/.test(item.desc||'')?0.02:0;
+    return y1+(principal+y1)*(Math.pow(1+second,(months-12)/12)-1);
   }
-
-  resultDiv.innerHTML = `<div class="sim-result-grid">${top3.map((item, i) => `
-    <div class="sim-card ${i === 0 ? 'sim-best' : ''}">
-      ${i === 0 ? '<span class="sim-rank">Mejor opción</span>' : ''}
-      <div class="sim-entity">
-        ${LOGOS[item.entidad] ? `<img src="${LOGOS[item.entidad]}" alt="${item.entidad}" onerror="this.style.display='none'">` : ''}
-        ${item.entidad}
-      </div>
-      <div class="sim-product">${item.producto}</div>
-      <div class="sim-rate">${fmtSimRate(item)}</div>
-      <div class="sim-rate-label">TAE</div>
-      <a class="sim-link" href="${item.url}" target="_blank" rel="noopener">Ver oferta →</a>
+  if(item.entidad==='Bankinter'&&/Cuenta Digital \(con nómina y Bizum\)/i.test(item.producto||'')){
+    const eligible=Math.min(Math.max(principal-5000,0),45000);return eligible*(Math.pow(1+rate/100,months/12)-1);
+  }
+  return principal*(Math.pow(1+rate/100,months/12)-1);
+}
+function simEligible(item,months){
+  if(!['remunerada','deposito'].includes(item.cat)||item.isMoney||!Number.isFinite(item.rate)||item.rate<=0||item.rate>20)return false;
+  if(simNominaValue==='sin'&&item.requiereNomina===true)return false;
+  if(simNominaValue==='con'&&item.requiereNomina!==true)return false;
+  if(!simTermMatches(item,months))return false;
+  return simBounds(item).max!==null;
+}
+function simSummaryHtml(amount,gross,months){
+  const withheld=gross*0.19,net=gross-withheld;
+  return `<section class="sim-summary" aria-label="Resultado estimado">
+    <div class="sim-summary-title">Estimación para ${months} meses sobre ${simMoney(amount)} invertidos</div>
+    <div class="sim-summary-grid">
+      <div class="sim-summary-item"><span>Intereses brutos</span><strong>${simMoney(gross)}</strong></div>
+      <div class="sim-summary-item"><span>Retención estimada (19%)</span><strong>−${simMoney(withheld)}</strong></div>
+      <div class="sim-summary-item"><span>Intereses netos estimados</span><strong>${simMoney(net)}</strong></div>
+      <div class="sim-summary-item"><span>Total bruto al final</span><strong>${simMoney(amount+gross)}</strong></div>
+      <div class="sim-summary-item highlight"><span>Total neto tras retención</span><strong>${simMoney(amount+net)}</strong></div>
     </div>
-  `).join('')}</div>`;
+    <small class="sim-tax-note">El 19% es una retención a cuenta habitual sobre intereses, no el cálculo definitivo de tu IRPF. El resultado supone que se mantiene el tipo durante todo el plazo; las promociones pueden caducar antes. Estimación orientativa, no asesoramiento financiero.</small>
+  </section>`;
+}
+function simCardHtml(item,amount,months,index){
+  const gross=simGrossInterest(item,amount,months),b=simBounds(item),cap=b.max===Infinity?'Sin tope publicado':'Máximo '+simMoney(b.max);
+  return `<article class="sim-card ${index===0?'sim-best':''}">
+    ${index===0?'<span class="sim-rank">Mejor opción elegible</span>':''}
+    <div class="sim-entity">${LOGOS[item.entidad]?'<img src="'+LOGOS[item.entidad]+'" alt="">':''}${item.entidad}</div>
+    <div class="sim-product">${item.producto}</div><div class="sim-rate">${fmtSimRate(item)}</div><div class="sim-rate-label">TAE publicada</div>
+    <div class="sim-card-yield">En ${months} meses: intereses brutos <strong>${simMoney(gross)}</strong><br>Intereses netos estimados <strong>${simMoney(gross*0.81)}</strong><br>Total bruto <strong>${simMoney(amount+gross)}</strong> · total neto <strong>${simMoney(amount+gross*0.81)}</strong><br>Tope de inversión: <strong>${cap}</strong></div>
+    <a class="sim-link" href="${item.url}" target="_blank" rel="noopener noreferrer">Ver oferta →</a>
+  </article>`;
+}
+document.getElementById('simBtn').addEventListener('click',()=>{
+  const amount=Number(document.getElementById('simMonto').value),months=Number(document.getElementById('simPeriod').value),result=document.getElementById('simResult');
+  if(!Number.isFinite(amount)||amount<=0){result.innerHTML='<div class="sim-empty">Introduce una cantidad de dinero válida para ver las opciones.</div>';return;}
+  const candidates=DATA.filter(item=>simEligible(item,months)).sort((a,b)=>simGrossInterest(b,amount,months)-simGrossInterest(a,amount,months));
+  if(simMultipleValue==='single'){
+    const fitting=candidates.filter(item=>{const b=simBounds(item);return amount>=b.min&&(b.max===Infinity||amount<=b.max);});
+    if(!fitting.length){result.innerHTML='<div class="sim-empty">No hay una oferta con límites de importe publicados que admita todo ese saldo para el plazo elegido. Prueba otro plazo o activa “Sí, varias”.</div>';return;}
+    const top=fitting.slice(0,3),best=top[0];
+    result.innerHTML=simSummaryHtml(amount,simGrossInterest(best,amount,months),months)+`<div class="sim-result-grid">${top.map((item,i)=>simCardHtml(item,amount,months,i)).join('')}</div>`;
+    return;
+  }
+  let left=amount,gross=0;const used=new Set(),allocations=[];
+  for(const item of candidates){
+    if(left<=0.009)break;if(used.has(item.entidad))continue;
+    const b=simBounds(item),allocation=b.max===Infinity?left:Math.min(left,b.max);
+    if(allocation<b.min)continue;
+    const gain=simGrossInterest(item,allocation,months);allocations.push({item,amount:allocation,gross:gain});gross+=gain;left-=allocation;used.add(item.entidad);
+  }
+  if(!allocations.length){result.innerHTML='<div class="sim-empty">No encontramos una combinación compatible con los límites de importe conocidos.</div>';return;}
+  const rows=allocations.map(a=>`<div class="sim-allocation-row"><span>${a.item.entidad}<br><small>${a.item.producto} · ${fmtSimRate(a.item)}</small></span><strong>${simMoney(a.amount)}</strong><span>Bruto: <strong>${simMoney(a.gross)}</strong></span><span>Neto: <strong>${simMoney(a.gross*0.81)}</strong></span></div>`).join('');
+  const warning=left>0.009?`<div class="sim-warning">Quedan ${simMoney(left)} sin asignar: no hemos encontrado otro límite verificado que admita ese importe.</div>`:'';
+  result.innerHTML=simSummaryHtml(amount,gross,months)+`<div class="sim-allocation"><div class="sim-allocation-title">Reparto sugerido entre ${allocations.length} ${allocations.length===1?'entidad':'entidades'}</div><div class="sim-allocation-row sim-allocation-head"><span>Producto</span><span>Invertido</span><span>Interés bruto</span><span>Interés neto</span></div>${rows}</div>${warning}`;
 });
+
 </script>
 
 </body>
