@@ -917,6 +917,77 @@
     .header-nav{width:100%;justify-content:space-between;gap:8px;flex-wrap:nowrap;}
     .header-nav a{font-size:12.5px;white-space:nowrap;}
   }
+
+  /* Ajustes específicos para móviles */
+  @media (max-width:640px){
+    html{scroll-padding-top:16px;}
+    body{overflow-x:hidden;}
+    .wrap{padding-left:16px;padding-right:16px;}
+    .hero{padding:48px 0 40px;}
+    .hero-eyebrow{font-size:11px;margin-bottom:14px;}
+    .hero-sub{font-size:15px;line-height:1.55;}
+    .hero-stats{gap:20px 16px;margin-top:30px;}
+    .hstat-num{font-size:1.55rem;}
+    .hstat-label{font-size:11.5px;margin-top:6px;}
+    .wizard{padding:56px 0 68px;min-height:0;}
+    .wizard .wstep-panel h2{font-size:clamp(1.8rem,8vw,2.4rem);margin-bottom:28px;}
+    .wopt{padding:18px;}
+    .results-hero{padding:26px 0 20px;}
+    .results-hero h1{font-size:1.55rem;}
+    .result-chips{margin-top:14px;}
+    .result-chip{font-size:11.5px;padding:6px 10px;}
+    .controls{position:static;top:auto;padding-top:20px;}
+    .tabs{flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;margin-right:-16px;padding-right:16px;padding-bottom:4px;}
+    .tabs::-webkit-scrollbar{display:none;}
+    .tab-btn{flex:0 0 auto;font-size:12.5px;padding:9px 13px;}
+    .filter-row{gap:14px;padding-bottom:14px;}
+    .chip-group{width:100%;align-items:flex-start;flex-direction:column;gap:7px;}
+    .chip{font-size:12px;padding:7px 11px;}
+    .sort-toggle{margin-left:0;max-width:100%;}
+    .results{padding:22px 0 48px;}
+    .card{
+      grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);
+      grid-template-areas:"main main" "rate fgd";
+      gap:14px 10px;
+      padding:17px;
+      border-radius:14px;
+    }
+    .card-main{grid-area:main;}
+    .card-rate{grid-area:rate;text-align:left;align-self:center;white-space:normal;}
+    .rate-num{font-size:clamp(1.45rem,7vw,1.8rem);}
+    .card-fgd{
+      grid-area:fgd;
+      width:100%;
+      display:grid;
+      grid-template-columns:minmax(0,1fr);
+      justify-items:stretch;
+      align-content:center;
+      gap:5px;
+      text-align:right;
+    }
+    .fgd-flag{justify-content:flex-end;margin-bottom:0;line-height:1.35;}
+    .card-fgd .deadline,.card-fgd .no-deadline{justify-self:end;max-width:100%;text-align:right;}
+    .offer-btn{width:100%;justify-content:center;margin-top:4px;padding:10px 8px;font-size:12px;}
+    .card-toprow{gap:7px;}
+    .entity-name{font-size:1.08rem;}
+    .product-name{font-size:12.5px;}
+    .badge{font-size:9.5px;padding:3px 7px;}
+    .card-desc{font-size:13px;line-height:1.5;}
+    .card-conditions{gap:10px 12px;}
+    .cond{font-size:11.5px;}
+    .card-detail-body>p,.card-cap-detail{font-size:12.5px;overflow-wrap:anywhere;}
+    .method{padding:22px 0;}
+    footer{padding:26px 0 36px;}
+  }
+  @media (max-width:380px){
+    .brandmark-text{font-size:16px;}
+    .header-nav{gap:5px;}
+    .header-nav a{font-size:11.5px;}
+    .card{padding:14px;grid-template-columns:minmax(0,0.85fr) minmax(0,1.15fr);}
+    .rate-num{font-size:1.4rem;}
+    .offer-btn{font-size:11.5px;}
+  }
+
 </style>
 </head>
 <body>
