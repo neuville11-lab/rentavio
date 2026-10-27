@@ -214,8 +214,13 @@
   .sim-allocation-conditions span{font-size:11px;color:var(--ink-faint);}
   .sim-allocation-conditions b{font-family:var(--mono);color:var(--ink);margin-right:5px;}
   .sim-allocation-verdict{border-left:2px solid var(--teal-soft-line);padding-left:8px;}
-  .sim-allocation-promo{font-weight:700;color:var(--teal);text-decoration:none;font-size:11.5px;}
-  .sim-allocation-promo:hover{text-decoration:underline;}
+  .sim-allocation-promo{
+    display:inline-flex;align-items:center;justify-content:center;gap:4px;
+    margin-top:9px;padding:8px 13px;border-radius:9px;
+    background:var(--teal);color:#fff;text-decoration:none;white-space:nowrap;
+    font:600 12px var(--sans);transition:all .15s ease;
+  }
+  .sim-allocation-promo:hover{background:var(--ink);transform:translateY(-1px);}
   .sim-card-yield{margin:12px 0;padding-top:10px;border-top:1px solid var(--line);font-size:12px;line-height:1.7;color:var(--ink-dim);}
   .sim-card-yield strong{font-family:var(--mono);color:var(--ink);}
   @media(max-width:640px){.sim-allocation-row{grid-template-columns:1fr 1fr}.sim-allocation-head{display:none;}}
@@ -5840,7 +5845,7 @@ document.getElementById('simBtn').addEventListener('click',()=>{
   if(!allocations.length){result.innerHTML='<div class="sim-empty">No encontramos una combinación compatible con los límites de importe conocidos.</div>';return;}
   const rows=allocations.map(a=>{
     const conditions=(a.item.condiciones||[]).map(([label,value])=>`<span><b>${label}</b>${value}</span>`).join('');
-    const promo=a.item.url?`<a class="sim-allocation-promo" href="${a.item.url}" target="_blank" rel="noopener noreferrer">Ir a la promoción →</a>`:'<span class="sim-tax-note">Consulta la web de la entidad para ver la oferta vigente.</span>';
+    const promo=a.item.url?`<a class="sim-allocation-promo" href="${a.item.url}" target="_blank" rel="noopener noreferrer">Ver oferta →</a>`:'<span class="sim-tax-note">Consulta la web de la entidad para ver la oferta vigente.</span>';
     return `<div class="sim-allocation-row"><span>${a.item.entidad}<br><small>${a.item.producto} · ${fmtSimRate(a.item)}</small><details class="sim-allocation-details"><summary>Ver condiciones</summary><div class="sim-allocation-detail-body"><p>${a.item.desc||''}</p>${conditions?`<div class="sim-allocation-conditions">${conditions}</div>`:''}${a.item.verdict?`<p class="sim-allocation-verdict">${a.item.verdict}</p>`:''}</div></details>${promo}</span><strong>${simMoney(a.amount)}</strong><span>Bruto: <strong>${simMoney(a.gross)}</strong></span><span>Neto: <strong>${simMoney(a.gross*0.81)}</strong></span></div>`;
   }).join('');
   const warning=left>0.009?`<div class="sim-warning">Quedan ${simMoney(left)} sin asignar: no hemos encontrado otro límite verificado que admita ese importe.</div>`:'';
