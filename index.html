@@ -6719,12 +6719,12 @@ function render(){
               <div class="card-conditions">${condHtml}</div>
               <p class="card-cap-detail"><strong>${item.rateLabel}:</strong> ${item.cap}</p>
               <div class="card-verdict">${item.verdict}</div>
-              <div class="dif-row" title="${difInfo.label}: ${difInfo.desc}">
-                <span class="dif-bars">${difBars}</span>
-                <span class="dif-label" style="color:${difInfo.color}">${difInfo.label}</span>
-              </div>
             </div>
           </details>
+          <div class="dif-row" title="${difInfo.label}: ${difInfo.desc}">
+            <span class="dif-bars" aria-hidden="true">${difBars}</span>
+            <span class="dif-label" style="color:${difInfo.color}">${difInfo.label}</span>
+          </div>
         </div>
         <div class="card-rate">
           <div class="rate-num ${item.cat === 'nomina' ? 'rust' : ''}">${fmtRate(item)}</div>
