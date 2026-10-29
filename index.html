@@ -1230,6 +1230,13 @@
         </div>
       </div>
       <div class="chip-group">
+        <span class="chip-group-label">Tipo de banco</span>
+        <div class="chip-set" id="filterTipo" data-value="todos">
+          <button class="chip" data-value="tradicional">Banca tradicional</button>
+          <button class="chip" data-value="neobanco">Neobancos</button>
+        </div>
+      </div>
+      <div class="chip-group">
         <span class="chip-group-label">Facilidad</span>
         <div class="chip-set" id="filterDificultad" data-value="todos">
           <button class="chip" data-value="facil">Fácil</button>
@@ -6606,6 +6613,7 @@ let activeCat = "todos";
 
 let activeDificultad = "todos";
 let activeNomina = "todos";
+let activeTipo = "todos";
 let activeSort = "rate";
 
 const mobileFilterToggle = document.getElementById('mobileFilterToggle');
@@ -6674,6 +6682,7 @@ function render(){
     if(activeCat !== "todos" && d.cat !== activeCat) return false;
     if(activeNomina === "sin" && d.requiereNomina === true) return false;
     if(activeNomina === "con" && d.requiereNomina !== true) return false;
+    if(activeTipo !== "todos" && d.tipo !== activeTipo) return false;
     if(activeDificultad === "facil" && (d.dificultad || 1) > 2) return false;
     if(activeDificultad === "moderada" && (d.dificultad || 1) !== 3) return false;
     if(activeDificultad === "dificil" && (d.dificultad || 1) < 4) return false;
@@ -6783,6 +6792,14 @@ document.getElementById('filterNomina').addEventListener('click', e => {
   if(!chip) return;
   activeNomina = chip.dataset.value === activeNomina ? "todos" : chip.dataset.value;
   setChipGroup('filterNomina', activeNomina);
+  render();
+});
+
+document.getElementById('filterTipo').addEventListener('click', e => {
+  const chip = e.target.closest('.chip');
+  if(!chip) return;
+  activeTipo = chip.dataset.value === activeTipo ? "todos" : chip.dataset.value;
+  setChipGroup('filterTipo', activeTipo);
   render();
 });
 
