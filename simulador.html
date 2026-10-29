@@ -5853,14 +5853,12 @@ function simSummaryHtml(amount,gross,months){
   </section>`;
 }
 function simCardHtml(item,amount,months,index){
-  const gross=simGrossInterest(item,amount,months),b=simBounds(item),cap=b.max===Infinity?'Sin tope publicado':'Máximo '+simMoney(b.max);
   const conditions=Array.isArray(item.condiciones)?item.condiciones.map(pair=>`<div class="sim-condition-item"><span>${pair[0]}</span><strong>${pair[1]}</strong></div>`).join(''):'';
   const deadline=item.deadline?`<div class="sim-card-detail-deadline"><strong>Vigencia:</strong> ${item.deadline}</div>`:'';
   return `<article class="sim-card ${index===0?'sim-best':''}">
     ${index===0?'<span class="sim-rank">Mejor opción elegible</span>':''}
     <div class="sim-entity">${LOGOS[item.entidad]?'<img src="'+LOGOS[item.entidad]+'" alt="">':''}${item.entidad}</div>
     <div class="sim-product">${item.producto}</div><div class="sim-rate">${fmtSimRate(item)}</div><div class="sim-rate-label">TAE publicada</div>
-    <div class="sim-card-yield">En ${months} meses: intereses brutos <strong>${simMoney(gross)}</strong><br>Intereses netos estimados <strong>${simMoney(gross*0.81)}</strong><br>Total bruto <strong>${simMoney(amount+gross)}</strong> · total neto <strong>${simMoney(amount+gross*0.81)}</strong><br>Tope de inversión: <strong>${cap}</strong></div>
     <details class="sim-card-details"><summary>Ver detalle</summary><div class="sim-card-detail-body">
       <p class="sim-card-detail-intro">${item.desc||'Consulta los datos y condiciones publicados por la entidad.'}</p>
       ${conditions?`<div class="sim-condition-grid" aria-label="Condiciones principales">${conditions}</div>`:''}
