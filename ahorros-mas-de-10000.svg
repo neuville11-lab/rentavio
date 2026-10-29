@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
-<title id="title">Más de 10.000 euros: una cuenta o varias</title>
+<title id="title">20.000 euros: cómo repartir el ahorro</title>
 <desc id="desc">Ilustración de dos cuentas de ahorro remuneradas y monedas, para representar cómo repartir ahorros entre entidades.</desc>
 <defs>
  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0E6B5C"/><stop offset="1" stop-color="#073D35"/></linearGradient>
@@ -13,7 +13,7 @@
 <g font-family="Inter,Arial,sans-serif">
  <rect x="72" y="70" width="42" height="42" rx="12" fill="#00C896"/><path d="M85 99V82h8c4 0 6 2 6 5 0 3-2 5-5 5l6 7" fill="none" stroke="#073D35" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
  <text x="127" y="98" fill="#D6EEE6" font-size="17" font-weight="700" letter-spacing="2">RENTAVIO · GUÍA PRÁCTICA</text>
- <text x="72" y="218" fill="#FFFFFF" font-size="66" font-weight="800" letter-spacing="-3">Más de 10.000 €</text>
+ <text x="72" y="218" fill="#FFFFFF" font-size="66" font-weight="800" letter-spacing="-3">20.000 €</text>
  <text x="76" y="278" fill="#A8E6D2" font-size="32" font-weight="700">¿Una cuenta o varias?</text>
  <text x="76" y="330" fill="#D6EEE6" font-size="22">Cómo repartir tus ahorros según los límites,</text>
  <text x="76" y="362" fill="#D6EEE6" font-size="22">el tipo y las condiciones de cada cuenta.</text>
