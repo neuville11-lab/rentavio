@@ -80,6 +80,10 @@ const PROMOS=[
 ];
 const REWARDS={"Urbanitae":{eur:180},"Equito App":{eur:400},"Domoblock":{eur:50},"Mintos":{eur:35},"Coinbase":{eur:20},"Deblock":{eur:20},"Kraken":{eur:20},"Kriptomat":{eur:35},"Krak":{usd:10},"Quantfury":{usd:250},"MyInvestor":{eur:25},"N26":{eur:20},"imagin":{eur:25},"bunq":{eur:70},"Openbank":{eur:100},"Trade Republic":{eur:300},"Octopus Energy":{eur:50},"AirCash":{eur:5}};
 PROMOS.forEach(p=>Object.assign(p,REWARDS[p.brand]||{}));
+function conditionsMarkup(p){
+ if(p.brand==="Urbanitae") return '<div class="promo-conditions"><div class="promo-conditions-head"><strong>Condiciones de la promoción</strong><span class="promo-validity">Hasta el 31 de diciembre</span></div><div class="promo-tranches"><div class="promo-tranche"><small>Tramo 1</small><strong>60 €</strong><span>50 € + 10 € extra</span></div><div class="promo-tranche"><small>Tramo 2</small><strong>120 €</strong><span>100 € + 20 € extra</span></div><div class="promo-tranche"><small>Tramo 3</small><strong>180 €</strong><span>150 € + 30 € extra</span></div></div><div class="promo-meta"><div class="promo-meta-row"><span class="promo-meta-icon">▣</span><div><strong>Inversión mínima</strong><span>Necesaria para participar · 500 €</span></div></div><div class="promo-meta-row"><span class="promo-meta-icon">◷</span><div><strong>Promoción temporal</strong><span>Después del 31 de diciembre, la bonificación se reduce a la mitad.</span></div></div></div></div>';
+ return '<div class="promo-conditions"><div class="promo-conditions-head"><strong>Condiciones de la promoción</strong></div><p class="promo-desc">'+p.detail+'</p></div>';
+}
 const money=(value,currency)=>new Intl.NumberFormat("es-ES",{style:"currency",currency,maximumFractionDigits:0}).format(value||0);
 function updateSimulator(){
  let eur=0,usd=0;
@@ -96,7 +100,7 @@ function render(){
  const items=PROMOS.filter(p=>(active==="all"||p.category===active)&&(!term||(p.brand+" "+p.reward+" "+p.detail+" "+p.label).toLocaleLowerCase("es").includes(term)));
  count.textContent=items.length+" "+(items.length===1?"promoción":"promociones");
  empty.style.display=items.length?"none":"block";
- grid.innerHTML=items.map(p=>'<article class="promo"><div class="promo-head"><span class="avatar" aria-hidden="true">'+(p.logo?'<img src="'+p.logo+'" alt="" loading="lazy">':p.initials)+'</span><div class="promo-name"><h2>'+p.brand+'</h2><span class="category">'+p.label+'</span></div></div><p class="bonus">'+p.reward+'</p><details class="promo-details"><summary>Ver todos los detalles</summary><p class="promo-desc">'+p.detail+'</p></details><div class="promo-foot"><label class="promo-select"><input type="checkbox" data-promo-select="'+p.brand+'" '+(selected.has(p.brand)?"checked":"")+'>Incluir en simulación</label><a class="offer-btn" href="'+p.url+'" target="_blank" rel="noopener noreferrer">Ver promoción <span aria-hidden="true">↗</span></a></div></article>').join("");
+ grid.innerHTML=items.map(p=>'<article class="promo"><div class="promo-head"><span class="avatar" aria-hidden="true">'+(p.logo?'<img src="'+p.logo+'" alt="" loading="lazy">':p.initials)+'</span><div class="promo-name"><h2>'+p.brand+'</h2><span class="category">'+p.label+'</span></div></div><p class="bonus">'+p.reward+'</p><details class="promo-details"><summary>Ver todos los detalles</summary>'+conditionsMarkup(p)+'</details><div class="promo-foot"><label class="promo-select"><input type="checkbox" data-promo-select="'+p.brand+'" '+(selected.has(p.brand)?"checked":"")+'>Incluir en simulación</label><a class="offer-btn" href="'+p.url+'" target="_blank" rel="noopener noreferrer">Ver promoción <span aria-hidden="true">↗</span></a></div></article>').join("");
  updateSimulator();
 }
 grid.addEventListener("change",event=>{const input=event.target.closest("[data-promo-select]");if(!input)return;if(input.checked)selected.add(input.dataset.promoSelect);else selected.delete(input.dataset.promoSelect);updateSimulator()});
