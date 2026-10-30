@@ -47,6 +47,17 @@ footer{border-top:1px solid var(--line);padding:24px 0 38px;color:var(--faint);f
 </div></main>
 <footer><div class="wrap foot-row"><span>© Rentavio · Promociones</span><span>Rentavio puede recibir una compensación si te registras desde algunos enlaces. Esto no cambia el coste para ti, salvo que se indique lo contrario.</span></div></footer>
 <script>
+const search=document.getElementById("search");
+const grid=document.getElementById("cards");
+const empty=document.getElementById("empty");
+const count=document.getElementById("promoCount");
+const eurOutput=document.getElementById("estimatedEUR");
+const usdOutput=document.getElementById("estimatedUSD");
+const selectionEmpty=document.getElementById("selectionEmpty");
+const selectedList=document.getElementById("selectedList");
+const clearSelection=document.getElementById("clearSelection");
+const selected=new Set();
+
 const PROMOS=[
 {brand:"Urbanitae",initials:"Ur",category:"crowdfunding",label:"Crowdfunding e inversión",reward:"Hasta 90 €",detail:"Regístrate con el enlace referido y realiza una inversión en un proyecto de Urbanitae. Rango 1: 30 €; Rango 2: 60 €; Rango 3: 90 €. Inversión mínima: 500 €.",url:"https://urbanitae.com/es/invitado?access=U149406"},
 {brand:"Equito App",initials:"Eq",category:"crowdfunding",label:"Crowdfunding e inversión",reward:"Hasta 300 € + hasta 100 € del canal",detail:"La recompensa depende de la promoción. Revisa en el enlace las condiciones de alta e inversión.",url:"https://t.me/dinerointeligenteoficial/66"},
