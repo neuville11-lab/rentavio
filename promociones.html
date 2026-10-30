@@ -59,7 +59,7 @@ const clearSelection=document.getElementById("clearSelection");
 const selected=new Set();
 
 const PROMOS=[
-{brand:"Urbanitae",initials:"Ur",category:"crowdfunding",label:"Crowdfunding e inversión",reward:"Hasta 90 €",detail:"Regístrate con el enlace referido y realiza una inversión en un proyecto de Urbanitae. Rango 1: 30 €; Rango 2: 60 €; Rango 3: 90 €. Inversión mínima: 500 €.",url:"https://urbanitae.com/es/invitado?access=U149406"},
+{brand:"Urbanitae",initials:"Ur",category:"crowdfunding",label:"Crowdfunding e inversión",reward:"Hasta 180 €",detail:"Regístrate con el enlace referido y realiza una inversión en un proyecto de Urbanitae. Promoción válida hasta el 31 de diciembre: Rango 1: 50 € + 10 € = 60 €; Rango 2: 100 € + 20 € = 120 €; Rango 3: 150 € + 30 € = 180 €. Inversión mínima: 500 €. Después de esa fecha, la bonificación se reduce a la mitad.",url:"https://urbanitae.com/es/invitado?access=U149406"},
 {brand:"Equito App",initials:"Eq",category:"crowdfunding",label:"Crowdfunding e inversión",reward:"Hasta 300 € + hasta 100 € del canal",detail:"La recompensa depende de la promoción. Revisa en el enlace las condiciones de alta e inversión.",url:"https://t.me/dinerointeligenteoficial/66"},
 {brand:"Domoblock",initials:"Do",category:"crowdfunding",label:"Crowdfunding e inversión",reward:"50 € en la segunda inversión",detail:"Promoción compartida para una segunda inversión. Consulta los requisitos y condiciones en el enlace.",url:"https://t.me/dinerointeligenteoficial/106"},
 {brand:"Mintos",initials:"Mi",category:"crowdfunding",label:"Crowdfunding e inversión",reward:"35 € al invertir 1.000 €",detail:"La recompensa indicada requiere una inversión de 1.000 €. Comprueba en el enlace la elegibilidad y las condiciones vigentes.",url:"https://t.me/dinerointeligenteoficial/315"},
@@ -78,7 +78,7 @@ const PROMOS=[
 {brand:"Octopus Energy",initials:"Oc",category:"energy",label:"Energía",reward:"50 €",detail:"Te llevas 50 € directos en tu cuenta al cambiarte. Energía 100 % renovable y tarifas claras y transparentes. Sube tu factura en el formulario de Octopus para comprobar cuánto podrías ahorrar. Revisa las condiciones y la vigencia antes de contratar.",url:"https://share.octopusenergy.es/neat-duck-186"},
 {brand:"AirCash",initials:"Ac",category:"other",label:"Otros",reward:"5 €",detail:"Consulta el enlace para ver los requisitos y la vigencia de la promoción.",url:"https://t.me/dinerointeligenteoficial/83"}
 ];
-const REWARDS={"Urbanitae":{eur:90},"Equito App":{eur:400},"Domoblock":{eur:50},"Mintos":{eur:35},"Coinbase":{eur:20},"Deblock":{eur:20},"Kraken":{eur:20},"Kriptomat":{eur:35},"Krak":{usd:10},"Quantfury":{usd:250},"MyInvestor":{eur:25},"N26":{eur:20},"imagin":{eur:25},"bunq":{eur:70},"Openbank":{eur:100},"Trade Republic":{eur:300},"Octopus Energy":{eur:50},"AirCash":{eur:5}};
+const REWARDS={"Urbanitae":{eur:180},"Equito App":{eur:400},"Domoblock":{eur:50},"Mintos":{eur:35},"Coinbase":{eur:20},"Deblock":{eur:20},"Kraken":{eur:20},"Kriptomat":{eur:35},"Krak":{usd:10},"Quantfury":{usd:250},"MyInvestor":{eur:25},"N26":{eur:20},"imagin":{eur:25},"bunq":{eur:70},"Openbank":{eur:100},"Trade Republic":{eur:300},"Octopus Energy":{eur:50},"AirCash":{eur:5}};
 PROMOS.forEach(p=>Object.assign(p,REWARDS[p.brand]||{}));
 const money=(value,currency)=>new Intl.NumberFormat("es-ES",{style:"currency",currency,maximumFractionDigits:0}).format(value||0);
 function updateSimulator(){
