@@ -1207,7 +1207,7 @@ footer{border-color:var(--line)}
   </div>
 </div>
 
-<div class="trust-strip"><div class="trust-caption">DECIDE CON MEJORES DATOS</div><div><b>125</b> ofertas comparadas</div><div><b>Mensual</b> revisión de datos</div><div><b>Claridad</b> en requisitos y límites</div></div><section class="blog-preview wrap" id="blogPreview" aria-labelledby="blogPreviewTitle">
+<div class="trust-strip"><div class="trust-caption">DECIDE CON MEJORES DATOS</div><div><b id="offerCount">0</b> ofertas activas comparadas</div><div><b>Mensual</b> revisión de datos</div><div><b>Claridad</b> en requisitos y límites</div></div><section class="blog-preview wrap" id="blogPreview" aria-labelledby="blogPreviewTitle">
   <div class="blog-preview-head"><div><span class="blog-eyebrow">IDEAS CLARAS PARA CUIDAR TUS AHORROS</span><h2 id="blogPreviewTitle">Desde el blog de Rentavio</h2><p>Guías y análisis para comparar con más contexto.</p></div><a href="https://rentavio.xyz/blog.html" class="blog-more">Ver todos los artículos →</a></div>
   <div class="blog-preview-grid">
     <a class="blog-preview-card" href="https://rentavio.xyz/deposito-finantia-325-tae-50000.html"><span class="blog-art art-chart"><span class="art-line"></span><span class="art-points">3,25% <small>TAE</small></span></span><span class="blog-meta">29 OCT 2026 <i>·</i> 5 MIN <i>·</i> DEPÓSITOS</span><h3>Un 3,25 % TAE que no es para todos: el depósito de Finantia exige 50.000 €</h3><p>Comparamos el mínimo, la liquidez, el plazo y cuánto se gana realmente.</p><span class="blog-read">Leer el análisis ↗</span></a>
@@ -7072,6 +7072,8 @@ const DIFICULTAD_INFO = {
 };
 
 function render(){
+  const offerCount = document.getElementById('offerCount');
+  if(offerCount) offerCount.textContent = DATA.length.toLocaleString('es-ES');
   let filtered = DATA.filter(d => {
     if(activeCat !== "todos" && d.cat !== activeCat) return false;
     if(activeNomina === "sin" && d.requiereNomina === true) return false;

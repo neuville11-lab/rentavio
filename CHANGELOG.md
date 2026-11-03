@@ -12,6 +12,7 @@ Se reorganizaron las fichas para que **Cuentas con bonificación** muestre únic
 - **Unicaja y Bankinter:** se quitaron los tipos de interés de las fichas de bonificación; sus tipos se mantienen en Cuentas remuneradas. [Unicaja](https://www.unicajabanco.es/es/cuenta-online) · [Bankinter](https://www.bankinter.com/webcorporativa/sala-de-comunicacion/noticias/negocio/bankinter-eleva-al-3--tae-la-remuneracion-de-su-cuenta-digital-y-mantiene-el-incentivo-adicional-de-hasta-600-euros-por-domiciliacion-de-nomina).
 
 El simulador mantiene separados los incentivos de nómina y calcula las cuentas remuneradas con rendimiento por saldo, incluidos los tramos temporales de Ibercaja y los pagos por saldo de BBVA y Globalcaja. Revisión de estructura: 04/11/2026.
+El contador de ofertas activas del encabezado se calcula directamente desde el catálogo activo y se mantiene sincronizado con las fichas publicadas.
 
 ## 4 de noviembre de 2026 — condiciones bancarias (documento base: 30/10/2026)
 
