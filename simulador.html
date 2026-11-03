@@ -408,7 +408,26 @@
   }
 
 </style>
-</head>
+<style id="rentavio-simulator-sage">
+:root{--bg:#fafcf9;--bg-raised:#fff;--bg-soft:#f0f4ee;--line:#e5ebe4;--line-strong:#d3ddd2;--ink:#1a2b22;--ink-dim:#53645a;--ink-faint:#78867c;--teal:#174d3a;--teal-bright:#a5d782;--teal-soft:#eaf2e8;--teal-soft-line:#cfe0cb;--amber:#ad6c35;--amber-soft:#fbf0e5;--shadow-sm:0 2px 8px #1b38210a;--shadow-md:0 8px 24px #1b382112}
+body{background:var(--bg);color:var(--ink)}
+header{background:rgba(250,252,249,.94);border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}
+.brandmark-icon rect{fill:#174d3a}.brandmark-icon path{stroke:#fff}.brandmark-icon circle{fill:#a5d782}
+.header-nav a{color:var(--ink-faint)}.header-nav a.active,.header-nav a:hover{color:var(--teal)}
+.page-banner{max-width:1180px;margin:20px auto 0;padding:38px 42px;border:1px solid #174d3a15;border-radius:26px;background:linear-gradient(125deg,#edf3eb 0%,#e7f0e4 64%,#dbe8d8 100%);color:var(--ink)}
+.page-banner h1{color:var(--ink);font-size:clamp(34px,4.2vw,52px);letter-spacing:-.05em}.page-banner p{max-width:740px;color:#53645a;line-height:1.7}
+.simulador-section{padding:28px 0 64px}.simulador{border:1px solid var(--line);border-radius:22px;background:#fff;box-shadow:0 14px 38px #1b382110;padding:28px}
+.simulador-form{gap:18px}.simulador-field{border:1px solid #e5ebe4;border-radius:16px;background:#fff;padding:18px}.simulador-field label{color:#405248;font-weight:700}
+.sim-slider-value{color:var(--teal)}input[type=range]{accent-color:var(--teal)}.sim-manual-amount input,.sim-select{border:1px solid var(--line-strong);border-radius:10px;background:#fbfcf9;color:var(--ink)}
+.chip{border:1px solid var(--line-strong);border-radius:999px;background:#f5f7f3;color:var(--ink-dim)}.chip.active{border-color:var(--teal);background:var(--teal);color:white}
+.simulador-btn{border-radius:12px;background:var(--teal);color:white;box-shadow:0 8px 18px #174d3a20}.simulador-btn:hover{background:#236747}
+.sim-summary{border-color:var(--line);border-radius:18px;background:#fff}.sim-summary-item,.sim-result-grid,.sim-allocation{border-color:var(--line)}.sim-summary-item.highlight,.sim-best{background:#eaf2e8;border-color:#cfe0cb}
+.sim-card,.sim-allocation-row{border-color:var(--line);border-radius:16px;background:white}.sim-rate,.sim-result{color:var(--teal)}
+.sim-tax-note{background:#eef4eb;border-color:#cfe0cb;color:#53645a}.sim-warning{background:#fbf0e5;border-color:#f0d9c3;color:#805637}
+.sim-link{color:var(--teal)}.sim-empty{background:#f5f7f3;border-color:var(--line)}
+footer{border-color:var(--line);color:var(--ink-faint)}
+@media(max-width:760px){.page-banner{margin:10px 12px 0;padding:28px 22px;border-radius:20px}.simulador-section{padding:18px 0 42px}.simulador{padding:17px;border-radius:18px}.simulador-field{padding:15px}}
+</style></head>
 <body>
 
 <header>
@@ -425,7 +444,7 @@
     <nav class="header-nav">
       <a href="index.html" class="active">Cuentas y depósitos</a>
       <a href="promociones.html">Promociones</a>
-      <a href="blog.html" class="nav-notas">Blog<span class="notas-pulse"></span></a>
+      <a href="https://rentavio.xyz/blog.html" class="nav-notas">Blog<span class="notas-pulse"></span></a>
     </nav>
   </div>
 </header>
@@ -5928,3 +5947,4 @@ document.getElementById('simBtn').addEventListener('click',()=>{
 
 </body>
 </html>
+
