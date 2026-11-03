@@ -1063,6 +1063,63 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebSite","name":"Rentavio","alternateName":"Rentavio comparador bancario","url":"https://rentavio.xyz/","inLanguage":"es-ES"}
 </script>
+<style id="rentavio-visual-refresh">
+:root{--bg:#fafcf9;--bg-raised:#fff;--bg-soft:#f0f4ee;--line:#e5ebe4;--line-strong:#d3ddd2;--ink:#1a2b22;--ink-dim:#53645a;--ink-faint:#78867c;--teal:#174d3a;--teal-bright:#a5d782;--teal-soft:#eaf2e8;--teal-soft-line:#cfe0cb;--amber:#ad6c35;--amber-soft:#fbf0e5;--shadow-sm:0 2px 8px #1b38210a;--shadow-md:0 8px 24px #1b382112;--shadow-lg:0 22px 55px #1b38211b}
+body{background:var(--bg);color:var(--ink)}
+header{background:rgba(250,252,249,.92);border-color:var(--line);backdrop-filter:blur(14px)}
+.brandmark-icon{filter:saturate(.8)}
+.header-nav a{color:var(--ink-faint)}
+.header-nav a.active,.header-nav a:hover,.header-nav .promo-nav{color:var(--teal)!important}
+.hero-banner{position:relative;isolation:isolate;max-width:1180px;margin:22px auto 0;padding:0 28px;border:1px solid #153f3020;border-radius:28px;overflow:hidden;background:linear-gradient(118deg,#153f30 0%,#1d5a40 62%,#45734e 100%);box-shadow:0 20px 48px #1b38211b}
+.hero-banner::after{content:"€";position:absolute;z-index:-1;right:8%;top:50%;transform:translateY(-50%);width:255px;height:255px;border-radius:50%;display:grid;place-items:center;border:1px solid #ffffff38;background:radial-gradient(circle at 35% 30%,#ffffff35,#d8edcc10 70%);color:#e5f2cf76;font:600 152px/1 var(--sans);box-shadow:0 0 0 22px #ffffff08,0 0 0 45px #ffffff05}
+.hero-banner-inner{min-height:320px;max-width:1124px;padding:34px 0;display:flex;align-items:center;justify-content:space-between;gap:44px}
+.hero-banner-text{position:relative;z-index:2;max-width:590px}
+.hb-title{display:block;max-width:600px;color:#fff;font:700 clamp(36px,4.6vw,58px)/1.04 var(--sans);letter-spacing:-.055em}
+.hb-sub{display:block;max-width:500px;margin-top:17px;color:#e0ece1;font-size:15px;line-height:1.65}
+.hb-cta{display:inline-flex;align-items:center;gap:10px;margin-top:23px;padding:12px 17px;border:1px solid #ffffff30;border-radius:11px;background:#ffffff;color:var(--teal);font-size:12px;font-weight:800;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.hb-cta:hover{transform:translateY(-2px);box-shadow:0 8px 20px #081d1230}
+.hero-banner-icons{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;gap:12px;flex:0 0 330px}
+.hb-icon{width:68px;height:68px;padding:13px;border:1px solid #ffffff38;border-radius:20px;background:#ffffff17;box-shadow:0 16px 30px #0c281627;backdrop-filter:blur(8px)}
+.hb-icon-1{transform:translateY(-19px) rotate(-7deg)}.hb-icon-2{transform:translateY(12px) rotate(5deg)}.hb-icon-3{transform:translateY(-5px) rotate(3deg)}
+.controls{background:rgba(250,252,249,.95);border-bottom:1px solid var(--line)}
+.tabs{gap:8px}
+.tab-btn{border:1px solid transparent;border-radius:999px;background:#eff3ed;color:var(--ink-dim);transition:all .18s ease}
+.tab-btn:hover{background:#e5eee2;color:var(--teal)}
+.tab-btn.active{background:var(--teal);color:white;box-shadow:0 5px 13px #174d3a24}
+.chip{border-color:var(--line);border-radius:999px;background:white}
+.chip.active{border-color:var(--teal-soft-line);background:var(--teal-soft);color:var(--teal)}
+.sort-toggle{border-radius:999px;background:#eef2ec}
+.sort-toggle button{border-radius:999px}
+.card{border:1px solid var(--line);border-radius:20px;background:#fff;box-shadow:var(--shadow-sm);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.card:hover{transform:translateY(-3px);border-color:#cbdcc9;box-shadow:var(--shadow-md)}
+.entity-name{color:var(--ink)}
+.card-rate{border-radius:16px;background:linear-gradient(145deg,#f4f8f1,#edf4eb)}
+.rate-num{color:var(--teal)}
+.card-details{border-top-color:var(--line)}
+.card-details summary{color:var(--teal)}
+.offer-btn{border-radius:10px;background:var(--teal);transition:background .18s ease,transform .18s ease}
+.offer-btn:hover{background:#236747;transform:translateY(-1px)}
+.promotions{background:linear-gradient(180deg,#f0f5ed 0%,var(--bg) 100%);border-top:0}
+.promo-card{border:1px solid var(--teal-soft-line);border-radius:22px;background:#fff;box-shadow:var(--shadow-md)}
+.promo-amount{color:var(--teal)}
+.promo-ranges span{border-radius:10px;background:var(--teal-soft);color:var(--teal)}
+.method-toggle{border-radius:14px;border-color:var(--line);background:#fff}
+footer{border-color:var(--line)}
+@media(max-width:760px){
+ .hero-banner{margin:12px 16px 0;padding:0 18px;border-radius:22px}
+ .hero-banner-inner{min-height:280px;gap:15px;padding:26px 0}
+ .hero-banner-text{max-width:100%}
+ .hb-title{font-size:clamp(34px,9vw,46px)}
+ .hb-sub{max-width:340px;font-size:13px}
+ .hero-banner-icons{flex:0 0 auto;gap:6px}
+ .hb-icon{width:44px;height:44px;padding:8px;border-radius:14px}
+ .hero-banner::after{right:-28px;width:150px;height:150px;font-size:92px}
+ .tabs{overflow-x:auto;scrollbar-width:none}
+ .tabs::-webkit-scrollbar{display:none}
+ .card{border-radius:17px}
+}
+@media(max-width:560px){.hero-banner{margin:10px 10px 0}.hero-banner-inner{min-height:290px}.hero-banner-icons{position:absolute;right:8px;bottom:18px;opacity:.8}.hero-banner::after{top:auto;bottom:-28px;right:-24px;transform:none}.hero-banner-text{padding-bottom:52px}.hb-title{max-width:340px}.hb-cta{margin-top:17px}.mobile-filter-toggle{border-radius:12px;background:white}.tab-btn{white-space:nowrap}}
+</style>
 </head>
 <body>
 
