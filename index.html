@@ -445,6 +445,9 @@
   .redo-wizard:hover{border-color:var(--line-strong);color:var(--ink);box-shadow:var(--shadow-md);}
 
   /* ---------- CONTROLS ---------- */
+  .revision-note{display:flex;align-items:center;gap:8px;margin:0 auto 10px;padding:10px 14px;border:1px solid var(--teal-soft-line);border-radius:12px;background:var(--teal-soft);color:var(--teal);font-size:12px;line-height:1.5;}
+  .revision-note strong{white-space:nowrap;}
+  @media(max-width:600px){.revision-note{align-items:flex-start;flex-direction:column;gap:2px;}}
   .controls{
     padding:32px 0 0;
     position:sticky;
@@ -1320,6 +1323,7 @@ footer{border-color:var(--line)}
   </div>
 </section>
 
+<div class="wrap"><p class="revision-note"><strong>Datos revisados: 30 oct 2026</strong><span>Condiciones contrastadas por Rentavio; intereses y bonificaciones en bruto salvo indicación expresa. Revisión siguiente prevista para el 12 nov 2026.</span></p></div>
 
 <div class="controls" id="controls">
   <div class="wrap">
@@ -1396,7 +1400,7 @@ footer{border-color:var(--line)}
         </div>
         <div>
           <h3>Actualización de datos</h3>
-          <p>Este mercado cambia mes a mes: las promociones tienen fecha de caducidad y los bancos ajustan tipos según el BCE. Condiciones aportadas por Rentavio actualizadas a 30 de octubre de 2026. Las ofertas pueden cambiar; confirma las condiciones en la web oficial de cada entidad antes de contratar.</p>
+          <p>Revisión de Rentavio: 30/10/2026. Condiciones verificadas por Rentavio en esa fecha; importes de intereses y bonificaciones en bruto salvo indicación expresa, y cada ficha distingue TAE/TIN cuando corresponde. Próxima actualización prevista: 12/11/2026. Las campañas y tipos pueden cambiar; confirma siempre las bases oficiales antes de contratar.</p>
         </div>
       </div>
     </div>
@@ -1459,26 +1463,30 @@ const DATA = [
     "tipo": "neobanco",
     "entidad": "Renault Bank",
     "producto": "Cuenta Contigo (nuevos clientes)",
-    "rate": 2.61,
-    "rateLabel": "TAE orientativa 1er año",
-    "desc": "Cuenta Contigo para nuevas altas: 3,00% TIN hasta 31/03/2027, según la campaña vigente. La rentabilidad anual estimada puede variar al finalizar el tipo promocional. Tipo base de la Cuenta Remunerada indicado en la documentación: 2,27% TAE.",
-    "cap": "Promoción temporal; consultar saldo máximo",
+    "rate": 3.04,
+    "rateLabel": "TAE promocional",
+    "desc": "Para nuevos clientes: 3,04% TAE hasta el 31/03/2027. Después se aplica el tipo vigente; la Cuenta Remunerada base figura al 2,27% TAE en la actualización del 30/10/2026.",
+    "cap": "Promoción para nuevos clientes; saldo máximo pendiente de confirmar",
     "condiciones": [
       [
-        "Campaña",
-        "3,00% TIN hasta 31/03/2027"
+        "Nuevo cliente",
+        "Requerido"
       ],
       [
-        "TAE periodo completo",
-        "Variable según tipo posterior"
+        "Tipo promocional",
+        "3,04% hasta 31/03/2027"
       ],
       [
-        "Cuenta base",
-        "2,27% TAE indicada"
+        "Después",
+        "Tipo vigente (2,27% indicado al 30/10/2026)"
+      ],
+      [
+        "Saldo máximo",
+        "Consultar ficha oficial"
       ]
     ],
     "verdict": "Separa el TIN promocional temporal de la TAE y del tipo base.",
-    "deadline": "Alta hasta 18/11/2026",
+    "deadline": "Hasta 31/03/2027",
     "top": false,
     "sinCondicion": false,
     "montoMin": 0,
@@ -1493,7 +1501,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://renaultbank.es/productos/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "remunerada",
@@ -1534,7 +1542,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.grupocooperativocajamar.es/es/particulares/productos-y-servicios/cuentas/cuenta-wefferent-ahorro/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "remunerada",
@@ -1575,7 +1583,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.pibank.es/cuenta-remunerada/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "remunerada",
@@ -1615,7 +1623,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 2,
-    "url": "https://indexacapital.com/es/esp/yield"
+    "url": "https://indexacapital.com/es/esp/yield",
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "remunerada",
@@ -1655,7 +1664,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 1,
-    "url": "https://www.bancobig.es/cuentas-big/gran-cuenta-remunerada/"
+    "url": "https://www.bancobig.es/cuentas-big/gran-cuenta-remunerada/",
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "remunerada",
@@ -1695,32 +1705,33 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 1,
-    "url": "https://www.bancopichincha.es/particulares/ahorro/cuenta-ahorro"
+    "url": "https://www.bancopichincha.es/particulares/ahorro/cuenta-ahorro",
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "remunerada",
     "tipo": "neobanco",
     "entidad": "WiZink",
     "producto": "Cuenta Remunerada",
-    "rate": 1.2,
+    "rate": 2.3,
     "rateLabel": "TAE",
-    "desc": "Sin condiciones de vinculación ni necesidad de ser nuevo cliente para esta remuneración base.",
-    "cap": "Sin tope público",
+    "desc": "Cuenta de ahorro al 2,30% TAE sin condiciones, según la actualización de Rentavio del 30/10/2026. Consulta el saldo máximo y las condiciones vigentes en la ficha oficial.",
+    "cap": "Consultar límite vigente",
     "condiciones": [
       [
-        "Saldo máx.",
-        "Sin tope público"
-      ],
-      [
-        "Permanencia",
-        "No"
+        "TAE",
+        "2,30%"
       ],
       [
         "Nómina",
-        "No"
+        "No requerida"
+      ],
+      [
+        "Disponibilidad",
+        "Cuenta de ahorro"
       ]
     ],
-    "verdict": "Modesta frente a las opciones de cabeza, pero estable y sin trampas de fecha límite.",
+    "verdict": "La documentación de Rentavio del 30/10/2026 eleva el tipo base comunicado al 2,30% TAE.",
     "deadline": null,
     "top": false,
     "sinCondicion": true,
@@ -1735,7 +1746,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 1,
-    "url": "https://www.wizink.es/public/productos-ahorro/cuenta-ahorro"
+    "url": "https://www.wizink.es/public/productos-ahorro/cuenta-ahorro",
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "remunerada",
@@ -1775,7 +1787,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 1,
-    "url": "https://www.selfbank.es/ahorrar/cuenta-ahorro-self"
+    "url": "https://www.selfbank.es/ahorrar/cuenta-ahorro-self",
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "remunerada",
@@ -1815,7 +1828,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 2,
-    "url": "https://www.ebnbanco.com/ahorro/cuenta-remunerada-ahorro/"
+    "url": "https://www.ebnbanco.com/ahorro/cuenta-remunerada-ahorro/",
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "remunerada",
@@ -1856,7 +1870,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://n26.com/es-es/cuenta-ahorro",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "remunerada",
@@ -1897,7 +1911,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.ing.es/cuenta-naranja",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "remunerada",
@@ -1905,25 +1919,29 @@ const DATA = [
     "entidad": "MyInvestor",
     "producto": "Cuenta Remunerada (nuevos clientes)",
     "rate": 2.5,
-    "rateLabel": "TAE hasta 70.000€",
-    "desc": "2,50% TAE para nuevos clientes o clientes existentes que incrementen su saldo al menos 1.000€, hasta 70.000€ de saldo nuevo, según la documentación recibida. Sin estas condiciones, la remuneración base indicada es 0,30%.",
+    "rateLabel": "TAE hasta 70.000€ de saldo nuevo",
+    "desc": "2,50% TAE para nuevos clientes o clientes que aumenten su saldo al menos 1.000€, hasta 70.000€ de saldo nuevo. Con el plan Premium, el tipo indicado sube al 2,60% y cuesta 7,99€/mes. Sin condiciones, la cuenta remunera al 0,30%.",
     "cap": "Hasta 70.000€ de saldo nuevo",
     "condiciones": [
       [
-        "Nuevo cliente / saldo nuevo",
+        "Nuevo cliente o saldo nuevo",
         "2,50% TAE"
       ],
       [
-        "Aumento mínimo",
+        "Incremento mínimo",
         "1.000€"
       ],
       [
-        "Tope",
+        "Saldo máximo bonificado",
         "70.000€"
       ],
       [
-        "Tipo base",
-        "0,30% TAE"
+        "Plan Premium",
+        "2,60%; 7,99€/mes"
+      ],
+      [
+        "Base",
+        "0,30%"
       ]
     ],
     "verdict": "Comprueba cómo define MyInvestor el saldo nuevo y que el importe remunerado corresponde al incremento elegible.",
@@ -1942,7 +1960,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://myinvestor.es/cuentas-tarjetas/cuentas/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "remunerada",
@@ -1983,7 +2001,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 2,
     "url": "https://www.revolut.com/es-ES/legal/IAS-Promotion-2026/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "remunerada",
@@ -1991,21 +2009,25 @@ const DATA = [
     "entidad": "Cajamar",
     "producto": "Cuenta Online (nuevos clientes + Bizum)",
     "rate": 2.27,
-    "rateLabel": "TAE hasta 50.000€",
-    "desc": "Cuenta Online para nuevos clientes. TAE del 2,27% hasta 50.000€; requiere activar Bizum. La promoción de nómina de Cajamar se muestra aparte.",
+    "rateLabel": "TAE hasta 50.000€ durante 1 año",
+    "desc": "Para nuevos clientes: 2,27% TAE hasta 50.000€ durante un año con Bizum activo. Después no remunera según la actualización del 30/10/2026. Compatible con la cuenta nómina de Cajamar.",
     "cap": "Hasta 50.000€",
     "condiciones": [
       [
         "Nuevo cliente",
-        "Sí"
-      ],
-      [
-        "Bizum",
         "Requerido"
       ],
       [
-        "Alta",
-        "Hasta 31/03/2027"
+        "Bizum",
+        "Activo"
+      ],
+      [
+        "Duración",
+        "1 año"
+      ],
+      [
+        "Después",
+        "0% según condiciones aportadas"
       ]
     ],
     "verdict": "La rentabilidad del saldo es independiente del bono por nómina; compara ambas condiciones por separado.",
@@ -2020,7 +2042,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 2,
-    "url": "https://www.grupocooperativocajamar.es/es/particulares/productos-y-servicios/cuentas/abrir-cuenta-online/"
+    "url": "https://www.grupocooperativocajamar.es/es/particulares/productos-y-servicios/cuentas/abrir-cuenta-online/",
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "remunerada",
@@ -2061,7 +2084,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 2,
     "url": "https://traderepublic.com/es-es/interes",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "remunerada",
@@ -2101,7 +2124,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 4,
-    "url": "https://www.bankinter.com/banca/cuentas-tarjetas/cuentas/cuenta-no-nomina"
+    "url": "https://www.bankinter.com/banca/cuentas-tarjetas/cuentas/cuenta-no-nomina",
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "remunerada",
@@ -2146,7 +2170,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 2,
     "url": "https://www.openbank.es/cuenta-remunerada",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "remunerada",
@@ -2154,29 +2178,33 @@ const DATA = [
     "entidad": "Bankinter",
     "producto": "Cuenta Digital (nuevos clientes)",
     "rate": 3,
-    "rateLabel": "TAE hasta 100.000€; alta hasta 28/10",
-    "desc": "Campaña oficial para nuevos clientes: 3,00% TAE hasta 100.000€ desde el primer euro, contratando del 15/09 al 28/10/2026. Tipo garantizado hasta el 30/04/2027. Hasta 600€ brutos adicionales por nómina desde 850€/mes durante 12 meses, según bases.",
+    "rateLabel": "TAE hasta 100.000€",
+    "desc": "Cuenta Digital para nuevas altas: 3,00% TAE hasta 100.000€, desde el primer euro y garantizada hasta el 30/04/2027. La campaña de contratación vigente en la fuente oficial consultada abarca del 29/10 al 11/11/2026. Hasta 600€ brutos adicionales por nómina/pensión elegible de al menos 850€/mes durante 12 meses.",
     "cap": "Hasta 100.000€",
     "condiciones": [
       [
-        "Campaña de alta",
-        "15/09–28/10/2026"
+        "TAE",
+        "3,00%"
       ],
       [
-        "Tipo",
-        "3,00% TAE"
+        "Saldo al tipo",
+        "Hasta 100.000€"
       ],
       [
-        "Garantizado hasta",
-        "30/04/2027"
+        "Garantía de tipo",
+        "Hasta 30/04/2027"
       ],
       [
-        "Nómina opcional",
-        "≥850€/mes; hasta 600€"
+        "Alta de campaña",
+        "29/10–11/11/2026"
+      ],
+      [
+        "Bono opcional",
+        "Hasta 600€ brutos con nómina ≥850€/mes"
       ]
     ],
     "verdict": "La comunicación oficial del 15/09 confirma 3% TAE hasta el 28 de octubre y garantía del tipo hasta el 30/04/2027. El bono por nómina es independiente.",
-    "deadline": "Nueva alta hasta 28/10/2026",
+    "deadline": "Alta hasta 11/11/2026",
     "top": true,
     "sinCondicion": false,
     "montoMin": 0,
@@ -2191,7 +2219,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 3,
     "url": "https://www.bankinter.com/webcorporativa/sala-de-comunicacion/noticias/negocio/bankinter-eleva-al-3--tae-la-remuneracion-de-su-cuenta-digital-y-mantiene-el-incentivo-adicional-de-hasta-600-euros-por-domiciliacion-de-nomina",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "remunerada",
@@ -2232,7 +2260,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 2,
     "url": "https://b100.es/es/banco/cuentas/cuenta-online/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "remunerada",
@@ -2273,33 +2301,33 @@ const DATA = [
     "extranjero": false,
     "dificultad": 4,
     "url": "https://b100.es/es/banco/cuentas/cuenta-online/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "remunerada",
     "tipo": "neobanco",
     "entidad": "Cetelem",
     "producto": "Cuenta Ahorro Cetelem",
-    "rate": 2.49,
-    "rateLabel": "TAE anual representativa; promo 3% TIN 3 meses",
-    "desc": "La página oficial consultada indica 3,00% TIN durante tres meses para nuevos clientes y 2,28% TIN después; sin límite ni condiciones. La TAE anual representativa publicada es 2,49%.",
-    "cap": "Sin límite indicado",
+    "rate": 3.04,
+    "rateLabel": "TAE promocional primeros 3 meses",
+    "desc": "Promoción para nuevos clientes al 3,04% TAE durante los 3 primeros meses; después, 2,30% TAE, según la actualización facilitada por Rentavio el 30/10/2026. Comprueba elegibilidad y tipos en la ficha oficial.",
+    "cap": "Nuevos clientes; saldo máximo según ficha oficial",
     "condiciones": [
       [
-        "Promoción inicial",
-        "3,00% TIN primeros 3 meses"
+        "Primeros 3 meses",
+        "3,04% TAE"
       ],
       [
         "Después",
-        "2,28% TIN según ficha"
+        "2,30% TAE"
       ],
       [
-        "TAE anual de ejemplo",
-        "2,49%"
+        "Elegibilidad",
+        "Nuevos clientes"
       ],
       [
-        "Nuevo cliente",
-        "Sí"
+        "Vigencia",
+        "Confirmar en la ficha oficial"
       ]
     ],
     "verdict": "Se utiliza la TAE anual representativa para el orden comparativo; el TIN promocional temporal no se compara como si fuera una TAE anual.",
@@ -2318,7 +2346,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 2,
     "url": "https://www.cetelem.es/cuenta-ahorro-cetelem",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "remunerada",
@@ -2363,33 +2391,37 @@ const DATA = [
     "extranjero": false,
     "dificultad": 4,
     "url": "https://cuentaonline.bancsabadell.com/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "remunerada",
     "tipo": "neobanco",
     "entidad": "Volkswagen Bank",
     "producto": "Cuenta Remunerada (nuevos clientes)",
-    "rate": 1.61,
-    "rateLabel": "TAE estimada primer año",
-    "desc": "La Cuenta de Alta Remuneración ofrece 2,10% TIN los primeros 6 meses y 1,094% TIN después; la TAE del primer año es 1,61%. Sin saldo máximo publicado.",
-    "cap": "Sin límite anunciado",
+    "rate": 2.12,
+    "rateLabel": "TAE primeros 6 meses",
+    "desc": "Para nuevos clientes: 2,12% TAE durante 6 meses; después, 1,10% según las condiciones aportadas por Rentavio el 30/10/2026. No se ha indicado un saldo máximo.",
+    "cap": "Sin límite anunciado en la documentación",
     "condiciones": [
       [
+        "Nuevo cliente",
+        "Requerido"
+      ],
+      [
         "Primeros 6 meses",
-        "2,10% TIN"
+        "2,12% TAE"
       ],
       [
         "Después",
-        "1,094% TIN"
+        "1,10%"
       ],
       [
-        "Liquidación",
-        "Mensual"
+        "Saldo máximo",
+        "No indicado"
       ]
     ],
     "verdict": "La TAE recoge el escalón de tipos durante el primer año; no confundas el 2,10% TIN inicial con una rentabilidad anual fija.",
-    "deadline": "6 meses desde apertura",
+    "deadline": null,
     "top": false,
     "sinCondicion": true,
     "montoMin": 0,
@@ -2400,7 +2432,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 2,
-    "url": "https://www.vwfs.es/banca/cuenta-de-alta-remuneracion.html"
+    "url": "https://www.vwfs.es/banca/cuenta-de-alta-remuneracion.html",
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "remunerada",
@@ -2440,7 +2473,8 @@ const DATA = [
     "requiereNomina": true,
     "extranjero": false,
     "dificultad": 3,
-    "url": "https://avantio.bancamarch.es/es/cuentas-y-depositos/cuenta-online/"
+    "url": "https://avantio.bancamarch.es/es/cuentas-y-depositos/cuenta-online/",
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "remunerada",
@@ -2480,7 +2514,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 2,
-    "url": "https://www.globalcaja.es/es/hazte-cliente"
+    "url": "https://www.globalcaja.es/es/hazte-cliente",
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "remunerada",
@@ -2520,7 +2555,8 @@ const DATA = [
     "requiereNomina": true,
     "extranjero": false,
     "dificultad": 3,
-    "url": "https://www.abanca.com/es/cuentas/cuenta-remunerada/"
+    "url": "https://www.abanca.com/es/cuentas/cuenta-remunerada/",
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "remunerada",
@@ -2565,7 +2601,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 2,
     "url": "https://portal.kutxabank.es/cs/Satellite/kb/es/particulares/cuenta-remunerada/pys",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "remunerada",
@@ -2605,7 +2641,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 3,
-    "url": "https://www.ebnbanco.com/ahorro/cuenta-remunerada-ahorro/"
+    "url": "https://www.ebnbanco.com/ahorro/cuenta-remunerada-ahorro/",
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "remunerada",
@@ -2646,29 +2683,37 @@ const DATA = [
     "extranjero": false,
     "dificultad": 4,
     "url": "https://www.bankinter.com/banca/cuentas-tarjetas/cuentas/cuenta-inteligente-digital",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "remunerada",
     "tipo": "neobanco",
     "entidad": "MyInvestor",
     "producto": "Cuenta Remunerada (plan premium o inversión)",
-    "rate": 2.5,
-    "rateLabel": "Hasta 2,50% TAE hasta 70.000€",
-    "desc": "MyInvestor remunera al 0,30% TAE sin inversión; 1,25% al invertir 300€/mes, 1,75% con 600€/mes y 2,50% con 900€/mes (o seguro elegible). Hasta 70.000€.",
-    "cap": "Hasta 70.000€",
+    "rate": 2.6,
+    "rateLabel": "Hasta 2,60% TAE hasta 70.000€",
+    "desc": "Plan Premium: 2,60% TAE sobre saldo nuevo si se incrementa al menos 1.000€, hasta 70.000€; el plan cuesta 7,99€/mes. Sin Premium: 2,50% para nuevos clientes o saldo nuevo y hasta 2,50% si se invierte más de 900€/mes en productos elegibles; el tipo base sin condiciones es 0,30%.",
+    "cap": "Hasta 70.000€ de saldo elegible",
     "condiciones": [
       [
-        "Sin inversión",
+        "Premium",
+        "2,60%; cuota 7,99€/mes"
+      ],
+      [
+        "Incremento mínimo",
+        "1.000€ de saldo"
+      ],
+      [
+        "Nuevos clientes/saldo nuevo",
+        "2,50%"
+      ],
+      [
+        "Inversión >900€/mes",
+        "Hasta 2,50%"
+      ],
+      [
+        "Base sin condiciones",
         "0,30%"
-      ],
-      [
-        "Inversión 300€/mes",
-        "1,25%"
-      ],
-      [
-        "Inversión 600/900€",
-        "1,75% / 2,50%"
       ]
     ],
     "verdict": "No pagues ni inviertas solo para mejorar el tipo: compara el coste y riesgo de esos productos con el interés adicional.",
@@ -2686,7 +2731,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 3,
-    "url": "https://myinvestor.es/cuentas-tarjetas/cuentas/"
+    "url": "https://myinvestor.es/cuentas-tarjetas/cuentas/",
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "remunerada",
@@ -2726,7 +2772,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 3,
-    "url": "https://www.selfbank.es/ahorrar/cuenta-ahorro-self"
+    "url": "https://www.selfbank.es/ahorrar/cuenta-ahorro-self",
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "remunerada",
@@ -2771,7 +2818,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 3,
     "url": "https://www.unicajabanco.es/es/cuenta-online",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "remunerada",
@@ -2811,7 +2858,8 @@ const DATA = [
     "requiereNomina": true,
     "extranjero": false,
     "dificultad": 3,
-    "url": "https://www.ing.es/cuenta-naranja"
+    "url": "https://www.ing.es/cuenta-naranja",
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "remunerada",
@@ -2851,7 +2899,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 3,
-    "url": "https://n26.com/es-es/cuenta-ahorro"
+    "url": "https://n26.com/es-es/cuenta-ahorro",
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "remunerada",
@@ -2892,7 +2941,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 3,
-    "url": "https://www.cetelem.es/cuenta-remunerada-suma"
+    "url": "https://www.cetelem.es/cuenta-remunerada-suma",
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "remunerada",
@@ -2958,7 +3008,7 @@ const DATA = [
       ]
     ],
     "verdict": "Comprueba el vencimiento inminente y la liquidez: no podrás recuperar el depósito antes del plazo.",
-    "deadline": "Condiciones hasta 25/10/2026",
+    "deadline": "Pendiente de confirmar: la ficha anterior señalaba fin el 25/10/2026",
     "top": false,
     "sinCondicion": true,
     "montoMin": 50000,
@@ -2969,7 +3019,9 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 2,
-    "url": "https://www.finantia.es/es/banca-personal/depositos-a-plazo/"
+    "url": "https://www.finantia.es/es/banca-personal/depositos-a-plazo/",
+    "actualizado": "30/10/2026",
+    "status": "unverified"
   },
   {
     "cat": "deposito",
@@ -3007,7 +3059,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://renaultbank.es/productos/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -3057,7 +3109,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.ebnbanco.com/ahorro/deposito-sinycon-plus/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -3095,7 +3147,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.bancobig.es/ahorrar/depositos-a-plazo-fijo/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -3137,7 +3189,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.cetelem.es/ahorro-y-depositos-cetelem/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -3174,7 +3226,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 1,
-    "url": "https://www.pibank.es/deposito-bancario-plazo-fijo/"
+    "url": "https://www.pibank.es/deposito-bancario-plazo-fijo/",
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -3211,7 +3264,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 1,
-    "url": "https://www.cajamar.es/es/particulares/productos-y-servicios/ahorro-e-inversion/depositos/deposito-hola/"
+    "url": "https://www.cajamar.es/es/particulares/productos-y-servicios/ahorro-e-inversion/depositos/deposito-hola/",
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -3248,7 +3302,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 2,
-    "url": "https://www.deutsche-bank.es/es/soluciones-db/deposito-confianza.html?&utm_source=web&utm_medium=cardweb&utm_campaign=depositoconfianza&utm_content=carddepositoconfianza"
+    "url": "https://www.deutsche-bank.es/es/soluciones-db/deposito-confianza.html?&utm_source=web&utm_medium=cardweb&utm_campaign=depositoconfianza&utm_content=carddepositoconfianza",
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -3286,7 +3341,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.bancopichincha.es/particulares/ahorro/deposito-pichincha",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -3323,7 +3378,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 1,
-    "url": "https://www.wizink.es/public/productos-ahorro/deposito-plazo-fijo"
+    "url": "https://www.wizink.es/public/productos-ahorro/deposito-plazo-fijo",
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -3360,7 +3416,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 1,
-    "url": "https://www.ing.es/depositos-naranja"
+    "url": "https://www.ing.es/depositos-naranja",
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -3397,7 +3454,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 1,
-    "url": "https://myinvestor.es/cuentas-tarjetas/depositos/"
+    "url": "https://myinvestor.es/cuentas-tarjetas/depositos/",
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -3439,7 +3497,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.selfbank.es/ahorrar/depositos",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -3469,7 +3527,7 @@ const DATA = [
       ]
     ],
     "verdict": "Tipo fijo y campaña temporal para dinero nuevo. Si cancelas antes de tiempo, pierdes el 75% de los intereses percibidos sobre la parte cancelada.",
-    "deadline": "Oferta hasta 31/10/2026",
+    "deadline": "Finalizó el 31/10/2026",
     "top": false,
     "sinCondicion": false,
     "montoMin": 20000,
@@ -3480,7 +3538,9 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 2,
-    "url": "https://cbnk.es/personas/depositos/Deposito-extra-a-12-meses"
+    "url": "https://cbnk.es/personas/depositos/Deposito-extra-a-12-meses",
+    "actualizado": "30/10/2026",
+    "status": "expired"
   },
   {
     "cat": "deposito",
@@ -3518,7 +3578,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.openbank.es/deposito-a-plazo-fijo",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -3556,7 +3616,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 2,
     "url": "https://www.openbank.es/deposito-a-plazo-fijo",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -3596,7 +3656,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 2,
-    "url": "https://www.laboralkutxa.com/es/personas/ahorro-inversion/depositos/deposito-bienvenida/"
+    "url": "https://www.laboralkutxa.com/es/personas/ahorro-inversion/depositos/deposito-bienvenida/",
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -3633,7 +3694,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 1,
-    "url": "https://www.caixabank.es/particular/ahorro/deposito-plazo-fijo.html?loce=sh-part-Ahorro-DescubreNuestrasFormasAhorro-4-destacado-Ahorro-DepositoBonificadoPlazoFijo-NA"
+    "url": "https://www.caixabank.es/particular/ahorro/deposito-plazo-fijo.html?loce=sh-part-Ahorro-DescubreNuestrasFormasAhorro-4-destacado-Ahorro-DepositoBonificadoPlazoFijo-NA",
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -3670,7 +3732,8 @@ const DATA = [
     "requiereNomina": "recomendada",
     "extranjero": false,
     "dificultad": 4,
-    "url": "https://www.deutsche-bank.es/es/soluciones-db/deposito-confianza.html?&utm_source=web&utm_medium=cardweb&utm_campaign=depositoconfianza&utm_content=carddepositoconfianza"
+    "url": "https://www.deutsche-bank.es/es/soluciones-db/deposito-confianza.html?&utm_source=web&utm_medium=cardweb&utm_campaign=depositoconfianza&utm_content=carddepositoconfianza",
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -3681,7 +3744,32 @@ const DATA = [
     "rateLabel": "TAE 3 meses para nuevos clientes",
     "desc": "Gran Depósito a 3 meses al 4,00% TAE, solo para nuevos clientes con dinero procedente de otra entidad. Importe mínimo 10.000€ y máximo 75.000€. Intereses abonados al vencimiento; no admite ingresos ni reembolsos parciales. La cancelación anticipada supone perder los intereses.",
     "cap": "10.000€–75.000€; nuevos clientes",
-    "condiciones": [["TAE","4,00%"],["Plazo","3 meses"],["Mínimo","10.000€"],["Máximo","75.000€"],["Elegibilidad","Nuevo cliente; dinero externo"],["Cancelación","Total; pérdida de intereses"]],
+    "condiciones": [
+      [
+        "TAE",
+        "4,00%"
+      ],
+      [
+        "Plazo",
+        "3 meses"
+      ],
+      [
+        "Mínimo",
+        "10.000€"
+      ],
+      [
+        "Máximo",
+        "75.000€"
+      ],
+      [
+        "Elegibilidad",
+        "Nuevo cliente; dinero externo"
+      ],
+      [
+        "Cancelación",
+        "Total; pérdida de intereses"
+      ]
+    ],
     "verdict": "El 4% TAE corresponde al Gran Depósito de 3 meses para nuevos clientes; no se aplica a los demás depósitos BiG.",
     "deadline": null,
     "top": true,
@@ -3695,7 +3783,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 2,
     "url": "https://www.bancobig.es/ahorrar/depositos-a-plazo-fijo/detalles/gran-deposito-3-meses",
-    "actualizado": "27/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -3737,7 +3825,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 2,
     "url": "https://www.ing.es/depositos-naranja",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -3774,7 +3862,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 2,
-    "url": "https://www.selfbank.es/ahorrar/depositos/deposito-12-meses-nuevos-clientes"
+    "url": "https://www.selfbank.es/ahorrar/depositos/deposito-12-meses-nuevos-clientes",
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -3811,7 +3900,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 2,
-    "url": "https://www.wizink.es/public/productos-ahorro/deposito-plazo-fijo"
+    "url": "https://www.wizink.es/public/productos-ahorro/deposito-plazo-fijo",
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -3853,7 +3943,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 3,
     "url": "https://www.cajamar.es/es/particulares/productos-y-servicios/ahorro-e-inversion/depositos/deposito-nueva-pension/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -3890,7 +3980,8 @@ const DATA = [
     "requiereNomina": true,
     "extranjero": false,
     "dificultad": 3,
-    "url": "https://cbnk.es/personas/depositos/deposito-nomina"
+    "url": "https://cbnk.es/personas/depositos/deposito-nomina",
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -3899,24 +3990,32 @@ const DATA = [
     "producto": "Depósito Respira 6 meses",
     "rate": 3.25,
     "rateLabel": "TAE 6 meses",
-    "desc": "Depósito de bienvenida para nuevos clientes, con condiciones de vinculación de Arquia. De 10.000€ a 30.000€, interés al vencimiento. Oferta publicada hasta el 30/10/2026.",
+    "desc": "Depósito para nuevos clientes con condiciones de vinculación: 3,25% TAE durante 6 meses, entre 10.000€ y 30.000€. La página oficial consultada anuncia actualmente la oferta hasta el 13/11/2026; consulta sus requisitos específicos.",
     "cap": "10.000€ – 30.000€",
     "condiciones": [
+      [
+        "TAE",
+        "3,25%"
+      ],
       [
         "Plazo",
         "6 meses"
       ],
       [
-        "Nuevo cliente",
-        "Sí; con requisitos"
+        "Importe",
+        "10.000€–30.000€"
       ],
       [
-        "Mínimo / máximo",
-        "10.000€ / 30.000€"
+        "Nuevo cliente",
+        "Sí; vinculación elegible"
+      ],
+      [
+        "Fecha límite oficial consultada",
+        "13/11/2026"
       ]
     ],
     "verdict": "La TAE es alta pero dura seis meses; la oferta vence el 30 de octubre.",
-    "deadline": "Oferta hasta 30/10/2026",
+    "deadline": "Oferta hasta 13/11/2026",
     "top": false,
     "sinCondicion": false,
     "montoMin": 10000,
@@ -3927,7 +4026,8 @@ const DATA = [
     "requiereNomina": "recomendada",
     "extranjero": false,
     "dificultad": 2,
-    "url": "https://www.arquia.com/particulares/depositos"
+    "url": "https://www.arquia.com/particulares/depositos",
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -3953,7 +4053,7 @@ const DATA = [
       ]
     ],
     "verdict": "Alta inversión mínima y oferta con fecha cercana de vencimiento.",
-    "deadline": "Oferta hasta 31/10/2026",
+    "deadline": "Finalizó el 31/10/2026",
     "top": false,
     "sinCondicion": true,
     "montoMin": 30000,
@@ -3964,7 +4064,9 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 2,
-    "url": "https://avantio.bancamarch.es/es/cuentas-y-depositos/deposito-12-meses/"
+    "url": "https://avantio.bancamarch.es/es/cuentas-y-depositos/deposito-12-meses/",
+    "actualizado": "30/10/2026",
+    "status": "expired"
   },
   {
     "cat": "deposito",
@@ -3998,7 +4100,7 @@ const DATA = [
       ]
     ],
     "verdict": "Resta el coste de la suscripción Premium y confirma que la campaña siga abierta antes de contratar.",
-    "deadline": "Oferta indicada hasta 31/10/2026",
+    "deadline": "Finalizó el 31/10/2026",
     "top": true,
     "sinCondicion": false,
     "montoMin": 1000,
@@ -4011,7 +4113,8 @@ const DATA = [
     "extranjero": false,
     "dificultad": 3,
     "url": "https://myinvestor.es/depositos/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026",
+    "status": "expired"
   },
   {
     "cat": "deposito",
@@ -4048,7 +4151,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 3,
-    "url": "https://www.caixabank.es/particular/ahorro/deposito-plazo-fijo.html?loce=sh-part-Ahorro-DescubreNuestrasFormasAhorro-4-destacado-Ahorro-DepositoBonificadoPlazoFijo-NA"
+    "url": "https://www.caixabank.es/particular/ahorro/deposito-plazo-fijo.html?loce=sh-part-Ahorro-DescubreNuestrasFormasAhorro-4-destacado-Ahorro-DepositoBonificadoPlazoFijo-NA",
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "nomina",
@@ -4094,7 +4198,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 4,
     "url": "https://www.bbva.es/personas/productos/cuentas/cuenta-nomina.html",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "nomina",
@@ -4139,7 +4243,8 @@ const DATA = [
     "requiereNomina": true,
     "extranjero": false,
     "dificultad": 4,
-    "url": "https://cuentaonline.bancsabadell.com/"
+    "url": "https://cuentaonline.bancsabadell.com/",
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "nomina",
@@ -4188,7 +4293,8 @@ const DATA = [
     "requiereNomina": true,
     "extranjero": false,
     "dificultad": 4,
-    "url": "https://www.deutsche-bank.es/es/particulares/cuentas-tarjetas/cuentas/mas-db.html"
+    "url": "https://www.deutsche-bank.es/es/particulares/cuentas-tarjetas/cuentas/mas-db.html",
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "nomina",
@@ -4196,14 +4302,22 @@ const DATA = [
     "entidad": "Ibercaja",
     "producto": "Cuenta Vamos",
     "rate": 1400,
-    "rateLabel": "Hasta 1.400€ de intereses brutos en 2 años",
+    "rateLabel": "Hasta 1.400€ brutos en intereses en 2 años",
     "isMoney": true,
-    "desc": "Cuenta Nómina Vamos para nuevos clientes: 5,10% TAE el primer año y 2,02% el segundo, hasta 20.000€. Para la cifra máxima: nómina/pensión ≥600€, 6 pagos con tarjeta y 6 recibos por semestre, y banca digital. Alta hasta 31/12/2026.",
+    "desc": "Para nuevos clientes: 5,09% TAE el primer año y 2,01% TAE el segundo, hasta 20.000€. Para optar a la oferta se requiere nómina/pensión de al menos 600€/mes, 6 recibos y 6 pagos con tarjeta por semestre. Alta hasta 31/12/2026.",
     "cap": "Hasta 20.000€",
     "condiciones": [
       [
-        "TAE",
-        "5,10% año 1; 2,02% año 2"
+        "Año 1",
+        "5,09% TAE"
+      ],
+      [
+        "Año 2",
+        "2,01% TAE"
+      ],
+      [
+        "Saldo máximo",
+        "20.000€"
       ],
       [
         "Nómina/pensión",
@@ -4211,7 +4325,11 @@ const DATA = [
       ],
       [
         "Actividad",
-        "6 pagos + 6 recibos/semestre"
+        "6 recibos + 6 pagos con tarjeta por semestre"
+      ],
+      [
+        "Alta",
+        "Hasta 31/12/2026"
       ]
     ],
     "verdict": "Los 1.400€ son intereses brutos máximos en dos años, no un regalo en efectivo; exige cumplir todos los requisitos.",
@@ -4229,7 +4347,8 @@ const DATA = [
     "requiereNomina": true,
     "extranjero": false,
     "dificultad": 4,
-    "url": "https://www.ibercaja.es/particulares/cuentas-tarjetas/cuentas/cuenta-vamos/"
+    "url": "https://www.ibercaja.es/particulares/cuentas-tarjetas/cuentas/cuenta-vamos/",
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "nomina",
@@ -4270,7 +4389,8 @@ const DATA = [
     "requiereNomina": true,
     "extranjero": false,
     "dificultad": 3,
-    "url": "https://www.cajamar.es/es/comun/eventos/promo-nominas/"
+    "url": "https://www.cajamar.es/es/comun/eventos/promo-nominas/",
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "nomina",
@@ -4313,7 +4433,7 @@ const DATA = [
     "dificultad": 4,
     "url": "https://portal.kutxabank.es/cs/Satellite/kb/es/particulares/trae-tu-nomina-1/pys",
     "status": "expired",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "nomina",
@@ -4354,30 +4474,43 @@ const DATA = [
     "requiereNomina": true,
     "extranjero": false,
     "dificultad": 3,
-    "url": "https://www.abanca.com/es/cuentas/cuenta-online/#cuenta-nomina"
+    "url": "https://www.abanca.com/es/cuentas/cuenta-online/#cuenta-nomina",
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "nomina",
     "tipo": "tradicional",
     "entidad": "Globalcaja",
     "producto": "Cuenta Online",
-    "rate": 500,
-    "rateLabel": "Hasta 500€ brutos (según requisitos)",
+    "rate": 780,
+    "rateLabel": "Hasta 780€ brutos",
     "isMoney": true,
-    "desc": "Campaña de nómina y Bizum de Globalcaja: hasta 380€ anuales según importe de nómina, más 120€ por usar Bizum al menos una vez al mes. Comprueba el nivel salarial, el periodo de pago y los requisitos de adhesión en las bases.",
-    "cap": "Hasta 500€ brutos",
+    "desc": "Promoción de nómina con varios componentes: hasta 300€ por ingresos, 60€ por actividad con tarjeta, 60€ por Bizum, 60€ por recibos y hasta 300€ por saldo. El total depende del importe de nómina, actividad mensual y saldo medio.",
+    "cap": "Hasta 780€; además puede haber remuneración según condiciones",
     "condiciones": [
       [
-        "Nómina",
-        "Según tramo"
+        "Nómina/ingresos",
+        "Hasta 300€"
+      ],
+      [
+        "Tarjeta",
+        "Hasta 60€"
       ],
       [
         "Bizum",
-        "1 operación/mes para extra"
+        "Hasta 60€"
       ],
       [
-        "Duración",
-        "12 meses de pagos"
+        "Recibos",
+        "Hasta 60€"
+      ],
+      [
+        "Saldo",
+        "Hasta 300€"
+      ],
+      [
+        "Máximo total",
+        "780€"
       ]
     ],
     "verdict": "La promoción puede pagarse por meses y la participación no implica permanencia; no confundas esta campaña con los 150€ de la oferta de alta online.",
@@ -4395,7 +4528,8 @@ const DATA = [
     "requiereNomina": true,
     "extranjero": false,
     "dificultad": 3,
-    "url": "https://www.globalcaja.es/es/particulares/nominas"
+    "url": "https://www.globalcaja.es/es/particulares/nominas",
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "nomina",
@@ -4441,7 +4575,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 3,
     "url": "https://www.unicajabanco.es/es/cuenta-online",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "nomina",
@@ -4451,8 +4585,8 @@ const DATA = [
     "rate": 600,
     "rateLabel": "Hasta 600€ brutos + Cuenta Digital al 3%",
     "isMoney": true,
-    "desc": "Hasta 600€ brutos por domiciliar nómina o pensión de al menos 850€ (50€/mes durante 12 meses), además de la Cuenta Digital al 3,00% TAE hasta 100.000€ para nuevas altas hasta el 28/10/2026. Tipo garantizado hasta el 30/04/2027.",
-    "cap": "Hasta 600€ + intereses",
+    "desc": "Hasta 600€ brutos por domiciliar una nómina o pensión de al menos 850€/mes (50€/mes durante 12 meses), más la Cuenta Digital al 3,00% TAE hasta 100.000€. La campaña oficial consultada para nuevas altas se extiende del 29/10 al 11/11/2026; el incentivo requiere mantener la nómina durante el periodo indicado.",
+    "cap": "Hasta 600€ más intereses de hasta 100.000€",
     "condiciones": [
       [
         "Nómina/pensión",
@@ -4460,19 +4594,23 @@ const DATA = [
       ],
       [
         "Bono",
-        "50€/mes durante 12 meses"
+        "50€/mes; máximo 600€ brutos"
       ],
       [
-        "Nueva alta",
-        "Hasta 28/10/2026"
+        "Cuenta Digital",
+        "3,00% TAE hasta 100.000€"
       ],
       [
-        "TAE",
-        "3,00% hasta 100.000€"
+        "Alta de campaña",
+        "29/10–11/11/2026"
+      ],
+      [
+        "Permanencia del bono",
+        "12 meses"
       ]
     ],
     "verdict": "El bono mensual y la remuneración son beneficios separados; el tipo del 3% tiene ventana de contratación y periodo garantizado propios.",
-    "deadline": "Alta hasta 28/10/2026",
+    "deadline": "Alta hasta 11/11/2026",
     "top": false,
     "sinCondicion": false,
     "montoMin": 0,
@@ -4487,7 +4625,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 4,
     "url": "https://www.bankinter.com/webcorporativa/sala-de-comunicacion/noticias/negocio/bankinter-eleva-al-3--tae-la-remuneracion-de-su-cuenta-digital-y-mantiene-el-incentivo-adicional-de-hasta-600-euros-por-domiciliacion-de-nomina",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "nomina",
@@ -4533,7 +4671,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 4,
     "url": "https://www.bancosantander.es/particulares/cuentas-tarjetas/cuentas-corrientes/cuentas-nomina",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "nomina",
@@ -4571,7 +4709,8 @@ const DATA = [
     "requiereNomina": true,
     "extranjero": false,
     "dificultad": 4,
-    "url": "https://www.bancosantander.es/particulares/cuentas-tarjetas/cuentas-corrientes/cuenta-online-iphone"
+    "url": "https://www.bancosantander.es/particulares/cuentas-tarjetas/cuentas-corrientes/cuenta-online-iphone",
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "nomina",
@@ -4610,7 +4749,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 3,
     "url": "https://www.imagin.com/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "nomina",
@@ -4653,7 +4792,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 4,
     "url": "https://www.caixabank.es/particular/domiciliar-nomina.html",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "nomina",
@@ -4694,7 +4833,8 @@ const DATA = [
     "requiereNomina": true,
     "extranjero": false,
     "dificultad": 4,
-    "url": "https://www.cajaviva.es/particulares/programa-nomina-pension"
+    "url": "https://www.cajaviva.es/particulares/programa-nomina-pension",
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "nomina",
@@ -4702,9 +4842,9 @@ const DATA = [
     "entidad": "ING",
     "producto": "Cuenta Nómina ING",
     "rate": 400,
-    "rateLabel": "€ brutos máximo",
+    "rateLabel": "400€ brutos",
     "isMoney": true,
-    "desc": "400€ para nuevos clientes con código ING400 y alta antes del 31/10/2026, nómina de cualquier importe o ingresos recurrentes desde 700€, más Bizum durante 12 meses. Abono previsto antes del 31/12/2026.",
+    "desc": "Oferta para nuevos clientes con código ING400, nómina de cualquier importe o ingresos recurrentes desde 700€/mes y Bizum durante 12 meses. La campaña oficial indicaba alta hasta el 31/10/2026, por lo que ya no se muestra como activa.",
     "cap": "400€ brutos",
     "condiciones": [
       [
@@ -4725,7 +4865,7 @@ const DATA = [
       ]
     ],
     "verdict": "La fecha de alta está próxima; vuelve a comprobar la página después del 31 de octubre.",
-    "deadline": "Alta hasta 31/10/2026",
+    "deadline": "Finalizó el 31/10/2026",
     "top": false,
     "sinCondicion": false,
     "montoMin": 0,
@@ -4740,7 +4880,8 @@ const DATA = [
     "extranjero": false,
     "dificultad": 3,
     "url": "https://www.ing.es/cuenta-nomina-ing",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026",
+    "status": "expired"
   },
   {
     "cat": "nomina",
@@ -4782,7 +4923,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 3,
     "url": "https://www.openbank.es/ofertas-bancarias/hasta-360-euros-trae-tu-nomina",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "remunerada",
@@ -4790,9 +4931,9 @@ const DATA = [
     "entidad": "Pibank",
     "producto": "Cuenta Nómina (con nómina)",
     "rate": 2.52,
-    "rateLabel": "TAE máxima según saldo",
-    "desc": "0% TIN para los primeros 5.000€ y 2,50% TIN sobre el exceso; exige nómina, pensión o ingresos recurrentes de al menos 1.000€/mes. La TAE depende del saldo (la documentación cita 2,40% con 100.000€).",
-    "cap": "0% primeros 5.000€; 2,50% TIN sobre exceso",
+    "rateLabel": "TAE estimada según saldo",
+    "desc": "Cuenta nómina: 0% TIN para los primeros 5.000€ y 2,50% TIN sobre el saldo que exceda 5.000€. Requiere nómina, pensión o ingresos recurrentes de al menos 1.000€/mes. La TAE y el interés total dependen del saldo; la documentación aportada cita 1.900€ brutos con 100.000€.",
+    "cap": "Sin máximo indicado",
     "condiciones": [
       [
         "Primeros 5.000€",
@@ -4803,12 +4944,12 @@ const DATA = [
         "2,50% TIN"
       ],
       [
-        "Ingreso recurrente",
+        "Ingresos domiciliados",
         "≥1.000€/mes"
       ],
       [
-        "TAE",
-        "Depende del saldo"
+        "Ganancia indicativa del documento",
+        "1.900€ brutos con 100.000€"
       ]
     ],
     "verdict": "El tipo máximo no se aplica a todo el saldo desde el primer euro.",
@@ -4827,7 +4968,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 3,
     "url": "https://www.pibank.es/cuenta-nomina/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -4941,7 +5082,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.vwfs.es/banca/deposito-vw-bank.html",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -4985,7 +5126,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.cuentafacto.es/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -5028,7 +5169,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.finantia.es/es/banca-personal/depositos-a-plazo/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -5071,7 +5212,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.finantia.es/es/banca-personal/depositos-a-plazo/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -5114,16 +5255,16 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.finantia.es/es/banca-personal/depositos-a-plazo/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
     "tipo": "tradicional",
     "entidad": "Banco Finantia",
     "producto": "Depósito cancelable 12 meses",
-    "rate": 2.7,
+    "rate": 2.95,
     "rateLabel": "TAE 12 meses",
-    "desc": "Oferta indicada en la documentación recibida: 2.7% TAE a 12 meses; mínimo 50.000€. Cancelable según ficha.",
+    "desc": "Depósito cancelable al 2,95% TAE 12 meses según la actualización de Rentavio del 30/10/2026. Importe mínimo indicado: 50.000€.",
     "cap": "Mínimo 50.000€",
     "condiciones": [
       [
@@ -5157,16 +5298,16 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.finantia.es/es/banca-personal/depositos-a-plazo/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
     "tipo": "tradicional",
     "entidad": "Banco Finantia",
     "producto": "Depósito cancelable 18 meses",
-    "rate": 2.7,
+    "rate": 2.95,
     "rateLabel": "TAE 18 meses",
-    "desc": "Oferta indicada en la documentación recibida: 2.7% TAE a 18 meses; mínimo 50.000€. Cancelable según ficha.",
+    "desc": "Depósito cancelable al 2,95% TAE 18 meses según la actualización de Rentavio del 30/10/2026. Importe mínimo indicado: 50.000€.",
     "cap": "Mínimo 50.000€",
     "condiciones": [
       [
@@ -5200,16 +5341,16 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.finantia.es/es/banca-personal/depositos-a-plazo/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
     "tipo": "tradicional",
     "entidad": "Banco Finantia",
     "producto": "Depósito cancelable 24 meses",
-    "rate": 2.75,
+    "rate": 2.9,
     "rateLabel": "TAE 24 meses",
-    "desc": "Oferta indicada en la documentación recibida: 2.75% TAE a 24 meses; mínimo 50.000€. Cancelable según ficha.",
+    "desc": "Depósito cancelable al 2,90% TAE 24 meses según la actualización de Rentavio del 30/10/2026. Importe mínimo indicado: 50.000€.",
     "cap": "Mínimo 50.000€",
     "condiciones": [
       [
@@ -5243,7 +5384,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.finantia.es/es/banca-personal/depositos-a-plazo/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -5252,7 +5393,7 @@ const DATA = [
     "producto": "Depósito cancelable 36 meses",
     "rate": 2.9,
     "rateLabel": "TAE 36 meses",
-    "desc": "Oferta indicada en la documentación recibida: 2.9% TAE a 36 meses; mínimo 50.000€. Cancelable según ficha.",
+    "desc": "Depósito cancelable al 2,90% TAE 36 meses según la actualización de Rentavio del 30/10/2026. Importe mínimo indicado: 50.000€.",
     "cap": "Mínimo 50.000€",
     "condiciones": [
       [
@@ -5286,7 +5427,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.finantia.es/es/banca-personal/depositos-a-plazo/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -5329,7 +5470,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://renaultbank.es/productos/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -5372,7 +5513,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://renaultbank.es/productos/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -5414,7 +5555,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.cetelem.es/ahorro-y-depositos-cetelem/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -5457,7 +5598,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.cetelem.es/ahorro-y-depositos-cetelem/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -5500,7 +5641,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.cetelem.es/ahorro-y-depositos-cetelem/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -5542,7 +5683,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://myinvestor.es/cuentas-tarjetas/depositos/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -5585,7 +5726,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://myinvestor.es/cuentas-tarjetas/depositos/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -5628,16 +5769,16 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://myinvestor.es/cuentas-tarjetas/depositos/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
     "tipo": "tradicional",
     "entidad": "Banco BiG",
     "producto": "Depósito cancelable 3 meses",
-    "rate": 2.5,
+    "rate": 2.75,
     "rateLabel": "TAE 3 meses",
-    "desc": "Oferta indicada en la documentación recibida: 2.5% TAE a 3 meses; mínimo 1.000€. Cancelable.",
+    "desc": "Depósito cancelable al 2,75% TAE a 3 meses, con importe mínimo de 1.000€, según la actualización de Rentavio del 30/10/2026.",
     "cap": "Mínimo 1.000€",
     "condiciones": [
       [
@@ -5670,7 +5811,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.bancobig.es/ahorrar/depositos-a-plazo-fijo/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -5713,16 +5854,16 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.bancobig.es/ahorrar/depositos-a-plazo-fijo/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
     "tipo": "tradicional",
     "entidad": "Banco BiG",
     "producto": "Depósito cancelable 12 meses",
-    "rate": 2.9,
+    "rate": 3.1,
     "rateLabel": "TAE 12 meses",
-    "desc": "Oferta indicada en la documentación recibida: 2.9% TAE a 12 meses; mínimo 1.000€. Cancelable.",
+    "desc": "Depósito cancelable al 3,10% TAE a 12 meses, mínimo 1.000€, según la actualización de Rentavio del 30/10/2026.",
     "cap": "Mínimo 1.000€",
     "condiciones": [
       [
@@ -5756,7 +5897,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.bancobig.es/ahorrar/depositos-a-plazo-fijo/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -5799,7 +5940,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.bancobig.es/ahorrar/depositos-a-plazo-fijo/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -5841,7 +5982,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.ebnbanco.com/ahorro/deposito-sinycon-plus/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -5884,7 +6025,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.ebnbanco.com/ahorro/deposito-sinycon-plus/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -5927,7 +6068,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.ebnbanco.com/ahorro/deposito-sinycon-plus/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -5970,7 +6111,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.ebnbanco.com/ahorro/deposito-sinycon-plus/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -6013,7 +6154,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.ebnbanco.com/ahorro/deposito-sinycon-plus/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -6056,7 +6197,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.ebnbanco.com/ahorro/deposito-sinycon-plus/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -6098,7 +6239,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.ebnbanco.com/ahorro/deposito-sinycon-plus/",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -6141,7 +6282,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.vwfs.es/banca/deposito-vw-bank.html",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "deposito",
@@ -6184,49 +6325,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.vwfs.es/banca/deposito-vw-bank.html",
-    "actualizado": "24/10/2026"
-  },
-  {
-    "cat": "remunerada",
-    "tipo": "tradicional",
-    "entidad": "Cetelem",
-    "producto": "Cuenta Ahorro base (clientes conocidos)",
-    "rate": 1.75,
-    "rateLabel": "1.75% TAE",
-    "desc": "Oferta indicada en la documentación recibida: 1.75% TAE a disponible; mínimo Sin límite. Disponible.",
-    "cap": "Mínimo Sin límite",
-    "condiciones": [
-      [
-        "TAE",
-        "1.75%"
-      ],
-      [
-        "Plazo",
-        "Disponible"
-      ],
-      [
-        "Mínimo",
-        "Sin límite"
-      ],
-      [
-        "Liquidez",
-        "Disponible"
-      ]
-    ],
-    "verdict": "Confirma en la ficha oficial el plazo, el importe mínimo, la liquidación y las condiciones de cancelación antes de contratar.",
-    "deadline": null,
-    "top": false,
-    "sinCondicion": true,
-    "montoMin": 0,
-    "montoMax": 999999999,
-    "plazos": [
-      "largo"
-    ],
-    "requiereNomina": false,
-    "extranjero": false,
-    "dificultad": 1,
-    "url": "https://www.cetelem.es/cuenta-ahorro-cetelem",
-    "actualizado": "24/10/2026"
+    "actualizado": "30/10/2026"
   },
   {
     "cat": "remunerada",
@@ -6254,7 +6353,7 @@ const DATA = [
     "verdict": "Confirma el saldo máximo y el tipo actual en la ficha oficial.",
     "deadline": null,
     "url": "https://renaultbank.es/productos/",
-    "actualizado": "24/10/2026",
+    "actualizado": "30/10/2026",
     "top": false,
     "sinCondicion": true,
     "montoMin": 0,
@@ -6275,11 +6374,11 @@ const DATA = [
     "producto": "Cuenta Remunerada (tipo base)",
     "rate": 0.3,
     "rateLabel": "TAE hasta 70.000€",
-    "desc": "Tipo base del 0,30% TAE hasta 70.000€, sin plan ni inversión según la documentación recibida. Otros tipos requieren ser nuevo cliente, aumentar saldo, invertir o pagar Premium.",
+    "desc": "Tipo base sin plan ni inversión: 0,30% TAE hasta 70.000€. Los tipos superiores requieren nuevo cliente, aumento del saldo, inversión elegible o contratar Premium.",
     "cap": "Hasta 70.000€",
     "condiciones": [
       [
-        "TAE base",
+        "Tipo base",
         "0,30%"
       ],
       [
@@ -6287,14 +6386,14 @@ const DATA = [
         "70.000€"
       ],
       [
-        "Sin inversión/plan",
-        "Sí"
+        "Mejoras",
+        "Nuevos clientes/saldo nuevo, inversión o Premium"
       ]
     ],
     "verdict": "El tipo base sin condiciones se separa de las promociones y tramos con inversión.",
     "deadline": null,
     "url": "https://myinvestor.es/cuentas-tarjetas/cuentas/",
-    "actualizado": "24/10/2026",
+    "actualizado": "30/10/2026",
     "top": false,
     "sinCondicion": true,
     "montoMin": 70000,
@@ -6338,7 +6437,7 @@ const DATA = [
     "verdict": "Oferta distinta del Depósito Confianza; confirma las condiciones de cancelación antes de contratar.",
     "deadline": null,
     "url": "https://www.deutsche-bank.es/es/particulares/ahorro-inversion/productos/depositos/deposito-solidez.html",
-    "actualizado": "24/10/2026",
+    "actualizado": "30/10/2026",
     "top": false,
     "sinCondicion": true,
     "montoMin": 3000100000,
@@ -6384,9 +6483,9 @@ const DATA = [
       ]
     ],
     "verdict": "Resta el coste mensual del plan; el 3,50% de MyInvestor Premium corresponde al depósito de 12 meses.",
-    "deadline": "Hasta 31/10/2026",
+    "deadline": "Finalizó el 31/10/2026",
     "url": "https://myinvestor.es/depositos/",
-    "actualizado": "24/10/2026",
+    "actualizado": "30/10/2026",
     "top": false,
     "sinCondicion": true,
     "montoMin": 100025000,
@@ -6398,7 +6497,8 @@ const DATA = [
     ],
     "requiereNomina": false,
     "extranjero": false,
-    "dificultad": 1
+    "dificultad": 1,
+    "status": "expired"
   },
   {
     "cat": "deposito",
@@ -6430,7 +6530,7 @@ const DATA = [
     "verdict": "Oferta distinta del depósito a 6 meses condicionado; revisa el requisito de dinero nuevo.",
     "deadline": null,
     "url": "https://www.arquia.com/particulares/depositos/",
-    "actualizado": "24/10/2026",
+    "actualizado": "30/10/2026",
     "top": false,
     "sinCondicion": true,
     "montoMin": 10000200000,
@@ -6472,9 +6572,9 @@ const DATA = [
       ]
     ],
     "verdict": "El importe mínimo es elevado frente a las opciones digitales de menor saldo.",
-    "deadline": "Oferta hasta 31/10/2026",
+    "deadline": "Finalizó el 31/10/2026",
     "url": "https://avantio.bancamarch.es/es/cuentas-y-depositos/deposito-6-meses/",
-    "actualizado": "24/10/2026",
+    "actualizado": "30/10/2026",
     "top": false,
     "sinCondicion": true,
     "montoMin": 30000,
@@ -6486,7 +6586,8 @@ const DATA = [
     ],
     "requiereNomina": false,
     "extranjero": false,
-    "dificultad": 1
+    "dificultad": 1,
+    "status": "expired"
   },
   {
     "cat": "deposito",
@@ -6514,7 +6615,7 @@ const DATA = [
     "verdict": "Confirma en el simulador de ING el tramo aplicable a tu importe.",
     "deadline": null,
     "url": "https://www.ing.es/depositos-naranja/",
-    "actualizado": "24/10/2026",
+    "actualizado": "30/10/2026",
     "top": false,
     "sinCondicion": true,
     "montoMin": 50000,
@@ -6558,7 +6659,7 @@ const DATA = [
     "verdict": "La tasa depende del saldo; no extrapoles el tipo superior a todos los importes.",
     "deadline": null,
     "url": "https://www.ing.es/depositos-naranja/",
-    "actualizado": "24/10/2026",
+    "actualizado": "30/10/2026",
     "top": false,
     "sinCondicion": true,
     "montoMin": 0,
@@ -6602,7 +6703,7 @@ const DATA = [
     "verdict": "El 2,60% solo se aplica al tramo de saldo superior indicado.",
     "deadline": null,
     "url": "https://www.ing.es/depositos-naranja/",
-    "actualizado": "24/10/2026",
+    "actualizado": "30/10/2026",
     "top": false,
     "sinCondicion": true,
     "montoMin": 0,
@@ -6646,7 +6747,7 @@ const DATA = [
     "verdict": "Verifica qué considera WiZink como dinero nuevo y la disponibilidad de cancelación anticipada.",
     "deadline": null,
     "url": "https://www.wizink.es/public/productos-ahorro/deposito-plazo-fijo",
-    "actualizado": "24/10/2026",
+    "actualizado": "30/10/2026",
     "top": false,
     "sinCondicion": true,
     "montoMin": 5000,
@@ -6690,7 +6791,7 @@ const DATA = [
     "verdict": "Comprueba el compromiso de tres años y las condiciones de cancelación antes de contratar.",
     "deadline": null,
     "url": "https://www.wizink.es/public/productos-ahorro/deposito-plazo-fijo",
-    "actualizado": "24/10/2026",
+    "actualizado": "30/10/2026",
     "top": false,
     "sinCondicion": true,
     "montoMin": 5000,
@@ -6703,6 +6804,51 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 1
+  },
+  {
+    "cat": "remunerada",
+    "tipo": "neobanco",
+    "entidad": "Monzo",
+    "producto": "Hucha remunerada (promoción nuevos clientes)",
+    "rate": 4,
+    "rateLabel": "TAE fija durante 12 meses, hasta 5.000€",
+    "desc": "Hucha remunerada potenciada: 4,00% TAE fijo durante 12 meses para nuevos clientes elegibles, sobre un máximo de 5.000€. La parte que exceda ese saldo promocional recibe el tipo estándar de 2,50% TAE hasta 100.000€. Alta promocional hasta 31/12/2026, según la documentación aportada por Rentavio.",
+    "cap": "Hasta 5.000€ al 4%; saldo total hasta 100.000€",
+    "condiciones": [
+      [
+        "Nuevo cliente",
+        "Oferta promocional"
+      ],
+      [
+        "Primeros 5.000€",
+        "4,00% TAE fija durante 12 meses"
+      ],
+      [
+        "Exceso hasta 100.000€",
+        "2,50% TAE estándar"
+      ],
+      [
+        "Alta promocional",
+        "Hasta 31/12/2026"
+      ]
+    ],
+    "verdict": "El 4% solo se aplica a los primeros 5.000€ y durante 12 meses; el resto del saldo no recibe el tipo promocional.",
+    "deadline": "Alta hasta 31/12/2026",
+    "top": false,
+    "sinCondicion": false,
+    "montoMin": 0,
+    "montoMax": 100000,
+    "plazos": [
+      "disponible",
+      "corto",
+      "medio",
+      "largo"
+    ],
+    "requiereNomina": false,
+    "extranjero": false,
+    "dificultad": 1,
+    "url": "https://monzo.com/es/ahorros/huchas-remuneradas",
+    "actualizado": "30/10/2026"
   }
 ].filter(item => !["expired", "unverified"].includes(item.status));
 
