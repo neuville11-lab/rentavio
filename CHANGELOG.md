@@ -1,5 +1,18 @@
 # Rentavio — registro de cambios
 
+## 4 de noviembre de 2026 — separar bonificaciones y remuneración
+
+Se reorganizaron las fichas para que **Cuentas con bonificación** muestre únicamente incentivos y devoluciones, y **Cuentas remuneradas** muestre el interés o rendimiento ligado al saldo. Los importes destacados en bonificación ya no suman intereses de cuentas.
+
+- **BBVA:** la tarjeta de bonificación muestra hasta 760€ por nómina y uso de la cuenta. Los 300€ por mantener 10.000€ de ahorro aparecen aparte como incentivo promocional equivalente al 3%, expresamente identificado como no TAE. [Fuente oficial](https://www.bbva.es/personas/productos/cuentas/cuenta-nomina.html).
+- **Banco Sabadell:** se separan el bono de 400€, la devolución variable del 3% de recibos de luz/gas y el 2,75% TAE de la cuenta. [Bases y promoción oficial](https://www.bancsabadell.com/cuenta-online/).
+- **Deutsche Bank:** la bonificación de 500€ queda separada de la Cuenta Ahorro DB (2,02% TAE), conforme a los datos del dossier de Rentavio revisado el 30/10/2026. [Página oficial](https://www.deutsche-bank.es/es/particulares/cuentas-tarjetas/cuentas/mas-db.html).
+- **Ibercaja:** Cuenta Vamos pasa a Cuentas remuneradas, con 5,10% TAE el primer año y 2,02% el segundo, hasta 20.000€. [Página oficial](https://www.ibercaja.es/particulares/cuentas-tarjetas/cuentas/cuenta-vamos/).
+- **Globalcaja:** se separan los bonos por ingreso/actividad (hasta 480€), el incentivo de alta de 150€ y la remuneración mensual variable por saldo (hasta 300€ en 12 meses); no se presupone que las campañas sean acumulables. [Programa Tu Cuenta Suma](https://www.globalcaja.es/tu-cuenta-suma).
+- **Unicaja y Bankinter:** se quitaron los tipos de interés de las fichas de bonificación; sus tipos se mantienen en Cuentas remuneradas. [Unicaja](https://www.unicajabanco.es/es/cuenta-online) · [Bankinter](https://www.bankinter.com/webcorporativa/sala-de-comunicacion/noticias/negocio/bankinter-eleva-al-3--tae-la-remuneracion-de-su-cuenta-digital-y-mantiene-el-incentivo-adicional-de-hasta-600-euros-por-domiciliacion-de-nomina).
+
+El simulador mantiene separados los incentivos de nómina y calcula las cuentas remuneradas con rendimiento por saldo, incluidos los tramos temporales de Ibercaja y los pagos por saldo de BBVA y Globalcaja. Revisión de estructura: 04/11/2026.
+
 ## 4 de noviembre de 2026 — condiciones bancarias (documento base: 30/10/2026)
 
 Se sincronizaron el comparador y el simulador con el listado de condiciones aportado por Rentavio, con revisión declarada a 30/10/2026. La interfaz muestra la fecha, distingue TAE/TIN cuando la ficha lo especifica y recuerda que importes de intereses y bonos son brutos salvo indicación expresa. Próxima revisión prevista: 12/11/2026.
