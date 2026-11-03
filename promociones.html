@@ -24,7 +24,45 @@
 .promo-highlight{grid-column:3;grid-row:1;align-self:stretch;justify-content:center;min-height:76px;border-left:1px solid var(--line);border-right:1px solid var(--line);padding:6px 18px;text-align:center}.promo-highlight>span,.promo-highlight small{display:none!important}.promo-highlight strong{margin:0!important;font-size:30px!important}.promo-highlight.is-text strong{font-size:30px!important;color:#b5740c!important;font-family:var(--mono)!important}
 .promo>.promo-details{grid-column:4;grid-row:1;justify-self:end;align-self:center}.promo>.promo-details[open]{grid-column:1/-1;grid-row:2;justify-self:stretch}.promo>.promo-details[open] summary{display:flex;align-items:center}
 @media(max-width:760px){.promo{grid-template-columns:96px minmax(0,1fr) auto!important;gap:12px!important;padding:14px!important;min-height:100px}.promo-logo{width:96px!important;height:54px!important;flex-basis:96px!important;grid-column:1}.promo-title{grid-column:2}.promo-title h3{font-size:16px!important}.promo-highlight{grid-column:3;min-height:54px;padding:4px 10px;border:0}.promo-highlight strong{font-size:20px!important}.promo>.promo-details{grid-column:1/-1;grid-row:2;justify-self:stretch;align-items:center}.promo>.promo-details summary{align-items:center!important}.promo>.promo-details[open]{grid-row:2}}
-</style></head>
+</style><style id="rentavio-visual-refresh">
+:root{--bg:#fafcf9;--white:#fff;--soft:#f0f4ee;--line:#e5ebe4;--line-strong:#d3ddd2;--ink:#1a2b22;--dim:#53645a;--faint:#78867c;--teal:#174d3a;--bright:#a5d782;--teal-soft:#eaf2e8;--teal-line:#cfe0cb;--amber:#ad6c35;--amber-soft:#fbf0e5;--sans:'Inter',-apple-system,sans-serif}
+body{background:var(--bg);color:var(--ink)}
+header{background:rgba(250,252,249,.93);border-color:var(--line);backdrop-filter:blur(14px)}
+.brand-mark{border-radius:10px}
+.nav a{color:var(--faint)}
+.nav .active{color:var(--teal)}
+.hero{position:relative;isolation:isolate;overflow:hidden;max-width:1180px;margin:20px auto 0;padding:40px 42px;border:1px solid #174d3a15;border-radius:26px;background:linear-gradient(120deg,#eaf2e8,#e0ebdc 62%,#d5e5d2);color:var(--ink)}
+.hero:after{content:"€";position:absolute;z-index:-1;right:7%;top:50%;transform:translateY(-50%);width:190px;height:190px;display:grid;place-items:center;border:1px solid #174d3a1a;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff9,#bfd7bc66);box-shadow:0 0 0 18px #174d3a08,0 0 0 38px #174d3a05;color:#174d3a55;font:600 112px/1 var(--sans)}
+.hero small{color:#54765c}
+.hero h1{position:relative;max-width:680px;color:var(--ink);font:700 clamp(34px,4.2vw,52px)/1.06 var(--sans);letter-spacing:-.05em}
+.hero p{position:relative;max-width:650px;color:#53645a;font-size:14px;line-height:1.7}
+.main{padding-top:28px}
+.search{border-color:var(--line-strong);border-radius:13px;box-shadow:0 2px 8px #1b38210a}
+.search:focus{outline:2px solid #cfe0cb;border-color:var(--teal)}
+.cat{border-color:var(--line);border-radius:999px;color:var(--dim);transition:all .18s}
+.cat.active,.cat:hover{background:var(--teal);border-color:var(--teal)}
+.promo{border:1px solid var(--line);border-radius:19px;background:#fff;box-shadow:0 3px 12px #1b38210a;transition:transform .18s,box-shadow .18s,border-color .18s}
+.promo:hover{transform:translateY(-2px);border-color:#cbdcc9;box-shadow:0 12px 28px #1b382116}
+.promo-logo{border-radius:12px!important}
+.promo-highlight{border-color:var(--line)}
+.promo-highlight strong{color:var(--teal)}
+.promo-summary-cta,.btn{border-radius:10px;background:var(--teal);transition:transform .18s,background .18s}
+.promo-summary-cta:hover,.btn:hover{background:#236747;transform:translateY(-1px)}
+.promo-details[open] .promo-detail-body{border-color:var(--teal-line);border-radius:15px;background:linear-gradient(135deg,#f3f8f0,#fff)}
+.ranges span{border-radius:10px;background:var(--teal-soft);border-color:var(--teal-line);color:var(--teal)}
+.promo-code{border-color:var(--teal-line);border-radius:10px;background:var(--teal-soft);color:var(--teal)}
+.promo-table-wrap{border-color:var(--teal-line);border-radius:13px}
+.promo-table th{background:#eff5ec;color:var(--teal)}
+.footnote{border-color:var(--line);border-radius:14px}
+@media(max-width:720px){
+ .hero{margin:10px 10px 0;padding:30px 20px;border-radius:21px}
+ .hero h1{font-size:clamp(31px,9vw,40px)}
+ .hero p{font-size:13px}
+ .hero:after{right:-58px;top:auto;bottom:-62px;transform:none;width:150px;height:150px;font-size:90px}
+ .main{padding-top:20px}
+}
+</style>
+</head>
 <body>
 <header><div class="brand"><span class="brand-mark">R</span>Rentavio</div><nav class="nav"><a href="index.html">Cuentas y depósitos</a><a class="active" href="promociones.html">Promociones</a><a href="blog.html">Blog</a></nav></header>
 <section class="hero"><small>AHORROS, VENTAJAS Y OPORTUNIDADES</small><h1>Promociones seleccionadas</h1><p>Ofertas de referidos y bienvenida agrupadas por tipo. Indicamos qué condiciones se han confirmado y cuáles necesitan que el proveedor actualice o valide el enlace personal.</p></section>
