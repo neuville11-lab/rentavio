@@ -20,6 +20,7 @@ h1{font-size:clamp(34px,4.5vw,54px);letter-spacing:-.055em;margin:0 0 8px;line-h
 .controls label{font-weight:800;font-size:16px}
 .amount{font:800 26px ui-monospace,monospace;color:var(--teal);white-space:nowrap}
 .controls input[type=range]{grid-column:1/-1;display:block;width:100%;accent-color:var(--teal);margin:4px 0}
+.manual-amount{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:2px}.manual-amount label{font-size:13px;font-weight:700;color:var(--dim)}.manual-input-wrap{display:flex;align-items:center;gap:8px;min-width:150px;padding:8px 12px;border:1px solid var(--line);border-radius:11px;background:#fff}.manual-input-wrap:focus-within{border-color:var(--teal);box-shadow:0 0 0 3px #0e6b5c18}.manual-input-wrap input{width:100%;min-width:0;border:0;outline:0;background:transparent;color:var(--teal);font:800 16px ui-monospace,monospace}.manual-input-wrap span{color:var(--dim);font-weight:700}
 .range-limits{grid-column:1/-1;display:flex;justify-content:space-between;color:var(--faint);font-size:11px;margin-top:-5px}
 .mode-label{font-weight:800;margin-top:22px}
 .options{display:flex;gap:9px;flex-wrap:wrap;margin:9px 0 5px}
@@ -54,7 +55,7 @@ h1{font-size:clamp(34px,4.5vw,54px);letter-spacing:-.055em;margin:0 0 8px;line-h
 .empty{padding:25px;border:1px dashed var(--line);border-radius:14px;color:var(--dim)}
 footer{max-width:1180px;margin:auto;padding:0 28px 35px;color:var(--faint);font-size:11px}
 @media(max-width:820px){.summary{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:600px){header{padding:11px 16px}main{padding:22px 14px 46px}.panel{padding:17px;border-radius:18px}.controls{grid-template-columns:1fr auto;gap:8px}.amount{font-size:22px}.summary{grid-template-columns:1fr 1fr;gap:8px}.stat{padding:12px}.stat strong{font-size:17px}.candidate{padding:13px}.candidate-top{display:block}.result-gap{display:inline-block;margin-top:8px}.step{grid-template-columns:28px minmax(0,1fr)}.reward{grid-column:2;text-align:left}.step{gap:8px;padding:10px}footer{padding:0 14px 28px}}
+@media(max-width:600px){header{padding:11px 16px}main{padding:22px 14px 46px}.panel{padding:17px;border-radius:18px}.controls{grid-template-columns:1fr auto;gap:8px}.amount{font-size:22px}.manual-amount{align-items:stretch;flex-direction:column;gap:7px}.manual-input-wrap{width:100%}.summary{grid-template-columns:1fr 1fr;gap:8px}.stat{padding:12px}.stat strong{font-size:17px}.candidate{padding:13px}.candidate-top{display:block}.result-gap{display:inline-block;margin-top:8px}.step{grid-template-columns:28px minmax(0,1fr)}.reward{grid-column:2;text-align:left}.step{gap:8px;padding:10px}footer{padding:0 14px 28px}}
 .promo-details{margin-top:8px}.promo-details summary{display:inline-flex;align-items:center;gap:6px;cursor:pointer;list-style:none;color:var(--teal);font-size:11px;font-weight:800}.promo-details summary::-webkit-details-marker{display:none}.promo-details summary:after{content:"＋";font-size:13px}.promo-details[open] summary:after{content:"−"}.promo-details ul{margin:8px 0 0;padding:11px 14px 11px 29px;border:1px solid #dce9d7;border-radius:11px;background:#f4f8f2;color:var(--dim);font-size:11px}.promo-details li+li{margin-top:5px}</style>
 </head>
 <body>
@@ -67,6 +68,7 @@ footer{max-width:1180px;margin:auto;padding:0 28px 35px;color:var(--faint);font-
 <div class="controls">
 <label for="budget">Objetivo de recompensa</label><output class="amount" id="amount">0,50 €</output>
 <input id="budget" type="range" min="0.5" max="1281.5" step="0.5" value="0.5" aria-label="Objetivo de recompensa en euros">
+<div class="manual-amount"><label for="manualBudget">O escribe la cantidad que quieres obtener</label><div class="manual-input-wrap"><input id="manualBudget" type="number" min="0.5" max="1281.5" step="0.5" value="0.5" inputmode="decimal" aria-label="Cantidad objetivo en euros"><span>€</span></div></div>
 <div class="range-limits"><span>0,50 €</span><span id="maxLabel"></span></div>
 </div>
 <div class="mode-label">Cómo quieres buscar</div>
@@ -117,6 +119,7 @@ const promoDetails={"urbanitae":["Usa el enlace de invitación y realiza la prim
 offers.forEach(offer=>{offer.details=promoDetails[offer.id]||[offer.step]});
 const budget=document.getElementById("budget");
 const amount=document.getElementById("amount");
+const manualBudget=document.getElementById("manualBudget");
 const modes=[...document.querySelectorAll(".mode")];
 let mode="best";
 const fmt=new Intl.NumberFormat("es-ES",{minimumFractionDigits:0,maximumFractionDigits:2});
@@ -183,6 +186,7 @@ function renderCandidate(c,index,target){
 function draw(){
  const target=Number(budget.value),targetUnits=Math.round(target*2);
  amount.textContent=euro(target);
+ manualBudget.value=String(target);
  const {closest,unique}=closestFor(targetUnits);
  const bestDiff=closest/2;
  const winning=unique.slice(0,mode==="best"?1:4);
@@ -195,6 +199,8 @@ function draw(){
 }
 modes.forEach(button=>button.addEventListener("click",()=>{mode=button.dataset.mode;modes.forEach(x=>{const active=x===button;x.classList.toggle("active",active);x.setAttribute("aria-pressed",String(active))});document.getElementById("modeHelp").textContent=mode==="best"?"La combinación más cercana; en caso de empate, reduce los importes que debes aportar y el plazo.":"Muestra hasta cuatro combinaciones distintas con la menor diferencia posible, ordenadas por requisitos conocidos, aportación y plazo.";draw()}));
 budget.addEventListener("input",draw);
+manualBudget.addEventListener("input",()=>{let value=manualBudget.valueAsNumber;if(Number.isFinite(value)){value=Math.min(Number(budget.max),Math.max(0.5,Math.round(value*2)/2));budget.value=String(value);draw()}});
+manualBudget.addEventListener("blur",()=>{if(!Number.isFinite(manualBudget.valueAsNumber))manualBudget.value=budget.value});
 const maxReward=offers.reduce((sum,o)=>sum+Math.max(...o.levels.map(x=>x.reward)),0);
 budget.max=String(maxReward);
 document.getElementById("maxLabel").textContent=euro(maxReward);
