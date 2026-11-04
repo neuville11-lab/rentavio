@@ -113,10 +113,87 @@ header{background:rgba(250,252,249,.94);border-color:var(--line);backdrop-filter
 .promo-highlight strong.reward-range .range-separator{font-size:.72em!important;font-weight:500!important;opacity:.65}
 @media(max-width:760px){.promo-highlight strong,.promo-highlight.is-text strong{font-size:20px!important}.promo-highlight strong.reward-range{justify-content:flex-end;gap:6px}}
 </style>
+<style id="promociones-redesign">
+/* Propuesta aprobada: filas editoriales compactas con recompensa y condiciones visibles al abrir */
+.hero{background:linear-gradient(112deg,#eaf6ee 0%,#f6f9f3 56%,#e0f1e8 100%);color:var(--ink);border-bottom:1px solid #d5e6da;padding:46px max(28px,calc((100% - 1124px)/2)) 40px;position:relative;overflow:hidden}
+.hero:after{content:"€";position:absolute;right:max(35px,calc((100% - 1110px)/2));bottom:-104px;font-size:280px;line-height:1;font-weight:800;color:#0e6b5c0c;pointer-events:none}
+.hero small{position:relative;z-index:1;color:var(--teal);font-size:10px;letter-spacing:.16em}
+.hero h1{position:relative;z-index:1;max-width:740px;color:#14281e;font-size:clamp(36px,5vw,56px);letter-spacing:-.065em;line-height:1.03;margin:11px 0}
+.hero p{position:relative;z-index:1;max-width:690px;color:#53685e;font-size:16px;line-height:1.6}
+.main{padding-top:26px}
+.promo-simulator-cta{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:0 0 18px;padding:14px 17px;border:1px solid var(--teal-line);border-radius:14px;background:#eaf8f2;box-shadow:0 3px 12px #0e6b5c0a}
+.promo-simulator-cta a{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:42px;padding:0 16px;border-radius:10px;background:var(--teal);color:#fff;font-size:13px;font-weight:800;text-decoration:none;transition:background .15s,transform .15s}
+.promo-simulator-cta a:hover{background:#0a574b;transform:translateY(-1px)}
+.promo-simulator-cta span{font-size:12px;color:var(--dim)}
+.group{margin:26px 0 38px}
+.group h2{font-size:21px;letter-spacing:-.035em;margin:0 0 12px}
+.cards{display:grid;grid-template-columns:1fr;gap:11px}
+.promo{display:grid!important;grid-template-columns:148px minmax(0,1fr) minmax(185px,220px) 205px!important;grid-template-rows:auto auto!important;gap:0 17px!important;align-items:center!important;min-height:118px;padding:16px 18px!important;border:1px solid #dce6df!important;border-radius:17px!important;background:#fff!important;box-shadow:0 4px 16px #163b2808!important;transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease}
+.promo:hover{transform:translateY(-2px);border-color:#bdd9ca!important;box-shadow:0 12px 30px #163b2810!important}
+.promo[hidden],.group[hidden]{display:none!important}
+.promo-identity{display:contents!important}
+.promo .promo-identity .promo-logo{grid-column:1!important;grid-row:1 / span 2!important;width:148px!important;height:72px!important;flex-basis:148px!important;max-width:100%;margin:0!important;padding:8px 12px!important;object-fit:contain!important;object-position:center center!important;background:#f7faf7!important;border:1px solid #e1ebe3!important;border-radius:12px!important}
+.promo-title{grid-column:2!important;grid-row:1!important;align-self:end!important;min-width:0}
+.promo-title h3{font-size:19px!important;line-height:1.25!important;letter-spacing:-.035em!important;margin:0!important}
+.promo-badges{display:flex!important;gap:7px!important;align-items:center!important;flex-wrap:wrap!important;margin-top:7px!important}
+.promo-badges .tag{display:none!important}
+.promo-badges .state{display:inline-flex;align-items:center;min-height:22px;padding:3px 9px!important;border:1px solid #d8eee3;background:#e9f6ef!important;color:#087454!important;font-size:10px!important}
+.promo-badges .state.check{border-color:#f0dfbc;background:#fff5e3!important;color:#8a5600!important}
+.promo-badges .state.closed{border-color:#f2d5d2;background:#fff0ee!important;color:#a53b36!important}
+.promo-highlight{grid-column:3!important;grid-row:1 / span 2!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;align-self:stretch!important;min-height:74px!important;padding:8px 14px!important;border-left:1px solid var(--line)!important;border-right:1px solid var(--line)!important;text-align:center!important}
+.promo-highlight>span{display:block!important;color:var(--faint)!important;font:700 9px var(--sans)!important;letter-spacing:.07em!important;text-transform:uppercase!important}
+.promo-highlight strong,.promo-highlight strong.reward-range{display:flex!important;align-items:center!important;justify-content:center!important;gap:9px!important;margin:4px 0 0!important;color:var(--teal)!important;font:800 29px/1.1 var(--sans)!important;letter-spacing:-.055em!important;white-space:nowrap!important}
+.promo-highlight strong .range-separator{font-size:.68em;color:#91a198}
+.promo-highlight.is-text strong{font:800 19px/1.25 var(--sans)!important;letter-spacing:-.025em!important;color:var(--teal)!important;white-space:normal!important}
+.promo-highlight small.promo-breakdown{display:block!important;margin-top:5px!important;color:var(--dim)!important;font:600 10px/1.4 var(--sans)!important}
+.promo>.promo-details{grid-column:4!important;grid-row:1 / span 2!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:center!important;gap:7px!important;width:100%!important;margin:0!important;padding:0!important;border:0!important}
+.promo>.promo-details summary{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:7px!important;width:100%!important;list-style:none!important;cursor:pointer}
+.promo>.promo-details summary::-webkit-details-marker{display:none!important}
+.promo>.promo-details summary:after{display:none!important}
+.promo-context{color:var(--faint)!important;font-size:10px!important;font-weight:650!important;text-align:center!important}
+.promo-summary-cta{display:flex!important;align-items:center!important;justify-content:center!important;min-height:42px!important;padding:0 13px!important;border-radius:10px!important;background:var(--teal)!important;color:#fff!important;font-size:12px!important;font-weight:800!important;white-space:nowrap}
+.promo-summary-cta:after{content:"→";margin-left:8px}
+.promo>.promo-details[open]{grid-column:1/-1!important;grid-row:3!important;display:block!important;width:100%!important;margin-top:15px!important;padding:15px 0 0!important;border:0!important;border-top:1px solid var(--teal-line)!important}
+.promo>.promo-details[open] summary{align-items:flex-end!important}
+.promo>.promo-details[open] .promo-summary-cta{background:#e6f4ee!important;color:var(--teal)!important}
+.promo>.promo-details[open] .promo-summary-cta:after{content:"−"}
+.promo-detail-body{display:grid!important;gap:10px!important;margin-top:12px!important;padding:15px!important;border:1px solid #d6e8dc!important;border-radius:13px!important;background:linear-gradient(125deg,#f0f8f3,#f9fcf9)!important}
+.promo-detail-body>.topline{display:flex!important;gap:7px!important;align-items:center!important;flex-wrap:wrap!important}
+.promo-detail-body>.topline .tag{display:inline-flex!important;align-items:center!important;min-height:22px;padding:3px 9px!important;border:1px solid var(--teal-line)!important;border-radius:99px!important;background:#fff!important;font:700 9px var(--mono)!important;color:var(--teal)!important}
+.promo-detail-body>.topline .state{font-size:9px!important}
+.promo-detail-body>p{max-width:none!important;margin:0!important;padding:10px 12px!important;border:1px solid #e4ebe5!important;border-radius:10px!important;background:#fff!important;color:var(--dim)!important;font-size:12px!important;line-height:1.6!important;box-shadow:0 2px 7px #163b2808}
+.promo-detail-body>.ranges{display:flex!important;gap:8px!important;flex-wrap:wrap!important;margin:0!important}
+.promo-detail-body>.ranges span{display:inline-flex!important;align-items:center!important;min-height:36px!important;padding:7px 11px!important;border:1px solid #d6e8dc!important;border-radius:10px!important;background:#fff!important;color:#245b47!important;font-size:11px!important;font-weight:700!important;box-shadow:0 2px 7px #163b2808}
+.promo-detail-body .promo-table-wrap{border:1px solid #d6e8dc!important;border-radius:11px!important}
+.promo-detail-body .links{display:flex!important;align-items:center!important;gap:10px!important;flex-wrap:wrap!important;margin:0!important;padding:2px 0 0!important}
+.promo-detail-body .btn{min-height:40px!important;padding:0 14px!important;border-radius:9px!important;background:var(--teal)!important;font-size:12px!important}
+.promo-detail-body .more{font-size:12px!important}
+.promo-detail-body .promo-code{display:inline-flex!important;align-items:center!important;gap:10px!important;min-height:42px!important;width:max-content!important;max-width:100%!important;padding:9px 13px!important;border:1px dashed #82b6a1!important;border-radius:10px!important;background:#e8f5ef!important;color:#075d49!important;font:800 15px var(--mono)!important}
+.promo-detail-body .promo-contact{min-height:40px!important;padding:0 14px!important;border-radius:9px!important;font-size:12px!important}
+.promo-detail-body .note{margin:0!important;padding:10px 12px!important;border:1px solid #f0dfbc!important;border-radius:9px!important;background:#fff8e9!important;color:#795018!important;font-size:11px!important;line-height:1.5!important}
+.promo-table{min-width:560px!important}
+@media(max-width:760px){
+ .hero{padding:34px 18px 30px!important}.hero:after{right:-18px!important;bottom:-74px!important;font-size:205px!important}.hero h1{font-size:clamp(34px,9vw,44px)!important}.hero p{font-size:14px!important}
+ .main{padding:18px 15px 48px!important}.promo-simulator-cta{align-items:flex-start!important;flex-direction:column!important;padding:14px!important}.promo-simulator-cta a{width:100%;min-height:44px}.promo-simulator-cta span{font-size:12px}
+ .cats{flex-wrap:nowrap!important;overflow-x:auto!important;padding:0 0 5px!important;scrollbar-width:none}.cats::-webkit-scrollbar{display:none}.cat{white-space:nowrap;flex:0 0 auto}
+ .promo{grid-template-columns:78px minmax(0,1fr)!important;grid-template-rows:auto auto auto!important;gap:0 11px!important;min-height:0!important;padding:13px!important;border-radius:15px!important}
+ .promo .promo-identity .promo-logo{grid-column:1!important;grid-row:1!important;width:78px!important;height:61px!important;flex-basis:78px!important;padding:6px!important;border-radius:10px!important}
+ .promo-title{grid-column:2!important;grid-row:1!important;align-self:center!important}.promo-title h3{font-size:16px!important}.promo-badges{margin-top:5px!important}.promo-badges .state{min-height:19px;padding:2px 7px!important;font-size:9px!important}
+ .promo-highlight{grid-column:1/-1!important;grid-row:2!important;align-items:flex-start!important;min-height:0!important;margin-top:11px!important;padding:10px 1px 0!important;border:0!important;border-top:1px solid var(--line)!important;text-align:left!important}
+ .promo-highlight>span{font-size:9px!important}.promo-highlight strong,.promo-highlight strong.reward-range{justify-content:flex-start!important;gap:8px!important;margin-top:3px!important;font-size:26px!important}.promo-highlight.is-text strong{font-size:17px!important}.promo-highlight small.promo-breakdown{text-align:left!important}
+ .promo>.promo-details{grid-column:1/-1!important;grid-row:3!important;margin-top:10px!important;padding-top:10px!important;border-top:1px solid var(--line)!important}
+ .promo>.promo-details summary{flex-direction:row!important;align-items:center!important;justify-content:space-between!important;gap:10px!important}
+ .promo-context{text-align:left!important;font-size:10px!important}.promo-summary-cta{min-height:40px!important;padding:0 11px!important;font-size:11px!important}
+ .promo>.promo-details[open]{grid-column:1/-1!important;grid-row:3!important;margin-top:10px!important;padding-top:11px!important}
+ .promo-detail-body{padding:11px!important;gap:8px!important}.promo-detail-body>p{padding:9px!important;font-size:11px!important}.promo-detail-body>.ranges span{font-size:10px!important}
+ .promo-table-wrap{overflow-x:auto}
+}
+@media(max-width:390px){.promo{grid-template-columns:68px minmax(0,1fr)!important;gap:0 9px!important}.promo .promo-identity .promo-logo{width:68px!important;height:56px!important;flex-basis:68px!important}.promo-title h3{font-size:15px!important}.promo-highlight strong,.promo-highlight strong.reward-range{font-size:24px!important}.promo-summary-cta{min-height:38px!important;font-size:10px!important}.promo-table{min-width:520px!important}}
+</style>
 </head>
 <body>
 <header><a class="brandmark" href="index.html" aria-label="Rentavio, ir a Cuentas y depósitos"><svg class="brandmark-icon" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="10" y="10" width="100" height="100" rx="22" fill="#0E6B5C"/><path d="M40 86 V34 H64 C74 34 80 40 80 50 C80 58 75 63 67 65 L82 86" fill="none" stroke="white" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><circle cx="94" cy="30" r="6" fill="#00C896"/></svg><span>Rentavio</span></a><nav class="nav"><a href="index.html">Cuentas y depósitos</a><a class="active" href="promociones.html">Promociones</a><a href="https://rentavio.xyz/blog.html">Blog</a></nav></header>
-<section class="hero"><small>AHORROS, VENTAJAS Y OPORTUNIDADES</small><h1>Promociones seleccionadas</h1><p>Ofertas de referidos y bienvenida agrupadas por tipo. Indicamos qué condiciones se han confirmado y cuáles necesitan que el proveedor actualice o valide el enlace personal.</p></section>
+<section class="hero"><small>OFERTAS, CONDICIONES Y RECOMPENSAS</small><h1>Promociones que sí merece la pena mirar.</h1><p>Compara lo que puedes recibir y los pasos que tendrás que cumplir. Cada ficha muestra su estado y deja las condiciones a mano, sin llenar la página de texto.</p></section>
 <main class="main"><div class="promo-simulator-cta"><a href="simulador-promociones.html">🎯 Simula tus promociones →</a><span>Elige presupuesto y descubre recompensas y requisitos</span></div><style>.promo-simulator-cta{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 18px;padding:16px 18px;border:1px solid #bce8da;border-radius:13px;background:#eaf8f2}.promo-simulator-cta a{color:#0e6b5c;font-weight:800;text-decoration:none}.promo-simulator-cta span{font-size:12px;color:#59665f}@media(max-width:600px){.promo-simulator-cta{align-items:flex-start;flex-direction:column}}</style>
 <input id="search" class="search" placeholder="Busca una marca o promoción" aria-label="Busca una marca o promoción">
 <div class="cats" role="group" aria-label="Filtrar por categoría"><button class="cat active" data-filter="all">Todas</button><button class="cat" data-filter="crowd">Crowdlending/Crowdfunding</button><button class="cat" data-filter="crypto">Cripto</button><button class="cat" data-filter="banks">Bancos y Brokers</button><button class="cat" data-filter="energy">Energía</button><button class="cat" data-filter="cashback">Cashback</button><button class="cat" data-filter="other">Otros</button></div>
