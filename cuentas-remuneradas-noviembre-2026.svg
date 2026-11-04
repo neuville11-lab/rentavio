@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+<title id="title">Mejores cuentas remuneradas de noviembre de 2026</title>
+<desc id="desc">Cinco ofertas destacadas: Ibercaja 5,10 %, Bankinter 5 %, Monzo 4 %, Openbank 3,25 % y B100 3,15 % TAE.</desc>
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#eff8f2"/><stop offset="1" stop-color="#d8eee3"/></linearGradient>
+ <linearGradient id="dark" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0e6b5c"/><stop offset="1" stop-color="#08483e"/></linearGradient>
+ <filter id="shadow" x="-20%" y="-30%" width="140%" height="170%"><feDropShadow dx="0" dy="9" stdDeviation="12" flood-color="#174d3a" flood-opacity=".12"/></filter>
+</defs>
+<rect width="1200" height="630" rx="28" fill="url(#bg)"/>
+<circle cx="1132" cy="66" r="190" fill="#c6e8d8" opacity=".62"/>
+<circle cx="1110" cy="642" r="225" fill="#b8dfcf" opacity=".5"/>
+<rect x="0" y="0" width="610" height="630" rx="28" fill="url(#dark)"/>
+<path d="M570 0h40v630h-40z" fill="#0e6b5c"/>
+<g transform="translate(60 48)">
+ <rect width="44" height="44" rx="12" fill="#fff"/>
+ <path d="M15 33V11h10c5 0 8 3 8 8 0 4-2 7-7 8l8 6" fill="none" stroke="#0e6b5c" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+ <circle cx="36" cy="10" r="3" fill="#00c896"/>
+ <text x="57" y="29" fill="#fff" font-family="Inter,Arial,sans-serif" font-weight="800" font-size="23">Rentavio</text>
+</g>
+<g transform="translate(60 143)">
+ <rect width="220" height="34" rx="17" fill="#dff5eb"/>
+ <circle cx="18" cy="17" r="5" fill="#00a87e"/>
+ <text x="34" y="22" fill="#0e6b5c" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="800" letter-spacing="1.5">GUÍA · NOVIEMBRE 2026</text>
+</g>
+<text x="60" y="256" fill="#fff" font-family="Inter,Arial,sans-serif" font-weight="800" font-size="54" letter-spacing="-2">Mejores cuentas</text>
+<text x="60" y="320" fill="#fff" font-family="Inter,Arial,sans-serif" font-weight="800" font-size="54" letter-spacing="-2">remuneradas</text>
+<text x="60" y="386" fill="#9de8ce" font-family="Inter,Arial,sans-serif" font-weight="800" font-size="54" letter-spacing="-2">de noviembre</text>
+<text x="60" y="449" fill="#d8eee6" font-family="Inter,Arial,sans-serif" font-size="21">5 cuentas · tipos, límites y requisitos</text>
+<rect x="60" y="509" width="343" height="1" fill="#ffffff" opacity=".25"/>
+<text x="60" y="548" fill="#d8eee6" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="600">TAE bruta · revisión: 04.11.2026</text>
+<g filter="url(#shadow)" font-family="Inter,Arial,sans-serif">
+ <rect x="655" y="83" width="470" height="82" rx="17" fill="#fff"/>
+ <rect x="655" y="83" width="9" height="82" rx="5" fill="#00a87e"/>
+ <text x="690" y="119" fill="#53645a" font-size="17" font-weight="700">IBERCAJA</text>
+ <text x="690" y="145" fill="#7b8b80" font-size="13">Cuenta Nómina Vamos</text>
+ <text x="1080" y="137" fill="#0e6b5c" font-size="27" font-weight="800" text-anchor="end">5,10 %</text>
+ <rect x="686" y="183" width="439" height="76" rx="17" fill="#fff" opacity=".97"/>
+ <rect x="686" y="183" width="9" height="76" rx="5" fill="#2e9675"/>
+ <text x="719" y="218" fill="#53645a" font-size="17" font-weight="700">BANKINTER</text>
+ <text x="719" y="242" fill="#7b8b80" font-size="13">Cuenta No-Nómina</text>
+ <text x="1080" y="232" fill="#0e6b5c" font-size="27" font-weight="800" text-anchor="end">5,00 %</text>
+ <rect x="717" y="277" width="408" height="76" rx="17" fill="#fff" opacity=".97"/>
+ <rect x="717" y="277" width="9" height="76" rx="5" fill="#6ab58f"/>
+ <text x="750" y="312" fill="#53645a" font-size="17" font-weight="700">MONZO</text>
+ <text x="750" y="336" fill="#7b8b80" font-size="13">Hucha remunerada potenciada</text>
+ <text x="1080" y="326" fill="#0e6b5c" font-size="27" font-weight="800" text-anchor="end">4,00 %</text>
+ <rect x="748" y="371" width="377" height="76" rx="17" fill="#fff" opacity=".97"/>
+ <rect x="748" y="371" width="9" height="76" rx="5" fill="#8bc9a7"/>
+ <text x="781" y="406" fill="#53645a" font-size="17" font-weight="700">OPENBANK</text>
+ <text x="781" y="430" fill="#7b8b80" font-size="13">Cuenta Remunerada</text>
+ <text x="1080" y="420" fill="#0e6b5c" font-size="27" font-weight="800" text-anchor="end">3,25 %</text>
+ <rect x="779" y="465" width="346" height="76" rx="17" fill="#fff" opacity=".97"/>
+ <rect x="779" y="465" width="9" height="76" rx="5" fill="#b6d9c1"/>
+ <text x="812" y="500" fill="#53645a" font-size="17" font-weight="700">B100</text>
+ <text x="812" y="524" fill="#7b8b80" font-size="13">Cuenta Health</text>
+ <text x="1080" y="514" fill="#0e6b5c" font-size="27" font-weight="800" text-anchor="end">3,15 %</text>
+</g>
+<text x="660" y="590" fill="#0e6b5c" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="1.2">RENTABILIDAD · TOPES · CONDICIONES</text>
+</svg>
