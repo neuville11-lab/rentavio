@@ -5,10 +5,10 @@
   root.id = 'rt-assistant-root';
   root.innerHTML = `
     <section class="rt-chat-panel" id="rt-chat-panel" role="dialog" aria-label="Asistente de Rentavio" aria-modal="false" hidden>
-      <header class="rt-chat-head">
+      <div class="rt-chat-head">
         <div class="rt-chat-brand"><span class="rt-chat-mark" aria-hidden="true">R</span><div><div class="rt-chat-title">Asistente Rentavio</div><div class="rt-chat-subtitle">Respuestas basadas en las fichas publicadas</div></div></div>
         <button class="rt-chat-close" type="button" aria-label="Cerrar asistente">×</button>
-      </header>
+      </div>
       <div class="rt-chat-messages" id="rt-chat-messages" aria-live="polite" aria-relevant="additions text"></div>
       <div class="rt-chat-foot">No compartas claves ni datos de acceso. No es asesoramiento financiero.</div>
       <form class="rt-chat-form" id="rt-chat-form"><input class="rt-chat-input" id="rt-chat-input" maxlength="500" autocomplete="off" placeholder="Pregunta por una oferta o condición…" aria-label="Escribe tu pregunta"><button class="rt-chat-send" type="submit" aria-label="Enviar pregunta">➤</button></form>
