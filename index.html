@@ -1345,7 +1345,7 @@ footer{border-color:var(--line)}
   </div>
 </section>
 
-<div class="wrap"><p class="revision-note"><strong>Datos revisados: 30 oct 2026</strong><span>Condiciones contrastadas por Rentavio; intereses y bonificaciones en bruto salvo indicación expresa. Revisión siguiente prevista para el 12 nov 2026.</span></p></div>
+<div class="wrap"><p class="revision-note"><strong>Datos revisados: 4 nov 2026</strong><span>Fuentes oficiales contrastadas por Rentavio; cada ficha conserva su fecha propia. Intereses y bonificaciones en bruto salvo indicación expresa. Revisión siguiente prevista para el 12 nov 2026.</span></p></div>
 
 <div class="controls" id="controls">
   <div class="wrap">
@@ -1426,7 +1426,7 @@ footer{border-color:var(--line)}
         </div>
         <div>
           <h3>Actualización de datos</h3>
-          <p>Revisión de Rentavio: 30/10/2026. Condiciones verificadas por Rentavio en esa fecha; importes de intereses y bonificaciones en bruto salvo indicación expresa, y cada ficha distingue TAE/TIN cuando corresponde. Próxima actualización prevista: 12/11/2026. Las campañas y tipos pueden cambiar; confirma siempre las bases oficiales antes de contratar.</p>
+          <p>Revisión de Rentavio: 04/11/2026. Se han contrastado con fuentes oficiales las ofertas modificadas en esta revisión; cada ficha conserva su fecha propia. Importes brutos salvo indicación expresa y distinción de TAE/TIN cuando corresponde. Próxima actualización prevista: 12/11/2026. Las campañas y tipos pueden cambiar; confirma siempre las bases oficiales antes de contratar.</p>
         </div>
       </div>
     </div>
@@ -2498,16 +2498,24 @@ const DATA = [
     "producto": "Cuenta Online (nuevos clientes)",
     "rate": 2,
     "rateLabel": "TAE 12 meses, hasta 100.000€",
-    "desc": "Cuenta online para nuevos clientes: 2,00% TAE durante 12 meses, hasta 100.000€. La bonificación de 150€ por domiciliar nómina se muestra por separado en Cuentas con bonificación.",
+    "desc": "Cuenta online para nuevos clientes de la región de actuación de Globalcaja (Castilla-La Mancha, Comunidad de Madrid, Murcia, Comunidad Valenciana y provincia de Almería): 2,00% TAE durante 12 meses, hasta 100.000€. Se muestra la bonificación de nómina por separado.",
     "cap": "Hasta 100.000€",
     "condiciones": [
       [
         "Nuevo cliente",
-        "Sí"
+        "No haber sido titular de una cuenta a la vista en los 6 meses anteriores"
+      ],
+      [
+        "Residencia",
+        "Castilla-La Mancha, Comunidad de Madrid, Región de Murcia, Comunidad Valenciana o provincia de Almería"
       ],
       [
         "Duración",
         "12 meses"
+      ],
+      [
+        "Saldo máximo",
+        "100.000€"
       ]
     ],
     "verdict": "Esta ficha muestra solo la rentabilidad del saldo; la bonificación de nómina tiene su ficha separada.",
@@ -2601,7 +2609,7 @@ const DATA = [
     "top": false,
     "sinCondicion": true,
     "montoMin": 0,
-    "montoMax": 30000,
+    "montoMax": 100000,
     "plazos": [
       "disponible",
       "corto",
@@ -2612,7 +2620,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 2,
     "url": "https://portal.kutxabank.es/cs/Satellite/kb/es/particulares/cuenta-remunerada/pys",
-    "actualizado": "30/10/2026"
+    "actualizado": "04/11/2026"
   },
   {
     "cat": "remunerada",
@@ -3631,25 +3639,41 @@ const DATA = [
     "entidad": "Laboral Kutxa",
     "producto": "Depósito Bienvenida",
     "rate": 3.5,
-    "rateLabel": "TAE 12 meses con actividad",
-    "desc": "Depósito Bienvenida para nuevos clientes, máximo 25.000€. Da 3,50% TAE si realizas pagos por al menos 50€/mes en la cuenta; sin actividad, 3,00% TAE. Oferta del 01/09 al 31/10/2026.",
+    "rateLabel": "TAE 12 meses; 3,00% base o 3,50% con actividad",
+    "desc": "Campaña del 01/11 al 31/12/2026 para nuevos clientes sin relación con LABORAL Kutxa en los últimos 12 meses. Depósito a 1 año, hasta 25.000€: 3,00% TAE base o 3,50% TAE si haces pagos elegibles de al menos 50€/mes.",
     "cap": "Hasta 25.000€",
     "condiciones": [
       [
-        "Nuevo cliente",
-        "Sí"
+        "Plazo",
+        "1 año"
       ],
       [
-        "Actividad",
-        "50€/mes para 3,50%"
+        "TAE base",
+        "3,00%"
       ],
       [
-        "Sin actividad",
-        "3,00% TAE"
+        "TAE con actividad",
+        "3,50% con pagos elegibles ≥50€/mes"
+      ],
+      [
+        "Importe máximo",
+        "25.000€"
+      ],
+      [
+        "Cliente nuevo",
+        "Sin posiciones en los 12 meses anteriores"
+      ],
+      [
+        "Contratación",
+        "01/11–31/12/2026"
+      ],
+      [
+        "Cancelación anticipada",
+        "3% TIN hasta cancelación y deducción por el plazo restante, limitada a los intereses devengados"
       ]
     ],
-    "verdict": "El tipo mayor necesita actividad mensual, pero no domiciliar nómina. Cancelar antes aplica una deducción sobre intereses.",
-    "deadline": "Contratación hasta 31/10/2026",
+    "verdict": "El 3,50% exige actividad mensual. Si cancelas antes, se aplica el tipo de cancelación y la deducción indicada en las condiciones.",
+    "deadline": "Contratación hasta 31/12/2026",
     "top": true,
     "sinCondicion": false,
     "montoMin": 0,
@@ -3663,8 +3687,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 2,
-    "url": "https://www.laboralkutxa.com/es/personas/ahorro-inversion/depositos/deposito-bienvenida/",
-    "actualizado": "30/10/2026"
+    "url": "https://www.laboralkutxa.com/es/personas/hazte-cliente-nomina-pension-noviembre26/",
+    "actualizado": "04/11/2026"
   },
   {
     "cat": "deposito",
@@ -4201,7 +4225,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 4,
     "url": "https://www.bbva.es/personas/productos/cuentas/cuenta-nomina.html",
-    "actualizado": "30/10/2026"
+    "actualizado": "04/11/2026"
   },
   {
     "cat": "nomina",
@@ -4400,23 +4424,35 @@ const DATA = [
     "rate": 600,
     "rateLabel": "€ brutos máximo por nómina",
     "isMoney": true,
-    "desc": "Por primera nómina/pensión: 300€ desde 800€/mes; 600€ desde 2.500€/mes (o 1.800€ si tienes 30 años o menos). Requiere Bizum y 250€ de saldo. Permanencia 36 meses, salvo el caso joven de 300€ con 12 meses.",
+    "desc": "Por primera domiciliación de nómina o pensión hasta el 31/12/2026: 300€ brutos con nómina desde 800€/mes; 600€ desde 2.500€/mes (o 1.800€/mes para menores de 31 años). Requiere Bizum y saldo mínimo de 250€. Permanencia de 36 meses; para menores de 31 que obtengan 300€, 12 meses.",
     "cap": "300€ o 600€",
     "condiciones": [
       [
-        "Ingreso",
-        "≥800€/mes"
+        "Alta",
+        "Domiciliación por primera vez antes del 31/12/2026"
+      ],
+      [
+        "Nómina desde 800€/mes",
+        "300€ brutos; 36 meses de permanencia (12 meses para menores de 31 años)"
+      ],
+      [
+        "Nómina desde 2.500€/mes",
+        "600€ brutos; 36 meses de permanencia"
+      ],
+      [
+        "Nómina de menores de 31",
+        "600€ desde 1.800€/mes; 36 meses de permanencia"
       ],
       [
         "Bizum y saldo",
-        "Sí; saldo ≥250€"
+        "Bizum asociado y saldo mínimo 250€"
       ],
       [
-        "Permanencia",
-        "36 meses; 12 en caso joven indicado"
+        "Incumplimiento",
+        "Puede generar penalización"
       ]
     ],
-    "verdict": "Es independiente de la remuneración de la cuenta al 3,10%; ambas ofertas no deben sumarse sin verificar elegibilidad.",
+    "verdict": "La bonificación tiene una permanencia larga y penalización por incumplimiento. La remuneración de la cuenta se muestra por separado.",
     "deadline": "Hasta 31/12/2026",
     "top": false,
     "sinCondicion": false,
@@ -4432,8 +4468,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 4,
     "url": "https://portal.kutxabank.es/cs/Satellite/kb/es/particulares/trae-tu-nomina-1/pys",
-    "status": "expired",
-    "actualizado": "30/10/2026"
+    "actualizado": "04/11/2026"
   },
   {
     "cat": "nomina",
@@ -4482,34 +4517,42 @@ const DATA = [
     "tipo": "tradicional",
     "entidad": "Globalcaja",
     "producto": "Cuenta Online",
-    "rate": 480,
-    "rateLabel": "Hasta 480€ brutos por ingresos y actividad",
+    "rate": 500,
+    "rateLabel": "Hasta 500€ brutos por nómina y Bizum",
     "isMoney": true,
-    "desc": "Hasta 480€ brutos en 12 meses: hasta 300€ por nuevo ingreso (nómina, pensión, autónomos o ingresos recurrentes elegibles) y hasta 180€ por uso mensual de tarjeta, Bizum y recibos. Para acceder a la campaña se exige un nuevo ingreso y un saldo medio mínimo de 1.000€. La recompensa adicional por saldo se muestra por separado.",
-    "cap": "Hasta 480€ en bonificaciones por ingresos y actividad",
+    "desc": "Oferta de nómina de Globalcaja: hasta 500€ brutos en 12 meses con nómina nueva de al menos 2.000€ y un Bizum al mes; hasta 300€ brutos si la nómina es de 700€ a 1.999€. Sin permanencia. No acumulable con otras ofertas de nómina de Globalcaja.",
+    "cap": "Hasta 500€ brutos por nómina + Bizum",
     "condiciones": [
       [
-        "Nuevo ingreso elegible",
-        "Hasta 300€ en 12 meses"
+        "Nómina nueva ≥2.000€",
+        "380€ brutos al año"
       ],
       [
-        "Tarjeta",
-        "Hasta 60€ en 12 meses"
+        "Nómina nueva 700–1.999€",
+        "180€ brutos al año"
       ],
       [
         "Bizum",
-        "Hasta 60€ en 12 meses"
+        "10€ brutos/mes adicional; al menos una operación mensual"
       ],
       [
-        "Recibos",
-        "Hasta 60€ en 12 meses"
+        "Duración",
+        "12 meses"
       ],
       [
-        "Saldo mínimo",
-        "1.000€ de media mensual"
+        "Máximo",
+        "500€ brutos (nómina ≥2.000€) o 300€ (700–1.999€)"
+      ],
+      [
+        "Permanencia",
+        "No"
+      ],
+      [
+        "Acumulación",
+        "No acumulable con otras ofertas de nómina de Globalcaja"
       ]
     ],
-    "verdict": "La recompensa de hasta 300€ por mantener saldo medio se compara aparte en Cuentas remuneradas; no se suma a esta bonificación.",
+    "verdict": "Oferta distinta de Cuenta Suma y de la promoción de 150€ de alta. Globalcaja indica que sus campañas de nómina no son acumulables.",
     "deadline": null,
     "top": false,
     "sinCondicion": false,
@@ -4525,7 +4568,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 3,
     "url": "https://www.globalcaja.es/es/particulares/nominas",
-    "actualizado": "30/10/2026"
+    "actualizado": "04/11/2026"
   },
   {
     "cat": "nomina",
@@ -4613,7 +4656,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 4,
     "url": "https://www.bankinter.com/webcorporativa/sala-de-comunicacion/noticias/negocio/bankinter-eleva-al-3--tae-la-remuneracion-de-su-cuenta-digital-y-mantiene-el-incentivo-adicional-de-hasta-600-euros-por-domiciliacion-de-nomina",
-    "actualizado": "30/10/2026"
+    "actualizado": "04/11/2026"
   },
   {
     "cat": "nomina",
@@ -6846,7 +6889,7 @@ const DATA = [
     "rate": 150,
     "rateLabel": "150€ brutos por nómina",
     "isMoney": true,
-    "desc": "La página oficial anuncia 150€ brutos por domiciliar nómina a clientes que abran la Cuenta Online, sujeto a condiciones propias de la campaña.",
+    "desc": "La web comercial de Globalcaja aún anuncia 150€ brutos por domiciliar nómina, pero su índice de bases legales clasifica la campaña de captación de nuevos clientes de 2026 como no vigente. Pendiente de confirmar la vigencia y bases actuales.",
     "cap": "150€ brutos de bonificación",
     "condiciones": [
       [
@@ -6862,8 +6905,8 @@ const DATA = [
         "150€ brutos"
       ]
     ],
-    "verdict": "La fuente trata esta bonificación como una campaña distinta del programa «Tu cuenta suma»; no se presupone que ambas puedan acumularse.",
-    "deadline": null,
+    "verdict": "No se muestra como oferta activa hasta que la vigencia quede confirmada en bases legales.",
+    "deadline": "Pendiente de confirmar vigencia en bases legales",
     "top": false,
     "sinCondicion": false,
     "montoMin": 0,
@@ -6878,7 +6921,8 @@ const DATA = [
     "extranjero": false,
     "dificultad": 2,
     "url": "https://www.globalcaja.es/es/hazte-cliente",
-    "actualizado": "04/11/2026"
+    "actualizado": "04/11/2026",
+    "status": "unverified"
   },
   {
     "cat": "remunerada",
@@ -6972,30 +7016,38 @@ const DATA = [
     "entidad": "Globalcaja",
     "producto": "Cuenta Suma (retribución variable por saldo)",
     "rate": 1.5,
-    "rateLabel": "TAE equivalente variable según saldo",
+    "rateLabel": "Incentivo por saldo; no es una TAE",
     "isMoney": false,
     "simType": "globalcaja_balance_reward",
-    "desc": "Programa de remuneración mensual vinculado a un nuevo ingreso elegible y al saldo medio: 7,50€/mes con saldo entre 6.000€ y 19.999,99€, o 25€/mes desde 20.000€. Máximo 300€ brutos en 12 meses.",
-    "cap": "Hasta 300€ brutos en 12 meses; saldo medio desde 6.000€",
+    "desc": "Cuenta Suma recompensa el saldo medio con 7,50€/mes entre 6.000€ y 19.999,99€, o 25€/mes desde 20.000€; máximo 300€ brutos por saldo en 12 meses. El programa completo puede alcanzar 780€ brutos sumando ingresos, saldo y actividad. Es una bonificación, no intereses ni TAE, y no se acumula con otras ofertas de nómina.",
+    "cap": "Hasta 300€ brutos por saldo en 12 meses",
     "condiciones": [
       [
         "Nuevo ingreso",
-        "Nómina, pensión o ingreso elegible"
+        "Nómina, pensión o ingreso recurrente elegible"
       ],
       [
         "Saldo medio",
         "7,50€/mes desde 6.000€; 25€/mes desde 20.000€"
       ],
       [
-        "Duración",
-        "Máximo 12 meses"
+        "Componente por saldo",
+        "Hasta 300€ brutos en 12 meses"
       ],
       [
-        "Saldo mínimo del programa",
-        "1.000€ de media mensual"
+        "Saldo medio mínimo",
+        "1.000€"
+      ],
+      [
+        "Programa completo",
+        "Hasta 780€ brutos entre ingresos, saldo y actividad"
+      ],
+      [
+        "Acumulación",
+        "No acumulable con otras ofertas de nómina o pensión de Globalcaja"
       ]
     ],
-    "verdict": "Importe variable según saldo y requisitos mensuales; el porcentaje equivalente cambia con el saldo y no se suma automáticamente a otra campaña Globalcaja.",
+    "verdict": "El pago por saldo es una bonificación variable, no una TAE. Globalcaja separa sus componentes y excluye la acumulación con otras campañas de nómina.",
     "deadline": "Hasta 12 meses desde la adhesión",
     "top": false,
     "sinCondicion": false,
@@ -7013,7 +7065,7 @@ const DATA = [
     "url": "https://www.globalcaja.es/tu-cuenta-suma",
     "actualizado": "04/11/2026"
   },
-{
+  {
     "cat": "remunerada",
     "tipo": "fondo",
     "entidad": "Robinhood",
@@ -7065,6 +7117,64 @@ const DATA = [
     "extranjero": false,
     "dificultad": 2,
     "url": "https://robinhood.com/eu/es/invest/",
+    "actualizado": "04/11/2026"
+  },
+  {
+    "cat": "nomina",
+    "tipo": "tradicional",
+    "entidad": "LABORAL Kutxa",
+    "producto": "Promoción nómina o pensión noviembre–diciembre 2026",
+    "rate": 400,
+    "rateLabel": "400€ brutos por domiciliar nómina o pensión",
+    "isMoney": true,
+    "desc": "400€ brutos (324€ netos) por una nueva domiciliación de nómina o pensión de al menos 800€/mes. Hay que adherirse online entre el 01/11 y el 31/12/2026, mantener el ingreso 12 meses y cumplir el resto de condiciones. Limitada a las primeras 1.000 adhesiones válidas.",
+    "cap": "400€ brutos por nómina o pensión",
+    "condiciones": [
+      [
+        "Adhesión online",
+        "01/11–31/12/2026"
+      ],
+      [
+        "Nómina o pensión",
+        "Nueva; mínimo 800€/mes"
+      ],
+      [
+        "Requisito previo",
+        "No haber domiciliado nómina/pensión/desempleo en los 6 meses anteriores"
+      ],
+      [
+        "Permanencia",
+        "12 meses"
+      ],
+      [
+        "Límite",
+        "Primeras 1.000 adhesiones válidas"
+      ],
+      [
+        "Fecha de abono",
+        "Segunda quincena de marzo de 2027"
+      ],
+      [
+        "Importe",
+        "400€ brutos (324€ netos)"
+      ]
+    ],
+    "verdict": "La campaña anuncia hasta 1.275€ al combinar el bono con el depósito, pero esos intereses del depósito no están incluidos en esta bonificación de 400€.",
+    "deadline": "Adhesión hasta 31/12/2026; nómina/pensión hasta 28/02/2027",
+    "top": false,
+    "sinCondicion": false,
+    "montoMin": 0,
+    "montoMax": 999999999,
+    "plazos": [
+      "disponible",
+      "corto",
+      "medio",
+      "largo"
+    ],
+    "requiereNomina": true,
+    "extranjero": false,
+    "dificultad": 3,
+    "url": "https://www.laboralkutxa.com/es/personas/hazte-cliente-nomina-pension-noviembre26/",
     "actualizado": "04/11/2026"
   }
 ].filter(item => !["expired", "unverified"].includes(item.status));
