@@ -1,5 +1,11 @@
 # Rentavio — registro de cambios
 
+## 4 de noviembre de 2026 — Selector de banco y producto en el asistente
+
+En el recorrido de **Cuentas y depósitos**, el usuario elige primero el banco y luego la ficha concreta —cuenta remunerada, depósito o bonificación—. En **Promociones**, puede seleccionar directamente una promoción. Esto reduce la lista inicial y evita mezclar productos de distintas entidades.
+
+# Rentavio — registro de cambios
+
 ## 4 de noviembre de 2026 — Selector para cuentas, depósitos y promociones
 
 El asistente guía al usuario para elegir primero entre **Cuentas y depósitos** o **Promociones**, y después escoger una ficha. Las cuentas y depósitos ofrecen preguntas rápidas sobre rendimiento, importe mínimo, saldo máximo, duración del tipo, requisitos, cancelación anticipada y costes. Las promociones mantienen consultas sobre aportación, recompensa, plazo, requisitos, código y vigencia. Las respuestas utilizan los datos de cada ficha y reconocen cuándo una condición no está especificada.

@@ -213,7 +213,7 @@
   }
 
   async function welcome() {
-    appendMessage('assistant',{intro:'Hola. Primero elige si tu duda es sobre una cuenta o depósito, o sobre una promoción. Después podrás seleccionar la ficha y el tema. Respondo con los datos publicados y señalaré si falta algún dato.'});
+    appendMessage('assistant',{intro:'Hola. Primero elige si tu duda es sobre una cuenta o depósito, o sobre una promoción. Para cuentas y depósitos elegirás el banco y luego el producto. Respondo con los datos publicados y señalaré si falta algún dato.'});
     const sectionMessage=document.createElement('div');sectionMessage.className='rt-chat-msg assistant';
     const sectionLabel=document.createElement('label');sectionLabel.className='rt-chat-picker-label';sectionLabel.textContent='¿Qué tipo de producto quieres consultar?';
     const sectionSelect=document.createElement('select');sectionSelect.className='rt-chat-picker';sectionSelect.setAttribute('aria-label','Selecciona el tipo de producto');
@@ -226,24 +226,59 @@
       sectionPlaceholder.textContent='Selecciona una sección…';
       sectionSelect.disabled=false;
       [['bancos','Cuentas y depósitos',bankRecords],['promos','Promociones',promoRecordsList]].forEach(([value,label])=>{const option=document.createElement('option');option.value=value;option.textContent=label;sectionSelect.append(option);});
-      let productMessage=null;
+      let detailMessage=null;
+      let subDetailMessage=null;
+      const makePicker=(labelText,ariaLabel,placeholderText)=>{
+        const message=document.createElement('div');message.className='rt-chat-msg assistant';
+        const label=document.createElement('label');label.className='rt-chat-picker-label';label.textContent=labelText;
+        const select=document.createElement('select');select.className='rt-chat-picker';select.setAttribute('aria-label',ariaLabel);
+        const placeholder=document.createElement('option');placeholder.value='';placeholder.textContent=placeholderText;placeholder.selected=true;select.append(placeholder);
+        message.append(label,select);return {message,select,placeholder};
+      };
       sectionSelect.addEventListener('change',()=>{
         const chosen=sectionSelect.value==='bancos'?bankRecords:sectionSelect.value==='promos'?promoRecordsList:[];
         if(!chosen.length)return;
-        if(productMessage)productMessage.remove();
+        if(detailMessage)detailMessage.remove();
+        if(subDetailMessage)subDetailMessage.remove();
+        subDetailMessage=null;
         selectedRecord=null;
-        productMessage=document.createElement('div');productMessage.className='rt-chat-msg assistant';
-        const productLabel=document.createElement('label');productLabel.className='rt-chat-picker-label';productLabel.textContent=sectionSelect.value==='bancos'?'¿Qué cuenta o depósito quieres consultar?':'¿Con qué promoción tienes dudas?';
-        const productSelect=document.createElement('select');productSelect.className='rt-chat-picker';productSelect.setAttribute('aria-label','Selecciona una ficha');
-        const productPlaceholder=document.createElement('option');productPlaceholder.value='';productPlaceholder.textContent='Selecciona una ficha…';productPlaceholder.selected=true;productSelect.append(productPlaceholder);
-        const categories=new Map();
-        chosen.forEach((record,index)=>{
-          const key=record.category|| (record.kind==='promo'?'Promociones':'Otros productos');
-          if(!categories.has(key)){const group=document.createElement('optgroup');group.label=key;categories.set(key,group);productSelect.append(group);}
-          const option=document.createElement('option');option.value=String(index);option.textContent=record.status?record.title+' · '+record.status:record.title;categories.get(key).append(option);
-        });
-        productMessage.append(productLabel,productSelect);log.append(productMessage);log.scrollTop=log.scrollHeight;
-        productSelect.addEventListener('change',()=>{if(productSelect.value==='')return;selectedRecord=chosen[Number(productSelect.value)];if(!selectedRecord)return;input.placeholder='Pregunta por una oferta o condición…';showRecordTopics(selectedRecord);});
+        if(sectionSelect.value==='bancos'){
+          const bankPicker=makePicker('¿Qué banco quieres consultar?','Selecciona un banco','Selecciona un banco…');
+          detailMessage=bankPicker.message;
+          const banks=[...new Set(chosen.map(record=>record.entity).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'es'));
+          banks.forEach(bank=>{const option=document.createElement('option');option.value=bank;option.textContent=bank;bankPicker.select.append(option);});
+          log.append(detailMessage);log.scrollTop=log.scrollHeight;
+          let productMessage=null;
+          bankPicker.select.addEventListener('change',()=>{
+            if(productMessage)productMessage.remove();
+            subDetailMessage=null;
+            selectedRecord=null;
+            const bankProducts=chosen.filter(record=>record.entity===bankPicker.select.value);
+            if(!bankProducts.length)return;
+            const productPicker=makePicker('¿Sobre qué cuenta, depósito o bonificación tienes la duda?','Selecciona el producto bancario','Selecciona un producto…');
+            productMessage=productPicker.message;
+            subDetailMessage=productMessage;
+            bankProducts.forEach((record,index)=>{
+              const option=document.createElement('option');option.value=String(index);
+              const productName=record.title.split('—').slice(1).join('—').trim()||record.title;
+              option.textContent=(record.category?record.category+' · ':'')+productName;
+              productPicker.select.append(option);
+            });
+            log.append(productMessage);log.scrollTop=log.scrollHeight;
+            productPicker.select.addEventListener('change',()=>{if(productPicker.select.value==='')return;selectedRecord=bankProducts[Number(productPicker.select.value)];if(!selectedRecord)return;input.placeholder='Pregunta por una oferta o condición…';showRecordTopics(selectedRecord);});
+          });
+        } else {
+          const promoPicker=makePicker('¿Con qué promoción tienes dudas?','Selecciona una promoción','Selecciona una promoción…');
+          detailMessage=promoPicker.message;
+          const categories=new Map();
+          chosen.forEach((record,index)=>{
+            const key=record.category||'Promociones';
+            if(!categories.has(key)){const group=document.createElement('optgroup');group.label=key;categories.set(key,group);promoPicker.select.append(group);}
+            const option=document.createElement('option');option.value=String(index);option.textContent=record.status?record.title+' · '+record.status:record.title;categories.get(key).append(option);
+          });
+          log.append(detailMessage);log.scrollTop=log.scrollHeight;
+          promoPicker.select.addEventListener('change',()=>{if(promoPicker.select.value==='')return;selectedRecord=chosen[Number(promoPicker.select.value)];if(!selectedRecord)return;input.placeholder='Pregunta por una oferta o condición…';showRecordTopics(selectedRecord);});
+        }
       });
     } catch (_) { sectionPlaceholder.textContent='No se pudieron cargar las fichas'; }
   }
