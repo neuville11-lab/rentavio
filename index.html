@@ -1062,6 +1062,18 @@
     .offer-btn{font-size:11.5px;}
   }
 
+
+/* Cabecera móvil unificada: marca arriba y navegación en una fila propia */
+@media(max-width:700px){
+  header{padding:10px 0 0}
+  .header-row{width:100%;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:8px;padding:0 16px}
+  .brandmark{align-self:flex-start;min-height:36px}
+  .brandmark-icon{width:32px;height:32px}
+  .brandmark-text{display:inline!important;font-size:18px}
+  .header-nav{width:100%;min-width:0;justify-content:space-between;gap:12px;overflow-x:auto;overflow-y:hidden;white-space:nowrap;padding:4px 0 12px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .header-nav::-webkit-scrollbar{display:none}
+  .header-nav a{flex:0 0 auto;white-space:nowrap;font-size:12px}
+}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebSite","name":"Rentavio","alternateName":"Rentavio comparador bancario","url":"https://rentavio.xyz/","inLanguage":"es-ES"}

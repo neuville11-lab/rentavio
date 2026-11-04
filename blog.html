@@ -90,6 +90,18 @@ footer p{max-width:720px;color:var(--faint);font-size:12px;line-height:1.6}
 @media(max-width:700px){.market-section{padding:22px 0 28px}.market-intro{display:block}.market-date{display:inline-flex;margin-top:12px}.market-stats{gap:8px}.market-stat{padding:13px 12px}.market-stat-row{display:block}.market-stat-value{display:block}.market-stat-trend{text-align:left;margin-top:2px}.market-chart-card{padding:14px 12px;border-radius:14px}.market-chart-svg{height:270px}.market-chart-heading{align-items:flex-start;flex-direction:column;gap:2px}.market-legend{gap:6px}.market-legend button{font-size:10.5px;padding:7px 8px}}
 @media(max-width:360px){.market-stats{grid-template-columns:1fr}.market-stat-row{display:flex}.market-stat-trend{text-align:right;margin:0}}
 
+
+/* Cabecera móvil unificada: marca arriba y navegación en una fila propia */
+@media(max-width:700px){
+  header{padding:10px 0 0}
+  .header-row{width:100%;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:8px;padding:0 16px}
+  .brandmark{align-self:flex-start;min-height:36px}
+  .brandmark-icon{width:32px;height:32px}
+  .brandmark-text{display:inline!important;font-size:18px}
+  .header-nav{width:100%;min-width:0;justify-content:space-between;gap:12px;overflow-x:auto;overflow-y:hidden;white-space:nowrap;padding:4px 0 12px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .header-nav::-webkit-scrollbar{display:none}
+  .header-nav a{flex:0 0 auto;white-space:nowrap;font-size:12px}
+}
 </style>
 <link rel="stylesheet" href="asistente.css">
 </head>
