@@ -28,6 +28,16 @@ h1{font-size:clamp(34px,4.5vw,54px);letter-spacing:-.055em;margin:0 0 8px;line-h
 .mode:hover{border-color:#9ab8a4;color:var(--teal)}
 .mode.active{background:var(--teal);border-color:var(--teal);color:white}
 .mode-help{margin:0;color:var(--faint);font-size:12px}
+.priority-options{grid-template-columns:repeat(3,minmax(0,1fr))}
+.priority-options .mode{display:flex;align-items:center;justify-content:flex-start;gap:12px;min-height:74px;padding:12px 15px;border-radius:15px;text-align:left}
+.mode-icon{display:grid;place-items:center;flex:0 0 36px;width:36px;height:36px;border-radius:11px;background:#edf5ef;color:var(--teal)}
+.mode-icon svg{width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.mode.active .mode-icon{background:#ffffff2b;color:#fff}
+.mode-copy{display:grid;gap:3px;min-width:0}
+.mode-copy strong{font-size:12px;line-height:1.25}
+.mode-copy small{font-size:10px;font-weight:500;line-height:1.3;opacity:.82}
+.mode:focus-visible{outline:3px solid #f4bc58;outline-offset:3px}
+@media(max-width:600px){.priority-options{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.priority-options .mode{min-height:78px;flex-direction:column;justify-content:center;gap:5px;padding:8px 4px;text-align:center}.mode-icon{flex-basis:30px;width:30px;height:30px;border-radius:9px}.mode-icon svg{width:21px;height:21px}.mode-copy{gap:0}.mode-copy strong{font-size:10px}.mode-copy small{font-size:9px}}
 .summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px;margin-top:22px}
 .stat{min-width:0;padding:15px 16px;border:1px solid #cfe0cb;border-radius:15px;background:linear-gradient(145deg,#f0f6ed,#eaf2e8)}
 .stat small{display:block;color:var(--dim);font-size:11px;line-height:1.35}
@@ -84,12 +94,16 @@ header{display:block;padding:16px 0}
 <div class="manual-amount"><label for="manualBudget">O escribe la cantidad que quieres obtener</label><div class="manual-input-wrap"><input id="manualBudget" type="number" min="0.5" max="1281.5" step="0.5" value="0.5" inputmode="decimal" aria-label="Cantidad objetivo en euros"><span>€</span></div></div>
 <div class="range-limits"><span>0,50 €</span><span id="maxLabel"></span></div>
 </div>
-<div class="mode-label">Cómo quieres buscar</div>
-<div class="options" role="group" aria-label="Modo de búsqueda">
-<button class="mode active" type="button" data-mode="best" aria-pressed="true">Mejor combinación</button>
-<button class="mode" type="button" data-mode="variants" aria-pressed="false">Ver variaciones</button>
+<div class="mode-label">Qué quieres priorizar para alcanzar tu objetivo</div>
+<div class="options priority-options" role="group" aria-label="Prioridad de búsqueda">
+<button class="mode active" type="button" data-priority="target" aria-pressed="true" aria-label="Priorizar la combinación que más se acerca a la cantidad objetivo">
+<span class="mode-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="3" y="8" width="22" height="15" rx="2.5"/><circle cx="14" cy="15.5" r="3.5"/><path d="M6 11h2M20 20h2M9 5h20v15"/></svg></span><span class="mode-copy"><strong>Más cerca del objetivo</strong><small>Al importe que indicas</small></span></button>
+<button class="mode" type="button" data-priority="spend" aria-pressed="false" aria-label="Priorizar menos dinero que tienes que aportar entre las combinaciones más cercanas">
+<span class="mode-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="3" y="8" width="22" height="15" rx="2.5"/><circle cx="14" cy="15.5" r="3.5"/><path d="M6 11h2M20 20h2M6 26 27 5"/></svg></span><span class="mode-copy"><strong>Menos aportación</strong><small>Menos dinero por poner</small></span></button>
+<button class="mode" type="button" data-priority="time" aria-pressed="false" aria-label="Priorizar el menor plazo entre las combinaciones más cercanas">
+<span class="mode-icon" aria-hidden="true"><circle cx="16" cy="16" r="11.5"/><path d="M16 9v7l5 3M23.5 5.5 27 9"/></svg></span><span class="mode-copy"><strong>Menos tiempo</strong><small>Cuanto antes, mejor</small></span></button>
 </div>
-<p class="mode-help" id="modeHelp">La combinación más cercana; en caso de empate, reduce los importes que debes aportar y el plazo.</p>
+<p class="mode-help" id="modeHelp">Primero busca la recompensa que más se aproxima a tu objetivo; en caso de empate, prioriza llegar con menos promociones.</p>
 <div class="summary" aria-live="polite">
 <div class="stat"><small>Valor de la combinación</small><strong id="gain">—</strong></div>
 <div class="stat"><small>Diferencia con el objetivo</small><strong id="delta">—</strong></div>
@@ -137,9 +151,29 @@ const modes=[...document.querySelectorAll(".mode")];
 let mode="best";
 const fmt=new Intl.NumberFormat("es-ES",{minimumFractionDigits:0,maximumFractionDigits:2});
 function euro(n){return fmt.format(n)+" €"}
-function modeRank(c){return [c.unknownSpend,c.spend,c.unknownTime,c.maxDays,c.selected.length]}
-function compare(a,b){const ar=modeRank(a),br=modeRank(b);for(let i=0;i<ar.length;i++){if(ar[i]!==br[i])return ar[i]-br[i]}return b.sum-a.sum}
-function remember(bucket,candidate){const sig=candidate.selected.map(x=>x.id+":"+x.levelIndex).join("|");if(bucket.some(x=>x.signature===sig))return;candidate.signature=sig;bucket.push(candidate);bucket.sort(compare);if(bucket.length>14)bucket.length=14}
+let priority="target";
+const priorityNames={target:"más cerca del objetivo",spend:"menor aportación",time:"menos tiempo"};
+function modeRank(c,kind=priority){
+ if(kind==="spend")return [c.unknownSpend,c.spend,c.unknownTime,c.maxDays,c.selected.length];
+ if(kind==="time")return [c.unknownTime,c.maxDays,c.unknownSpend,c.spend,c.selected.length];
+ return [c.selected.length,c.unknownSpend,c.spend,c.unknownTime,c.maxDays];
+}
+function compareMode(a,b,kind){const ar=modeRank(a,kind),br=modeRank(b,kind);for(let i=0;i<ar.length;i++){if(ar[i]!==br[i])return ar[i]-br[i]}return b.sum-a.sum}
+function compare(a,b){return compareMode(a,b,priority)}
+function remember(bucket,candidate){
+ const sig=candidate.selected.map(x=>x.id+":"+x.levelIndex).join("|");
+ if(bucket.some(x=>x.signature===sig))return;
+ candidate.signature=sig;bucket.push(candidate);
+ if(bucket.length>30){
+  const keep=new Map();
+  for(const kind of ["target","spend","time"]){
+   const ranked=bucket.slice().sort((a,b)=>compareMode(a,b,kind));
+   for(const item of ranked.slice(0,10))keep.set(item.signature,item);
+  }
+  const retained=[...keep.values()].sort((a,b)=>compareMode(a,b,"target")).slice(0,30);
+  bucket.splice(0,bucket.length,...retained);
+ }
+}
 function enumerate(){
  let dp=new Map([[0,[{sum:0,spend:0,unknownSpend:0,unknownTime:0,maxDays:0,selected:[],signature:""}]]]);
  for(const offer of offers){
@@ -194,7 +228,7 @@ function renderCandidate(c,index,target){
   const required=x.required==null?"Aportación mínima sin confirmar":(x.required===0?x.requiredLabel:"Requisito: "+x.requiredLabel);
   return '<article class="step"><span class="num">'+(i+1)+'</span><div><h4>'+x.name.toLocaleUpperCase("es-ES")+'</h4><p>'+x.step+'</p><details class="promo-details"><summary>Ver detalles</summary><ul>'+x.details.map(function(condition){return "<li>"+condition+"</li>"}).join("")+'</ul></details></div><div class="reward">'+euro(x.reward)+'</div></article>';
  }).join("");
- return '<section class="candidate"><div class="candidate-top"><h3>'+(mode==="variants"?"Opción "+(index+1):"Mejor combinación")+'</h3><span class="result-gap '+fit.cls+'">'+fit.text+'</span></div><div class="candidate-metrics"><span class="metric-pill">Resultado: <strong>'+euro(c.sum/2)+'</strong></span><span class="metric-pill">Aportación conocida: <strong>'+costText+'</strong></span><span class="metric-pill">Tiempo: <strong>'+time+'</strong></span><span class="metric-pill">Promociones: <strong>'+c.selected.length+'</strong></span></div><div class="steps">'+items+'</div></section>';
+ return '<section class="candidate"><div class="candidate-top"><h3>Opción '+index+' · '+priorityNames[priority]+'</h3><span class="result-gap '+fit.cls+'">'+fit.text+'</span></div><div class="candidate-metrics"><span class="metric-pill">Resultado: <strong>'+euro(c.sum/2)+'</strong></span><span class="metric-pill">Aportación conocida: <strong>'+costText+'</strong></span><span class="metric-pill">Tiempo: <strong>'+time+'</strong></span><span class="metric-pill">Promociones: <strong>'+c.selected.length+'</strong></span></div><div class="steps">'+items+'</div></section>';
 }
 function draw(){
  const target=Number(budget.value),targetUnits=Math.round(target*2);
@@ -202,15 +236,17 @@ function draw(){
  manualBudget.value=String(target);
  const {closest,unique}=closestFor(targetUnits);
  const bestDiff=closest/2;
- const winning=unique.slice(0,mode==="best"?1:4);
+ const winning=unique.slice(0,4);
  document.getElementById("gain").textContent=winning.length?euro(winning[0].sum/2):"—";
  document.getElementById("delta").textContent=winning.length?fitText(winning[0],targetUnits).text:"—";
  document.getElementById("own").textContent=winning.length?euro(winning[0].spend)+(winning[0].unknownSpend?" + requisitos por confirmar":""):"—";
  document.getElementById("time").textContent=winning.length?durationText(winning[0]):"—";
  document.getElementById("summaryDetail").textContent=winning.length?"La diferencia mínima posible con las promociones cuantificables es "+euro(bestDiff)+". Las recompensas en forma de cupón, saldo de inversión, intereses, cripto o factura conservan su tipo en cada paso.":"No se pudo encontrar una combinación.";
- document.getElementById("results").innerHTML='<h2 class="results-heading">'+(mode==="best"?"Combinación más cercana":"Variaciones más cercanas")+'</h2>'+winning.map((c,i)=>renderCandidate(c,i+1,targetUnits)).join("");
+ const headings={target:"Combinaciones más cercanas a tu objetivo",spend:"Combinaciones cercanas con menor aportación",time:"Combinaciones cercanas en menos tiempo"};
+ document.getElementById("results").innerHTML='<h2 class="results-heading">'+headings[priority]+'</h2>'+winning.map((c,i)=>renderCandidate(c,i+1,targetUnits)).join("");
 }
-modes.forEach(button=>button.addEventListener("click",()=>{mode=button.dataset.mode;modes.forEach(x=>{const active=x===button;x.classList.toggle("active",active);x.setAttribute("aria-pressed",String(active))});document.getElementById("modeHelp").textContent=mode==="best"?"La combinación más cercana; en caso de empate, reduce los importes que debes aportar y el plazo.":"Muestra hasta cuatro combinaciones distintas con la menor diferencia posible, ordenadas por requisitos conocidos, aportación y plazo.";draw()}));
+const priorityHelp={target:"Primero busca la recompensa que más se aproxima a tu objetivo; en caso de empate, prioriza llegar con menos promociones.",spend:"Busca primero la recompensa más cercana y, entre las opciones igual de próximas, ordena por el dinero que tienes que aportar.",time:"Busca primero la recompensa más cercana y, entre las opciones igual de próximas, prioriza los plazos más cortos conocidos."};
+modes.forEach(button=>button.addEventListener("click",()=>{priority=button.dataset.priority;modes.forEach(x=>{const active=x===button;x.classList.toggle("active",active);x.setAttribute("aria-pressed",String(active))});document.getElementById("modeHelp").textContent=priorityHelp[priority];draw()}));
 budget.addEventListener("input",draw);
 manualBudget.addEventListener("input",()=>{let value=manualBudget.valueAsNumber;if(Number.isFinite(value)){value=Math.min(Number(budget.max),Math.max(0.5,Math.round(value*2)/2));budget.value=String(value);draw()}});
 manualBudget.addEventListener("blur",()=>{if(!Number.isFinite(manualBudget.valueAsNumber))manualBudget.value=budget.value});
