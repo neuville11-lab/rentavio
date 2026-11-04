@@ -26,6 +26,7 @@
   const input = root.querySelector('#rt-chat-input');
   let dataPromise;
   let busy = false;
+  let selectedPromo = null;
 
   const normalize = value => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('es').replace(/[^a-z0-9€%.,-]+/g, ' ').trim();
   const stopWords = new Set('que cual cuales como cuanto cuantos cuando donde para por una uno unos unas este esta esos esas tengo quiero puede puedo debo hay con sin del las los desde hasta sobre entre es son ser me mi tu su y o al en de el la'.split(' '));
@@ -63,7 +64,8 @@
       const codeNodes = [...card.querySelectorAll('.promo-code, code, strong')].map(node => node.textContent.trim());
       const code = codeNodes.find(value => /^[A-Z0-9][A-Z0-9_-]{3,15}$/.test(value));
       const status = card.querySelector('.state')?.textContent?.replace(/\s+/g, ' ').trim() || '';
-      return { kind: 'promo', entity: title.split(/[—–-]/)[0].trim(), title, search: normalize([title, card.dataset.search, ...facts, status].join(' ')), facts, source, code, status, review: doc.querySelector('.intro')?.textContent?.replace(/\s+/g, ' ').trim() || 'Fecha de revisión no indicada' };
+      const group = card.closest('.group');
+      return { kind: 'promo', entity: title.split(/[—–-]/)[0].trim(), title, category: group?.querySelector('h2')?.textContent?.trim() || 'Promociones', search: normalize([title, card.dataset.search, ...facts, status].join(' ')), facts, source, code, status, review: doc.querySelector('.intro')?.textContent?.replace(/\s+/g, ' ').trim() || 'Fecha de revisión no indicada' };
     });
   }
 
@@ -106,20 +108,27 @@
   function selectedFacts(record, query) {
     const q = normalize(query);
     if (isQuestionAbout(q, ['codigo', 'cupon', 'referido'])) return record.code ? [`Código para introducir: ${record.code}`, ...record.facts.filter(f => /codigo|cupon|referid/i.test(f))] : record.facts.filter(f => /codigo|cupon|referid/i.test(f));
+    if (/cuanto.*poner|cuanto.*invert|importe.*inicial|capital.*inicial|desembolso/.test(q)) return record.facts.filter(f => /€|eur/i.test(f) && (/invers|primera|minim|ingres|deposit|compra|pedido|operaci|saldo|bono|bonific|recompensa/i.test(f) || /cada uno|premio/i.test(f)));
+    if (/cuanto.*ganar|ganancia|recompensa|bonificacion|cuanto.*recibir/.test(q)) return [...(/€|%/.test(record.title) ? [record.title] : []), ...record.facts.filter(f => /€|%/.test(f) && /bono|bonific|recompensa|ganar|recibir|cada uno|extra|cashback|cup[oó]n|premio|invers/i.test(f))];
     if (isQuestionAbout(q, ['requisito', 'nomina', 'recibo', 'tarjeta', 'bizum', 'ingresar', 'invertir', 'condicion'])) return record.facts.filter(f => /requ|debe|neces|nomina|recibo|tarjeta|bizum|ingres|invers|mantener|cliente|primera|alta|actividad|codigo|plazo/i.test(f));
-    if (isQuestionAbout(q, ['tiempo', 'plazo', 'cuando', 'duracion', 'mes', 'ano', 'mantener', 'fecha'])) return record.facts.filter(f => /plazo|mes|ano|fecha|hasta|duraci|mantener|dias|día|primeros|trimestre|anual/i.test(f));
+    if (isQuestionAbout(q, ['tiempo', 'plazo', 'cuando', 'duracion', 'mes', 'ano', 'mantener', 'fecha', 'cobrar', 'pagar', 'recibir'])) return record.facts.filter(f => /plazo|mes|ano|fecha|hasta|duraci|mantener|dias|día|primeros|trimestre|anual|recib|paga|abona|acredita|cierre|factura|despues|proyecto|liberar|vencimiento/i.test(f));
     if (isQuestionAbout(q, ['cuanto', 'ganar', 'bono', 'bonificacion', 'recompensa', 'rentabilidad', 'tipo', 'tae', 'tin', 'interes', 'porcentaje'])) return record.facts.filter(f => /€|%|bono|bonific|recompensa|rentabil|TAE|TIN|tipo|saldo|maximo|tramo/i.test(f));
     return record.facts;
   }
 
   function makeAnswer(record, query) {
+    const q = normalize(query);
+    const amountIntent = /cuanto.*poner|cuanto.*invert|importe.*inicial|capital.*inicial|desembolso/.test(q);
+    const rewardIntent = /cuanto.*ganar|ganancia|recompensa|bonificacion/.test(q);
+    const timeIntent = /tiempo|plazo|cuando|duracion|cobrar|pagar|recibir/.test(q);
     const facts = selectedFacts(record, query).filter(Boolean).slice(0, 5);
     if (record.kind === 'banco' && record.rate != null && !facts.some(f => /%/.test(f))) facts.unshift(`${record.rate}% ${record.rateLabel || ''}`.trim());
     const hasStatus = record.status ? /vigente|verificad|confirmad/i.test(record.status) : false;
+    const missing = amountIntent ? 'La ficha no indica cuánto tendrías que aportar. Consulta las condiciones oficiales antes de registrarte.' : rewardIntent ? 'La ficha no especifica una ganancia para esa condición. No la doy por garantizada.' : timeIntent ? 'La ficha no especifica cuándo se recibe la recompensa. Confírmalo en las condiciones oficiales.' : 'La ficha no detalla esa condición. Consulta las condiciones oficiales antes de contratar.';
     return {
       title: record.title,
-      intro: record.kind === 'promo' ? 'Esto es lo que figura en la ficha de la promoción:' : 'Esto es lo que figura en la ficha bancaria:',
-      facts: facts.length ? facts : ['La ficha no detalla esa condición. Consulta las condiciones oficiales antes de contratar.'],
+      intro: amountIntent ? 'Aportación o desembolso que figura en la ficha:' : rewardIntent ? 'Importes de recompensa indicados en la ficha:' : timeIntent ? 'Plazos que aparecen en la ficha:' : record.kind === 'promo' ? 'Esto es lo que figura en la ficha de la promoción:' : 'Esto es lo que figura en la ficha bancaria:',
+      facts: facts.length ? facts : [missing],
       review: record.review,
       status: record.kind === 'promo' ? record.status : '',
       verified: hasStatus,
@@ -139,6 +148,7 @@
       const offers = records.filter(record => record.kind === 'banco' && (requires ? record.requiresPayroll === true : record.requiresPayroll === false)).slice(0, 5);
       if (offers.length) return { intro: requires ? 'Estas fichas indican que requieren nómina:' : 'Estas fichas indican que no requieren nómina:', facts: offers.map(record => `${record.entity}: ${record.title.replace(`${record.entity} — `, '')}. ${record.rate}% ${record.rateLabel || ''}. ${record.facts.slice(0, 1).join('')}`), review: 'La vinculación y la fecha de revisión aparecen en cada ficha.' };
     }
+    if (selectedPromo) return makeAnswer(selectedPromo, query);
     const queryTerms = terms(query);
     const ranked = records.map(record => ({ record, score: scoreRecord(record, query, queryTerms) })).filter(row => row.score > 0).sort((a,b) => b.score-a.score);
     if (ranked.length && ranked[0].score >= 3) {
@@ -164,7 +174,7 @@
       if (value.title) { const p=document.createElement('p'); p.style.fontWeight='800'; p.textContent=value.title; bubble.append(p); }
       if (value.choices?.length) {
         const chips=document.createElement('div'); chips.className='rt-chat-chips';
-        value.choices.forEach(choice=>{const b=document.createElement('button');b.type='button';b.className='rt-chat-chip';b.textContent=choice;b.addEventListener('click',()=>ask(choice));chips.append(b);});
+        value.choices.forEach(choice=>{const b=document.createElement('button');b.type='button';b.className='rt-chat-chip';b.textContent=choice;b.addEventListener('click',()=>typeof value.onChoice==='function'?value.onChoice(choice):ask(choice));chips.append(b);});
         bubble.append(chips);
       }
       if (value.facts?.length) { const list=document.createElement('ul');list.className='rt-chat-facts';value.facts.forEach(fact=>{const li=document.createElement('li');li.textContent=fact;list.append(li);});bubble.append(list); }
@@ -185,11 +195,38 @@
     finally { busy=false;form.querySelector('button').disabled=false;input.focus(); }
   }
 
-  function welcome() {
-    appendMessage('assistant',{intro:'Hola. Te ayudo a entender requisitos, importes, plazos y códigos de las ofertas que aparecen en Rentavio. Las respuestas se basan en las fichas publicadas y enlazan a la entidad cuando hay una fuente disponible.',facts:['Puedes preguntar por una entidad concreta, por ejemplo: «¿Qué requisitos tiene Equito?»','Si algo no está confirmado en la ficha, te lo diré.']});
-    const chips=document.createElement('div');chips.className='rt-chat-chips';
-    ['Requisitos de Equito','Código de Equito','Ofertas sin nómina','¿Qué diferencia hay entre TAE y TIN?','¿Qué significa «pendiente de validar»?'].forEach(text=>{const b=document.createElement('button');b.type='button';b.className='rt-chat-chip';b.textContent=text;b.addEventListener('click',()=>ask(text));chips.append(b);});
-    log.append(chips);
+  function showPromoTopics(record) {
+    appendMessage('assistant', {
+      intro: 'Has elegido «' + record.title + '». ¿Qué quieres consultar?',
+      choices: ['¿Cuánto dinero tengo que poner?', '¿Cuánto puedo ganar?', '¿En cuánto tiempo recibiría la recompensa?', '¿Qué requisitos debo cumplir?', '¿Qué código necesito?', '¿Está vigente y verificada?', 'Otra duda'],
+      onChoice: topic => {
+        if (topic === 'Otra duda') { input.placeholder = 'Pregunta sobre ' + record.entity + '…'; input.focus(); }
+        else ask(topic);
+      }
+    });
+  }
+
+  async function welcome() {
+    appendMessage('assistant',{intro:'Hola. Elige una promoción y te ayudo con el desembolso, la recompensa, el plazo, los requisitos o el código. Las respuestas salen de las fichas publicadas; si falta un dato, te lo indicaré.'});
+    const pickerMessage=document.createElement('div');pickerMessage.className='rt-chat-msg assistant';
+    const label=document.createElement('label');label.className='rt-chat-picker-label';label.textContent='¿Con qué promoción tienes dudas?';
+    const select=document.createElement('select');select.className='rt-chat-picker';select.setAttribute('aria-label','Selecciona una promoción');
+    const placeholder=document.createElement('option');placeholder.value='';placeholder.textContent='Cargando promociones…';placeholder.selected=true;select.append(placeholder);select.disabled=true;
+    pickerMessage.append(label,select);log.append(pickerMessage);log.scrollTop=log.scrollHeight;
+    try {
+      const records=await getKnowledge();
+      const promos=records.filter(record=>record.kind==='promo');
+      if(!promos.length){placeholder.textContent='No se pudieron cargar las promociones';return;}
+      const groups=new Map();
+      promos.forEach((record,index)=>{
+        const key=record.category||'Promociones';
+        if(!groups.has(key)){const group=document.createElement('optgroup');group.label=key;groups.set(key,group);select.append(group);}
+        const option=document.createElement('option');option.value=String(index);option.textContent=record.status?record.title+' · '+record.status:record.title;groups.get(key).append(option);
+      });
+      placeholder.textContent='Selecciona una promoción…';
+      select.disabled=false;
+      select.addEventListener('change',()=>{if(select.value==='')return;const record=promos[Number(select.value)];if(!record)return;selectedPromo=record;input.placeholder='Pregunta por una oferta o condición…';showPromoTopics(record);});
+    } catch (_) { placeholder.textContent='No se pudieron cargar las promociones'; }
   }
 
   toggle.addEventListener('click',()=>{const open=panel.hidden;panel.hidden=!open;toggle.setAttribute('aria-expanded',String(open));if(open){if(!log.children.length)welcome();input.focus();}else toggle.focus();});

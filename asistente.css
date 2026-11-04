@@ -19,6 +19,10 @@
 .rt-chat-chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
 .rt-chat-chip{border:1px solid #b8ded2;background:#f0faf6;color:var(--rt-teal);border-radius:999px;padding:7px 10px;font-size:11px;font-weight:700;cursor:pointer;text-align:left}
 .rt-chat-chip:hover{background:#e0f3ec}
+.rt-chat-picker-label{display:block;margin:0 0 7px;font-size:11px;font-weight:800;color:#355249}
+.rt-chat-picker{display:block;width:100%;min-height:42px;border:1px solid #b8cfc4;border-radius:10px;background:#fff;color:#10201b;padding:9px 10px;font:600 12px/1.35 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.rt-chat-picker:focus{outline:2px solid #0e6b5c;outline-offset:2px}
+.rt-chat-picker:disabled{color:#718078;background:#f6f8f7}
 .rt-chat-facts{list-style:none;margin:9px 0 0;padding:0;display:grid;gap:7px}
 .rt-chat-facts li{padding:8px 10px;border-radius:9px;background:#f2f8f5;border:1px solid #e1eee8;font-size:12px}
 .rt-chat-status{display:inline-flex;margin-top:9px;padding:4px 8px;border-radius:999px;background:#e3f6ef;color:#0e6b5c;font-size:10px;font-weight:800}
