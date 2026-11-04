@@ -1345,10 +1345,11 @@ footer{border-color:var(--line)}
         </div>
       </div>
       <div class="chip-group">
-        <span class="chip-group-label">Tipo de banco</span>
+        <span class="chip-group-label">Tipo de entidad</span>
         <div class="chip-set" id="filterTipo" data-value="todos">
           <button class="chip" data-value="tradicional">Banca tradicional</button>
           <button class="chip" data-value="neobanco">Neobancos</button>
+          <button class="chip" data-value="fondo">Fondos monetarios</button>
         </div>
       </div>
       <div class="chip-group">
@@ -1454,6 +1455,7 @@ const LOGOS = {
   "Volkswagen Bank": "data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='7'%20fill='%23001E50'/%3E%3Ctext%20x='16'%20y='22'%20text-anchor='middle'%20font-family='Inter,sans-serif'%20font-weight='700'%20font-size='13'%20fill='%23ffffff'%3EVB%3C/text%3E%3C/svg%3E",
   "WiZink": "data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='7'%20fill='%238B0057'/%3E%3Ctext%20x='16'%20y='22'%20text-anchor='middle'%20font-family='Inter,sans-serif'%20font-weight='700'%20font-size='13'%20fill='%23ffffff'%3EWI%3C/text%3E%3C/svg%3E",
   "bunq": "data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='7'%20fill='%232B7BF5'/%3E%3Ctext%20x='16'%20y='22'%20text-anchor='middle'%20font-family='Inter,sans-serif'%20font-weight='700'%20font-size='13'%20fill='%23ffffff'%3EBU%3C/text%3E%3C/svg%3E",
+  "Robinhood": "assets/robinhood.png",
   "imagin": "data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='7'%20fill='%2300C896'/%3E%3Ctext%20x='16'%20y='22'%20text-anchor='middle'%20font-family='Inter,sans-serif'%20font-weight='700'%20font-size='13'%20fill='%23ffffff'%3EIM%3C/text%3E%3C/svg%3E",
 };
 
@@ -6985,6 +6987,60 @@ const DATA = [
     "dificultad": 3,
     "url": "https://www.globalcaja.es/tu-cuenta-suma",
     "actualizado": "04/11/2026"
+  },
+{
+    "cat": "remunerada",
+    "tipo": "fondo",
+    "entidad": "Robinhood",
+    "producto": "Fondo monetario EUR Liquidity LVNAV (J.P. Morgan)",
+    "rate": 5,
+    "rateLabel": "APY promocional anunciado; variable",
+    "isMoney": false,
+    "desc": "Robinhood anuncia actualmente un rendimiento del 5% APY sobre euros no invertidos, invertidos en el fondo EUR Liquidity LVNAV de J.P. Morgan. El 5% combina el rendimiento variable del fondo con un impulso promocional de Robinhood; el tipo puede cambiar. Requiere activar el programa expresamente. No es una cuenta bancaria ni un depósito: el capital está en riesgo y la rentabilidad no está garantizada.",
+    "cap": "Sin saldo mínimo; saldo máximo no especificado en la ficha pública",
+    "condiciones": [
+      [
+        "Rendimiento",
+        "5% APY anunciado actualmente; variable"
+      ],
+      [
+        "Cómo funciona",
+        "Inversión en el fondo monetario EUR Liquidity LVNAV de J.P. Morgan"
+      ],
+      [
+        "Activación",
+        "Opt-in explícito desde la app"
+      ],
+      [
+        "Abono",
+        "Devengo diario; pagos mensuales"
+      ],
+      [
+        "Disponibilidad",
+        "Retirada u operativa inmediata; podría liquidarse en T+1 si hay poca liquidez"
+      ],
+      [
+        "Protección",
+        "Compensación para inversores indicada por Robinhood hasta 22.000€; no cubre pérdidas de mercado"
+      ]
+    ],
+    "verdict": "Buena rentabilidad anunciada, pero no la compares como si fuera una TAE garantizada de una cuenta o un depósito. Robinhood indica que actualmente no hay fecha final, aunque la bonificación está sujeta a cambios; consulta el APY vigente en la app. El fondo no tiene garantía de depósitos y puedes perder capital.",
+    "deadline": "Sin fecha final anunciada actualmente; promoción sujeta a cambios",
+    "top": false,
+    "sinCondicion": false,
+    "montoMin": 0,
+    "montoMax": 999999999,
+    "plazos": [
+      "disponible",
+      "corto",
+      "medio",
+      "largo"
+    ],
+    "requiereNomina": false,
+    "extranjero": false,
+    "dificultad": 2,
+    "url": "https://robinhood.com/eu/es/invest/",
+    "actualizado": "04/11/2026"
   }
 ].filter(item => !["expired", "unverified"].includes(item.status));
 
@@ -7107,8 +7163,8 @@ function render(){
 
   container.innerHTML = filtered.map(item => {
     const condHtml = item.condiciones.map(c => `<span class="cond"><b>${c[1]}</b> ${c[0].toLowerCase()}</span>`).join('');
-    const tipoLabel = item.tipo === 'neobanco' ? 'Neobanco' : 'Tradicional';
-    const catLabel = item.cat === 'remunerada' ? 'Cuenta remunerada' : item.cat === 'deposito' ? 'Depósito a plazo' : 'Cuenta + bonificación';
+    const tipoLabel = item.tipo === 'fondo' ? 'Fondo monetario' : item.tipo === 'neobanco' ? 'Neobanco' : 'Tradicional';
+    const catLabel = item.tipo === 'fondo' ? 'Rendimiento en fondo monetario' : item.cat === 'remunerada' ? 'Cuenta remunerada' : item.cat === 'deposito' ? 'Depósito a plazo' : 'Cuenta + bonificación';
     const nominaBadge = item.requiereNomina === true
       ? '<span class="badge nomina-req">Requiere nómina</span>'
       : item.requiereNomina === 'recomendada'
