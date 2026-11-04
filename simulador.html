@@ -6225,11 +6225,11 @@ function simSummaryHtml(amount,gross,months){
 function simCardHtml(item,amount,months,index){
   const conditions=Array.isArray(item.condiciones)?item.condiciones.map(pair=>`<div class="sim-condition-item"><span>${pair[0]}</span><strong>${pair[1]}</strong></div>`).join(''):'';
   const deadline=item.deadline?`<div class="sim-card-detail-deadline"><strong>Vigencia:</strong> ${item.deadline}</div>`:'';
-  const rateKind=item.simType==='bbva_balance_reward'?'Incentivo promocional equivalente; no TAE':item.simType==='globalcaja_balance_reward'?'Retribución variable según saldo':item.simType==='ibercaja_tiered'?'TAE por periodos (ver condiciones)':'TAE publicada';
+  const rateKind=item.tipo==='fondo'?'APY promocional variable; fondo monetario (no es TAE)':item.simType==='bbva_balance_reward'?'Incentivo promocional equivalente; no TAE':item.simType==='globalcaja_balance_reward'?'Retribución variable según saldo':item.simType==='ibercaja_tiered'?'TAE por periodos (ver condiciones)':'TAE publicada';
   return `<article class="sim-card ${index===0?'sim-best':''}">
-    ${index===0?'<span class="sim-rank">Mejor opción elegible</span>':''}
+    ${index===0?`<span class="sim-rank">${item.tipo==='fondo'?'Mayor rendimiento anunciado; variable':'Mejor opción elegible'}</span>`:'' }
     <div class="sim-entity">${LOGOS[item.entidad]?'<img src="'+LOGOS[item.entidad]+'" alt="">':''}${item.entidad}</div>
-    <div class="sim-product">${item.producto}</div><div class="sim-rate">${fmtSimRate(item)}</div><div class="sim-rate-label">${rateKind}</div>
+    <div class="sim-product">${item.producto}</div><div class="sim-rate">${fmtSimRate(item)}</div><div class="sim-rate-label">${rateKind}${item.tipo==='fondo'?' · capital en riesgo; no es depósito garantizado':''}</div>
     <details class="sim-card-details"><summary>Ver detalle</summary><div class="sim-card-detail-body">
       <p class="sim-card-detail-intro">${item.desc||'Consulta los datos y condiciones publicados por la entidad.'}</p>
       ${conditions?`<div class="sim-condition-grid" aria-label="Condiciones principales">${conditions}</div>`:''}
