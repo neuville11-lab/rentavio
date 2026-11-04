@@ -1,14 +1,201 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Simulador de promociones | Rentavio</title><meta name="description" content="Estima cuánto ganancia que puedes buscar y el desembolso orientativo de las promociones."><style>:root{--teal:#0e6b5c;--mint:#e3f6ef;--line:#dce5df;--ink:#14201a;--dim:#59665f}*{box-sizing:border-box}body{margin:0;background:#fafaf8;color:var(--ink);font:15px/1.5 Inter,Arial,sans-serif}header{padding:16px max(20px,calc((100% - 1100px)/2));background:white;border-bottom:1px solid var(--line);font-weight:800;color:var(--teal)}main{max-width:1100px;margin:auto;padding:30px 20px 60px}h1{font-size:clamp(28px,4vw,42px);margin:0 0 8px}p{color:var(--dim)}.panel{background:white;border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:0 4px 18px #14201a0a}.controls{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:end}.controls label{font-weight:700}.controls input[type=range]{display:block;width:100%;accent-color:var(--teal);margin-top:12px}.amount{font:800 26px ui-monospace,monospace;color:var(--teal);white-space:nowrap}.options{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.toggle{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 13px;cursor:pointer}.toggle.active{background:var(--teal);color:white}.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}.stat{padding:16px;border-radius:12px;background:var(--mint)}.stat small{display:block;color:var(--dim)}.stat strong{font-size:22px;color:var(--teal)}.steps{display:grid;gap:10px;margin-top:22px}.step{display:grid;grid-template-columns:42px 1fr auto;gap:12px;align-items:center;padding:15px;border:1px solid var(--line);border-radius:12px;background:#fff}.num{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--teal);color:white;font-weight:800}.step h3{font-size:15px;margin:0}.step p{font-size:12px;margin:4px 0 0}.reward{font-weight:800;color:var(--teal);text-align:right}.warning{margin-top:18px;padding:13px;border-radius:10px;background:#fff7e8;font-size:12px;color:#795313}.btn{display:inline-block;background:var(--teal);color:white;text-decoration:none;padding:12px 16px;border-radius:9px;font-weight:800;margin-top:18px}@media(max-width:640px){main{padding:22px 14px}.panel{padding:17px}.summary{grid-template-columns:1fr}.step{grid-template-columns:36px 1fr}.reward{grid-column:2;text-align:left}}</style><style id="rentavio-promo-simulator-sage">
-:root{--teal:#174d3a;--mint:#eaf2e8;--line:#e5ebe4;--ink:#1a2b22;--dim:#53645a;--faint:#78867c}
-*{box-sizing:border-box}body{margin:0;background:#fafcf9;color:var(--ink);font:15px/1.55 Inter,Arial,sans-serif}
-header{padding:16px max(20px,calc((100% - 1100px)/2));background:rgba(250,252,249,.94);border-bottom:1px solid var(--line);font-weight:800;color:var(--teal)}
-main{max-width:1180px;margin:auto;padding:28px 28px 64px}h1{font-size:clamp(34px,4.5vw,54px);letter-spacing:-.055em;margin:0 0 8px}p{color:var(--dim)}
-.panel{background:white;border:1px solid var(--line);border-radius:22px;padding:25px;box-shadow:0 12px 34px #1b382110}
-.controls input[type=range]{accent-color:var(--teal)}.amount{color:var(--teal)}
-.options{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.toggle{border:1px solid var(--line-strong);background:#fff;border-radius:999px;padding:9px 14px;color:var(--dim);cursor:pointer}.toggle.active{background:var(--teal);border-color:var(--teal);color:white}
-.summary{gap:12px}.stat{border:1px solid #cfe0cb;border-radius:15px;background:linear-gradient(145deg,#f0f6ed,#eaf2e8)}.stat strong{color:var(--teal)}
-.steps{gap:11px}.step{border-color:var(--line);border-radius:15px;background:white}.step>span:first-child{background:var(--teal);color:white}
-.notice,.warning{border-radius:13px;background:#fbf0e5;color:#805637}
-a{color:var(--teal)}footer{color:var(--faint)}
-@media(max-width:650px){main{padding:22px 16px 48px}.panel{padding:17px;border-radius:18px}.summary{grid-template-columns:1fr}.step{grid-template-columns:36px 1fr;}.step>:last-child{grid-column:2}}
-</style></head><body><header>Rentavio</header><main><p><a href="promociones.html">← Volver a promociones</a></p><h1>Simulador de promociones</h1><p>Explora qué objetivo de ganancia quieres alcanzar. Las promociones aparecen ordenadas por el desembolso mínimo necesario.</p><section class="panel"><div class="controls"><label for="budget">Objetivo de ganancia</label><output class="amount" id="amount">10 €</output><input id="budget" type="range" min="10" max="290" step="5" value="10" aria-label="Objetivo de ganancia"></div><div class="options"><button class="toggle active" data-mode="least">Menor desembolso primero</button><button class="toggle" data-mode="all">Alcanzar objetivo</button><button class="toggle" data-mode="recycle">Explorar todas</button></div><div class="summary"><div class="stat"><small>Desembolso orientativo</small><strong id="own">500 €</strong></div><div class="stat"><small>Ganancia potencial</small><strong id="gain">50 €</strong></div><div class="stat"><small>Promociones incluidas</small><strong id="count">1</strong></div></div><div class="steps" id="steps"></div><div class="warning">Estimación orientativa, no una promesa de cobro. Algunas recompensas son cupones, intereses o activos cuyo valor puede variar; pueden exigir inversiones, compras, planes de pago o verificaciones. El simulador no suma como efectivo reutilizable una recompensa hasta que sus condiciones permitan disponer de ella. Los plazos no se estiman aquí.</div><a class="btn" href="promociones.html">Ver condiciones de las promociones</a></section></main><script>const data=[{name:"imaginBank",min:50,reward:50,type:"Cupón Facilitea Shop",step:"Alta con código, ingreso de 50 €, 3 movimientos con tarjeta y Bizum.",value:50},{name:"Coinbase",min:20,reward:20,type:"Recompensa",step:"Alta con referido y primera operación de al menos 20 €.",value:20},{name:"Krak",min:50,reward:10,type:"Bonificación",step:"Solicitar tarjeta física y hacer 5 compras de 10 € (gasto total estimado 50 €).",value:10},{name:"Openbank",min:70,reward:70,type:"Bonificación neta",step:"Abrir cuenta como nuevo cliente, ingresar 70 €, activar tarjeta y Bizum; solicitar invitación.",value:70},{name:"Urbanitae",min:500,reward:50,type:"Wallet de inversión",step:"Primera inversión desde 500 € en un proyecto que cierre con éxito.",value:50},{name:"Domoblock",min:500,reward:50,type:"Crédito para segunda inversión",step:"Invertir al menos 500 € y hacer una segunda inversión de 500 € para canjearlo.",value:50},{name:"Equito",min:200,reward:15,type:"Bonificación indicada",step:"Invertir 200 € con código EG16367.",value:15},{name:"MyInvestor",min:100,reward:25,type:"Bonificación bruta",step:"Usar código nPYic y cumplir un requisito de inversión, saldo o depósito.",value:25},{name:"iGraal",min:0,reward:5,type:"Bono cashback",step:"Regístrate con el enlace y consigue al menos 1 € de cashback validado con una compra elegible en 90 días.",value:5},{name:"Promos",min:0,reward:0.5,type:"Bono + cashback por tickets",step:"Regístrate con el código 44G5Q6; recibes 0,50 € más cashback variable al subir tickets válidos.",value:0.5}, {name:"Gelt",min:0,reward:0,type:"Cashback variable",step:"Regístrate con GELTESIISSANH; acumula cashback subiendo tickets válidos. Retirada disponible al alcanzar 20 €.",value:0}, {name:"Bestprice",min:30,reward:20,type:"Cashback",step:"Alcanza el Nivel Blanco y haz una compra de 30 € + IVA (Amazon excluido). Amazon da 1 € por compra, hasta 5 €/mes; retirada desde 20 €.",value:20}, {name:"Revolut",min:0,reward:25,type:"Bonificación personal",step:"Recibes 25 € al completar el alta con invitación, verificación de identidad, ingreso, tarjeta física y 3 pagos de al menos 5 €.",value:25}, {name:"Trading 212",min:0,reward:100,type:"Acciones gratuitas (hasta)",step:"Regístrate con el enlace, verifica tu identidad y realiza un depósito. Recompensa asignada por Trading 212, hasta 100 €.",value:100}, {name:"Bitvavo",min:500,reward:20,type:"Bono en Bitcoin",step:"Regístrate con el enlace y opera 500 € en un plazo de 7 días; conserva el bono en cuenta 180 días.",value:20}, {name:"Robinhood",min:10,reward:10,type:"Recompensa en criptomonedas",step:"Regístrate con el enlace, deposita al menos 10 € y mantén el valor en efectivo de la recompensa durante 180 días.",value:10}, {name:"SumUp",min:10,reward:10,type:"Bono + cashback",step:"Regístrate con ENEKO7822, verifica tu cuenta y haz 3 pagos de tarjeta en comercios por al menos 10 € en 30 días. Cashback variable con límite de 10 €/mes.",value:10}];const $=s=>document.querySelector(s);const budget=$("#budget");let mode="least";document.querySelectorAll(".toggle").forEach(b=>b.onclick=()=>{mode=b.dataset.mode;document.querySelectorAll(".toggle").forEach(x=>x.classList.toggle("active",x===b));draw()});budget.oninput=draw;function draw(){const target=+budget.value;$("#amount").textContent=target.toLocaleString("es-ES")+" €";const sorted=[...data].sort((a,b)=>a.min-b.min);let chosen=[];let sum=0;for(const item of sorted){if(mode==="all"||sum<target){chosen.push(item);sum+=(item.reward||0)}}if(mode==="recycle"){chosen=sorted;sum=chosen.reduce((a,x)=>a+(x.reward||0),0)}const own=chosen.length?Math.max(...chosen.map(x=>x.min)):0;$("#own").textContent=own.toLocaleString("es-ES")+" €";$("#gain").textContent=sum.toLocaleString("es-ES")+" €";$("#count").textContent=chosen.length;$("#steps").innerHTML=chosen.length?chosen.map((x,i)=>'<article class="step"><span class="num">'+(i+1)+'</span><div><h3>'+x.name+' · '+x.type+'</h3><p>'+x.step+' Desembolso mínimo indicado: '+x.min+' €.</p></div><div class="reward">Hasta '+x.reward+' €</div></article>').join(""):'<p>No hay promociones para este objetivo.</p>'}draw();</script></body></html>
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Simulador de promociones | Rentavio</title>
+<meta name="description" content="Encuentra la combinación de promociones que más se acerca a tu objetivo, comparando aportaciones y plazos.">
+<style>
+:root{--teal:#174d3a;--teal-2:#0e6b5c;--mint:#eaf2e8;--line:#dce5df;--ink:#1a2b22;--dim:#53645a;--faint:#78867c;--amber:#94620d;--white:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:#fafcf9;color:var(--ink);font:15px/1.55 Inter,Arial,sans-serif}
+header{display:flex;align-items:center;gap:10px;padding:13px max(20px,calc((100% - 1100px)/2));background:rgba(250,252,249,.96);border-bottom:1px solid var(--line);font-weight:800;color:var(--teal);position:sticky;top:0;z-index:5}
+.brand-icon{width:30px;height:30px;flex:0 0 30px}
+main{max-width:1180px;margin:auto;padding:28px 28px 64px}
+.back{display:inline-block;margin-bottom:14px;color:var(--teal);font-weight:700;text-decoration:none}
+h1{font-size:clamp(34px,4.5vw,54px);letter-spacing:-.055em;margin:0 0 8px;line-height:1.06}
+.lead{max-width:800px;margin:0 0 23px;color:var(--dim)}
+.panel{background:var(--white);border:1px solid var(--line);border-radius:22px;padding:25px;box-shadow:0 12px 34px #1b382110}
+.controls{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px 18px;align-items:center}
+.controls label{font-weight:800;font-size:16px}
+.amount{font:800 26px ui-monospace,monospace;color:var(--teal);white-space:nowrap}
+.controls input[type=range]{grid-column:1/-1;display:block;width:100%;accent-color:var(--teal);margin:4px 0}
+.range-limits{grid-column:1/-1;display:flex;justify-content:space-between;color:var(--faint);font-size:11px;margin-top:-5px}
+.mode-label{font-weight:800;margin-top:22px}
+.options{display:flex;gap:9px;flex-wrap:wrap;margin:9px 0 5px}
+.mode{border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 16px;color:var(--dim);font:700 13px Inter,Arial,sans-serif;cursor:pointer;transition:.15s}
+.mode:hover{border-color:#9ab8a4;color:var(--teal)}
+.mode.active{background:var(--teal);border-color:var(--teal);color:white}
+.mode-help{margin:0;color:var(--faint);font-size:12px}
+.summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px;margin-top:22px}
+.stat{min-width:0;padding:15px 16px;border:1px solid #cfe0cb;border-radius:15px;background:linear-gradient(145deg,#f0f6ed,#eaf2e8)}
+.stat small{display:block;color:var(--dim);font-size:11px;line-height:1.35}
+.stat strong{display:block;margin-top:5px;font-size:20px;line-height:1.2;color:var(--teal);overflow-wrap:anywhere}
+.summary-detail{margin:12px 0 0;color:var(--dim);font-size:12px}
+.results{margin-top:22px}
+.results-heading{margin:0 0 12px;font-size:18px;letter-spacing:-.02em}
+.candidate{padding:18px;margin:0 0 14px;border:1px solid var(--line);border-radius:17px;background:#fff}
+.candidate-top{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:12px}
+.candidate h3{margin:0;font-size:15px}
+.result-gap{flex:0 0 auto;padding:6px 10px;border-radius:999px;background:var(--mint);color:var(--teal);font-size:11px;font-weight:800}
+.result-gap.over,.result-gap.under{background:#fbf0e5;color:#805637}
+.candidate-metrics{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px}
+.metric-pill{padding:6px 9px;border:1px solid var(--line);border-radius:999px;color:var(--dim);font-size:11px}
+.steps{display:grid;gap:8px}
+.step{display:grid;grid-template-columns:32px minmax(0,1fr) auto;gap:10px;align-items:start;padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff}
+.num{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--teal);color:white;font-weight:800;font-size:12px}
+.step h4{margin:1px 0 3px;font-size:13px}
+.step p{margin:0;color:var(--dim);font-size:11.5px;line-height:1.5}
+.reward{text-align:right;white-space:nowrap;color:var(--teal);font-weight:800;font-size:13px}
+.badge{display:inline-block;margin:5px 4px 0 0;padding:3px 7px;border-radius:999px;background:#f0f3f0;color:#53645a;font-size:9px;font-weight:700}
+.notice{margin-top:17px;padding:14px 15px;border-radius:13px;background:#f2f6ef;border:1px solid #dce9d7;color:#53645a;font-size:11.5px}
+.notice strong{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--teal);color:white;text-decoration:none;padding:12px 16px;border-radius:10px;font-weight:800;margin-top:18px}
+.empty{padding:25px;border:1px dashed var(--line);border-radius:14px;color:var(--dim)}
+footer{max-width:1180px;margin:auto;padding:0 28px 35px;color:var(--faint);font-size:11px}
+@media(max-width:820px){.summary{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){header{padding:11px 16px}main{padding:22px 14px 46px}.panel{padding:17px;border-radius:18px}.controls{grid-template-columns:1fr auto;gap:8px}.amount{font-size:22px}.summary{grid-template-columns:1fr 1fr;gap:8px}.stat{padding:12px}.stat strong{font-size:17px}.candidate{padding:13px}.candidate-top{display:block}.result-gap{display:inline-block;margin-top:8px}.step{grid-template-columns:28px minmax(0,1fr)}.reward{grid-column:2;text-align:left}.step{gap:8px;padding:10px}footer{padding:0 14px 28px}}
+</style>
+</head>
+<body>
+<header><svg class="brand-icon" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="10" y="10" width="100" height="100" rx="22" fill="#0E6B5C"/><path d="M40 86 V34 H64 C74 34 80 40 80 50 C80 58 75 63 67 65 L82 86" fill="none" stroke="white" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><circle cx="94" cy="30" r="6" fill="#00C896"/></svg>Rentavio</header>
+<main>
+<a class="back" href="promociones.html">← Volver a promociones</a>
+<h1>Simulador de promociones</h1>
+<p class="lead">Indica cuánto valor te gustaría obtener. Buscaremos la combinación que más se acerque y, si hay empate, priorizaremos menos aportación y menos tiempo.</p>
+<section class="panel" aria-label="Simulador de recompensas">
+<div class="controls">
+<label for="budget">Objetivo de recompensa</label><output class="amount" id="amount">0,50 €</output>
+<input id="budget" type="range" min="0.5" max="1281.5" step="0.5" value="0.5" aria-label="Objetivo de recompensa en euros">
+<div class="range-limits"><span>0,50 €</span><span id="maxLabel"></span></div>
+</div>
+<div class="mode-label">Cómo quieres buscar</div>
+<div class="options" role="group" aria-label="Modo de búsqueda">
+<button class="mode active" type="button" data-mode="best" aria-pressed="true">Mejor combinación</button>
+<button class="mode" type="button" data-mode="variants" aria-pressed="false">Ver variaciones</button>
+</div>
+<p class="mode-help" id="modeHelp">La combinación más cercana; en caso de empate, reduce los importes que debes aportar y el plazo.</p>
+<div class="summary" aria-live="polite">
+<div class="stat"><small>Valor de la combinación</small><strong id="gain">—</strong></div>
+<div class="stat"><small>Diferencia con el objetivo</small><strong id="delta">—</strong></div>
+<div class="stat"><small>Aportación conocida</small><strong id="own">—</strong></div>
+<div class="stat"><small>Tiempo más largo indicado</small><strong id="time">—</strong></div>
+</div>
+<p class="summary-detail" id="summaryDetail"></p>
+<div class="results" id="results"></div>
+<div class="notice"><strong>Cómo leer la estimación.</strong> El simulador suma el valor indicado de cada recompensa, aunque algunas sean cupones, saldo de inversión, intereses, cripto o descuentos en factura y no dinero retirable. La aportación muestra los importes mínimos que tendrías que invertir, depositar o gastar según la ficha; no significa que ese capital se pierda. En promociones con requisitos o plazos no publicados, los marcamos como pendientes y el resultado puede cambiar. Los plazos conocidos se calculan suponiendo que empiezas las promociones a la vez.</div>
+<a class="btn" href="promociones.html">Ver condiciones de las promociones →</a>
+</section>
+</main>
+<footer>Rentavio · Estimación orientativa; comprueba siempre los requisitos y condiciones vigentes antes de contratar.</footer>
+<script>
+const offers=[
+{id:"urbanitae",name:"Urbanitae",kind:"Saldo promocional",step:"Primera inversión en el periodo de campaña. Tramos: 500–1.500 € → 50 €; más de 1.500 € → 100 €; más de 3.000 € → 150 €. La recompensa se concede según el tramo.",levels:[{reward:50,required:500,label:"Invertir desde 500 €",days:null,timeLabel:"Abono no fechado"},{reward:100,required:1501,label:"Invertir más de 1.500 €",days:null,timeLabel:"Abono no fechado"},{reward:150,required:3001,label:"Invertir más de 3.000 €",days:null,timeLabel:"Abono no fechado"}]},
+{id:"equito",name:"Equito",kind:"Bono de inversión",step:"Usa el código EG16367 y cumple el tramo de inversión. La ganancia indicada queda sujeta a las condiciones del proyecto.",levels:[{reward:15,required:200,label:"Invertir 200 €",days:null,timeLabel:"No especificado"},{reward:45,required:500,label:"Invertir 500 €",days:null,timeLabel:"No especificado"},{reward:105,required:1000,label:"Invertir 1.000 €",days:null,timeLabel:"No especificado"},{reward:450,required:5000,label:"Invertir 5.000 €",days:null,timeLabel:"No especificado"}]},
+{id:"domoblock",name:"Domoblock",kind:"Crédito para segunda inversión",step:"Invierte 500 € para desbloquear un crédito de 50 € y haz una segunda inversión mínima de 500 €. El crédito no se retira en efectivo.",levels:[{reward:50,required:1000,label:"Dos inversiones de 500 €",days:null,timeLabel:"Plazo de abono no indicado"}]},
+{id:"mintos",name:"Mintos",kind:"Bono + intereses",step:"La campaña depende de lo que aparezca en tu cuenta. El tramo adicional requiere saldo medio elegible superior a 1.000 € durante 90 días y rentabilidad del 1 %.",levels:[{reward:25,required:null,label:"Mínimo por confirmar en la campaña",days:null,timeLabel:"No especificado"},{reward:100,required:1000,label:"Más de 1.000 € elegibles durante 90 días",days:90,timeLabel:"90 días"}]},
+{id:"wecity",name:"wecity",kind:"Crédito para invertir",step:"El bono de la primera inversión se incorpora a una segunda inversión. Tramos: 500 € → 50 €; 1.000 € → 100 €; 2.500 € → 150 €. La ficha estima unos 24 meses entre proyectos; es una estimación, no una garantía.",levels:[{reward:50,required:500,label:"Invertir 500 €",days:730,timeLabel:"≈ 24 meses estimados"},{reward:100,required:1000,label:"Invertir 1.000 €",days:730,timeLabel:"≈ 24 meses estimados"},{reward:150,required:2500,label:"Invertir 2.500 €",days:730,timeLabel:"≈ 24 meses estimados"}]},
+{id:"robinhood",name:"Robinhood",kind:"Cripto",step:"Depósito mínimo 10 €. La recompensa total indicada es de 10 € en criptomonedas; debes mantener su valor durante 180 días.",levels:[{reward:10,required:10,label:"Depositar 10 €",days:180,timeLabel:"180 días de permanencia"}]},
+{id:"bitvavo",name:"Bitvavo",kind:"Bitcoin",step:"Opera un volumen mínimo de 500 € durante los primeros 7 días. El bono de 20 € en BTC debe permanecer en la cuenta 180 días.",levels:[{reward:20,required:500,label:"Operar 500 € (volumen)",days:180,timeLabel:"180 días de permanencia"}]},
+{id:"coinbase",name:"Coinbase",kind:"Recompensa digital",step:"Regístrate con el enlace y realiza una operación de al menos 20 €. La ficha indica un abono aproximado en 48 horas.",levels:[{reward:20,required:20,label:"Operar al menos 20 €",days:2,timeLabel:"≈ 48 horas"}]},
+{id:"krak",name:"Krak",kind:"Saldo de cuenta",step:"Pide la tarjeta y haz 5 compras de al menos 10 € cada una. La ficha indica abono en hasta 14 días y permanencia de 30 días.",levels:[{reward:10,required:50,label:"5 compras (50 € en total)",days:44,timeLabel:"Hasta 14 días de abono + 30 días"}]},
+{id:"revolut",name:"Revolut",kind:"Bonificación personal",step:"Completa el alta con invitación, verificación, ingreso, tarjeta física y 3 pagos de al menos 5 €. El importe indicado es un incentivo personal; el plazo de abono no está especificado.",levels:[{reward:25,required:15,label:"3 pagos de 5 € (mínimo)",days:null,timeLabel:"Abono no especificado"}]},
+{id:"myinvestor",name:"MyInvestor",kind:"Bonificación bruta",step:"Usa el código nPYic y, en un máximo de 3 meses, invierte 100 €, mantén 1.000 € en efectivo o contrata un depósito. Bonificación bruta, sujeta a retención.",levels:[{reward:25,required:100,label:"Invertir desde 100 €",days:null,timeLabel:"Requisitos en 3 meses; abono no fechado"}]},
+{id:"n26",name:"N26",kind:"Bonificación",step:"Usa el código y realiza 4 compras de al menos 20 €. Los planes Smart, Go y Metal exigen mantener la suscripción 3 meses; no se incluye su coste.",levels:[{reward:15,required:80,label:"4 compras de 20 €",days:null,timeLabel:"Abono no especificado"}]},
+{id:"bunq",name:"bunq",kind:"Interés extra",step:"Deposita 1.000 € en ahorros para cumplir la condición indicada. El tiempo de permanencia y la fecha de abono no están especificados en la ficha.",levels:[{reward:50,required:1000,label:"Depositar 1.000 €",days:null,timeLabel:"No especificado"}]},
+{id:"imagin",name:"imaginBank",kind:"Cupón de Facilitea Shop",step:"Alta con el código, ingreso de 50 €, 3 movimientos de tarjeta y Bizum activado en 30 días. Recibes un cupón, no dinero en efectivo.",levels:[{reward:50,required:50,label:"Ingresar 50 € y completar pasos",days:30,timeLabel:"Completar en 30 días"}]},
+{id:"openbank",name:"Openbank",kind:"Bonificación neta",step:"Abre la cuenta como nuevo cliente, introduce el código, ingresa 70 € desde otro banco, activa tarjeta y Bizum. La ficha indica un plazo de 30 días para el ingreso.",levels:[{reward:70,required:70,label:"Ingresar 70 €",days:30,timeLabel:"Requisitos en 30 días"}]},
+{id:"octopus",name:"Octopus Energy",kind:"Bonificación de factura",step:"La persona invitada recibe 50 € después del alta y del pago de su primera factura. Es un crédito/bonificación vinculada a la energía.",levels:[{reward:50,required:0,label:"Alta y primera factura pagada",days:null,timeLabel:"Tras la primera factura"}]},
+{id:"sumup",name:"SumUp",kind:"Bono",step:"Verifica la cuenta con el código y haz 3 pagos con tarjeta en tiendas que sumen al menos 10 € dentro de 30 días. El plazo de abono no está especificado.",levels:[{reward:10,required:10,label:"3 pagos; mínimo total 10 €",days:null,timeLabel:"Completar en 30 días; abono no fechado"}]},
+{id:"igraal",name:"iGraal",kind:"Bono cashback",step:"Haz una compra elegible en una tienda colaboradora dentro de 90 días. El bono se acredita al validarse al menos 1 € de cashback; el gasto mínimo depende de la tienda.",levels:[{reward:5,required:null,label:"Gasto mínimo depende de la tienda",days:null,timeLabel:"Compra en 90 días; validación posterior"}]},
+{id:"promos",name:"Promos",kind:"Saldo promocional",step:"Regístrate con el código 44G5Q6 y sube un primer ticket válido. El importe de 0,50 € lo paga Promos; el cashback adicional es variable y no se calcula.",levels:[{reward:0.5,required:0,label:"Subir un ticket válido",days:null,timeLabel:"Validación sin plazo publicado"}]},
+{id:"gelt",name:"Gelt",kind:"Aportación de Rentavio",step:"Regístrate con GELTESIISSANH y sube tu primer ticket a Gelt. El euro lo aporta Rentavio, no Gelt; pídelo por Telegram. El cashback de Gelt no se suma.",levels:[{reward:1,required:0,label:"Subir el primer ticket",days:null,timeLabel:"Sin plazo confirmado"}]},
+{id:"bestprice",name:"Bestprice",kind:"Cashback",step:"Alcanza el Nivel Blanco y haz una compra mínima de 30 € + IVA (Amazon excluido). Recompensa de 20 €; el mínimo de retirada y cashback posterior no se suman.",levels:[{reward:20,required:36.3,label:"Compra mínima 30 € + IVA",days:null,timeLabel:"Abono no especificado"}]}
+];
+const budget=document.getElementById("budget");
+const amount=document.getElementById("amount");
+const modes=[...document.querySelectorAll(".mode")];
+let mode="best";
+const fmt=new Intl.NumberFormat("es-ES",{minimumFractionDigits:0,maximumFractionDigits:2});
+function euro(n){return fmt.format(n)+" €"}
+function modeRank(c){return [c.unknownSpend,c.spend,c.unknownTime,c.maxDays,c.selected.length]}
+function compare(a,b){const ar=modeRank(a),br=modeRank(b);for(let i=0;i<ar.length;i++){if(ar[i]!==br[i])return ar[i]-br[i]}return b.sum-a.sum}
+function remember(bucket,candidate){const sig=candidate.selected.map(x=>x.id+":"+x.levelIndex).join("|");if(bucket.some(x=>x.signature===sig))return;candidate.signature=sig;bucket.push(candidate);bucket.sort(compare);if(bucket.length>14)bucket.length=14}
+function enumerate(){
+ let dp=new Map([[0,[{sum:0,spend:0,unknownSpend:0,unknownTime:0,maxDays:0,selected:[],signature:""}]]]);
+ for(const offer of offers){
+  const next=new Map();
+  for(const [sum,bucket] of dp) next.set(sum,bucket.slice());
+  for(const [sum,bucket] of dp){
+   for(const c of bucket){
+    for(let li=0;li<offer.levels.length;li++){
+     const level=offer.levels[li], newSum=sum+Math.round(level.reward*2);
+     if(newSum<0)continue;
+     const entry={id:offer.id,name:offer.name,kind:offer.kind,step:offer.step,levelIndex:li,reward:level.reward,required:level.required,requiredLabel:level.label,days:level.days,timeLabel:level.timeLabel};
+     const candidate={sum:newSum,spend:c.spend+(level.required==null?0:level.required),unknownSpend:c.unknownSpend+(level.required==null?1:0),unknownTime:c.unknownTime+(level.days==null?1:0),maxDays:Math.max(c.maxDays,level.days||0),selected:c.selected.concat(entry),signature:""};
+     if(!next.has(newSum))next.set(newSum,[]);
+     remember(next.get(newSum),candidate);
+    }
+   }
+  }
+  dp=next;
+ }
+ return dp;
+}
+const combinations=enumerate();
+function closestFor(targetUnits){
+ let closest=Infinity,candidates=[];
+ for(const [sum,bucket] of combinations){
+  const distance=Math.abs(sum-targetUnits);
+  if(distance<closest){closest=distance;candidates=bucket.slice()}
+  else if(distance===closest)candidates.push(...bucket);
+ }
+ candidates.sort(compare);
+ const unique=[],seen=new Set();
+ for(const c of candidates){if(!seen.has(c.signature)){seen.add(c.signature);unique.push(c)}}
+ return {closest,unique};
+}
+function durationText(c){
+ if(c.maxDays&&c.unknownTime)return "Hasta "+c.maxDays+" días + "+c.unknownTime+" plazo(s) por confirmar";
+ if(c.maxDays)return "Hasta "+c.maxDays+" días";
+ if(c.unknownTime)return "Sin plazo confirmado";
+ return "No hay plazo indicado";
+}
+function fitText(c,target){
+ if(c.sum===target)return {text:"Llegas justo al objetivo",cls:""};
+ const difference=Math.abs(c.sum-target)/2;
+ return c.sum>target?{text:"Superas el objetivo por "+euro(difference),cls:"over"}:{text:"Te faltan "+euro(difference)+" para llegar",cls:"under"};
+}
+function renderCandidate(c,index,target){
+ const fit=fitText(c,target);
+ let costText=euro(c.spend);
+ if(c.unknownSpend)costText+=" + "+c.unknownSpend+" requisito(s) de gasto por confirmar";
+ let time=durationText(c);
+ const items=c.selected.map((x,i)=>{
+  const required=x.required==null?"Aportación mínima sin confirmar":(x.required===0?x.requiredLabel:"Requisito: "+x.requiredLabel);
+  return '<article class="step"><span class="num">'+(i+1)+'</span><div><h4>'+x.name+'</h4><p>'+x.step+'</p><span class="badge">'+x.kind+'</span><span class="badge">'+required+'</span><span class="badge">Plazo: '+x.timeLabel+'</span></div><div class="reward">'+euro(x.reward)+'</div></article>';
+ }).join("");
+ return '<section class="candidate"><div class="candidate-top"><h3>'+(mode==="variants"?"Opción "+(index+1):"Mejor combinación")+'</h3><span class="result-gap '+fit.cls+'">'+fit.text+'</span></div><div class="candidate-metrics"><span class="metric-pill">Resultado: <strong>'+euro(c.sum/2)+'</strong></span><span class="metric-pill">Aportación conocida: <strong>'+costText+'</strong></span><span class="metric-pill">Tiempo: <strong>'+time+'</strong></span><span class="metric-pill">Promociones: <strong>'+c.selected.length+'</strong></span></div><div class="steps">'+items+'</div></section>';
+}
+function draw(){
+ const target=Number(budget.value),targetUnits=Math.round(target*2);
+ amount.textContent=euro(target);
+ const {closest,unique}=closestFor(targetUnits);
+ const bestDiff=closest/2;
+ const winning=unique.slice(0,mode==="best"?1:4);
+ document.getElementById("gain").textContent=winning.length?euro(winning[0].sum/2):"—";
+ document.getElementById("delta").textContent=winning.length?fitText(winning[0],targetUnits).text:"—";
+ document.getElementById("own").textContent=winning.length?euro(winning[0].spend)+(winning[0].unknownSpend?" + requisitos por confirmar":""):"—";
+ document.getElementById("time").textContent=winning.length?durationText(winning[0]):"—";
+ document.getElementById("summaryDetail").textContent=winning.length?"La diferencia mínima posible con las promociones cuantificables es "+euro(bestDiff)+". Las recompensas en forma de cupón, saldo de inversión, intereses, cripto o factura conservan su tipo en cada paso.":"No se pudo encontrar una combinación.";
+ document.getElementById("results").innerHTML='<h2 class="results-heading">'+(mode==="best"?"Combinación más cercana":"Variaciones más cercanas")+'</h2>'+winning.map((c,i)=>renderCandidate(c,i+1,targetUnits)).join("");
+}
+modes.forEach(button=>button.addEventListener("click",()=>{mode=button.dataset.mode;modes.forEach(x=>{const active=x===button;x.classList.toggle("active",active);x.setAttribute("aria-pressed",String(active))});document.getElementById("modeHelp").textContent=mode==="best"?"La combinación más cercana; en caso de empate, reduce los importes que debes aportar y el plazo.":"Muestra hasta cuatro combinaciones distintas con la menor diferencia posible, ordenadas por requisitos conocidos, aportación y plazo.";draw()}));
+budget.addEventListener("input",draw);
+const maxReward=offers.reduce((sum,o)=>sum+Math.max(...o.levels.map(x=>x.reward)),0);
+budget.max=String(maxReward);
+document.getElementById("maxLabel").textContent=euro(maxReward);
+draw();
+</script>
+</body>
+</html>
