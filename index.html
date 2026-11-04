@@ -7226,6 +7226,7 @@ const MONTO_REPRESENTATIVO = {
 };
 
 function fmtRate(item){
+  if(item.simType === 'globalcaja_balance_reward') return 'Hasta 300€';
   if(item.isMoney){
     if(Number(item.rate)===0 && item.rateLabel) return item.rateLabel;
     return `${item.rate.toLocaleString('es-ES')}€`;
