@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+<title id="title">Tres promociones bancarias para aprovechar en noviembre</title><desc id="desc">Portada animada de Rentavio con tarjetas ilustradas, tres logotipos y recompensas de 70, 25 y 20 euros.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0c4d40"/><stop offset=".62" stop-color="#0e6b5c"/><stop offset="1" stop-color="#082e2b"/></linearGradient><linearGradient id="card" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e5f8f0"/></linearGradient><radialGradient id="glow"><stop stop-color="#5ef1bd" stop-opacity=".4"/><stop offset="1" stop-color="#5ef1bd" stop-opacity="0"/></radialGradient></defs>
+<style>
+.pulse{transform-origin:1030px 130px;animation:pulse 3s ease-in-out infinite}.coin{animation:drift 4.5s ease-in-out infinite}.coin.two{animation-delay:-1.5s}.shine{animation:shine 5s ease-in-out infinite}.orbit{transform-origin:960px 355px;animation:spin 26s linear infinite}@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}@keyframes drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-13px)}}@keyframes shine{0%,100%{opacity:.15;transform:translateX(-20px)}50%{opacity:.75;transform:translateX(35px)}}@keyframes spin{to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+<rect width="1200" height="630" rx="32" fill="url(#bg)"/><circle cx="1030" cy="150" r="250" fill="url(#glow)"/><circle cx="1100" cy="530" r="230" fill="url(#glow)" opacity=".6"/>
+<g opacity=".17" fill="none" stroke="#b5ffe4"><circle cx="960" cy="350" r="194"/><circle cx="960" cy="350" r="145"/><circle cx="960" cy="350" r="96"/></g>
+<g class="orbit" fill="none" stroke="#bbffe7" stroke-width="2" opacity=".55"><ellipse cx="960" cy="350" rx="214" ry="92"/><circle cx="1172" cy="350" r="7" fill="#ffc76a" stroke="none"/></g>
+<text x="76" y="100" fill="#a9f1d5" font-family="Arial,sans-serif" font-size="21" font-weight="700" letter-spacing="5">RENTAVIO · GUÍA DE NOVIEMBRE</text>
+<text x="72" y="214" fill="#fff" font-family="Arial,sans-serif" font-size="64" font-weight="800" letter-spacing="-2">3 PROMOS</text>
+<text x="72" y="285" fill="#fff" font-family="Arial,sans-serif" font-size="64" font-weight="800" letter-spacing="-2">QUE DESTACAN</text>
+<text x="76" y="347" fill="#b8f5dc" font-family="Arial,sans-serif" font-size="27" font-weight="600">Bancos y brokers · noviembre 2026</text>
+<g transform="rotate(-7 940 265)"><rect x="770" y="188" width="325" height="206" rx="22" fill="url(#card)" stroke="#c4eadb" stroke-width="2"/><rect class="shine" x="790" y="194" width="56" height="194" fill="#55e5b5" opacity=".25"/><text x="800" y="236" fill="#537267" font-family="Arial,sans-serif" font-size="15" font-weight="700">OFERTAS SELECCIONADAS</text>
+<image href="assets/promo-logo-openbank.svg" x="796" y="258" width="92" height="34" preserveAspectRatio="xMidYMid meet"/><image href="assets/promo-logo-myinvestor.svg" x="899" y="258" width="92" height="34" preserveAspectRatio="xMidYMid meet"/><image href="assets/revolut.png" x="1005" y="258" width="73" height="34" preserveAspectRatio="xMidYMid meet"/>
+<line x1="798" y1="310" x2="1068" y2="310" stroke="#d6e7df" stroke-width="2"/><text x="800" y="355" fill="#0e6b5c" font-family="Arial,sans-serif" font-size="31" font-weight="800">70 € · 25 € · 20 €</text></g>
+<g class="coin pulse"><circle cx="1104" cy="134" r="51" fill="#ffca73"/><text x="1104" y="151" text-anchor="middle" fill="#6f4511" font-family="Arial,sans-serif" font-size="48" font-weight="800">€</text></g>
+<g class="coin two"><circle cx="733" cy="426" r="31" fill="#9ce8ce"/><text x="733" y="438" text-anchor="middle" fill="#075242" font-family="Arial,sans-serif" font-size="29" font-weight="800">+</text></g>
+<rect x="76" y="522" width="277" height="48" rx="24" fill="#b8f2dc"/><text x="214" y="553" text-anchor="middle" fill="#0c4d40" font-family="Arial,sans-serif" font-size="18" font-weight="800">REQUISITOS · PLAZOS · CÓDIGOS</text>
+</svg>
