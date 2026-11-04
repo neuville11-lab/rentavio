@@ -1,5 +1,19 @@
 # Rentavio — registro de cambios
 
+## 4 de noviembre de 2026 — Contraste oficial de cuentas, depósitos y bonificaciones
+
+Se actualizaron las ofertas que habían cambiado o cuya situación estaba mal reflejada. Las demás fichas conservan su fecha individual de última revisión.
+
+- **LABORAL Kutxa — Depósito Bienvenida:** la campaña vigente para nuevas altas se comercializa del 1 de noviembre al 31 de diciembre de 2026. Para un año y hasta 25.000€, ofrece 3,00% TAE base o 3,50% TAE si se realizan pagos elegibles de al menos 50€ al mes. Se reflejó la condición de cancelación anticipada.
+- **LABORAL Kutxa — nómina/pensión:** se añadió la bonificación separada de 400€ brutos (324€ netos), con adhesión online hasta el 31/12/2026, nómina o pensión mínima de 800€, permanencia de 12 meses y límite de 1.000 adhesiones. Los intereses del depósito no se suman a esta cifra de bonificación.
+- **Globalcaja — nómina + Bizum:** se corrigió el máximo de 480€ a 500€ brutos para nóminas desde 2.000€ (380€ por nómina + 120€ por Bizum); desde 700€ hasta 1.999€ el máximo es 300€ brutos. Se quitó el requisito de saldo mínimo de 1.000€ que no aparece en esta campaña y se indicó que no es acumulable con otras ofertas de nómina.
+- **Globalcaja — Cuenta Suma:** el pago por saldo se etiqueta como incentivo variable, no como TAE. Se muestra por separado que el componente por saldo alcanza 300€ y que el programa completo puede sumar hasta 780€ brutos, sin acumularlo con otras ofertas de nómina.
+- **Globalcaja — 150€ de alta:** queda pendiente y fuera del catálogo activo hasta aclarar las bases. La web comercial sigue anunciándolo, pero el índice de promociones legales clasifica la campaña de captación de nuevos clientes de 2026 como no vigente.
+- **Kutxabank:** se corrigió el estado erróneo de su promoción de nómina (activa hasta el 31/12/2026), se detallaron sus importes, permanencia y requisitos, y se actualizó el máximo remunerado de la cuenta a 100.000€. Alta de la cuenta digital hasta el 22/11/2026.
+- Se confirmaron los cierres próximos de **BBVA (10/11)**, **Bankinter (11/11)** y **Sabadell (12/11)**. Los depósitos de MyInvestor Premium, Banca March, CBNK y Laboral Kutxa correspondientes a sus campañas de octubre siguen excluidos del catálogo activo por vencimiento.
+
+Fuentes oficiales: [LABORAL Kutxa — campaña de noviembre](https://www.laboralkutxa.com/es/personas/hazte-cliente-nomina-pension-noviembre26/); [Globalcaja — nóminas](https://www.globalcaja.es/particulares/nominas), [Cuenta Suma](https://www.globalcaja.es/tu-cuenta-suma), [promociones legales](https://www.globalcaja.es/bases-promociones) y [alta online](https://www.globalcaja.es/hazte-cliente); [Kutxabank — nómina](https://portal.kutxabank.es/cs/Satellite/kb/es/particulares/trae-tu-nomina-1/pys); [BBVA](https://www.bbva.es/personas/productos/cuentas/cuenta-nomina.html); [Bankinter — Cuenta Digital](https://www.bankinter.com/banca/cuentas-tarjetas/cuentas/abrir-cuenta-online-remunerada-sin-comisiones); [Sabadell — bases](https://www.bancsabadell.com/bsnacional/es/bases-legales-promociones-cuentas-ba/).
+
 ## 4 de noviembre de 2026 — Orden y acceso al simulador
 
 El selector «Por rentabilidad / Por facilidad» pasó a una fila propia centrada bajo los filtros, para evitar que quede desplazado al cambiar el ancho de pantalla. El adorno circular de la llamada al simulador deja de interceptar los clics y el enlace queda por encima de la decoración, con un área táctil más cómoda.
