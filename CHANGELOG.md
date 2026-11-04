@@ -1,5 +1,11 @@
 # Rentavio — registro de cambios
 
+## 4 de noviembre de 2026 — Logotipos de promociones centrados y ampliados
+
+Se amplió el área de los logotipos en las tarjetas de promociones y se centró su contenido en escritorio y móvil. En los logotipos SVG rasterizados se corrigió también la alineación interna, manteniendo la imagen completa sin deformarla.
+
+# Rentavio — registro de cambios
+
 ## 4 de noviembre de 2026 — Logos más visibles en promociones
 
 Se amplió el área de visualización de todos los logos de promoción en escritorio y móvil. Se conserva la proporción original de cada imagen para que ninguna marca se deforme.
