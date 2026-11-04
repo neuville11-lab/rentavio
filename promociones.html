@@ -72,6 +72,7 @@ header{background:rgba(250,252,249,.94);border-color:var(--line);backdrop-filter
 .footnote{border-color:var(--line);border-radius:14px}
 @media(max-width:760px){.hero{margin:10px 10px 0;padding:30px 20px;border-radius:21px}.hero h1{font-size:clamp(31px,9vw,40px)}.hero p{font-size:13px}.hero:after{right:-58px;top:auto;bottom:-62px;transform:none;width:150px;height:150px;font-size:90px}.main{padding-top:20px}.cards{grid-template-columns:1fr}}
 </style>
+<link rel="stylesheet" href="asistente.css">
 </head>
 <body>
 <header><div class="brand"><span class="brand-mark">R</span>Rentavio</div><nav class="nav"><a href="index.html">Cuentas y depósitos</a><a class="active" href="promociones.html">Promociones</a><a href="https://rentavio.xyz/blog.html">Blog</a></nav></header>
@@ -145,5 +146,6 @@ header{background:rgba(250,252,249,.94);border-color:var(--line);backdrop-filter
 <script>
 const search=document.getElementById('search');const buttons=[...document.querySelectorAll('.cat')];const cards=[...document.querySelectorAll('.promo')];let active='all';function filter(){const q=search.value.trim().toLocaleLowerCase('es');for(const card of cards){const category=card.dataset.category;const hay=(card.dataset.search+' '+card.innerText).toLocaleLowerCase('es');card.hidden=(active!=='all'&&category!==active)||!hay.includes(q)}for(const group of document.querySelectorAll('.group'))group.hidden=!group.querySelector('.promo:not([hidden])')}buttons.forEach(button=>button.addEventListener('click',()=>{active=button.dataset.filter;buttons.forEach(b=>b.classList.toggle('active',b===button));filter()}));search.addEventListener('input',filter);filter();
 </script>
+<script src="asistente.js" defer></script>
 </body></html>
 
