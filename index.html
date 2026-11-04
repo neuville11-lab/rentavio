@@ -7183,6 +7183,7 @@ function render(){
             <span class="badge ${item.tipo === 'neobanco' ? 'neo' : ''}">${tipoLabel}</span>
             ${nominaBadge}
             ${item.top ? '<span class="badge top">Destacada</span>' : ''}
+            ${item.tipo === 'fondo' ? '<span class="badge">Capital en riesgo</span>' : ''}
           </div>
           <details class="card-details">
             <summary>Ver todos los detalles</summary>
