@@ -2,7 +2,7 @@
 
 ## 4 de noviembre de 2026 — Asistente de condiciones
 
-Se añadió un asistente interactivo en el comparador, el simulador, promociones y el blog. Consulta las fichas publicadas en `index.html` y `promociones.html` directamente, muestra requisitos, plazos y códigos disponibles, y enlaza a las fuentes que constan en cada ficha. Si no localiza la condición, lo indica sin completarla por suposición. No envía preguntas a un proveedor de IA ni solicita credenciales o datos de cuentas.
+Se añadió un asistente interactivo en el comparador, el simulador, promociones y el blog. Consulta las fichas publicadas en `index.html` y `promociones.html` directamente, muestra requisitos, plazos y códigos disponibles, y enlaza a las fuentes que constan en cada ficha. Si no localiza la condición, lo indica sin completarla por suposición. No envía preguntas a un proveedor de IA ni solicita credenciales o datos de cuentas. Se añadieron preguntas frecuentes sugeridas sobre Equito, códigos, nómina, TAE/TIN y estados de validación.
 
 ## 4 de noviembre de 2026 — separar bonificaciones y remuneración
 

@@ -131,6 +131,8 @@
   function answerFor(query, records) {
     const q = normalize(query);
     if ((/\btae\b/.test(q) || /\btin\b/.test(q)) && /significa|que es|diferencia|sirve|compara/.test(q)) return { intro: 'A grandes rasgos:', facts: ['TIN: tipo nominal aplicado al saldo.', 'TAE: indicador anual que incorpora la frecuencia de pago y, cuando corresponde, otros costes del producto.', 'Compara el mismo concepto y periodo; una oferta promocional puede durar menos de un año.'], review: 'Definición general; revisa la información precontractual de cada producto.' };
+    if (/pendiente de validar|datos pendientes|verificada/.test(q) && /significa|que quiere decir|estado|validar/.test(q)) return { intro: 'Cómo interpretar los estados de las fichas de Rentavio:', facts: ['«Vigente verificada» indica que la oferta se ha contrastado con información actual disponible.', '«Pendiente de validar» significa que falta confirmar algún importe, código, enlace o requisito; no lo des por garantizado.', 'La fecha de revisión y el enlace a la fuente aparecen en la ficha cuando están disponibles.'] };
+    if (/cuando|fecha|actualizada|actualizacion|vigente/.test(q) && /oferta|promo|promocion|datos|revis/.test(q)) return { intro: 'La web muestra la fecha de revisión que consta en cada ficha, pero esa fecha no garantiza que la campaña siga abierta hoy.', facts: ['Comprueba la fecha límite y abre el enlace de la entidad o las bases oficiales antes de registrarte.', 'Si la ficha marca un dato como pendiente de validar, no lo tomes como confirmado.'] };
     if (/recomend|mejor para mi|cual me conviene/.test(q)) return { intro: 'Puedo ayudarte a comparar condiciones publicadas, pero no determinar cuál es la mejor para tu situación personal.', facts: ['Dime el importe aproximado, el tiempo que podrías mantenerlo y si aceptarías domiciliar nómina.', 'Compararé requisitos, límites y remuneración tal como aparecen en las fichas, sin asumir que el máximo anunciado te corresponde.'] };
     if (/que ofertas|cuales|lista|sin nomina|no requiere nomina/.test(q) && /nomina/.test(q)) {
       const requires = /requieren|con nomina|domiciliar/.test(q);
@@ -186,7 +188,7 @@
   function welcome() {
     appendMessage('assistant',{intro:'Hola. Te ayudo a entender requisitos, importes, plazos y códigos de las ofertas que aparecen en Rentavio. Las respuestas se basan en las fichas publicadas y enlazan a la entidad cuando hay una fuente disponible.',facts:['Puedes preguntar por una entidad concreta, por ejemplo: «¿Qué requisitos tiene Equito?»','Si algo no está confirmado en la ficha, te lo diré.']});
     const chips=document.createElement('div');chips.className='rt-chat-chips';
-    ['¿Qué requisitos tiene una promoción?','¿Qué significa TAE?','¿Qué ofertas requieren nómina?'].forEach(text=>{const b=document.createElement('button');b.type='button';b.className='rt-chat-chip';b.textContent=text;b.addEventListener('click',()=>ask(text));chips.append(b);});
+    ['Requisitos de Equito','Código de Equito','Ofertas sin nómina','¿Qué diferencia hay entre TAE y TIN?','¿Qué significa «pendiente de validar»?'].forEach(text=>{const b=document.createElement('button');b.type='button';b.className='rt-chat-chip';b.textContent=text;b.addEventListener('click',()=>ask(text));chips.append(b);});
     log.append(chips);
   }
 
