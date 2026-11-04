@@ -1,5 +1,11 @@
 # Rentavio — registro de cambios
 
+## 4 de noviembre de 2026 — Logos más visibles en promociones
+
+Se amplió el área de visualización de todos los logos de promoción en escritorio y móvil. Se conserva la proporción original de cada imagen para que ninguna marca se deforme.
+
+# Rentavio — registro de cambios
+
 ## 4 de noviembre de 2026 — Selector de banco y producto en el asistente
 
 En el recorrido de **Cuentas y depósitos**, el usuario elige primero el banco y luego la ficha concreta —cuenta remunerada, depósito o bonificación—. En **Promociones**, puede seleccionar directamente una promoción. Esto reduce la lista inicial y evita mezclar productos de distintas entidades.

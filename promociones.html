@@ -24,6 +24,10 @@
 .promo-highlight{grid-column:3;grid-row:1;align-self:stretch;justify-content:center;min-height:76px;border-left:1px solid var(--line);border-right:1px solid var(--line);padding:6px 18px;text-align:center}.promo-highlight>span,.promo-highlight small{display:none!important}.promo-highlight strong{margin:0!important;font-size:30px!important}.promo-highlight.is-text strong{font-size:30px!important;color:#b5740c!important;font-family:var(--mono)!important}
 .promo>.promo-details{grid-column:4;grid-row:1;justify-self:end;align-self:center}.promo>.promo-details[open]{grid-column:1/-1;grid-row:2;justify-self:stretch}.promo>.promo-details[open] summary{display:flex;align-items:center}
 @media(max-width:760px){.promo{grid-template-columns:96px minmax(0,1fr) auto!important;gap:12px!important;padding:14px!important;min-height:100px}.promo-logo{width:96px!important;height:54px!important;flex-basis:96px!important;grid-column:1}.promo-title{grid-column:2}.promo-title h3{font-size:16px!important}.promo-highlight{grid-column:3;min-height:54px;padding:4px 10px;border:0}.promo-highlight strong{font-size:20px!important}.promo>.promo-details{grid-column:1/-1;grid-row:2;justify-self:stretch;align-items:center}.promo>.promo-details summary{align-items:center!important}.promo>.promo-details[open]{grid-row:2}}
+
+/* Logos de promociones: mayor presencia sin deformar el original */
+.promo .promo-identity .promo-logo{width:172px!important;height:70px!important;flex:0 0 172px!important;padding:8px 12px!important;border-radius:12px!important;object-fit:contain!important;object-position:center!important}
+@media(max-width:760px){.promo .promo-identity .promo-logo{width:138px!important;height:58px!important;flex-basis:138px!important;padding:7px 10px!important}}
 </style><style id="rentavio-visual-refresh">
 :root{--bg:#fafcf9;--white:#fff;--soft:#f0f4ee;--line:#e5ebe4;--line-strong:#d3ddd2;--ink:#1a2b22;--dim:#53645a;--faint:#78867c;--teal:#174d3a;--bright:#a5d782;--teal-soft:#eaf2e8;--teal-line:#cfe0cb;--amber:#ad6c35;--amber-soft:#fbf0e5;--sans:'Inter',-apple-system,sans-serif}
 body{background:var(--bg);color:var(--ink)}
