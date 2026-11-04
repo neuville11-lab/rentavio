@@ -98,9 +98,15 @@ header{background:rgba(250,252,249,.94);border-color:var(--line);backdrop-filter
 .promo-highlight strong.reward-range .range-separator{font-size:.72em;font-weight:500;opacity:.6}
 @media(max-width:760px){.promo-highlight strong.reward-range{justify-content:flex-end;gap:6px;font-size:clamp(16px,4vw,20px)!important}}
 </style>
+<style>
+/* Marca compartida con Cuentas y depósitos y Blog */
+.brandmark{display:flex;align-items:center;gap:9px;color:var(--ink);font-weight:800;font-size:18px;letter-spacing:-.02em;text-decoration:none;white-space:nowrap}
+.brandmark-icon{display:block;width:28px;height:28px;flex:0 0 28px}
+@media(max-width:700px){.brandmark{align-self:flex-start;min-height:36px}.brandmark-icon{width:32px;height:32px;flex-basis:32px}}
+</style>
 </head>
 <body>
-<header><div class="brand"><span class="brand-mark">R</span>Rentavio</div><nav class="nav"><a href="index.html">Cuentas y depósitos</a><a class="active" href="promociones.html">Promociones</a><a href="https://rentavio.xyz/blog.html">Blog</a></nav></header>
+<header><a class="brandmark" href="index.html" aria-label="Rentavio, ir a Cuentas y depósitos"><svg class="brandmark-icon" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="10" y="10" width="100" height="100" rx="22" fill="#0E6B5C"/><path d="M40 86 V34 H64 C74 34 80 40 80 50 C80 58 75 63 67 65 L82 86" fill="none" stroke="white" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><circle cx="94" cy="30" r="6" fill="#00C896"/></svg><span>Rentavio</span></a><nav class="nav"><a href="index.html">Cuentas y depósitos</a><a class="active" href="promociones.html">Promociones</a><a href="https://rentavio.xyz/blog.html">Blog</a></nav></header>
 <section class="hero"><small>AHORROS, VENTAJAS Y OPORTUNIDADES</small><h1>Promociones seleccionadas</h1><p>Ofertas de referidos y bienvenida agrupadas por tipo. Indicamos qué condiciones se han confirmado y cuáles necesitan que el proveedor actualice o valide el enlace personal.</p></section>
 <main class="main"><div class="promo-simulator-cta"><a href="simulador-promociones.html">🎯 Simula tus promociones →</a><span>Elige presupuesto y descubre recompensas y requisitos</span></div><style>.promo-simulator-cta{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 18px;padding:16px 18px;border:1px solid #bce8da;border-radius:13px;background:#eaf8f2}.promo-simulator-cta a{color:#0e6b5c;font-weight:800;text-decoration:none}.promo-simulator-cta span{font-size:12px;color:#59665f}@media(max-width:600px){.promo-simulator-cta{align-items:flex-start;flex-direction:column}}</style>
 <input id="search" class="search" placeholder="Busca una marca o promoción" aria-label="Busca una marca o promoción">
