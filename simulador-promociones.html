@@ -134,7 +134,7 @@ function enumerate(){
     for(let li=0;li<offer.levels.length;li++){
      const level=offer.levels[li], newSum=sum+Math.round(level.reward*2);
      if(newSum<0)continue;
-     const entry={id:offer.id,name:offer.name,kind:offer.kind,step:offer.step,levelIndex:li,reward:level.reward,required:level.required,requiredLabel:level.label,days:level.days,timeLabel:level.timeLabel};
+     const entry={id:offer.id,name:offer.name,kind:offer.kind,step:offer.step,details:offer.details,levelIndex:li,reward:level.reward,required:level.required,requiredLabel:level.label,days:level.days,timeLabel:level.timeLabel};
      const candidate={sum:newSum,spend:c.spend+(level.required==null?0:level.required),unknownSpend:c.unknownSpend+(level.required==null?1:0),unknownTime:c.unknownTime+(level.days==null?1:0),maxDays:Math.max(c.maxDays,level.days||0),selected:c.selected.concat(entry),signature:""};
      if(!next.has(newSum))next.set(newSum,[]);
      remember(next.get(newSum),candidate);
