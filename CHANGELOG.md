@@ -1,5 +1,11 @@
 # Rentavio — registro de cambios
 
+## 4 de noviembre de 2026 — Orden y acceso al simulador
+
+El selector «Por rentabilidad / Por facilidad» pasó a una fila propia centrada bajo los filtros, para evitar que quede desplazado al cambiar el ancho de pantalla. El adorno circular de la llamada al simulador deja de interceptar los clics y el enlace queda por encima de la decoración, con un área táctil más cómoda.
+
+# Rentavio — registro de cambios
+
 ## 4 de noviembre de 2026 — Logotipos de promociones centrados y ampliados
 
 Se amplió el área de los logotipos en las tarjetas de promociones y se centró su contenido en escritorio y móvil. En los logotipos SVG rasterizados se corrigió también la alineación interna, manteniendo la imagen completa sin deformarla.
