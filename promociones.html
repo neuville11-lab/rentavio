@@ -270,5 +270,6 @@ header{background:rgba(250,252,249,.94);border-color:var(--line);backdrop-filter
 const search=document.getElementById('search');const buttons=[...document.querySelectorAll('.cat')];const cards=[...document.querySelectorAll('.promo')];let active='all';function filter(){const q=search.value.trim().toLocaleLowerCase('es');for(const card of cards){const category=card.dataset.category;const hay=(card.dataset.search+' '+card.innerText).toLocaleLowerCase('es');card.hidden=(active!=='all'&&category!==active)||!hay.includes(q)}for(const group of document.querySelectorAll('.group'))group.hidden=!group.querySelector('.promo:not([hidden])')}buttons.forEach(button=>button.addEventListener('click',()=>{active=button.dataset.filter;buttons.forEach(b=>b.classList.toggle('active',b===button));filter()}));search.addEventListener('input',filter);filter();
 </script>
 <script src="asistente.js" defer></script>
+<script src="clarity-consent.js" defer></script>
 </body></html>
 
