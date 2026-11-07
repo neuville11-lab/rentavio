@@ -71,6 +71,16 @@
     document.body.appendChild(button);
   }
 
+  function ensurePrivacyLink() {
+    var footer = document.querySelector("footer");
+    if (!footer || footer.querySelector('a[href="privacidad.html"]')) return;
+    var link = document.createElement("a");
+    link.href = "privacidad.html";
+    link.textContent = "Privacidad y cookies";
+    link.style.cssText = "display:inline-block;margin-top:12px;color:#0e6b5c;font-size:12px;font-weight:700;text-decoration:underline";
+    footer.appendChild(link);
+  }
+
   function showBanner() {
     if (document.getElementById(bannerId)) {
       document.getElementById(bannerId).hidden = false;
@@ -82,7 +92,7 @@
     banner.setAttribute("aria-label", "Preferencias de analítica");
     banner.innerHTML =
       '<p class="rv-consent-title">Analítica opcional</p>' +
-      '<p>Microsoft Clarity puede registrar páginas visitadas, clics y desplazamientos para ayudarnos a mejorar Rentavio. Solo se activa si aceptas; los campos de entrada están enmascarados. Puedes cambiar tu decisión en cualquier momento desde “Privacidad y analítica”. <a href="https://learn.microsoft.com/es-es/clarity/clarity-data" target="_blank" rel="noopener noreferrer">Qué datos recoge Clarity</a>.</p>' +
+      '<p>Microsoft Clarity puede registrar páginas visitadas, clics y desplazamientos para ayudarnos a mejorar Rentavio. Solo se activa si aceptas; los campos de entrada están enmascarados. Puedes cambiar tu decisión en cualquier momento desde “Privacidad y analítica”. <a href="privacidad.html">Lee la política de privacidad y cookies de Rentavio</a>. <a href="https://learn.microsoft.com/es-es/clarity/clarity-data" target="_blank" rel="noopener noreferrer">Qué datos recoge Clarity</a>.</p>' +
       '<div class="rv-consent-actions"><button class="rv-reject" type="button">Rechazar analítica</button><button class="rv-accept" type="button">Aceptar analítica</button></div>';
     document.body.appendChild(banner);
     banner.querySelector(".rv-accept").addEventListener("click", function () {
@@ -107,6 +117,7 @@
     if (!document.body || !document.head) return;
     addStyles();
     ensureManager();
+    ensurePrivacyLink();
     if (getConsent() === "accepted") startClarity();
     else showBanner();
   }
