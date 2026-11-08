@@ -560,30 +560,34 @@ const DATA = [
     "tipo": "neobanco",
     "entidad": "Renault Bank",
     "producto": "Cuenta Contigo (nuevos clientes)",
-    "rate": 3.04,
-    "rateLabel": "TAE promocional",
-    "desc": "Para nuevos clientes: 3,04% TAE hasta el 31/03/2027. Después se aplica el tipo vigente; la Cuenta Remunerada base figura al 2,27% TAE en la actualización del 30/10/2026.",
-    "cap": "Promoción para nuevos clientes; saldo máximo pendiente de confirmar",
+    "rate": 2.61,
+    "rateLabel": "TAE anual de ejemplo (12 meses)",
+    "desc": "Nueva alta del 21/10 al 18/11/2026: 3,00% TIN hasta el 31/03/2027. Después se aplicará el TIN vigente el 01/04/2027. Renault Bank ilustra una TAE anual del 2,61% suponiendo un 2,25% TIN después de la promoción; esa TAE no garantiza el tipo posterior.",
+    "cap": "Sin importe mínimo ni máximo anunciado para esta campaña",
     "condiciones": [
       [
-        "Nuevo cliente",
-        "Requerido"
+        "Alta promocional",
+        "21/10–18/11/2026"
       ],
       [
-        "Tipo promocional",
-        "3,04% hasta 31/03/2027"
+        "Tipo inicial",
+        "3,00% TIN hasta el 31/03/2027"
       ],
       [
         "Después",
-        "Tipo vigente (2,27% indicado al 30/10/2026)"
+        "TIN vigente el 01/04/2027"
       ],
       [
-        "Saldo máximo",
-        "Consultar ficha oficial"
+        "TAE del ejemplo anual",
+        "2,61% bajo la hipótesis de un 2,25% TIN después"
+      ],
+      [
+        "Saldo",
+        "Sin mínimo ni máximo indicado"
       ]
     ],
-    "verdict": "Separa el TIN promocional temporal de la TAE y del tipo base.",
-    "deadline": "Hasta 31/03/2027",
+    "verdict": "El 3,00% es TIN y dura solo hasta el 31/03/2027. La TAE del 2,61% es un ejemplo anualizado con una hipótesis para el tipo posterior, que no está garantizado.",
+    "deadline": "Alta hasta 18/11/2026",
     "top": false,
     "sinCondicion": false,
     "montoMin": 0,
@@ -597,8 +601,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 1,
-    "url": "https://renaultbank.es/productos/",
-    "actualizado": "30/10/2026"
+    "url": "https://renaultbank.es/cuenta-contigo-nuevos-clientes/",
+    "actualizado": "08/11/2026"
   },
   {
     "cat": "remunerada",
@@ -1276,7 +1280,7 @@ const DATA = [
     "producto": "Cuenta Digital (nuevos clientes)",
     "rate": 3,
     "rateLabel": "TAE hasta 100.000€",
-    "desc": "Cuenta Digital para nuevas altas: 3,00% TAE hasta 100.000€, desde el primer euro y garantizada hasta el 30/04/2027. Campaña de contratación del 29/10 al 11/11/2026.",
+    "desc": "Cuenta Digital para nuevos clientes: 3,00% TAE hasta 100.000€, desde el primer euro y garantizada hasta el 30/04/2027. Campaña de contratación del 29/10 al 11/11/2026 o hasta que se abran las primeras 50.000 cuentas.",
     "cap": "Hasta 100.000€",
     "condiciones": [
       [
@@ -1284,20 +1288,20 @@ const DATA = [
         "3,00%"
       ],
       [
-        "Saldo al tipo",
+        "Saldo remunerado",
         "Hasta 100.000€"
       ],
       [
-        "Garantía de tipo",
+        "Garantía del tipo",
         "Hasta 30/04/2027"
       ],
       [
-        "Alta de campaña",
-        "29/10–11/11/2026"
+        "Alta",
+        "29/10–11/11/2026 o primeras 50.000 cuentas"
       ]
     ],
     "verdict": "La ficha muestra únicamente la rentabilidad; la bonificación de nómina se detalla por separado en Cuentas con bonificación.",
-    "deadline": "Alta hasta 11/11/2026",
+    "deadline": "Alta hasta 11/11/2026 o primeras 50.000 cuentas",
     "top": true,
     "sinCondicion": false,
     "montoMin": 0,
@@ -1312,7 +1316,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 3,
     "url": "https://www.bankinter.com/webcorporativa/sala-de-comunicacion/noticias/negocio/bankinter-eleva-al-3--tae-la-remuneracion-de-su-cuenta-digital-y-mantiene-el-incentivo-adicional-de-hasta-600-euros-por-domiciliacion-de-nomina",
-    "actualizado": "04/11/2026"
+    "actualizado": "08/11/2026"
   },
   {
     "cat": "remunerada",
@@ -1401,29 +1405,37 @@ const DATA = [
     "tipo": "neobanco",
     "entidad": "Cetelem",
     "producto": "Cuenta Ahorro Cetelem",
-    "rate": 3.04,
-    "rateLabel": "TAE promocional primeros 3 meses",
-    "desc": "Promoción para nuevos clientes al 3,04% TAE durante los 3 primeros meses; después, 2,30% TAE, según la actualización facilitada por Rentavio el 30/10/2026. Comprueba elegibilidad y tipos en la ficha oficial.",
-    "cap": "Nuevos clientes; saldo máximo según ficha oficial",
+    "rate": 2.49,
+    "rateLabel": "TAE anual representativa (nuevos clientes)",
+    "desc": "Nuevos clientes: 3,00% TIN durante los tres primeros meses naturales y, después, 2,28% TIN vigente. La ficha oficial calcula un 2,49% TAE en su ejemplo anual. Remunera desde 0€, sin límite de saldo publicado, con liquidación mensual.",
+    "cap": "Desde 0€; sin límite de saldo publicado",
     "condiciones": [
       [
-        "Primeros 3 meses",
-        "3,04% TAE"
+        "Nuevos clientes",
+        "3,00% TIN los 3 primeros meses naturales"
       ],
       [
         "Después",
-        "2,30% TAE"
+        "2,28% TIN vigente"
       ],
       [
-        "Elegibilidad",
-        "Nuevos clientes"
+        "TAE del ejemplo anual",
+        "2,49%"
       ],
       [
-        "Vigencia",
-        "Confirmar en la ficha oficial"
+        "Saldo",
+        "Desde 0€, sin límite publicado"
+      ],
+      [
+        "Liquidación",
+        "Mensual"
+      ],
+      [
+        "Clientes existentes",
+        "1,74% TIN / 1,75% TAE"
       ]
     ],
-    "verdict": "Se utiliza la TAE anual representativa para el orden comparativo; el TIN promocional temporal no se compara como si fuera una TAE anual.",
+    "verdict": "No compares el 3,00% TIN de tres meses como si fuera una TAE anual. La TAE representativa del primer año publicada por Cetelem es 2,49%.",
     "deadline": null,
     "top": false,
     "sinCondicion": true,
@@ -1439,7 +1451,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 2,
     "url": "https://www.cetelem.es/cuenta-ahorro-cetelem",
-    "actualizado": "30/10/2026"
+    "actualizado": "08/11/2026"
   },
   {
     "cat": "remunerada",
@@ -2105,38 +2117,50 @@ const DATA = [
     "tipo": "neobanco",
     "entidad": "Renault Bank",
     "producto": "Depósito 3 años",
-    "rate": 3.34,
+    "rate": 3.55,
     "rateLabel": "TAE 36 meses",
-    "desc": "Tipos comunicados: 3,03% a 12 meses, 3,24% a 24 y 3,34% a 36 meses. Mínimo 500€.",
-    "cap": "Desde 500€",
+    "desc": "Depósito Tú+ a 36 meses: 3,55% TAE, con abono trimestral de intereses. Mínimo 500€, máximo 1.000.000€. Condiciones válidas hasta el 18/11/2026.",
+    "cap": "500€–1.000.000€",
     "condiciones": [
       [
-        "12 meses",
-        "3,03%"
+        "TAE",
+        "3,55%"
       ],
       [
-        "24 meses",
-        "3,24%"
+        "Plazo",
+        "36 meses"
       ],
       [
-        "36 meses",
-        "3,34%"
+        "Mínimo",
+        "500€"
+      ],
+      [
+        "Máximo",
+        "1.000.000€"
+      ],
+      [
+        "Abono de intereses",
+        "Trimestral"
+      ],
+      [
+        "Vigencia",
+        "Hasta 18/11/2026"
       ]
     ],
-    "verdict": "Este registro muestra el plazo de 36 meses; confirma la liquidez y penalización en la ficha exacta.",
-    "deadline": null,
+    "verdict": "Tipo promocional según la ficha oficial de Renault Bank; revisa las condiciones de cancelación y contratación antes de inmovilizar el dinero.",
+    "deadline": "Condiciones hasta 18/11/2026",
     "top": false,
     "sinCondicion": true,
     "montoMin": 500,
-    "montoMax": 999999999,
+    "montoMax": 1000000,
     "plazos": [
       "largo"
     ],
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 1,
-    "url": "https://renaultbank.es/productos/",
-    "actualizado": "30/10/2026"
+    "url": "https://renaultbank.es/",
+    "actualizado": "08/11/2026"
   },
   {
     "cat": "deposito",
@@ -3067,12 +3091,12 @@ const DATA = [
     "producto": "Depósito Respira 6 meses",
     "rate": 3.25,
     "rateLabel": "TAE 6 meses",
-    "desc": "Depósito para nuevos clientes con condiciones de vinculación: 3,25% TAE durante 6 meses, entre 10.000€ y 30.000€. La página oficial consultada anuncia actualmente la oferta hasta el 13/11/2026; consulta sus requisitos específicos.",
-    "cap": "10.000€ – 30.000€",
+    "desc": "Depósito para nuevos clientes: 3,25% TAE durante 6 meses, de 10.000€ a 30.000€. Oferta oficial vigente hasta el 30/11/2026. Para cobrar el 3,25%, hay que cumplir una condición elegible en el mes anterior al vencimiento; si no, se aplica el 1% TAE. La cancelación total anticipada remunera al 0%.",
+    "cap": "10.000€–30.000€",
     "condiciones": [
       [
         "TAE",
-        "3,25%"
+        "3,25% si se cumple la vinculación"
       ],
       [
         "Plazo",
@@ -3083,28 +3107,40 @@ const DATA = [
         "10.000€–30.000€"
       ],
       [
-        "Nuevo cliente",
-        "Sí; vinculación elegible"
+        "Cliente nuevo",
+        "Sí"
       ],
       [
-        "Fecha límite oficial consultada",
-        "13/11/2026"
+        "Vinculación",
+        "Nómina >900€, autónomo >275€, inversión/fondo/plan ≥10.000€ o seguro de salud elegible"
+      ],
+      [
+        "Si no cumple",
+        "1% TAE"
+      ],
+      [
+        "Cancelación total anticipada",
+        "0% TAE"
+      ],
+      [
+        "Vigencia",
+        "Hasta 30/11/2026"
       ]
     ],
-    "verdict": "La TAE es alta pero dura seis meses; la oferta vence el 30 de octubre.",
-    "deadline": "Oferta hasta 13/11/2026",
+    "verdict": "La tasa máxima no es incondicional: la vinculación debe cumplirse en el mes anterior al vencimiento. La cancelación total anticipada deja los intereses en 0%.",
+    "deadline": "Oferta hasta 30/11/2026",
     "top": false,
     "sinCondicion": false,
     "montoMin": 10000,
-    "montoMax": 200000,
+    "montoMax": 30000,
     "plazos": [
       "largo"
     ],
     "requiereNomina": "recomendada",
     "extranjero": false,
     "dificultad": 2,
-    "url": "https://www.arquia.com/particulares/depositos",
-    "actualizado": "30/10/2026"
+    "url": "https://www.arquia.com/particulares/depositos/deposito-respira",
+    "actualizado": "08/11/2026"
   },
   {
     "cat": "deposito",
@@ -3647,7 +3683,7 @@ const DATA = [
     "rate": 600,
     "rateLabel": "Hasta 600€ brutos por nómina/pensión",
     "isMoney": true,
-    "desc": "Hasta 600€ brutos por domiciliar una nómina o pensión de al menos 850€/mes: 50€ al mes durante 12 meses. Campaña de alta del 29/10 al 11/11/2026.",
+    "desc": "Hasta 600€ brutos (486€ netos con retención del 19%) por domiciliar una nómina o pensión de al menos 850€/mes: 50€ brutos al mes durante 12 meses. Alta del 29/10 al 11/11/2026 o hasta alcanzar las primeras 50.000 Cuentas Digitales abiertas. Exige mantener la cuenta activa 12 meses.",
     "cap": "Hasta 600€ brutos en bonificación de nómina",
     "condiciones": [
       [
@@ -3656,19 +3692,23 @@ const DATA = [
       ],
       [
         "Bono",
-        "50€/mes; máximo 600€ brutos"
+        "50€ brutos/mes · 40,50€ netos"
       ],
       [
-        "Alta de campaña",
-        "29/10–11/11/2026"
+        "Máximo",
+        "600€ brutos · 486€ netos"
       ],
       [
-        "Permanencia del bono",
-        "12 meses"
+        "Alta",
+        "29/10–11/11/2026 o primeras 50.000 cuentas"
+      ],
+      [
+        "Permanencia del incentivo",
+        "Cuenta activa durante 12 meses"
       ]
     ],
     "verdict": "La bonificación de nómina se muestra separada del interés de la Cuenta Digital.",
-    "deadline": "Alta hasta 11/11/2026",
+    "deadline": "Hasta 11/11/2026 o primeras 50.000 cuentas",
     "top": false,
     "sinCondicion": false,
     "montoMin": 0,
@@ -3683,7 +3723,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 4,
     "url": "https://www.bankinter.com/webcorporativa/sala-de-comunicacion/noticias/negocio/bankinter-eleva-al-3--tae-la-remuneracion-de-su-cuenta-digital-y-mantiene-el-incentivo-adicional-de-hasta-600-euros-por-domiciliacion-de-nomina",
-    "actualizado": "30/10/2026"
+    "actualizado": "08/11/2026"
   },
   {
     "cat": "nomina",
@@ -4492,14 +4532,14 @@ const DATA = [
     "tipo": "tradicional",
     "entidad": "Renault Bank",
     "producto": "Depósito 12 meses",
-    "rate": 3.03,
+    "rate": 3.24,
     "rateLabel": "TAE 12 meses",
-    "desc": "Oferta indicada en la documentación recibida: 3.03% TAE a 12 meses; mínimo 500€. Consultar cancelación.",
-    "cap": "Mínimo 500€",
+    "desc": "Depósito Tú+ a 12 meses: 3,24% TAE, con abono trimestral de intereses. Mínimo 500€, máximo 1.000.000€. Condiciones válidas hasta el 18/11/2026.",
+    "cap": "500€–1.000.000€",
     "condiciones": [
       [
         "TAE",
-        "3.03%"
+        "3,24%"
       ],
       [
         "Plazo",
@@ -4510,16 +4550,24 @@ const DATA = [
         "500€"
       ],
       [
-        "Liquidez",
-        "Consultar cancelación"
+        "Máximo",
+        "1.000.000€"
+      ],
+      [
+        "Abono de intereses",
+        "Trimestral"
+      ],
+      [
+        "Vigencia",
+        "Hasta 18/11/2026"
       ]
     ],
-    "verdict": "Confirma en la ficha oficial el plazo, el importe mínimo, la liquidación y las condiciones de cancelación antes de contratar.",
-    "deadline": null,
+    "verdict": "Tipo promocional según la ficha oficial de Renault Bank; revisa las condiciones de cancelación y contratación antes de inmovilizar el dinero.",
+    "deadline": "Condiciones hasta 18/11/2026",
     "top": false,
     "sinCondicion": true,
     "montoMin": 500,
-    "montoMax": 999999999,
+    "montoMax": 1000000,
     "plazos": [
       "medio",
       "largo"
@@ -4527,22 +4575,22 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 1,
-    "url": "https://renaultbank.es/productos/",
-    "actualizado": "30/10/2026"
+    "url": "https://renaultbank.es/",
+    "actualizado": "08/11/2026"
   },
   {
     "cat": "deposito",
     "tipo": "tradicional",
     "entidad": "Renault Bank",
     "producto": "Depósito 24 meses",
-    "rate": 3.24,
+    "rate": 3.44,
     "rateLabel": "TAE 24 meses",
-    "desc": "Oferta indicada en la documentación recibida: 3.24% TAE a 24 meses; mínimo 500€. Consultar cancelación.",
-    "cap": "Mínimo 500€",
+    "desc": "Depósito Tú+ a 24 meses: 3,44% TAE, con abono trimestral de intereses. Mínimo 500€, máximo 1.000.000€. Condiciones válidas hasta el 18/11/2026.",
+    "cap": "500€–1.000.000€",
     "condiciones": [
       [
         "TAE",
-        "3.24%"
+        "3,44%"
       ],
       [
         "Plazo",
@@ -4553,16 +4601,24 @@ const DATA = [
         "500€"
       ],
       [
-        "Liquidez",
-        "Consultar cancelación"
+        "Máximo",
+        "1.000.000€"
+      ],
+      [
+        "Abono de intereses",
+        "Trimestral"
+      ],
+      [
+        "Vigencia",
+        "Hasta 18/11/2026"
       ]
     ],
-    "verdict": "Confirma en la ficha oficial el plazo, el importe mínimo, la liquidación y las condiciones de cancelación antes de contratar.",
-    "deadline": null,
+    "verdict": "Tipo promocional según la ficha oficial de Renault Bank; revisa las condiciones de cancelación y contratación antes de inmovilizar el dinero.",
+    "deadline": "Condiciones hasta 18/11/2026",
     "top": false,
     "sinCondicion": true,
     "montoMin": 500,
-    "montoMax": 999999999,
+    "montoMax": 1000000,
     "plazos": [
       "medio",
       "largo"
@@ -4570,8 +4626,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 1,
-    "url": "https://renaultbank.es/productos/",
-    "actualizado": "30/10/2026"
+    "url": "https://renaultbank.es/",
+    "actualizado": "08/11/2026"
   },
   {
     "cat": "deposito",
@@ -5868,30 +5924,30 @@ const DATA = [
     "tipo": "neobanco",
     "entidad": "Monzo",
     "producto": "Hucha remunerada (promoción nuevos clientes)",
-    "rate": 4,
-    "rateLabel": "TAE fija durante 12 meses, hasta 5.000€",
-    "desc": "Hucha remunerada potenciada: 4,00% TAE fijo durante 12 meses para nuevos clientes elegibles, sobre un máximo de 5.000€. La parte que exceda ese saldo promocional recibe el tipo estándar de 2,50% TAE hasta 100.000€. Alta promocional hasta 31/12/2026, según la documentación aportada por Rentavio.",
-    "cap": "Hasta 5.000€ al 4%; saldo total hasta 100.000€",
+    "rate": 2.5,
+    "rateLabel": "TAE estándar; oferta potenciada pendiente",
+    "desc": "La página pública de Monzo España muestra la hucha estándar al 2,50% TAE y mantiene el alta en lista de espera. La ayuda de Monzo describe una oferta potenciada del 4% durante 12 meses, pero no hemos podido confirmar en la página pública el acceso general, su límite ni la ventana de alta. Pendiente de validar; no se presenta como promoción activa.",
+    "cap": "Hucha estándar hasta 100.000€; promoción 4% pendiente",
     "condiciones": [
       [
-        "Nuevo cliente",
-        "Oferta promocional"
+        "Tipo estándar publicado",
+        "2,50% TAE"
       ],
       [
-        "Primeros 5.000€",
-        "4,00% TAE fija durante 12 meses"
+        "Hucha potenciada",
+        "4% fijo durante 12 meses, según la ayuda de Monzo"
       ],
       [
-        "Exceso hasta 100.000€",
-        "2,50% TAE estándar"
+        "Disponibilidad pública",
+        "Lista de espera"
       ],
       [
-        "Alta promocional",
-        "Hasta 31/12/2026"
+        "Límite y plazo de alta de la promoción",
+        "No confirmados en la página pública"
       ]
     ],
-    "verdict": "El 4% solo se aplica a los primeros 5.000€ y durante 12 meses; el resto del saldo no recibe el tipo promocional.",
-    "deadline": "Alta hasta 31/12/2026",
+    "verdict": "Rentavio deja la oferta potenciada fuera del ranking activo hasta que Monzo confirme la disponibilidad pública y sus condiciones completas.",
+    "deadline": "Pendiente de validar disponibilidad",
     "top": false,
     "sinCondicion": false,
     "montoMin": 0,
@@ -5905,8 +5961,9 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 1,
-    "url": "https://monzo.com/es/ahorros/huchas-remuneradas",
-    "actualizado": "30/10/2026"
+    "url": "https://monzo.com/es/ahorros",
+    "actualizado": "08/11/2026",
+    "status": "unverified"
   },
   {
     "cat": "nomina",
@@ -6083,7 +6140,7 @@ const DATA = [
     "url": "https://www.globalcaja.es/tu-cuenta-suma",
     "actualizado": "04/11/2026"
   },
-{
+  {
     "cat": "remunerada",
     "tipo": "fondo",
     "entidad": "Robinhood",
