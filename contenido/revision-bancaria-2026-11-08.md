@@ -13,10 +13,10 @@ Se revisaron ofertas destacadas del comparador con páginas oficiales, comparand
 | Cetelem · Cuenta Ahorro | 3,04% TAE primeros 3 meses; 2,30% después | 3,00% TIN primeros tres meses naturales; 2,28% TIN después; 2,49% TAE anual representativa para nuevos clientes | Corregido el tipo y separadas TIN y TAE |
 | Arquia · Depósito Respira | Vigencia al 13/11 y máximo erróneo de 200.000€ | Página actual: hasta 30/11; 10.000€–30.000€; condición para 3,25% y 1% si no se cumple; cancelación total anticipada a 0% | Actualizada fecha, importe máximo y condiciones |
 | Bankinter · Cuenta Digital / nómina | Ventana hasta 11/11 | Hasta 11/11 o primeras 50.000 cuentas; 3% TAE y hasta 600€ brutos | Añadido límite de campaña. No es un cambio confirmado del tipo o bono desde el 4/11, sino un detalle de vigencia |
+| Monzo · Hucha remunerada potenciada | 4% pendiente de verificar | 4,00% TAE (3,93% TIN), 12 meses, hasta 5.000€, apertura hasta 31/12 y cuenta corriente requerida | Reactivada en el catálogo: la página oficial la anuncia públicamente y detalla el importe, duración y fecha límite |
 
-## Ofertas pendientes y sin cambios confirmados
+## Oferta confirmada y ofertas sin cambios confirmados
 
-- **Monzo:** confirmado en la landing oficial: 4,00% TAE (3,93% TIN) durante 12 meses hasta 5.000€, apertura hasta 31/12/2026 y cuenta corriente Monzo necesaria. Con 5.000€ mantenidos 12 meses, ejemplo oficial de 196,50€ brutos.
 - **WiZink:** las fichas de producto consultadas publican 2,30% TAE en Cuenta de Ahorro y depósitos a 12/18/25/36 meses al 3,00% / 2,85% / 2,10% / 2,60%. No se confirma cambio en esas fichas.
 - **Globalcaja:** Cuenta Suma sigue anunciando máximo conjunto de 780€ brutos (631,80€ netos) durante 12 meses, sujeto a cumplir los tramos de ingresos, saldo y actividad. Es incentivo, no TAE.
 
