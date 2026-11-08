@@ -14,6 +14,7 @@ Se contrastaron los cambios recientes en cuentas remuneradas, depósitos y bonif
 - Se publicó el artículo **“Qué ha cambiado en las cuentas, depósitos y bonificaciones este noviembre”**, con enlaces a fuentes oficiales, y se añadió al blog y sitemap. El análisis también aclara que los incentivos brutos no son intereses ni importes netos.
 - **Corrección Monzo:** tras revisar la página pública española, se confirmó la oferta de Hucha remunerada potenciada al 4,00% TAE (3,93% TIN) durante 12 meses, hasta 5.000€, con apertura hasta el 31/12/2026 y cuenta corriente Monzo necesaria. Se corrigió en comparador, simulador y artículos.
 - **Blog — observatorio TAE:** se actualizó la gráfica y su tabla histórica al corte del 7/11/2026: depósitos 3,29% y cuentas remuneradas 3,09%, con datos de ComparadorBancario.
+- **Portada del análisis de noviembre:** rediseñada con una composición editorial nueva y cifras ya corregidas de Renault Bank, Monzo y Cetelem.
 
 ### Fuentes oficiales
 
