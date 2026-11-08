@@ -1,5 +1,28 @@
 # Rentavio — registro de cambios
 
+## 8 de noviembre de 2026 — revisión de ofertas oficiales
+
+Se contrastaron los cambios recientes en cuentas remuneradas, depósitos y bonificaciones con páginas oficiales. Las fichas afectadas del comparador y el simulador muestran la fecha de esta revisión.
+
+- **Renault Bank — Cuenta Contigo:** se corrigió la presentación de 3,04% TAE a 3,00% TIN hasta el 31/03/2027. La TAE anual del 2,61% es el ejemplo oficial calculado suponiendo 2,25% TIN después de la campaña; el tipo futuro no está garantizado. Alta de nuevos clientes del 21/10 al 18/11/2026.
+- **Renault Bank — Depósitos Tú+:** se actualizaron los tipos a 3,24% TAE (12 meses), 3,44% (24) y 3,55% (36), con mínimo de 500€, máximo de 1.000.000€ y condiciones publicadas hasta el 18/11/2026.
+- **Cetelem — Cuenta Ahorro:** la ficha anterior decía 3,04% TAE promocional y 2,30% después. Se actualizó a 3,00% TIN durante los tres primeros meses naturales, 2,28% TIN después y 2,49% TAE en el ejemplo anual oficial para nuevos clientes.
+- **Arquia — Depósito Respira:** la página oficial publica ahora vigencia hasta el 30/11/2026 (antes figuraba 13/11). Se corrigió el máximo a 30.000€ y se aclararon la vinculación para cobrar el 3,25%, el 1% si no se cumple y el 0% en cancelación total anticipada.
+- **Bankinter — Cuenta Digital y bonificación de nómina:** se añadió el límite de primeras 50.000 cuentas a la ventana que llega al 11/11/2026. La remuneración del 3% TAE y el incentivo opcional de hasta 600€ brutos no cambian.
+- **Monzo:** la página española mantiene la lista de espera y publica 2,50% TAE para la hucha estándar. La ayuda describe el 4% potenciado, pero no permite confirmar acceso público, límite y ventana de alta; se marca pendiente y sale del catálogo activo hasta verificarlo.
+- **Sin cambio confirmado en esta revisión:** las fichas actuales de WiZink consultadas mantienen la Cuenta de Ahorro al 2,30% TAE y los depósitos publicados; Globalcaja mantiene el máximo de 780€ brutos (631,80€ netos) en Cuenta Suma.
+- Se publicó el artículo **“Qué ha cambiado en las cuentas, depósitos y bonificaciones este noviembre”**, con enlaces a fuentes oficiales, y se añadió al blog y sitemap. El análisis también aclara que los incentivos brutos no son intereses ni importes netos.
+
+### Fuentes oficiales
+
+- Renault Bank: [Cuenta Contigo nuevos clientes](https://renaultbank.es/cuenta-contigo-nuevos-clientes/) · [Depósitos Tú+](https://renaultbank.es/).
+- Cetelem: [Cuenta de Ahorro](https://www.cetelem.es/cuenta-ahorro-cetelem).
+- Arquia: [Depósito Respira](https://www.arquia.com/particulares/depositos/deposito-respira).
+- Bankinter: [noticias oficiales](https://www.bankinter.com/webcorporativa/sala-de-comunicacion/noticias).
+- Monzo: [ahorros en España](https://monzo.com/es/ahorros) · [ayuda sobre la hucha potenciada](https://monzo.com/es/ayuda/gestionar-dinero/ayuda-hucha-potenciada).
+- WiZink: [cuenta de ahorro](https://www.wizink.es/public/productos-ahorro/cuenta-ahorro) · [depósitos](https://www.wizink.es/public/productos-ahorro/deposito-plazo-fijo).
+- Globalcaja: [Tu Cuenta Suma](https://www.globalcaja.es/tu-cuenta-suma).
+
 ## 4 de noviembre de 2026 — Contraste oficial de cuentas, depósitos y bonificaciones
 
 Se actualizaron las ofertas que habían cambiado o cuya situación estaba mal reflejada. Las demás fichas conservan su fecha individual de última revisión.
