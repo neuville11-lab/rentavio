@@ -1,18 +1,59 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="t d">
-<title id="t">Actualizaciones bancarias de noviembre de 2026</title><desc id="d">Ilustración editorial con tasas, calendario y depósitos en verde oscuro y menta.</desc>
-<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#073f35"/><stop offset="1" stop-color="#0e6b5c"/></linearGradient><linearGradient id="card" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffffff"/><stop offset="1" stop-color="#e8f7f0"/></linearGradient><filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#002a22" flood-opacity=".22"/></filter></defs>
-<rect width="1200" height="630" rx="32" fill="url(#bg)"/>
-<circle cx="1080" cy="80" r="180" fill="#00c896" opacity=".12"/><circle cx="100" cy="600" r="220" fill="#d9f2e7" opacity=".06"/>
-<g opacity=".16" stroke="#b8eedb"><path d="M0 138H1200M0 500H1200M780 0V630"/></g>
-<text x="74" y="94" fill="#a7e6d1" font-family="Inter,Arial,sans-serif" font-weight="700" font-size="20" letter-spacing="5">RENTAVIO · ACTUALIZACIÓN</text>
-<text x="74" y="205" fill="#fff" font-family="Inter,Arial,sans-serif" font-weight="800" font-size="66" letter-spacing="-2">Cambios bancarios</text>
-<text x="74" y="282" fill="#fff" font-family="Inter,Arial,sans-serif" font-weight="800" font-size="66" letter-spacing="-2">que importan</text>
-<text x="78" y="344" fill="#cdebe0" font-family="Inter,Arial,sans-serif" font-weight="500" font-size="25">Cuentas · depósitos · bonificaciones</text>
-<g transform="translate(80 422)"><rect width="222" height="82" rx="18" fill="#00c896"/><text x="111" y="34" text-anchor="middle" fill="#06483c" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="700" letter-spacing="2">REVISIÓN OFICIAL</text><text x="111" y="64" text-anchor="middle" fill="#063e34" font-family="Inter,Arial,sans-serif" font-size="20" font-weight="800">8 NOV 2026</text></g>
-<g filter="url(#shadow)">
-<g class="float" transform="translate(770 105) rotate(-5 160 90)"><rect width="305" height="175" rx="25" fill="url(#card)"/><text x="26" y="42" fill="#66746b" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="700" letter-spacing="2">RENAULT BANK</text><text x="26" y="112" fill="#0e6b5c" font-family="Inter,Arial,sans-serif" font-size="47" font-weight="800">3,55%</text><text x="28" y="146" fill="#54635a" font-family="Inter,Arial,sans-serif" font-size="15">TAE · depósito 36 meses</text></g>
-<g class="float delay" transform="translate(700 330) rotate(4 190 90)"><rect width="360" height="180" rx="25" fill="#f7fff9"/><text x="26" y="43" fill="#66746b" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="700" letter-spacing="2">CETELEM · NUEVOS CLIENTES</text><text x="26" y="110" fill="#b5740c" font-family="Inter,Arial,sans-serif" font-size="42" font-weight="800">3% TIN</text><text x="28" y="148" fill="#54635a" font-family="Inter,Arial,sans-serif" font-size="15">primeros 3 meses · luego 2,28%</text></g>
-<g class="float delay2" transform="translate(1010 285) rotate(7 80 65)"><rect width="142" height="120" rx="20" fill="#00c896"/><text x="71" y="52" text-anchor="middle" fill="#06483c" font-family="Inter,Arial,sans-serif" font-size="15" font-weight="800">ARQUIA</text><text x="71" y="87" text-anchor="middle" fill="#06483c" font-family="Inter,Arial,sans-serif" font-size="24" font-weight="800">30 NOV</text></g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+<title id="title">Novedades bancarias de noviembre de 2026</title>
+<desc id="desc">Portada editorial de Rentavio con tres datos destacados: depósitos Renault Bank al 3,55% TAE, hucha Monzo al 4% TAE y cuenta Cetelem al 3% TIN promocional.</desc>
+<defs>
+  <linearGradient id="back" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f6faf6"/><stop offset="1" stop-color="#e6f3ed"/></linearGradient>
+  <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#073f35"/><stop offset="1" stop-color="#0c7664"/></linearGradient>
+  <linearGradient id="mint" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#dff5ea"/><stop offset="1" stop-color="#f7fff9"/></linearGradient>
+  <filter id="shadow" x="-25%" y="-25%" width="150%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#174b3c" flood-opacity=".14"/></filter>
+  <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.6" fill="#61a88e" opacity=".28"/></pattern>
+</defs>
+<rect width="1200" height="630" rx="34" fill="url(#back)"/>
+<path d="M0 0h690v630H0z" fill="url(#panel)"/>
+<circle cx="640" cy="75" r="210" fill="#22d1a0" opacity=".12"/>
+<circle cx="70" cy="600" r="185" fill="#a7e6d1" opacity=".08"/>
+<path d="M690 0h510v630H690z" fill="url(#dots)" opacity=".6"/>
+<g font-family="Inter,Arial,sans-serif">
+  <rect x="72" y="67" width="44" height="44" rx="13" fill="#00c896"/>
+  <text x="94" y="97" text-anchor="middle" fill="#063e34" font-size="28" font-weight="800">R</text>
+  <text x="132" y="96" fill="#d0f2e5" font-size="18" font-weight="700" letter-spacing="3">RENTAVIO · EN CLARO</text>
+  <rect x="72" y="148" width="268" height="36" rx="18" fill="#ffffff" opacity=".12"/>
+  <circle cx="91" cy="166" r="5" fill="#48e2b1"/>
+  <text x="106" y="172" fill="#d5f3e8" font-size="14" font-weight="700" letter-spacing="1.5">ACTUALIZACIÓN BANCARIA</text>
+  <text x="72" y="263" fill="#ffffff" font-size="59" font-weight="800" letter-spacing="-2">Tu ahorro</text>
+  <text x="72" y="330" fill="#ffffff" font-size="59" font-weight="800" letter-spacing="-2">se mueve.</text>
+  <text x="72" y="397" fill="#76e0bd" font-size="59" font-weight="800" letter-spacing="-2">Mira qué cambió.</text>
+  <text x="76" y="448" fill="#d2ede2" font-size="20" font-weight="500">Cuentas · depósitos · bonificaciones</text>
+  <rect x="72" y="492" width="206" height="55" rx="16" fill="#00c896"/>
+  <text x="175" y="526" text-anchor="middle" fill="#063e34" font-size="15" font-weight="800" letter-spacing="1">REVISADO · 8 NOV 2026</text>
+  <text x="72" y="589" fill="#b2d8ca" font-size="13" font-weight="600" letter-spacing="2">COMPARA CON CALMA</text>
 </g>
-<style>@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}.float{animation:float 5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.delay{animation-delay:.7s}.delay2{animation-delay:1.4s}@media(prefers-reduced-motion:reduce){.float{animation:none}}</style>
+<g filter="url(#shadow)" font-family="Inter,Arial,sans-serif">
+  <g transform="translate(760 74)">
+    <rect width="366" height="139" rx="23" fill="#fff"/>
+    <rect x="18" y="18" width="5" height="103" rx="3" fill="#00a87d"/>
+    <text x="45" y="48" fill="#6d7b73" font-size="13" font-weight="700" letter-spacing="1.8">DEPÓSITO · RENAULT BANK</text>
+    <text x="45" y="99" fill="#075e50" font-size="42" font-weight="800" letter-spacing="-1">3,55%</text>
+    <text x="213" y="98" fill="#596a60" font-size="16" font-weight="600">TAE · 36 meses</text>
+    <path d="M318 58l12 12-12 12" fill="none" stroke="#11a881" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g transform="translate(790 245)">
+    <rect width="366" height="139" rx="23" fill="url(#mint)"/>
+    <rect x="18" y="18" width="5" height="103" rx="3" fill="#31bd91"/>
+    <text x="45" y="48" fill="#6d7b73" font-size="13" font-weight="700" letter-spacing="1.8">CUENTA · MONZO</text>
+    <text x="45" y="99" fill="#075e50" font-size="42" font-weight="800" letter-spacing="-1">4,00%</text>
+    <text x="213" y="98" fill="#596a60" font-size="16" font-weight="600">TAE · hasta 5.000€</text>
+    <path d="M318 58l12 12-12 12" fill="none" stroke="#11a881" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g transform="translate(760 416)">
+    <rect width="366" height="139" rx="23" fill="#fff"/>
+    <rect x="18" y="18" width="5" height="103" rx="3" fill="#e9a943"/>
+    <text x="45" y="48" fill="#6d7b73" font-size="13" font-weight="700" letter-spacing="1.8">CUENTA · CETELEM</text>
+    <text x="45" y="99" fill="#075e50" font-size="42" font-weight="800" letter-spacing="-1">3% TIN</text>
+    <text x="213" y="98" fill="#596a60" font-size="16" font-weight="600">primeros 3 meses</text>
+    <path d="M318 58l12 12-12 12" fill="none" stroke="#11a881" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</g>
+<circle cx="1138" cy="56" r="8" fill="#00c896"/>
+<circle cx="1163" cy="56" r="4" fill="#85d9bc"/>
 </svg>
