@@ -579,6 +579,21 @@
     color:var(--ink);
     box-shadow:var(--shadow-sm);
   }
+  .reset-filters{
+    align-self:center;
+    min-height:40px;
+    padding:0 14px;
+    border:1.5px solid var(--teal-soft-line);
+    border-radius:10px;
+    background:#fff;
+    color:var(--teal);
+    font:700 12px var(--sans);
+    cursor:pointer;
+    transition:all .15s ease;
+  }
+  .reset-filters:hover{background:var(--teal-soft);border-color:var(--teal);transform:translateY(-1px);}
+  .reset-filters:focus-visible{outline:2px solid var(--teal-bright);outline-offset:2px;}
+
 
   /* ---------- TABLE SECTION ---------- */
   .results{padding:32px 0 80px;}
@@ -1230,13 +1245,7 @@ footer{border-color:var(--line)}
   </div>
 </div>
 
-<div class="trust-strip"><div class="trust-caption">DECIDE CON MEJORES DATOS</div><div><b id="offerCount">0</b> ofertas activas comparadas</div><div><b>Mensual</b> revisión de datos</div><div><b>Claridad</b> en requisitos y límites</div></div><section class="blog-preview wrap" id="blogPreview" aria-labelledby="blogPreviewTitle">
-  <div class="blog-preview-head"><div><span class="blog-eyebrow">IDEAS CLARAS PARA CUIDAR TUS AHORROS</span><h2 id="blogPreviewTitle">Desde el blog de Rentavio</h2><p>Guías y análisis para comparar con más contexto.</p></div><a href="https://rentavio.xyz/blog.html" class="blog-more">Ver todos los artículos →</a></div>
-  <div class="blog-preview-grid">
-    <a class="blog-preview-card" href="https://rentavio.xyz/deposito-finantia-325-tae-50000.html"><span class="blog-art art-chart"><span class="art-line"></span><span class="art-points">3,25% <small>TAE</small></span></span><span class="blog-meta">29 OCT 2026 <i>·</i> 5 MIN <i>·</i> DEPÓSITOS</span><h3>Un 3,25 % TAE que no es para todos: el depósito de Finantia exige 50.000 €</h3><p>Comparamos el mínimo, la liquidez, el plazo y cuánto se gana realmente.</p><span class="blog-read">Leer el análisis ↗</span></a>
-    <a class="blog-preview-card" href="https://rentavio.xyz/repartir-cuentas-remuneradas-mas-10000.html"><span class="blog-art art-coins"><span>€</span><span>€</span><span>€</span></span><span class="blog-meta">27 OCT 2026 <i>·</i> 7 MIN <i>·</i> CUENTAS REMUNERADAS</span><h3>¿Tienes más de 10.000 €? Cómo repartir tus ahorros entre cuentas remuneradas</h3><p>Tres formas de organizar 20.000 €, con estimaciones brutas y netas y sus condiciones.</p><span class="blog-read">Leer la guía ↗</span></a>
-  </div>
-</section>
+<div class="trust-strip"><div class="trust-caption">DECIDE CON MEJORES DATOS</div><div><b id="offerCount">0</b> ofertas activas comparadas</div><div><b>Mensual</b> revisión de datos</div><div><b>Claridad</b> en requisitos y límites</div></div>
 <!-- ===================== WIZARD ===================== -->
 <section class="wizard" id="wizardSection" style="display:none;">
   <div class="wrap">
@@ -1390,6 +1399,7 @@ footer{border-color:var(--line)}
           <button data-sort="dificultad">Por facilidad</button>
         </div>
       </div>
+      <button class="reset-filters" id="resetFilters" type="button" title="Mostrar todas las ofertas con el orden inicial">↺ Restablecer filtros</button>
     </div>
   </div>
 </div>
@@ -7479,6 +7489,30 @@ document.getElementById('sortToggle').addEventListener('click', e => {
   document.querySelectorAll('#sortToggle button').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   activeSort = btn.dataset.sort;
+  render();
+});
+
+document.getElementById('resetFilters').addEventListener('click', () => {
+  activeCat = "todos";
+  activeNomina = "todos";
+  activeTipo = "todos";
+  activeDificultad = "todos";
+  activeSort = "rate";
+  wizard.producto = null;
+  wizard.monto = null;
+  wizard.plazo = null;
+  wizard.nomina = null;
+  document.querySelectorAll('.tab-btn').forEach(button => {
+    button.classList.toggle('active', button.dataset.cat === 'todos');
+  });
+  setChipGroup('filterNomina', 'todos');
+  setChipGroup('filterTipo', 'todos');
+  setChipGroup('filterDificultad', 'todos');
+  document.querySelectorAll('#sortToggle button').forEach(button => {
+    button.classList.toggle('active', button.dataset.sort === 'rate');
+  });
+  document.querySelectorAll('.wopt').forEach(option => option.classList.remove('selected'));
+  document.getElementById('resultsHero').style.display = 'none';
   render();
 });
 
