@@ -2221,29 +2221,41 @@ const DATA =[
     "entidad": "Bankinter",
     "producto": "Cuenta Digital (nuevos clientes)",
     "rate": 3,
-    "rateLabel": "TAE hasta 100.000€",
-    "desc": "Cuenta Digital para nuevos clientes: 3,00% TAE hasta 100.000€, desde el primer euro y garantizada hasta el 30/04/2027. Campaña de contratación del 29/10 al 11/11/2026 o hasta que se abran las primeras 50.000 cuentas.",
-    "cap": "Hasta 100.000€",
+    "rateLabel": "3,00% TAE sin límite de saldo",
+    "desc": "Nueva oferta de Cuenta Digital para nuevos clientes: 3,00% TAE (2,96% TIN), desde el primer euro y sin límite máximo de saldo. Contratación hasta el 16/12/2026. El tipo TIN queda garantizado hasta el 16/12/2027. Sin comisiones, sin requisitos de vinculación y con liquidez inmediata. El comunicado de Bankinter confirma estas condiciones; la ficha general del producto aún puede mostrar el límite anterior, así que revisa las condiciones visibles al contratar.",
+    "cap": "Sin límite máximo de saldo, según comunicado oficial del 12/11/2026",
     "condiciones": [
       [
         "TAE",
         "3,00%"
       ],
       [
+        "TIN",
+        "2,96%"
+      ],
+      [
         "Saldo remunerado",
-        "Hasta 100.000€"
+        "Desde el primer euro, sin límite máximo"
       ],
       [
-        "Garantía del tipo",
-        "Hasta 30/04/2027"
+        "Fin de contratación",
+        "16/12/2026"
       ],
       [
-        "Alta",
-        "29/10–11/11/2026 o primeras 50.000 cuentas"
+        "Tipo garantizado",
+        "Hasta 16/12/2027"
+      ],
+      [
+        "Requisitos",
+        "Nuevos clientes; sin nómina ni recibos"
+      ],
+      [
+        "Comisiones y liquidez",
+        "Sin comisiones; dinero disponible"
       ]
     ],
-    "verdict": "La ficha muestra únicamente la rentabilidad; la bonificación de nómina se detalla por separado en Cuentas con bonificación.",
-    "deadline": "Alta hasta 11/11/2026 o primeras 50.000 cuentas",
+    "verdict": "Oferta anunciada para nuevos clientes. La nota oficial de Bankinter del 12/11/2026 elimina el anterior tope de 100.000€. Comprueba el resumen contractual que aparezca en el proceso de alta.",
+    "deadline": "Contratación hasta 16/12/2026",
     "top": true,
     "sinCondicion": false,
     "montoMin": 0,
@@ -2257,8 +2269,8 @@ const DATA =[
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 3,
-    "url": "https://www.bankinter.com/webcorporativa/sala-de-comunicacion/noticias/negocio/bankinter-eleva-al-3--tae-la-remuneracion-de-su-cuenta-digital-y-mantiene-el-incentivo-adicional-de-hasta-600-euros-por-domiciliacion-de-nomina",
-    "actualizado": "08/11/2026"
+    "url": "https://www.bankinter.com/webcorporativa/sala-de-comunicacion/noticias/negocio/bankinter-renueva-la-cuenta-digital-con-una-remuneracion-del-3-tae-eliminando-el-limite-de-saldo",
+    "actualizado": "13/11/2026"
   },
   {
     "cat": "remunerada",
@@ -2402,20 +2414,28 @@ const DATA =[
     "producto": "Cuenta Online",
     "rate": 2.75,
     "rateLabel": "TAE hasta 100.000€",
-    "desc": "Para nuevos clientes: 2,75% TAE hasta 100.000€ durante la campaña vigente. La bonificación por nómina/Bizum y la devolución de recibos se detallan por separado en Cuentas con bonificación.",
+    "desc": "La página oficial de bases legales lista una promoción del 2,75% TAE hasta 100.000€ para nuevos clientes de Banca Asociada entre el 13/11/2026 y el 02/12/2026. La campaña se ha renovado en el listado, pero falta confirmar el contenido de las nuevas bases detalladas y el alcance exacto de la elegibilidad.",
     "cap": "Hasta 100.000€",
     "condiciones": [
       [
-        "TAE",
-        "2,75%"
+        "Tipo listado",
+        "2,75% TAE hasta 100.000€"
       ],
       [
-        "Saldo máximo",
-        "100.000€"
+        "Periodo listado",
+        "13/11/2026–02/12/2026"
+      ],
+      [
+        "Dirigida a",
+        "Nuevos clientes de Banca Asociada"
+      ],
+      [
+        "Estado",
+        "Pendiente de comprobar las nuevas bases completas"
       ]
     ],
-    "verdict": "Esta ficha muestra solo el interés de la cuenta; consulta la ficha de bonificación para el efectivo y las devoluciones.",
-    "deadline": null,
+    "verdict": "La renovación y su periodo aparecen en el índice oficial de bases de Sabadell para Banca Asociada. Faltan las bases completas para validar todos los requisitos; por eso esta ficha queda pendiente.",
+    "deadline": "13/11/2026–02/12/2026 · nuevas bases detalladas pendientes",
     "top": false,
     "sinCondicion": false,
     "montoMin": 0,
@@ -2429,8 +2449,9 @@ const DATA =[
     "requiereNomina": "recomendada",
     "extranjero": false,
     "dificultad": 4,
-    "url": "https://cuentaonline.bancsabadell.com/",
-    "actualizado": "04/11/2026"
+    "url": "https://www.bancsabadell.com/bsnacional/es/bases-legales-promociones-cuentas-ba/",
+    "actualizado": "13/11/2026",
+    "status": "pending"
   },
   {
     "cat": "remunerada",
@@ -4280,36 +4301,32 @@ const DATA =[
     "cat": "nomina",
     "tipo": "tradicional",
     "entidad": "Banco Sabadell",
-    "producto": "Cuenta Online Sabadell (promoción octubre–noviembre)",
+    "producto": "Cuenta Online Sabadell (campaña noviembre · Banca Asociada)",
     "rate": 400,
     "rateLabel": "400€ brutos por nómina y Bizum",
     "isMoney": true,
-    "desc": "400€ brutos por domiciliar una nueva nómina de al menos 1.000€/mes y mantenerla junto con Bizum durante 12 meses. La campaña devuelve además el 3% de recibos de luz y/o gas cargados en cuenta; ese cashback es variable y no se suma a los 400€ destacados.",
-    "cap": "400€ brutos de bonificación por nómina + Bizum",
+    "desc": "La página oficial de bases legales lista una promoción de 400€ por domiciliar la nómina en Cuenta Online Sabadell, para nuevos clientes de Banca Asociada, del 13/11/2026 al 02/12/2026. No trasladamos automáticamente los requisitos de la campaña anterior: falta confirmar las nuevas bases completas.",
+    "cap": "400€ anunciados; condiciones de cobro pendientes de verificar",
     "condiciones": [
       [
-        "Nómina nueva",
-        "≥1.000€/mes"
+        "Bonificación anunciada",
+        "400€"
       ],
       [
-        "Bizum",
-        "Mantenerlo junto a la nómina durante 12 meses"
+        "Periodo listado",
+        "13/11/2026–02/12/2026"
       ],
       [
-        "Bonificación",
-        "400€ brutos"
+        "Dirigida a",
+        "Nuevos clientes de Banca Asociada"
       ],
       [
-        "Recibos luz/gas",
-        "3% de devolución; importe variable"
-      ],
-      [
-        "Alta",
-        "08/10–12/11/2026"
+        "Estado",
+        "Pendiente de comprobar las nuevas bases completas"
       ]
     ],
-    "verdict": "El 3% de recibos es una devolución variable, separada del bono fijo de 400€ y del interés de la cuenta.",
-    "deadline": "Alta hasta 12/11/2026",
+    "verdict": "El índice oficial confirma que hay una nueva campaña de 400€ por nómina, pero las condiciones completas no están verificadas. No des por vigentes los requisitos de la campaña que terminó el 12/11.",
+    "deadline": "13/11/2026–02/12/2026 · nuevas bases detalladas pendientes",
     "top": true,
     "sinCondicion": false,
     "montoMin": 0,
@@ -4323,8 +4340,9 @@ const DATA =[
     "requiereNomina": true,
     "extranjero": false,
     "dificultad": 4,
-    "url": "https://cuentaonline.bancsabadell.com/",
-    "actualizado": "04/11/2026"
+    "url": "https://www.bancsabadell.com/bsnacional/es/bases-legales-promociones-cuentas-ba/",
+    "actualizado": "13/11/2026",
+    "status": "pending"
   },
   {
     "cat": "nomina",
@@ -4669,7 +4687,7 @@ const DATA =[
     "rate": 600,
     "rateLabel": "Hasta 600€ brutos por nómina/pensión",
     "isMoney": true,
-    "desc": "Hasta 600€ brutos (486€ netos con retención del 19%) por domiciliar una nómina o pensión de al menos 850€/mes: 50€ brutos al mes durante 12 meses. Alta del 29/10 al 11/11/2026 o hasta alcanzar las primeras 50.000 Cuentas Digitales abiertas. Exige mantener la cuenta activa 12 meses.",
+    "desc": "Campaña anterior de hasta 600€ brutos por domiciliar nómina o pensión de al menos 850€/mes, con abonos mensuales durante 12 meses. Esta promoción terminó el 11/11/2026; la nueva campaña de Cuenta Digital no confirma su continuidad.",
     "cap": "Hasta 600€ brutos en bonificación de nómina",
     "condiciones": [
       [
@@ -4693,8 +4711,8 @@ const DATA =[
         "Cuenta activa durante 12 meses"
       ]
     ],
-    "verdict": "La bonificación de nómina se muestra separada del interés de la Cuenta Digital.",
-    "deadline": "Hasta 11/11/2026 o primeras 50.000 cuentas",
+    "verdict": "La campaña que ofrecía hasta 600€ brutos terminó el 11/11/2026. No se ha confirmado que Bankinter la haya renovado junto con la nueva oferta de remuneración.",
+    "deadline": "Promoción finalizada el 11/11/2026",
     "top": false,
     "sinCondicion": false,
     "montoMin": 0,
@@ -4709,7 +4727,8 @@ const DATA =[
     "extranjero": false,
     "dificultad": 4,
     "url": "https://www.bankinter.com/webcorporativa/sala-de-comunicacion/noticias/negocio/bankinter-eleva-al-3--tae-la-remuneracion-de-su-cuenta-digital-y-mantiene-el-incentivo-adicional-de-hasta-600-euros-por-domiciliacion-de-nomina",
-    "actualizado": "08/11/2026"
+    "actualizado": "13/11/2026",
+    "status": "expired"
   },
   {
     "cat": "nomina",
