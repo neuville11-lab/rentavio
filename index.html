@@ -693,6 +693,7 @@
     background:var(--bg-soft);
   }
   .badge.neo{border-color:var(--teal-soft-line);color:var(--teal);background:var(--teal-soft);}
+  .badge.pending{border-color:#E8C9A6;color:#8A5700;background:#FFF3DA;}
   .badge.top{
     background:var(--teal-bright);
     color:#053b32;
@@ -1495,7 +1496,7 @@ const LOGOS = {
   "imagin": "data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='7'%20fill='%2300C896'/%3E%3Ctext%20x='16'%20y='22'%20text-anchor='middle'%20font-family='Inter,sans-serif'%20font-weight='700'%20font-size='13'%20fill='%23ffffff'%3EIM%3C/text%3E%3C/svg%3E",
 };
 
-const DATA = [
+const DATA =[
   {
     "cat": "remunerada",
     "tipo": "neobanco",
@@ -4240,12 +4241,12 @@ const DATA = [
     "rate": 760,
     "rateLabel": "Hasta 760€ brutos por nómina y uso de la cuenta",
     "isMoney": true,
-    "desc": "Hasta 760€ durante el primer año: 400€ por domiciliar nómina/pensión o cuota de autónomos elegible, y hasta 120€ por usar la tarjeta, 120€ por Bizum y 120€ por recibos. Código PLAN1060 al abrir antes del 10/11/2026. No incluye los 300€ por mantener 10.000€ de ahorro, que se muestran aparte como rendimiento promocional.",
+    "desc": "BBVA anuncia hasta 760€ durante el primer año: 400€ por domiciliar nómina/pensión o cuota de autónomos elegible, y hasta 120€ por tarjeta, 120€ por Bizum y 120€ por recibos. La página comercial actual indica el código PLAN1060 hasta el 11/01/2027, pero las bases legales disponibles fijan el fin el 10/11/2026. La prórroga y sus condiciones están pendientes de confirmación. Los 300€ por mantener 10.000€ se detallan aparte.",
     "cap": "Hasta 760€ en bonificaciones por ingresos y uso de la cuenta",
     "condiciones": [
       [
         "Código",
-        "PLAN1060 hasta 10/11/2026"
+        "PLAN1060 · vigencia pendiente de confirmar"
       ],
       [
         "Ingresos",
@@ -4256,8 +4257,8 @@ const DATA = [
         "Tarjeta, Bizum y recibos"
       ]
     ],
-    "verdict": "Los 300€ por mantener 10.000€ de ahorro no se suman a esta bonificación; consulta la ficha separada del incentivo por saldo.",
-    "deadline": "Alta hasta 10/11/2026",
+    "verdict": "Pendiente de confirmar: la página comercial de BBVA indica 11/01/2027, mientras que las bases legales accesibles indican 10/11/2026. No se considera una promoción verificada hasta que se publiquen bases actualizadas.",
+    "deadline": "Pendiente de confirmar: página comercial 11/01/2027; bases disponibles 10/11/2026",
     "top": true,
     "sinCondicion": false,
     "montoMin": 0,
@@ -4272,7 +4273,8 @@ const DATA = [
     "extranjero": false,
     "dificultad": 4,
     "url": "https://www.bbva.es/personas/productos/cuentas/cuenta-nomina.html",
-    "actualizado": "04/11/2026"
+    "actualizado": "13/11/2026",
+    "status": "pending"
   },
   {
     "cat": "nomina",
@@ -7016,7 +7018,7 @@ const DATA = [
     "rateLabel": "Equivalente promocional; no es TAE",
     "isMoney": false,
     "simType": "bbva_balance_reward",
-    "desc": "BBVA ofrece 300€ brutos por mantener 10.000€ de saldo durante el primer año (25€ al mes). Equivale al 3% del saldo de referencia, pero es un incentivo promocional, no una TAE contractual.",
+    "desc": "BBVA anuncia 300€ brutos por mantener 10.000€ de saldo durante el primer año (25€ al mes). Es un incentivo promocional, no una TAE. La página comercial actual indica PLAN1060 hasta el 11/01/2027, pero las bases legales disponibles fijan el fin el 10/11/2026; la vigencia de este incentivo está pendiente de confirmación.",
     "cap": "300€ brutos en 12 meses con 10.000€ de saldo",
     "condiciones": [
       [
@@ -7030,10 +7032,14 @@ const DATA = [
       [
         "Naturaleza",
         "Incentivo promocional; no es TAE"
+      ],
+      [
+        "Vigencia",
+        "Pendiente: web comercial 11/01/2027; bases legales 10/11/2026"
       ]
     ],
-    "verdict": "La cifra del 3% es un equivalente calculado sobre 10.000€ durante 12 meses; no representa la TAE de la cuenta.",
-    "deadline": "Alta con código PLAN1060 hasta 10/11/2026",
+    "verdict": "La cifra del 3% es un equivalente calculado sobre 10.000€ durante 12 meses; no representa la TAE de la cuenta. Además, la vigencia de PLAN1060 está pendiente de confirmación por discrepancia entre la página comercial y las bases legales.",
+    "deadline": "Pendiente de confirmar: página comercial 11/01/2027; bases disponibles 10/11/2026",
     "top": false,
     "sinCondicion": false,
     "montoMin": 10000,
@@ -7045,7 +7051,8 @@ const DATA = [
     "extranjero": false,
     "dificultad": 2,
     "url": "https://www.bbva.es/personas/productos/cuentas/cuenta-nomina.html",
-    "actualizado": "04/11/2026"
+    "actualizado": "13/11/2026",
+    "status": "pending"
   },
   {
     "cat": "remunerada",
@@ -7389,6 +7396,7 @@ function render(){
       : item.requiereNomina === 'recomendada'
         ? '<span class="badge nomina-rec">Nómina recomendada</span>'
         : '<span class="badge nomina-libre">Sin nómina</span>';
+    const pendingBadge = item.status === 'pending' ? '<span class="badge pending">Pendiente de confirmar</span>' : '';
     const dif = item.dificultad || 1;
     const difInfo = DIFICULTAD_INFO[dif];
     const difBars = [1,2,3,4].map(n => `<span class="dif-bar ${n <= dif ? 'filled' : ''}" style="${n <= dif ? `background:${difInfo.color}` : ''}"></span>`).join('');
@@ -7401,6 +7409,7 @@ function render(){
             <span class="product-name">${item.producto}</span>
             <span class="badge ${item.tipo === 'neobanco' ? 'neo' : ''}">${tipoLabel}</span>
             ${nominaBadge}
+            ${pendingBadge}
             ${item.top ? '<span class="badge top">Destacada</span>' : ''}
             ${item.tipo === 'fondo' ? '<span class="badge">Capital en riesgo</span>' : ''}
           </div>
