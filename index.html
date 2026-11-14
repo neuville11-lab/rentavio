@@ -1356,7 +1356,7 @@ footer{border-color:var(--line)}
   </div>
 </section>
 
-<div class="wrap"><p class="revision-note"><strong>Últimas condiciones contrastadas: 13 nov 2026</strong><span>Se han revisado las novedades confirmadas y se han marcado como pendientes las campañas con bases incompletas o contradictorias. Cada oferta conserva su fecha propia. Intereses y bonificaciones en bruto salvo indicación expresa. Próxima revisión: 14 nov 2026.</span></p></div>
+<div class="wrap"><p class="revision-note"><strong>Últimas condiciones contrastadas: 14 nov 2026</strong><span>Se han actualizado las condiciones de Sabadell confirmadas para altas del 13/11 al 02/12. Las campañas con documentación incompleta o contradictoria siguen marcadas como pendientes. Cada oferta conserva su fecha propia. Intereses y bonificaciones en bruto salvo indicación expresa. Próxima revisión: 15 nov 2026.</span></p></div>
 
 <div class="controls" id="controls">
   <div class="wrap">
@@ -2411,31 +2411,43 @@ const DATA =[
     "cat": "remunerada",
     "tipo": "tradicional",
     "entidad": "Banco Sabadell",
-    "producto": "Cuenta Online",
+    "producto": "Cuenta Online Sabadell (promoción noviembre)",
     "rate": 2.75,
-    "rateLabel": "TAE hasta 100.000€",
-    "desc": "La página oficial de bases legales lista una promoción del 2,75% TAE hasta 100.000€ para nuevos clientes de Banca Asociada entre el 13/11/2026 y el 02/12/2026. La campaña se ha renovado en el listado, pero falta confirmar el contenido de las nuevas bases detalladas y el alcance exacto de la elegibilidad.",
-    "cap": "Hasta 100.000€",
+    "rateLabel": "2,75% TAE durante el primer año",
+    "desc": "Para nuevos clientes que abran la cuenta entre el 13/11/2026 y el 02/12/2026: 2,75% TAE (2,7201% TIN) sobre el saldo medio conjunto de la Cuenta Online y las Cuentas Ahorro Sabadell vinculadas, hasta 100.000€. Liquidación mensual; desde el segundo año se aplica la remuneración vigente en ese momento.",
+    "cap": "Hasta 100.000€ de saldo medio conjunto durante el primer año",
     "condiciones": [
       [
-        "Tipo listado",
-        "2,75% TAE hasta 100.000€"
+        "TAE",
+        "2,75%"
       ],
       [
-        "Periodo listado",
+        "TIN",
+        "2,7201%"
+      ],
+      [
+        "Saldo máximo",
+        "100.000€ conjunto"
+      ],
+      [
+        "Duración",
+        "Primer año"
+      ],
+      [
+        "Liquidación",
+        "Mensual; abono el día 15 del mes siguiente"
+      ],
+      [
+        "Alta válida",
         "13/11/2026–02/12/2026"
       ],
       [
-        "Dirigida a",
-        "Nuevos clientes de Banca Asociada"
-      ],
-      [
-        "Estado",
-        "Pendiente de comprobar las nuevas bases completas"
+        "Elegibilidad",
+        "Nuevos clientes; uso particular"
       ]
     ],
-    "verdict": "La renovación y su periodo aparecen en el índice oficial de bases de Sabadell para Banca Asociada. Faltan las bases completas para validar todos los requisitos; por eso esta ficha queda pendiente.",
-    "deadline": "13/11/2026–02/12/2026 · nuevas bases detalladas pendientes",
+    "verdict": "La remuneración promocional se aplica durante el primer año. A partir del segundo, se aplican las condiciones de remuneración vigentes en ese momento. La oferta oficial no anuncia devolución de recibos en esta campaña.",
+    "deadline": "Alta entre 13/11/2026 y 02/12/2026",
     "top": false,
     "sinCondicion": false,
     "montoMin": 0,
@@ -2449,9 +2461,8 @@ const DATA =[
     "requiereNomina": "recomendada",
     "extranjero": false,
     "dificultad": 4,
-    "url": "https://www.bancsabadell.com/bsnacional/es/bases-legales-promociones-cuentas-ba/",
-    "actualizado": "13/11/2026",
-    "status": "pending"
+    "url": "https://www.bancsabadell.com/cs/Satellite/SabAtl/Indexed_Deposits/1191332203017/en/",
+    "actualizado": "14/11/2026"
   },
   {
     "cat": "remunerada",
@@ -4301,32 +4312,40 @@ const DATA =[
     "cat": "nomina",
     "tipo": "tradicional",
     "entidad": "Banco Sabadell",
-    "producto": "Cuenta Online Sabadell (campaña noviembre · Banca Asociada)",
+    "producto": "Cuenta Online Sabadell (bonificación nómina + Bizum)",
     "rate": 400,
     "rateLabel": "400€ brutos por nómina y Bizum",
     "isMoney": true,
-    "desc": "La página oficial de bases legales lista una promoción de 400€ por domiciliar la nómina en Cuenta Online Sabadell, para nuevos clientes de Banca Asociada, del 13/11/2026 al 02/12/2026. No trasladamos automáticamente los requisitos de la campaña anterior: falta confirmar las nuevas bases completas.",
-    "cap": "400€ anunciados; condiciones de cobro pendientes de verificar",
+    "desc": "Para nuevos clientes que abran la Cuenta Online entre el 13/11/2026 y el 02/12/2026: domicilia una nueva nómina de al menos 1.000€ y activa Bizum en la misma cuenta dentro de los dos meses posteriores al alta. Recibirás 33,34€ brutos al mes durante 12 meses (400,08€ brutos en total) si mantienes ambos requisitos durante los 12 meses.",
+    "cap": "400,08€ brutos en 12 pagos mensuales de 33,34€",
     "condiciones": [
       [
-        "Bonificación anunciada",
-        "400€"
+        "Nómina nueva",
+        "Mínimo 1.000€/mes"
       ],
       [
-        "Periodo listado",
+        "Bizum",
+        "Activo en la misma cuenta"
+      ],
+      [
+        "Plazo para cumplir",
+        "Dentro de los 2 meses desde el alta"
+      ],
+      [
+        "Permanencia",
+        "Mantener nómina y Bizum durante 12 meses"
+      ],
+      [
+        "Abono",
+        "33,34€ brutos al mes · total 400,08€"
+      ],
+      [
+        "Periodo de alta",
         "13/11/2026–02/12/2026"
-      ],
-      [
-        "Dirigida a",
-        "Nuevos clientes de Banca Asociada"
-      ],
-      [
-        "Estado",
-        "Pendiente de comprobar las nuevas bases completas"
       ]
     ],
-    "verdict": "El índice oficial confirma que hay una nueva campaña de 400€ por nómina, pero las condiciones completas no están verificadas. No des por vigentes los requisitos de la campaña que terminó el 12/11.",
-    "deadline": "13/11/2026–02/12/2026 · nuevas bases detalladas pendientes",
+    "verdict": "El incentivo depende de mantener la nómina y Bizum en la misma cuenta hasta el último pago. La promoción anunciada no incluye el cashback de compras Bizum de campañas anteriores.",
+    "deadline": "Alta entre 13/11/2026 y 02/12/2026",
     "top": true,
     "sinCondicion": false,
     "montoMin": 0,
@@ -4340,9 +4359,8 @@ const DATA =[
     "requiereNomina": true,
     "extranjero": false,
     "dificultad": 4,
-    "url": "https://www.bancsabadell.com/bsnacional/es/bases-legales-promociones-cuentas-ba/",
-    "actualizado": "13/11/2026",
-    "status": "pending"
+    "url": "https://www.bancsabadell.com/cs/Satellite/SabAtl/Indexed_Deposits/1191332203017/en/",
+    "actualizado": "14/11/2026"
   },
   {
     "cat": "nomina",
