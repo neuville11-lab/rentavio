@@ -1,4 +1,18 @@
-# Rentavio — registro de cambios
+## 14 de noviembre de 2026 — revisión diaria de cuentas y depósitos
+
+Se verificaron las campañas vigentes en las páginas oficiales. Se actualizaron las dos fichas de Banco Sabadell en el comparador y se mantuvieron marcadas como pendientes las condiciones que siguen sin respaldo legal concluyente.
+
+- **Banco Sabadell — Cuenta Online:** campaña para nuevas cuentas abiertas del 13/11 al 02/12/2026. La entidad publica 2,75% TAE (2,7201% TIN) durante el primer año, sobre hasta 100.000€ de saldo medio conjunto; intereses mensuales. A partir del segundo año se aplica la remuneración vigente.
+- **Banco Sabadell — bonificación de nómina:** hasta 400,08€ brutos, en 12 abonos de 33,34€, con nueva nómina de al menos 1.000€ y Bizum en la misma cuenta, cumpliendo ambos requisitos durante 12 meses. Nómina y Bizum deben activarse en los dos meses posteriores al alta. La campaña es para nuevas cuentas del 13/11 al 02/12/2026.
+- **BBVA — PLAN1060:** sigue pendiente de confirmar. La página comercial indica el 11/01/2027, pero las bases legales disponibles indican el 10/11/2026. No se presenta como oferta verificada hasta que BBVA publique bases coherentes.
+- **Bankinter — Cuenta Digital:** permanece la actualización confirmada del comunicado del 12/11: 3% TAE, sin tope de saldo, contratación hasta el 16/12/2026 y 2,96% TIN garantizado durante un año. La ficha general de producto aún puede mostrar condiciones anteriores.
+
+Fuentes oficiales:
+- [Banco Sabadell — Cuenta Online y campaña vigente](https://www.bancsabadell.com/cs/Satellite/SabAtl/Indexed_Deposits/1191332203017/en/)
+- [Banco Sabadell — índice de bases legales](https://www.bancsabadell.com/bases-legales/)
+- [BBVA — Cuenta Nómina](https://www.bbva.es/personas/productos/cuentas/cuenta-nomina.html)
+- [BBVA — bases legales PLAN1060](https://www.bbva.es/content/dam/public-web/bbvaes/documents/personas/productos/cuentas/bases-legales/promo-1060/boletin-adhesion-promo-1060.pdf)
+- [Bankinter — renovación de Cuenta Digital, 12/11/2026](https://www.bankinter.com/webcorporativa/sala-de-comunicacion/noticias/negocio/bankinter-renueva-la-cuenta-digital-con-una-remuneracion-del-3-tae-eliminando-el-limite-de-saldo)
 
 ## 8 de noviembre de 2026 — revisión de ofertas oficiales
 
