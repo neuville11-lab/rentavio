@@ -1551,18 +1551,18 @@ const DATA =[
     "tipo": "tradicional",
     "entidad": "Cajamar",
     "producto": "Cuenta Online (sin condiciones)",
-    "rate": 1.76,
+    "rate": 2.01,
     "rateLabel": "TAE hasta 50.000€",
-    "desc": "1,76% hasta 50.000€ y 1,00% sobre el exceso, sin nómina según la documentación recibida.",
-    "cap": "1,76% hasta 50.000€; 1,00% exceso",
+    "desc": "2,01% TAE hasta 50.000€ (2,00% TIN); sobre el exceso, 1,25% TIN. Sin nómina.",
+    "cap": "2,01% TAE hasta 50.000€; 1,25% TIN sobre el exceso",
     "condiciones": [
       [
         "Hasta 50.000€",
-        "1,76%"
+        "2,01% TAE (2,00% TIN)"
       ],
       [
         "Exceso",
-        "1,00%"
+        "1,25% TIN"
       ],
       [
         "Nómina",
@@ -1585,7 +1585,7 @@ const DATA =[
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.grupocooperativocajamar.es/es/particulares/productos-y-servicios/cuentas/cuenta-wefferent-ahorro/",
-    "actualizado": "30/10/2026"
+    "actualizado": "16/11/2026"
   },
   {
     "cat": "remunerada",
@@ -1798,29 +1798,29 @@ const DATA =[
     "entidad": "Self Bank",
     "producto": "Cuenta Remunerada (sin condiciones)",
     "rate": 1,
-    "rateLabel": "TAE hasta 60k€",
-    "desc": "Tipo base sin necesidad de tener fondos ni ETFs depositados. Sube al 1,50% con esa condición (ver oferta con condiciones).",
-    "cap": "Hasta 60.000€",
+    "rateLabel": "TAE primer tramo, hasta 50.000€",
+    "desc": "1,00% TAE hasta 50.000€; 1,50% de 50.000€ a 150.000€; 2,00% de 150.000€ a 1.000.000€. Tipos por tramos de saldo.",
+    "cap": "Tipos por tramos hasta 1.000.000€",
     "condiciones": [
       [
-        "Saldo máx.",
-        "60.000€"
+        "Hasta 50.000€",
+        "1,00% TAE"
       ],
       [
-        "Permanencia",
-        "No"
+        "50.000€–150.000€",
+        "1,50% TAE"
       ],
       [
-        "Nómina",
-        "No"
+        "150.000€–1.000.000€",
+        "2,00% TAE"
       ]
     ],
-    "verdict": "El tipo base es discreto — el interés real de Self Bank está en su versión con 20.000€ en fondos, que sube al 1,50%.",
+    "verdict": "El 1,00% mostrado es solo el primer tramo. Calcula la rentabilidad total según el saldo.",
     "deadline": null,
     "top": false,
     "sinCondicion": true,
     "montoMin": 0,
-    "montoMax": 60000,
+    "montoMax": 1000000,
     "plazos": [
       "disponible",
       "corto",
@@ -1831,7 +1831,7 @@ const DATA =[
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.selfbank.es/ahorrar/cuenta-ahorro-self",
-    "actualizado": "30/10/2026"
+    "actualizado": "16/11/2026"
   },
   {
     "cat": "remunerada",
@@ -2012,23 +2012,27 @@ const DATA =[
     "producto": "Cuenta Remunerada (nuevos clientes)",
     "rate": 3.51,
     "rateLabel": "TAE durante 120 días",
-    "desc": "Campaña para nuevos clientes elegibles: 3,51% TAE (3,45% TIN) hasta 25.000€ durante 120 días desde la apertura. Disponible hasta retirada por Revolut; después se aplica el tipo según el plan.",
+    "desc": "Promoción de ahorro para clientes elegibles: 3,51% TAE hasta 25.000€ durante 120 días. La primera cuenta de ahorro debe abrirse dentro de 30 días; pueden exigirse tres pagos con tarjeta de al menos 5€ en cada periodo de 30 días. Consulta las condiciones individuales en la app.",
     "cap": "Hasta 25.000€",
     "condiciones": [
       [
-        "Nuevo cliente",
-        "Sí, elegible"
+        "Saldo bonificado",
+        "Hasta 25.000€"
       ],
       [
-        "Promoción",
-        "120 días desde apertura"
+        "Duración",
+        "120 días"
       ],
       [
-        "Después",
-        "Tipo según plan"
+        "Apertura",
+        "Primera cuenta de ahorro dentro de 30 días"
+      ],
+      [
+        "Uso",
+        "Pueden exigirse tres pagos de ≥5€ por periodo de 30 días"
       ]
     ],
-    "verdict": "La campaña no caducó el 16 de octubre: los 120 días empiezan con la apertura y la oferta sigue hasta que Revolut la retire.",
+    "verdict": "Confirma en la app tu elegibilidad y los requisitos de pagos antes de contar con la TAE promocional.",
     "deadline": "120 días desde apertura; hasta retirada",
     "top": true,
     "sinCondicion": true,
@@ -2043,8 +2047,8 @@ const DATA =[
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 2,
-    "url": "https://www.revolut.com/es-ES/legal/IAS-Promotion-2026/",
-    "actualizado": "30/10/2026"
+    "url": "https://help.revolut.com/es-ES/help/app-features/savings-vaults/question-savings-promotional-campaign-2/",
+    "actualizado": "16/11/2026"
   },
   {
     "cat": "remunerada",
@@ -2469,29 +2473,25 @@ const DATA =[
     "tipo": "neobanco",
     "entidad": "Volkswagen Bank",
     "producto": "Cuenta Remunerada (nuevos clientes)",
-    "rate": 2.12,
-    "rateLabel": "TAE primeros 6 meses",
-    "desc": "Para nuevos clientes: 2,12% TAE durante 6 meses; después, 1,10% según las condiciones aportadas por Rentavio el 30/10/2026. No se ha indicado un saldo máximo.",
+    "rate": 1.61,
+    "rateLabel": "TAE del ejemplo anual",
+    "desc": "2,10% TIN durante los seis primeros meses y 1,094% TIN después; el ejemplo anual publicado equivale al 1,61% TAE. El tipo inicial no se mantiene durante todo el año.",
     "cap": "Sin límite anunciado en la documentación",
     "condiciones": [
       [
-        "Nuevo cliente",
-        "Requerido"
-      ],
-      [
         "Primeros 6 meses",
-        "2,12% TAE"
+        "2,10% TIN"
       ],
       [
         "Después",
-        "1,10%"
+        "1,094% TIN"
       ],
       [
-        "Saldo máximo",
-        "No indicado"
+        "Ejemplo anual",
+        "1,61% TAE"
       ]
     ],
-    "verdict": "La TAE recoge el escalón de tipos durante el primer año; no confundas el 2,10% TIN inicial con una rentabilidad anual fija.",
+    "verdict": "Compara el rendimiento anual teniendo en cuenta ambos periodos, no solo el tipo inicial.",
     "deadline": null,
     "top": false,
     "sinCondicion": true,
@@ -2504,7 +2504,7 @@ const DATA =[
     "extranjero": false,
     "dificultad": 2,
     "url": "https://www.vwfs.es/banca/cuenta-de-alta-remuneracion.html",
-    "actualizado": "30/10/2026"
+    "actualizado": "16/11/2026"
   },
   {
     "cat": "remunerada",
@@ -2815,29 +2815,33 @@ const DATA =[
     "entidad": "Self Bank",
     "producto": "Cuenta Remunerada (con fondos/ETFs)",
     "rate": 1.5,
-    "rateLabel": "TAE hasta 60k€",
-    "desc": "Sube del 1,00% al 1,50% si mantienes 20.000€ o más en fondos y/o ETFs depositados en Self Bank.",
-    "cap": "Hasta 60.000€",
+    "rateLabel": "TAE primer tramo, hasta 50.000€",
+    "desc": "Con al menos 20.000€ en fondos, ETF o planes de pensiones elegibles: 1,50% TAE hasta 50.000€; 1,75% de 50.000€ a 150.000€; 2,25% de 150.000€ a 1.000.000€. Tipos por tramos.",
+    "cap": "Tipos por tramos hasta 1.000.000€",
     "condiciones": [
       [
-        "Fondos/ETFs mín.",
-        "20.000€"
+        "Inversión elegible",
+        "Al menos 20.000€"
       ],
       [
-        "Saldo máx.",
-        "60.000€"
+        "Hasta 50.000€",
+        "1,50% TAE"
       ],
       [
-        "Sin esa inversión",
-        "1,00%"
+        "50.000€–150.000€",
+        "1,75% TAE"
+      ],
+      [
+        "150.000€–1.000.000€",
+        "2,25% TAE"
       ]
     ],
-    "verdict": "El requisito de 20.000€ en fondos es alto — solo merece la pena si ya tenías esa cartera planeada, no como truco solo para subir 0,50 puntos la cuenta.",
+    "verdict": "La inversión mínima y el riesgo de los productos vinculados deben evaluarse por separado del interés de la cuenta.",
     "deadline": null,
     "top": false,
     "sinCondicion": false,
     "montoMin": 0,
-    "montoMax": 60000,
+    "montoMax": 1000000,
     "plazos": [
       "disponible",
       "corto",
@@ -2848,7 +2852,7 @@ const DATA =[
     "extranjero": false,
     "dificultad": 3,
     "url": "https://www.selfbank.es/ahorrar/cuenta-ahorro-self",
-    "actualizado": "30/10/2026"
+    "actualizado": "16/11/2026"
   },
   {
     "cat": "remunerada",
@@ -3062,7 +3066,7 @@ const DATA =[
     "producto": "Depósito no cancelable 36 meses",
     "rate": 3.1,
     "rateLabel": "TAE 36 meses",
-    "desc": "Depósito a 36 meses no cancelable, mínimo 50.000€, sin productos vinculados. La oferta publicada vence el 25/10/2026.",
+    "desc": "La web oficial muestra tablas con tipos distintos para este plazo. Rentavio mantiene la ficha pendiente de verificación; confirma la TAE y condiciones directamente con el banco antes de contratar.",
     "cap": "Mínimo 50.000€",
     "condiciones": [
       [
@@ -3078,7 +3082,7 @@ const DATA =[
         "No permitida"
       ]
     ],
-    "verdict": "Comprueba el vencimiento inminente y la liquidez: no podrás recuperar el depósito antes del plazo.",
+    "verdict": "Tipo pendiente de confirmar: las tablas de la propia web oficial son contradictorias.",
     "deadline": "Pendiente de confirmar: la ficha anterior señalaba fin el 25/10/2026",
     "top": false,
     "sinCondicion": true,
@@ -3091,8 +3095,8 @@ const DATA =[
     "extranjero": false,
     "dificultad": 2,
     "url": "https://www.finantia.es/es/banca-personal/depositos-a-plazo/",
-    "actualizado": "30/10/2026",
-    "status": "unverified"
+    "actualizado": "16/11/2026",
+    "status": "pending"
   },
   {
     "cat": "deposito",
@@ -4180,15 +4184,15 @@ const DATA =[
       ],
       [
         "Oferta",
-        "Hasta 31/10/2026"
+        "Hasta 30/11/2026"
       ]
     ],
-    "verdict": "Alta inversión mínima y oferta con fecha cercana de vencimiento.",
-    "deadline": "Finalizó el 31/10/2026",
+    "verdict": "Oferta para nuevos clientes hasta el 30/11/2026. La cancelación anticipada reduce la remuneración.",
+    "deadline": "Oferta hasta 30/11/2026",
     "top": false,
     "sinCondicion": true,
     "montoMin": 30000,
-    "montoMax": 999999999,
+    "montoMax": 300000,
     "plazos": [
       "medio"
     ],
@@ -4196,8 +4200,7 @@ const DATA =[
     "extranjero": false,
     "dificultad": 2,
     "url": "https://avantio.bancamarch.es/es/cuentas-y-depositos/deposito-12-meses/",
-    "actualizado": "30/10/2026",
-    "status": "expired"
+    "actualizado": "16/11/2026"
   },
   {
     "cat": "deposito",
@@ -4296,12 +4299,12 @@ const DATA =[
     "rate": 760,
     "rateLabel": "Hasta 760€ brutos por nómina y uso de la cuenta",
     "isMoney": true,
-    "desc": "BBVA anuncia hasta 760€ durante el primer año: 400€ por domiciliar nómina/pensión o cuota de autónomos elegible, y hasta 120€ por tarjeta, 120€ por Bizum y 120€ por recibos. La página comercial actual indica el código PLAN1060 hasta el 11/01/2027, pero las bases legales disponibles fijan el fin el 10/11/2026. La prórroga y sus condiciones están pendientes de confirmación. Los 300€ por mantener 10.000€ se detallan aparte.",
+    "desc": "BBVA anuncia hasta 760€ durante el primer año: 400€ por domiciliar nómina/pensión o cuota de autónomos elegible, y hasta 120€ por tarjeta, 120€ por Bizum y 120€ por recibos. Las bases legales actualizadas fijan el código PLAN1060 hasta el 11/01/2027. Los 300€ por mantener 10.000€ se detallan aparte.",
     "cap": "Hasta 760€ en bonificaciones por ingresos y uso de la cuenta",
     "condiciones": [
       [
         "Código",
-        "PLAN1060 · vigencia pendiente de confirmar"
+        "PLAN1060 · hasta 11/01/2027"
       ],
       [
         "Ingresos",
@@ -4312,8 +4315,8 @@ const DATA =[
         "Tarjeta, Bizum y recibos"
       ]
     ],
-    "verdict": "Pendiente de confirmar: la página comercial de BBVA indica 11/01/2027, mientras que las bases legales accesibles indican 10/11/2026. No se considera una promoción verificada hasta que se publiquen bases actualizadas.",
-    "deadline": "Pendiente de confirmar: página comercial 11/01/2027; bases disponibles 10/11/2026",
+    "verdict": "Las bonificaciones dependen de domiciliar ingresos y realizar operaciones elegibles. Los 300€ por ahorros son una recompensa aparte, no una TAE.",
+    "deadline": "Código PLAN1060 hasta 11/01/2027",
     "top": true,
     "sinCondicion": false,
     "montoMin": 0,
@@ -4328,8 +4331,7 @@ const DATA =[
     "extranjero": false,
     "dificultad": 4,
     "url": "https://www.bbva.es/personas/productos/cuentas/cuenta-nomina.html",
-    "actualizado": "13/11/2026",
-    "status": "pending"
+    "actualizado": "16/11/2026"
   },
   {
     "cat": "nomina",
@@ -4992,12 +4994,12 @@ const DATA =[
     "rate": 400,
     "rateLabel": "400€ brutos",
     "isMoney": true,
-    "desc": "Oferta para nuevos clientes con código ING400, nómina de cualquier importe o ingresos recurrentes desde 700€/mes y Bizum durante 12 meses. La campaña oficial indicaba alta hasta el 31/10/2026, por lo que ya no se muestra como activa.",
+    "desc": "Campaña ING400 para nuevos clientes: abrir Cuenta Nómina y Cuenta Naranja con el código, domiciliar nómina o ingresos recurrentes desde 700€/mes y activar Bizum. Alta hasta el 20/11/2026; Bizum antes del 20/01/2027. Consulta las bases para el mantenimiento de requisitos y el cobro.",
     "cap": "400€ brutos",
     "condiciones": [
       [
-        "Alta",
-        "Antes del 31/10/2026"
+        "Alta con ING400",
+        "Hasta 20/11/2026"
       ],
       [
         "Ingreso",
@@ -5005,15 +5007,15 @@ const DATA =[
       ],
       [
         "Bizum",
-        "12 meses"
+        "Antes del 20/01/2027"
       ],
       [
-        "Pago",
-        "Antes del 31/12/2026"
+        "Cuentas",
+        "Nómina y Naranja"
       ]
     ],
-    "verdict": "La fecha de alta está próxima; vuelve a comprobar la página después del 31 de octubre.",
-    "deadline": "Finalizó el 31/10/2026",
+    "verdict": "400€ brutos sujetos a requisitos de alta, ingresos y Bizum; consulta las bases antes de contratar.",
+    "deadline": "Alta hasta 20/11/2026",
     "top": false,
     "sinCondicion": false,
     "montoMin": 0,
@@ -5028,8 +5030,7 @@ const DATA =[
     "extranjero": false,
     "dificultad": 3,
     "url": "https://www.ing.es/cuenta-nomina-ing",
-    "actualizado": "30/10/2026",
-    "status": "expired"
+    "actualizado": "16/11/2026"
   },
   {
     "cat": "nomina",
@@ -5283,7 +5284,7 @@ const DATA =[
     "producto": "Depósito no cancelable 12 meses",
     "rate": 3.2,
     "rateLabel": "TAE 12 meses",
-    "desc": "Oferta indicada en la documentación recibida: 3.2% TAE a 12 meses; mínimo 50.000€. No cancelable.",
+    "desc": "La web oficial muestra tablas con tipos distintos para este plazo. Rentavio mantiene la ficha pendiente de verificación; confirma la TAE y condiciones directamente con el banco antes de contratar.",
     "cap": "Mínimo 50.000€",
     "condiciones": [
       [
@@ -5303,7 +5304,7 @@ const DATA =[
         "No cancelable"
       ]
     ],
-    "verdict": "Confirma en la ficha oficial el plazo, el importe mínimo, la liquidación y las condiciones de cancelación antes de contratar.",
+    "verdict": "Tipo pendiente de confirmar: las tablas de la propia web oficial son contradictorias.",
     "deadline": null,
     "top": false,
     "sinCondicion": true,
@@ -5317,7 +5318,8 @@ const DATA =[
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.finantia.es/es/banca-personal/depositos-a-plazo/",
-    "actualizado": "30/10/2026"
+    "actualizado": "16/11/2026",
+    "status": "pending"
   },
   {
     "cat": "deposito",
@@ -5326,7 +5328,7 @@ const DATA =[
     "producto": "Depósito no cancelable 18 meses",
     "rate": 3.2,
     "rateLabel": "TAE 18 meses",
-    "desc": "Oferta indicada en la documentación recibida: 3.2% TAE a 18 meses; mínimo 50.000€. No cancelable.",
+    "desc": "La web oficial muestra tablas con tipos distintos para este plazo. Rentavio mantiene la ficha pendiente de verificación; confirma la TAE y condiciones directamente con el banco antes de contratar.",
     "cap": "Mínimo 50.000€",
     "condiciones": [
       [
@@ -5346,7 +5348,7 @@ const DATA =[
         "No cancelable"
       ]
     ],
-    "verdict": "Confirma en la ficha oficial el plazo, el importe mínimo, la liquidación y las condiciones de cancelación antes de contratar.",
+    "verdict": "Tipo pendiente de confirmar: las tablas de la propia web oficial son contradictorias.",
     "deadline": null,
     "top": false,
     "sinCondicion": true,
@@ -5360,7 +5362,8 @@ const DATA =[
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.finantia.es/es/banca-personal/depositos-a-plazo/",
-    "actualizado": "30/10/2026"
+    "actualizado": "16/11/2026",
+    "status": "pending"
   },
   {
     "cat": "deposito",
@@ -5369,7 +5372,7 @@ const DATA =[
     "producto": "Depósito no cancelable 24 meses",
     "rate": 3.15,
     "rateLabel": "TAE 24 meses",
-    "desc": "Oferta indicada en la documentación recibida: 3.15% TAE a 24 meses; mínimo 50.000€. No cancelable.",
+    "desc": "La web oficial muestra tablas con tipos distintos para este plazo. Rentavio mantiene la ficha pendiente de verificación; confirma la TAE y condiciones directamente con el banco antes de contratar.",
     "cap": "Mínimo 50.000€",
     "condiciones": [
       [
@@ -5389,7 +5392,7 @@ const DATA =[
         "No cancelable"
       ]
     ],
-    "verdict": "Confirma en la ficha oficial el plazo, el importe mínimo, la liquidación y las condiciones de cancelación antes de contratar.",
+    "verdict": "Tipo pendiente de confirmar: las tablas de la propia web oficial son contradictorias.",
     "deadline": null,
     "top": false,
     "sinCondicion": true,
@@ -5403,7 +5406,8 @@ const DATA =[
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.finantia.es/es/banca-personal/depositos-a-plazo/",
-    "actualizado": "30/10/2026"
+    "actualizado": "16/11/2026",
+    "status": "pending"
   },
   {
     "cat": "deposito",
@@ -5412,7 +5416,7 @@ const DATA =[
     "producto": "Depósito cancelable 12 meses",
     "rate": 2.95,
     "rateLabel": "TAE 12 meses",
-    "desc": "Depósito cancelable al 2,95% TAE 12 meses según la actualización de Rentavio del 30/10/2026. Importe mínimo indicado: 50.000€.",
+    "desc": "La web oficial muestra tablas con tipos distintos para este plazo. Rentavio mantiene la ficha pendiente de verificación; confirma la TAE y condiciones directamente con el banco antes de contratar.",
     "cap": "Mínimo 50.000€",
     "condiciones": [
       [
@@ -5432,7 +5436,7 @@ const DATA =[
         "Cancelable según ficha"
       ]
     ],
-    "verdict": "Confirma en la ficha oficial el plazo, el importe mínimo, la liquidación y las condiciones de cancelación antes de contratar.",
+    "verdict": "Tipo pendiente de confirmar: las tablas de la propia web oficial son contradictorias.",
     "deadline": null,
     "top": false,
     "sinCondicion": true,
@@ -5446,7 +5450,8 @@ const DATA =[
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.finantia.es/es/banca-personal/depositos-a-plazo/",
-    "actualizado": "30/10/2026"
+    "actualizado": "16/11/2026",
+    "status": "pending"
   },
   {
     "cat": "deposito",
@@ -5455,7 +5460,7 @@ const DATA =[
     "producto": "Depósito cancelable 18 meses",
     "rate": 2.95,
     "rateLabel": "TAE 18 meses",
-    "desc": "Depósito cancelable al 2,95% TAE 18 meses según la actualización de Rentavio del 30/10/2026. Importe mínimo indicado: 50.000€.",
+    "desc": "La web oficial muestra tablas con tipos distintos para este plazo. Rentavio mantiene la ficha pendiente de verificación; confirma la TAE y condiciones directamente con el banco antes de contratar.",
     "cap": "Mínimo 50.000€",
     "condiciones": [
       [
@@ -5475,7 +5480,7 @@ const DATA =[
         "Cancelable según ficha"
       ]
     ],
-    "verdict": "Confirma en la ficha oficial el plazo, el importe mínimo, la liquidación y las condiciones de cancelación antes de contratar.",
+    "verdict": "Tipo pendiente de confirmar: las tablas de la propia web oficial son contradictorias.",
     "deadline": null,
     "top": false,
     "sinCondicion": true,
@@ -5489,7 +5494,8 @@ const DATA =[
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.finantia.es/es/banca-personal/depositos-a-plazo/",
-    "actualizado": "30/10/2026"
+    "actualizado": "16/11/2026",
+    "status": "pending"
   },
   {
     "cat": "deposito",
@@ -5498,7 +5504,7 @@ const DATA =[
     "producto": "Depósito cancelable 24 meses",
     "rate": 2.9,
     "rateLabel": "TAE 24 meses",
-    "desc": "Depósito cancelable al 2,90% TAE 24 meses según la actualización de Rentavio del 30/10/2026. Importe mínimo indicado: 50.000€.",
+    "desc": "La web oficial muestra tablas con tipos distintos para este plazo. Rentavio mantiene la ficha pendiente de verificación; confirma la TAE y condiciones directamente con el banco antes de contratar.",
     "cap": "Mínimo 50.000€",
     "condiciones": [
       [
@@ -5518,7 +5524,7 @@ const DATA =[
         "Cancelable según ficha"
       ]
     ],
-    "verdict": "Confirma en la ficha oficial el plazo, el importe mínimo, la liquidación y las condiciones de cancelación antes de contratar.",
+    "verdict": "Tipo pendiente de confirmar: las tablas de la propia web oficial son contradictorias.",
     "deadline": null,
     "top": false,
     "sinCondicion": true,
@@ -5532,7 +5538,8 @@ const DATA =[
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.finantia.es/es/banca-personal/depositos-a-plazo/",
-    "actualizado": "30/10/2026"
+    "actualizado": "16/11/2026",
+    "status": "pending"
   },
   {
     "cat": "deposito",
@@ -5541,7 +5548,7 @@ const DATA =[
     "producto": "Depósito cancelable 36 meses",
     "rate": 2.9,
     "rateLabel": "TAE 36 meses",
-    "desc": "Depósito cancelable al 2,90% TAE 36 meses según la actualización de Rentavio del 30/10/2026. Importe mínimo indicado: 50.000€.",
+    "desc": "La web oficial muestra tablas con tipos distintos para este plazo. Rentavio mantiene la ficha pendiente de verificación; confirma la TAE y condiciones directamente con el banco antes de contratar.",
     "cap": "Mínimo 50.000€",
     "condiciones": [
       [
@@ -5561,7 +5568,7 @@ const DATA =[
         "Cancelable según ficha"
       ]
     ],
-    "verdict": "Confirma en la ficha oficial el plazo, el importe mínimo, la liquidación y las condiciones de cancelación antes de contratar.",
+    "verdict": "Tipo pendiente de confirmar: las tablas de la propia web oficial son contradictorias.",
     "deadline": null,
     "top": false,
     "sinCondicion": true,
@@ -5575,7 +5582,8 @@ const DATA =[
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.finantia.es/es/banca-personal/depositos-a-plazo/",
-    "actualizado": "30/10/2026"
+    "actualizado": "16/11/2026",
+    "status": "pending"
   },
   {
     "cat": "deposito",
@@ -6557,10 +6565,10 @@ const DATA =[
     "verdict": "El tipo base sin condiciones se separa de las promociones y tramos con inversión.",
     "deadline": null,
     "url": "https://myinvestor.es/cuentas-tarjetas/cuentas/",
-    "actualizado": "30/10/2026",
+    "actualizado": "16/11/2026",
     "top": false,
     "sinCondicion": true,
-    "montoMin": 70000,
+    "montoMin": 0,
     "montoMax": 999999999,
     "plazos": [
       "corto",
@@ -6656,7 +6664,7 @@ const DATA =[
     "actualizado": "16/11/2026",
     "top": false,
     "sinCondicion": false,
-    "montoMin": 100025000,
+    "montoMin": 1000,
     "montoMax": 25000,
     "plazos": [
       "corto",
@@ -6738,14 +6746,14 @@ const DATA =[
         "Sí"
       ]
     ],
-    "verdict": "El importe mínimo es elevado frente a las opciones digitales de menor saldo.",
-    "deadline": "Finalizó el 31/10/2026",
+    "verdict": "Oferta para nuevos clientes hasta el 30/11/2026. La cancelación anticipada reduce la remuneración.",
+    "deadline": "Oferta hasta 30/11/2026",
     "url": "https://avantio.bancamarch.es/es/cuentas-y-depositos/deposito-6-meses/",
-    "actualizado": "30/10/2026",
+    "actualizado": "16/11/2026",
     "top": false,
     "sinCondicion": true,
     "montoMin": 30000,
-    "montoMax": 999999999,
+    "montoMax": 300000,
     "plazos": [
       "corto",
       "medio",
@@ -6753,8 +6761,7 @@ const DATA =[
     ],
     "requiereNomina": false,
     "extranjero": false,
-    "dificultad": 1,
-    "status": "expired"
+    "dificultad": 1
   },
   {
     "cat": "deposito",
@@ -7081,7 +7088,7 @@ const DATA =[
     "rateLabel": "Equivalente promocional; no es TAE",
     "isMoney": false,
     "simType": "bbva_balance_reward",
-    "desc": "BBVA anuncia 300€ brutos por mantener 10.000€ de saldo durante el primer año (25€ al mes). Es un incentivo promocional, no una TAE. La página comercial actual indica PLAN1060 hasta el 11/01/2027, pero las bases legales disponibles fijan el fin el 10/11/2026; la vigencia de este incentivo está pendiente de confirmación.",
+    "desc": "BBVA anuncia 300€ brutos por mantener 10.000€ de saldo durante el primer año (25€ al mes). Es un incentivo promocional, no una TAE. La página comercial actual indica PLAN1060 hasta el 11/01/2027, pero las bases legales disponibles fijan el fin el 11/01/2027; la vigencia de este incentivo está pendiente de confirmación.",
     "cap": "300€ brutos en 12 meses con 10.000€ de saldo",
     "condiciones": [
       [
@@ -7098,11 +7105,11 @@ const DATA =[
       ],
       [
         "Vigencia",
-        "Pendiente: web comercial 11/01/2027; bases legales 10/11/2026"
+        "Pendiente: web comercial 11/01/2027; bases legales 11/01/2027"
       ]
     ],
-    "verdict": "La cifra del 3% es un equivalente calculado sobre 10.000€ durante 12 meses; no representa la TAE de la cuenta. Además, la vigencia de PLAN1060 está pendiente de confirmación por discrepancia entre la página comercial y las bases legales.",
-    "deadline": "Pendiente de confirmar: página comercial 11/01/2027; bases disponibles 10/11/2026",
+    "verdict": "Las bonificaciones dependen de domiciliar ingresos y realizar operaciones elegibles. Los 300€ por ahorros son una recompensa aparte, no una TAE.",
+    "deadline": "Código PLAN1060 hasta 11/01/2027",
     "top": false,
     "sinCondicion": false,
     "montoMin": 10000,
@@ -7114,8 +7121,7 @@ const DATA =[
     "extranjero": false,
     "dificultad": 2,
     "url": "https://www.bbva.es/personas/productos/cuentas/cuenta-nomina.html",
-    "actualizado": "13/11/2026",
-    "status": "pending"
+    "actualizado": "16/11/2026"
   },
   {
     "cat": "remunerada",
