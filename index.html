@@ -7912,7 +7912,7 @@ document.getElementById('methodToggle').addEventListener('click', () => {
   function scheduleFor(item){
     const rows=Array.isArray(item.condiciones)?item.condiciones:[];
     const y1=rows.find(r=>/año\s*1/i.test(r[0])),y2=rows.find(r=>/año\s*2/i.test(r[0]));
-    if(y1&&y2){const a=rateFrom(y1[1]),b=rateFrom(y2[1]);if(a!==null&&b!==null)return [{from:0,to:12,rate:a,unit:/TIN/i.test(y1[1])?'tin':'tae',label:'Año 1 publicado'},{from:12,to:24,rate:b,unit:/TIN/i.test(y2[1])?'tin':'tae',label:'Año 2 publicado'}];}
+    if(y2){const a=y1?rateFrom(y1[1]):Number(item.rate),b=rateFrom(y2[1]);if(Number.isFinite(a)&&b!==null)return [{from:0,to:12,rate:a,unit:y1&&/TIN/i.test(y1[1])?'tin':'tae',label:'Año 1 publicado'},{from:12,to:24,rate:b,unit:/TIN/i.test(y2[1])?'tin':'tae',label:'Año 2 publicado'}];}
     const first=rows.find(r=>/(primeros|primeras|los\s+\d+\s+primeros|durante\s+\d+\s+meses)/i.test(r[1])&&/%/.test(r[1]));
     const after=rows.find(r=>/despu[eé]s/i.test(r[0])&&/%/.test(r[1]));
     if(first&&after){
@@ -7977,7 +7977,7 @@ document.getElementById('methodToggle').addEventListener('click', () => {
   }
   range.addEventListener('input',()=>{number.value=range.value;render();});
   number.addEventListener('input',()=>{if(number.value==='')return;range.value=String(Math.max(500,Math.min(500000,Math.round(Number(number.value)/500)*500)));render();});
-  number.addEventListener('change',()=>{number.value=String(Math.max(500,Math.min(500000,Math.round(Number(number.value)/500)*500)));render();});
+  number.addEventListener('change',()=>{number.value=String(Math.max(500,Math.min(500000,Number(number.value)||500)));render();});
   monthRange.addEventListener('input',render);selects.forEach(s=>s.addEventListener('change',render));render();
 })();
 </script>
