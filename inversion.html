@@ -36,7 +36,7 @@ footer{border-top:1px solid var(--line);padding:23px 0 35px;color:#68766f;font-s
 </div></section>
 <main class="wrap">
 <section class="section" id="proximos" aria-labelledby="next-title">
-<div class="section-head"><div><p class="section-kicker">Oportunidades anunciadas</p><h2 id="next-title">Próximos proyectos disponibles</h2><p>Mezclamos plataformas. Consulta cada ficha para confirmar apertura, plazas y documentación vigente.</p></div><span class="review-date">Datos revisados · 16/11/2026</span></div>
+<div class="section-head"><div><p class="section-kicker">Seguimiento de oportunidades</p><h2 id="next-title">Abiertos, próximos y en estudio</h2><p>Mezclamos plataformas. Los proyectos “en estudio” o sin fecha se identifican como pendientes y no se consideran disponibles.</p></div><span class="review-date">Datos revisados · 16/11/2026</span></div>
 <div class="project-grid">
 <article class="project-card" data-id="kala-ii" data-name="Proyecto Kala II" data-platform="Urbanitae" data-status="Abierto según listado oficial" data-type="Plusvalía / equity" data-min="500 € referencia general; confirmar ficha" data-term="40–44 meses" data-return="TIR preferente 12 %" data-rate="12 % preferente estimada" data-risk="Riesgo inmobiliario; rentabilidad objetivo no garantizada" data-location="Fuengirola · Málaga">
 <div class="project-image"><img src="https://s3-eu-west-1.amazonaws.com/urbanitae-prod-static-content/project/P000517/images/P000517-principal-6600b8ab-c392-49d2-818d-9e5cb0da2d33.jpg" alt="Imagen oficial del proyecto Kala II en Fuengirola" loading="lazy"><span class="project-brand">Urbanitae</span><span class="project-status ">Abierto</span><div class="image-title"><small>Fuengirola · Málaga</small><strong>Proyecto Kala II</strong></div></div>
@@ -120,7 +120,7 @@ renderCompare();
 }));
 document.getElementById("clearCompare").addEventListener("click",()=>{selected.clear();renderCompare()});
 const form=document.getElementById("matchForm"),result=document.getElementById("matchResult");
-const openCards=cards.filter(c=>c.closest("#proximos"));
+const openCards=cards.filter(c=>c.closest("#proximos")&&!c.dataset.status.toLowerCase().includes("en estudio"));
 form.addEventListener("submit",function(e){
 e.preventDefault();
 const budget=Number(document.getElementById("budget").value);
