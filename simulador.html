@@ -543,6 +543,46 @@ footer{border-color:var(--line);color:var(--ink-faint)}
   @media(max-width:700px){.sim-summary-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.sim-summary-hero{padding:16px}.sim-summary-hero>strong{font-size:23px}}
   @media(max-width:420px){.sim-summary-item{padding:10px}.sim-summary-item span{font-size:9px}.sim-summary-item strong{font-size:13px}}
 </style>
+<style id="sim-allocation-redesign">
+  .sim-allocation{margin-top:20px;padding:18px;border:1px solid #d9e7dd;border-radius:20px;background:linear-gradient(145deg,#f7fbf8,#fff 70%);box-shadow:0 10px 26px #173a250c;overflow:visible}
+  .sim-allocation-title{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 1px 15px;background:transparent}
+  .sim-allocation-title>div{display:grid;gap:4px}
+  .sim-allocation-kicker{color:#168066;font:800 9px var(--mono);letter-spacing:.13em;text-transform:uppercase}
+  .sim-allocation-title strong{color:#19382c;font-size:17px;letter-spacing:-.02em}
+  .sim-allocation-title small{color:#718078;font-size:11px;font-weight:500}
+  .sim-allocation-count{flex:0 0 auto;padding:8px 11px;border:1px solid #d7e9dd;border-radius:999px;background:#eef7f1;color:#176c56;font-size:10px;font-weight:800}
+  .sim-allocation-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+  .sim-allocation-card{display:flex;flex-direction:column;min-width:0;padding:15px;border:1px solid #e0e9e2;border-radius:16px;background:#fff;box-shadow:0 4px 12px #173a2508;transition:transform .16s ease,box-shadow .16s ease}
+  .sim-allocation-card:hover{transform:translateY(-2px);box-shadow:0 9px 20px #173a2512}
+  .sim-allocation-card-head{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:44px;padding-bottom:12px;border-bottom:1px solid #edf1ed}
+  .sim-allocation-entity{display:flex;align-items:center;gap:9px;min-width:0;color:#19382c}
+  .sim-allocation-entity>span{display:grid;gap:3px;min-width:0}
+  .sim-allocation-entity strong{overflow:hidden;font-size:13px;font-weight:850;text-overflow:ellipsis;white-space:nowrap}
+  .sim-allocation-entity small{overflow:hidden;color:#718078;font-size:9px;font-weight:500;text-overflow:ellipsis;white-space:nowrap}
+  .sim-allocation-logo,.sim-allocation-logo-fallback{width:36px;height:36px;flex:0 0 36px;object-fit:contain;padding:4px;border:1px solid #e4ece5;border-radius:11px;background:#fff}
+  .sim-allocation-logo-fallback{display:grid;place-items:center;color:#13775e;background:#edf7f0;font:800 11px var(--sans)}
+  .sim-allocation-rate{flex:0 0 auto;padding:5px 7px;border-radius:999px;background:#f1f7f1;color:#367252;font:700 9px var(--mono);white-space:nowrap}
+  .sim-allocation-invested{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:12px 0}
+  .sim-allocation-invested span,.sim-allocation-returns span{color:#718078;font-size:10px;font-weight:650}
+  .sim-allocation-invested strong{color:#173c2d;font:800 17px var(--mono);white-space:nowrap}
+  .sim-allocation-returns{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .sim-allocation-returns>div{display:grid;gap:6px;min-width:0;padding:10px;border:1px solid #e9eee9;border-radius:11px;background:#fafcfb}
+  .sim-allocation-returns strong{color:#244236;font:750 13px var(--mono);white-space:nowrap}
+  .sim-allocation-returns .is-net{border-color:#d6e9dc;background:#eff8f1}
+  .sim-allocation-returns .is-net strong{color:#107257}
+  .sim-allocation-actions{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:13px}
+  .sim-allocation-details{margin:0}
+  .sim-allocation-details summary{display:inline-flex;align-items:center;gap:6px;padding:8px 0;color:#11755d;font-size:11px;font-weight:800}
+  .sim-allocation-details summary::after{content:"＋";font-size:12px}
+  .sim-allocation-details[open] summary::after{content:"−"}
+  .sim-allocation-detail-body{grid-column:1/-1;width:100%;box-sizing:border-box;padding:12px;margin:8px 0 0;display:grid;gap:9px;color:#52665a;background:#f5faf6;border:1px solid #dfece2;border-radius:12px;font-size:11px}
+  .sim-allocation-detail-body p{margin:0;font-size:11px;line-height:1.5}
+  .sim-allocation-promo{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:36px;padding:0 13px;border-radius:10px;background:#126b56;color:#fff;font-size:10px;font-weight:800;text-decoration:none;white-space:nowrap;transition:background .15s ease,transform .15s ease}
+  .sim-allocation-promo:hover{background:#0b5847;transform:translateY(-1px)}
+  .sim-allocation-no-link{color:#748178;font-size:9px}
+  @media(max-width:880px){.sim-allocation-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:600px){.sim-allocation{padding:14px}.sim-allocation-grid{grid-template-columns:1fr}.sim-allocation-title strong{font-size:15px}.sim-allocation-card{padding:14px}}
+</style>
 </head>
 <body>
 
@@ -6507,11 +6547,18 @@ document.getElementById('simBtn').addEventListener('click',()=>{
   if(!allocations.length){result.innerHTML='<div class="sim-empty">No encontramos una combinación compatible con los límites de importe conocidos.</div>';return;}
   const rows=allocations.map(a=>{
     const conditions=(a.item.condiciones||[]).map(([label,value])=>`<span><b>${label}</b>${value}</span>`).join('');
-    const promo=a.item.url?`<a class="sim-allocation-promo" href="${a.item.url}" target="_blank" rel="noopener noreferrer">Ver oferta →</a>`:'<span class="sim-tax-note">Consulta la web de la entidad para ver la oferta vigente.</span>';
-    return `<div class="sim-allocation-row"><span><span class="sim-allocation-entity">${LOGOS[a.item.entidad]?'<img class="sim-allocation-logo" src="'+LOGOS[a.item.entidad]+'" alt="">':'<span class="sim-allocation-logo-fallback" aria-hidden="true">'+a.item.entidad.slice(0,2).toUpperCase()+'</span>'}<span>${a.item.entidad}<br><small>${a.item.producto} · ${fmtSimRate(a.item)}</small></span></span><details class="sim-allocation-details"><summary>Ver condiciones</summary><div class="sim-allocation-detail-body"><p>${a.item.desc||''}</p>${conditions?`<div class="sim-allocation-conditions">${conditions}</div>`:''}${a.item.verdict?`<p class="sim-allocation-verdict">${a.item.verdict}</p>`:''}</div></details>${promo}</span><strong>${simMoney(a.amount)}</strong><span>Bruto: <strong>${simMoney(a.gross)}</strong></span><span>Neto: <strong>${simMoney(a.gross*0.81)}</strong></span></div>`;
+    const promo=a.item.url?`<a class="sim-allocation-promo" href="${a.item.url}" target="_blank" rel="noopener noreferrer">Ver oferta <span aria-hidden="true">↗</span></a>`:'<span class="sim-allocation-no-link">Consulta la web de la entidad para ver la oferta vigente.</span>';
+    const logo=LOGOS[a.item.entidad]?'<img class="sim-allocation-logo" src="'+LOGOS[a.item.entidad]+'" alt="">':'<span class="sim-allocation-logo-fallback" aria-hidden="true">'+a.item.entidad.slice(0,2).toUpperCase()+'</span>';
+    const details=`<details class="sim-allocation-details"><summary>Ver condiciones</summary><div class="sim-allocation-detail-body"><p>${a.item.desc||''}</p>${conditions?`<div class="sim-allocation-conditions">${conditions}</div>`:''}${a.item.verdict?`<p class="sim-allocation-verdict">${a.item.verdict}</p>`:''}</div></details>`;
+    return `<article class="sim-allocation-card">
+      <div class="sim-allocation-card-head"><div class="sim-allocation-entity">${logo}<span><strong>${a.item.entidad}</strong><small>${a.item.producto}</small></span></div><span class="sim-allocation-rate">${fmtSimRate(a.item)}</span></div>
+      <div class="sim-allocation-invested"><span>Tu inversión</span><strong>${simMoney(a.amount)}</strong></div>
+      <div class="sim-allocation-returns"><div><span>Interés bruto</span><strong>${simMoney(a.gross)}</strong></div><div class="is-net"><span>Interés neto</span><strong>${simMoney(a.gross*0.81)}</strong></div></div>
+      <div class="sim-allocation-actions">${details}${promo}</div>
+    </article>`;
   }).join('');
   const warning=left>0.009?`<div class="sim-warning">Quedan ${simMoney(left)} sin asignar: no hemos encontrado otro límite verificado que admita ese importe.</div>`:'';
-  result.innerHTML=simSummaryHtml(amount,gross,months)+`<div class="sim-allocation"><div class="sim-allocation-title">Reparto sugerido entre ${allocations.length} ${allocations.length===1?'entidad':'entidades'}</div><div class="sim-allocation-row sim-allocation-head"><span>Producto</span><span>Invertido</span><span>Interés bruto</span><span>Interés neto</span></div>${rows}</div>${warning}`;
+  result.innerHTML=simSummaryHtml(amount,gross,months)+`<section class="sim-allocation"><header class="sim-allocation-title"><div><span class="sim-allocation-kicker">Plan de reparto</span><strong>Distribución sugerida entre ${allocations.length} ${allocations.length===1?'entidad':'entidades'}</strong><small>Importes y rendimientos estimados para la cantidad que has indicado.</small></div><span class="sim-allocation-count">${allocations.length} ${allocations.length===1?'entidad':'entidades'}</span></header><div class="sim-allocation-grid">${rows}</div></section>${warning}`;
 });
 
 </script>
