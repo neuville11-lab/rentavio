@@ -466,6 +466,55 @@ footer{border-color:var(--line);color:var(--ink-faint)}
   .vac-insight{margin:13px 0 0;padding:12px 14px;border-left:3px solid #79ad79;border-radius:0 10px 10px 0;background:#f1f7ef;color:#425b4b;font-size:12px;line-height:1.5}
   .vac-note{margin:11px 2px 0;color:#78867c;font-size:10px;line-height:1.55}
   @media(max-width:760px){.vac-head{display:block}.vac-controls{grid-template-columns:1fr}.vac-pick small{min-height:0}.vac-sliders{grid-template-columns:1fr}.vac-summary{grid-template-columns:1fr}.vac-chart{min-height:210px}.vac-section{padding:18px 14px}}
+
+  .vac-controls{gap:15px;margin:0 0 20px}
+  .vac-select-hidden{display:none!important}
+  .vac-account-card{position:relative;min-width:0;padding:16px 17px 14px;border:1px solid #dce8df;border-top:4px solid var(--vac-color);border-radius:17px;background:linear-gradient(145deg,#fff 35%,#f6fbf7);box-shadow:0 7px 20px #163f2c0b;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+  .vac-account-card:hover{transform:translateY(-2px);box-shadow:0 12px 25px #163f2c15;border-color:color-mix(in srgb,var(--vac-color) 40%,#dce8df)}
+  .vac-account-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+  .vac-account-index{color:#718178;font:800 9px/1 var(--mono);letter-spacing:.12em}
+  .vac-account-color{width:10px;height:10px;border-radius:50%;background:var(--vac-color);box-shadow:0 0 0 4px color-mix(in srgb,var(--vac-color) 13%,transparent)}
+  .vac-account-main{display:flex;align-items:center;gap:12px;min-height:54px}
+  .vac-account-logo-box{display:grid;place-items:center;flex:0 0 48px;width:48px;height:48px;border:1px solid #e6ede7;border-radius:13px;background:#fff}
+  .vac-account-logo{display:block;width:34px;height:34px;object-fit:contain}
+  .vac-account-copy{display:grid;gap:4px;min-width:0}
+  .vac-account-bank{overflow:hidden;color:#18362a;font-size:16px;font-weight:850;text-overflow:ellipsis;white-space:nowrap}
+  .vac-account-product{overflow:hidden;color:#68786f;font-size:11px;line-height:1.35;text-overflow:ellipsis;white-space:nowrap}
+  .vac-account-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:13px;padding-top:11px;border-top:1px solid #e7eee8}
+  .vac-account-rate{color:var(--vac-color);font:800 13px/1.2 var(--mono)}
+  .vac-change-account{border:0;border-radius:999px;padding:7px 10px;background:color-mix(in srgb,var(--vac-color) 10%,white);color:var(--vac-color);font:750 10px var(--sans);cursor:pointer}
+  .vac-change-account:hover{background:color-mix(in srgb,var(--vac-color) 17%,white)}
+  .vac-account-detail{display:block;min-height:14px;margin-top:8px;color:#77857c;font-size:9px;line-height:1.4}
+  .vac-picker{width:min(680px,calc(100vw - 28px));max-width:none;max-height:min(82vh,760px);padding:0;border:1px solid #d7e6dc;border-radius:22px;background:#f9fcfa;color:#17342a;box-shadow:0 24px 80px #102c2050}
+  .vac-picker::backdrop{background:#12251dcc;backdrop-filter:blur(3px)}
+  .vac-picker-shell{padding:22px}
+  .vac-picker-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:15px}
+  .vac-picker-head h3{margin:0;font-size:22px;letter-spacing:-.03em}
+  .vac-picker-head .vac-eyebrow{margin-bottom:5px}
+  .vac-picker-close{width:38px;height:38px;border:1px solid #dce8df;border-radius:50%;background:#fff;color:#355247;font-size:25px;line-height:1;cursor:pointer}
+  .vac-picker-search-label{display:block;margin:0 0 6px;color:#566c60;font-size:11px;font-weight:800}
+  .vac-picker-search{box-sizing:border-box;width:100%;height:46px;padding:0 14px;border:1px solid #cfddd3;border-radius:12px;background:#fff;color:#17342a;font:14px var(--sans);outline:none}
+  .vac-picker-search:focus{border-color:#16836a;box-shadow:0 0 0 3px #16836a1c}
+  .vac-picker-filters{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0}
+  .vac-picker-filters button{border:1px solid #dce7df;border-radius:999px;padding:8px 11px;background:#fff;color:#5c7064;font:700 10px var(--sans);cursor:pointer}
+  .vac-picker-filters button.is-active{border-color:#126b56;background:#126b56;color:white}
+  .vac-picker-list{display:grid;grid-template-columns:1fr 1fr;gap:9px;max-height:48vh;overflow:auto;padding:2px}
+  .vac-option{position:relative;display:grid;grid-template-columns:42px minmax(0,1fr) auto;align-items:center;gap:10px;min-width:0;padding:11px;border:1px solid #e0e9e2;border-radius:13px;background:#fff;text-align:left;cursor:pointer}
+  .vac-option:hover,.vac-option.is-selected{border-color:#64ad8e;background:#f0faf5}
+  .vac-option-logo{display:grid;place-items:center;width:42px;height:42px;border:1px solid #e8eee9;border-radius:11px;background:#fff}
+  .vac-option-logo img{width:30px;height:30px;object-fit:contain}
+  .vac-option-copy{display:grid;gap:3px;min-width:0}
+  .vac-option-copy strong{overflow:hidden;color:#1b392d;font-size:12px;text-overflow:ellipsis;white-space:nowrap}
+  .vac-option-copy small{overflow:hidden;color:#718078;font-size:9px;text-overflow:ellipsis;white-space:nowrap}
+  .vac-option-rate{color:#0d765e;font:800 11px var(--mono);white-space:nowrap}
+  .vac-option-check{display:none;position:absolute;top:6px;right:7px;color:#0d765e;font-size:11px;font-weight:900}
+  .vac-option.is-selected .vac-option-check{display:block}
+  .vac-picker-empty{grid-column:1/-1;padding:20px;text-align:center;color:#718078;font-size:12px}
+  .vac-legend-item{gap:8px;padding:7px 10px;font-size:10px}
+  .vac-legend-logo{width:20px;height:20px;object-fit:contain}
+  .vac-chart .vac-logo-halo{filter:drop-shadow(0 3px 5px #1935292b)}
+  .vac-chart .vac-line-logo{pointer-events:none}
+  @media(max-width:760px){.vac-controls{grid-template-columns:1fr}.vac-account-card{padding:15px}.vac-picker-shell{padding:17px}.vac-picker-list{grid-template-columns:1fr;max-height:50vh}.vac-option{grid-template-columns:42px minmax(0,1fr) auto}}
 </style>
 </head>
 <body>
@@ -540,9 +589,17 @@ footer{border-color:var(--line);color:var(--ink-faint)}
       <div id="simResult"></div>
       <section class="vac-section" id="visualAccountCompare" aria-labelledby="vacTitle">
   <div class="vac-head">
-    <div><span class="vac-eyebrow">Tu ahorro, mes a mes</span><h2 id="vacTitle">¿Qué cuenta te conviene según el tiempo?</h2><p>Elige hasta tres cuentas y mueve el marcador mensual. Compara cómo evoluciona el interés acumulado y cuándo puede cambiar la ganadora.</p></div>
+    <div><span class="vac-eyebrow">Tu ahorro, mes a mes</span><h2 id="vacTitle">¿Qué cuenta te conviene según el tiempo?</h2><p>Las tres cuentas aparecen seleccionadas en tarjetas. Pulsa «Cambiar cuenta» para elegir otras; mueve el marcador mensual y compara cuándo cambia la ganadora.</p></div>
   </div>
-  <div class="vac-controls" id="vacPicks"></div>
+  <div class="vac-controls" id="vacPicks" aria-label="Cuentas seleccionadas para comparar"></div>
+  <dialog class="vac-picker" id="vacPicker" aria-labelledby="vacPickerTitle">
+    <div class="vac-picker-shell">
+      <div class="vac-picker-head"><div><span class="vac-eyebrow">Comparador de cuentas</span><h3 id="vacPickerTitle">Elige una cuenta</h3></div><button class="vac-picker-close" type="button" aria-label="Cerrar" onclick="document.getElementById('vacPicker').close()">×</button></div>
+      <label class="vac-picker-search-label" for="vacPickerSearch">Busca por banco o cuenta</label><input id="vacPickerSearch" class="vac-picker-search" type="search" placeholder="Ej. Bankinter, Cetelem…" autocomplete="off">
+      <div class="vac-picker-filters" id="vacPickerFilters"><button type="button" data-filter="all" class="is-active">Todas</button><button type="button" data-filter="free">Sin nómina indicada</button><button type="button" data-filter="needs">Con requisitos</button></div>
+      <div class="vac-picker-list" id="vacPickerList"></div>
+    </div>
+  </dialog>
   <div class="vac-sliders">
     <div class="vac-slider-card">
       <div class="vac-slider-top"><label for="vacAmountRange">Dinero que quieres invertir</label><output id="vacAmountOutput" for="vacAmountRange">10.000 €</output></div>
@@ -6433,21 +6490,77 @@ document.getElementById('simBtn').addEventListener('click',()=>{
   const data=DATA;
   const offers=data.map((item,index)=>({item,index})).filter(x=>x.item.cat==='remunerada'&&x.item.status!=='pending'&&x.item.status!=='expired'&&!x.item.isMoney&&Number.isFinite(Number(x.item.rate))&&Number(x.item.rate)>0&&Number(x.item.rate)<20&&/TAE|TIN/i.test(x.item.rateLabel||''));
   if(!offers.length)return;
-  const colors=['#187a5b','#d18a19','#536fc4'];
+  const colors=['#087b63','#d28a18','#536fc4'];
   const eur=new Intl.NumberFormat('es-ES',{style:'currency',currency:'EUR',minimumFractionDigits:0,maximumFractionDigits:2});
   const picks=document.getElementById('vacPicks');
   const defaults=['Bankinter|Cuenta No-Nómina (combinable)','Ibercaja|Cuenta Vamos (nómina + recibos)','Cetelem|Cuenta Ahorro Cetelem'];
   const selects=[];
+  const cards=[];
+  const picker=document.getElementById('vacPicker');
+  const pickerTitle=document.getElementById('vacPickerTitle');
+  const pickerSearch=document.getElementById('vacPickerSearch');
+  const pickerList=document.getElementById('vacPickerList');
+  const pickerFilters=document.getElementById('vacPickerFilters');
+  let activeSlot=0, activeFilter='all';
+  function logoFor(item){
+    const name=String(item.entidad||'');
+    let src=(typeof LOGOS!=='undefined'&&LOGOS[name])||null;
+    if(!src&&typeof LOGOS!=='undefined'){const key=Object.keys(LOGOS).find(k=>k.toLowerCase()===name.toLowerCase());if(key)src=LOGOS[key];}
+    if(src)return src;
+    const initials=name.split(/\\s+/).slice(0,2).map(x=>x[0]||'').join('').toUpperCase();
+    return 'data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><rect width="40" height="40" rx="12" fill="#e8f5ef"/><text x="20" y="25" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#087b63">'+initials+'</text></svg>');
+  }
+  function productName(item){return String(item.producto||item.entidad||'Cuenta remunerada');}
+  function selectValue(index,value){selects[index].value=String(value);refreshCards();render();picker.close();}
   for(let i=0;i<3;i++){
-    const box=document.createElement('div');box.className='vac-pick';
-    const label=document.createElement('label');label.htmlFor='vacSelect'+i;label.textContent='Cuenta '+(i+1);box.appendChild(label);
-    const select=document.createElement('select');select.id='vacSelect'+i;select.setAttribute('aria-label','Selecciona la cuenta '+(i+1));
+    const select=document.createElement('select');select.id='vacSelect'+i;select.setAttribute('aria-label','Cuenta comparada '+(i+1));select.className='vac-select-hidden';
     offers.forEach((entry,j)=>{const opt=document.createElement('option');opt.value=String(j);opt.textContent=entry.item.entidad+' · '+entry.item.producto;select.appendChild(opt);});
-    const small=document.createElement('small');small.id='vacDetail'+i;
-    box.appendChild(select);box.appendChild(small);picks.appendChild(box);selects.push(select);
     const d=defaults[i],j=offers.findIndex(x=>x.item.entidad+'|'+x.item.producto===d);
     if(j>=0)select.value=String(j);
+    picks.appendChild(select);selects.push(select);
+    const card=document.createElement('article');card.className='vac-account-card';card.style.setProperty('--vac-color',colors[i]);
+    card.innerHTML='<div class="vac-account-top"><span class="vac-account-index">CUENTA '+(i+1)+'</span><span class="vac-account-color"></span></div><div class="vac-account-main"><span class="vac-account-logo-box"><img class="vac-account-logo" alt=""></span><div class="vac-account-copy"><strong class="vac-account-bank"></strong><span class="vac-account-product"></span></div></div><div class="vac-account-bottom"><span class="vac-account-rate"></span><button type="button" class="vac-change-account">Cambiar cuenta <span aria-hidden="true">⌄</span></button></div><small class="vac-account-detail" id="vacDetail'+i+'"></small>';
+    const button=card.querySelector('.vac-change-account');button.addEventListener('click',()=>openPicker(i));
+    card.addEventListener('click',e=>{if(!e.target.closest('button'))openPicker(i);});
+    picks.appendChild(card);cards.push(card);
   }
+  function accountDetail(item){return (item.requiereNomina?'Requiere nómina o ingreso domiciliado · ':'Sin nómina indicada · ')+'Dificultad '+(item.dificultad||1)+'/4 · '+(item.rateLabel||'Tipo publicado');}
+  function refreshCards(){
+    selects.forEach((s,i)=>{
+      const item=(offers[Number(s.value)]||offers[i]).item,card=cards[i],logo=card.querySelector('.vac-account-logo');
+      logo.src=logoFor(item);logo.alt='Logo de '+item.entidad;
+      card.querySelector('.vac-account-bank').textContent=item.entidad;
+      card.querySelector('.vac-account-product').textContent=productName(item);
+      card.querySelector('.vac-account-rate').textContent=item.rateLabel||((item.rate||'')+'%');
+      card.querySelector('.vac-account-detail').textContent=accountDetail(item);
+    });
+  }
+  function openPicker(slot){
+    activeSlot=slot;pickerTitle.textContent='Elige la cuenta '+(slot+1);pickerSearch.value='';activeFilter='all';
+    pickerFilters.querySelectorAll('[data-filter]').forEach(b=>b.classList.toggle('is-active',b.dataset.filter==='all'));
+    renderPicker();picker.showModal();pickerSearch.focus();
+  }
+  function renderPicker(){
+    const query=pickerSearch.value.trim().toLocaleLowerCase('es');
+    pickerList.innerHTML='';
+    offers.forEach((entry,j)=>{
+      const item=entry.item,needs=!!item.requiereNomina;
+      const matchesFilter=activeFilter==='all'||(activeFilter==='needs'&&needs)||(activeFilter==='free'&&!needs);
+      const hay=(item.entidad+' '+item.producto+' '+(item.rateLabel||'')).toLocaleLowerCase('es');
+      if(!matchesFilter||!hay.includes(query))return;
+      const card=document.createElement('button');card.type='button';card.className='vac-option'+(selects[activeSlot].value===String(j)?' is-selected':'');
+      card.innerHTML='<span class="vac-option-logo"><img alt=""></span><span class="vac-option-copy"><strong></strong><small></small></span><span class="vac-option-rate"></span><span class="vac-option-check" aria-hidden="true">✓</span>';
+      card.querySelector('img').src=logoFor(item);card.querySelector('img').alt='';card.querySelector('strong').textContent=item.entidad;
+      card.querySelector('.vac-option-copy small').textContent=productName(item)+' · '+(needs?'Con requisitos':'Sin nómina indicada');
+      card.querySelector('.vac-option-rate').textContent=item.rateLabel||((item.rate||'')+'%');
+      card.addEventListener('click',()=>selectValue(activeSlot,j));pickerList.appendChild(card);
+    });
+    if(!pickerList.children.length){const empty=document.createElement('p');empty.className='vac-picker-empty';empty.textContent='No hay cuentas que coincidan con la búsqueda.';pickerList.appendChild(empty);}
+  }
+  pickerSearch.addEventListener('input',renderPicker);
+  pickerFilters.addEventListener('click',e=>{const b=e.target.closest('[data-filter]');if(!b)return;activeFilter=b.dataset.filter;pickerFilters.querySelectorAll('[data-filter]').forEach(x=>x.classList.toggle('is-active',x===b));renderPicker();});
+  selects.forEach((s,i)=>s.addEventListener('change',()=>{refreshCards();render();}));
+  refreshCards();
   const range=document.getElementById('vacAmountRange'),number=document.getElementById('vacAmountNumber'),amountOut=document.getElementById('vacAmountOutput');
   const monthRange=document.getElementById('vacMonthRange'),monthOut=document.getElementById('vacMonthOutput');
   const chart=document.getElementById('vacChart'),legend=document.getElementById('vacLegend'),summary=document.getElementById('vacSummary'),insight=document.getElementById('vacInsight');
@@ -6494,7 +6607,7 @@ document.getElementById('simBtn').addEventListener('click',()=>{
     let principal=Number(number.value);if(!Number.isFinite(principal))principal=10000;principal=Math.max(500,Math.min(500000,principal));range.value=String(Math.round(principal/500)*500);number.value=String(Math.round(principal));principal=Number(number.value);amountOut.textContent=fmtAmount(principal);
     const chosen=selects.map((s,i)=>{let entry=offers[Number(s.value)]||offers[i];return {item:entry.item,model:simulate(entry.item,principal),color:colors[i]};});
     const month=Number(monthRange.value);monthOut.textContent=month+' '+(month===1?'mes':'meses');
-    selects.forEach((s,i)=>{const x=chosen[i];document.getElementById('vacDetail'+i).textContent=(x.item.requiereNomina?'Requiere nómina o ingreso domiciliado · ':'')+'Dificultad '+(x.item.dificultad||1)+'/4 · '+x.item.rateLabel;});
+    selects.forEach((s,i)=>{const x=chosen[i];cards[i].querySelector('.vac-account-rate').textContent=x.item.rateLabel||((x.item.rate||'')+'%');cards[i].querySelector('.vac-account-detail').textContent=accountDetail(x.item);});
     const maxVal=Math.max(10,...chosen.flatMap(x=>x.model.values))*1.14;
     const W=900,H=350,L=70,R=22,T=22,B=46,plotW=W-L-R,plotH=H-T-B;
     const x=m=>L+(m/24)*plotW,y=v=>T+plotH-(v/maxVal)*plotH;
@@ -6503,14 +6616,15 @@ document.getElementById('simBtn').addEventListener('click',()=>{
     chart.appendChild(svgEl('line',{x1:L,y1:T,x2:L,y2:T+plotH,class:'axis'}));chart.appendChild(svgEl('line',{x1:L,y1:T+plotH,x2:W-R,y2:T+plotH,class:'axis'}));
     for(let m=0;m<=24;m+=3){const xx=x(m);chart.appendChild(svgEl('line',{x1:xx,y1:T+plotH,x2:xx,y2:T+plotH+5,class:'axis'}));chart.appendChild(svgEl('text',{x:xx,y:H-17,'text-anchor':'middle'},m===0?'Inicio':m+' m'));}
     chart.appendChild(svgEl('text',{x:L,y:12,class:'axis-label'},'INTERÉS ACUMULADO ESTIMADO'));chart.appendChild(svgEl('text',{x:W-R,y:H-2,class:'axis-label','text-anchor':'end'},'TIEMPO'));
+    const cursorX=x(month);chart.appendChild(svgEl('line',{x1:cursorX,y1:T,x2:cursorX,y2:T+plotH,stroke:'#344b3a','stroke-width':1.4,'stroke-dasharray':'4 5',opacity:.38}));
     chosen.forEach(item=>{
       let d='';item.model.values.forEach((v,i)=>{d+=(i===0?'M':'L')+x(i).toFixed(1)+' '+y(v).toFixed(1)+' ';});
       chart.appendChild(svgEl('path',{d:d.trim(),fill:'none',stroke:item.color,'stroke-width':3.4,'stroke-linecap':'round','stroke-linejoin':'round'}));
-      chart.appendChild(svgEl('circle',{cx:x(month),cy:y(item.model.values[month]),r:5,fill:'#fff',stroke:item.color,'stroke-width':3}));
+      const mx=x(month),my=y(item.model.values[month])+(i-1)*12;chart.appendChild(svgEl('circle',{cx:mx,cy:my,r:17,fill:'#fff',stroke:item.color,'stroke-width':3,class:'vac-logo-halo'}));const logo=svgEl('image',{x:mx-12,y:my-12,width:24,height:24,href:logoFor(item.item),preserveAspectRatio:'xMidYMid meet',class:'vac-line-logo'});logo.setAttributeNS('http://www.w3.org/1999/xlink','href',logoFor(item.item));chart.appendChild(logo);
     });
-    const cursorX=x(month);chart.appendChild(svgEl('line',{x1:cursorX,y1:T,x2:cursorX,y2:T+plotH,stroke:'#344b3a','stroke-width':1.4,'stroke-dasharray':'4 5',opacity:.7}));
+
     const scores=chosen.map((v,i)=>({i,value:v.model.values[month],item:v.item})).sort((a,b)=>b.value-a.value);const winner=scores[0];
-    legend.innerHTML='';chosen.forEach((entry,i)=>{const chip=document.createElement('span');chip.className='vac-legend-item';chip.style.setProperty('--vac-color',entry.color);chip.innerHTML='<span class="vac-dot"></span>';const txt=document.createElement('span');txt.textContent=entry.item.entidad+' · '+entry.item.producto;chip.appendChild(txt);legend.appendChild(chip);});
+    legend.innerHTML='';chosen.forEach((entry,i)=>{const chip=document.createElement('span');chip.className='vac-legend-item';chip.style.setProperty('--vac-color',entry.color);const img=document.createElement('img');img.className='vac-legend-logo';img.src=logoFor(entry.item);img.alt='';chip.appendChild(img);const txt=document.createElement('span');txt.textContent=entry.item.entidad+' · '+entry.item.producto;chip.appendChild(txt);legend.appendChild(chip);});
     summary.innerHTML='';chosen.forEach((entry,i)=>{const card=document.createElement('div');card.className='vac-result'+(i===winner.i?' is-winner':'');const nm=document.createElement('div');nm.className='vac-result-name';nm.textContent=entry.item.entidad+' · '+entry.item.producto;const val=document.createElement('div');val.className='vac-result-value';val.textContent=fmtAmount(entry.model.values[month]);const cap=document.createElement('div');cap.className='vac-result-caption';cap.textContent=(i===winner.i?'Más acumulado ahora · ':'')+(principal<entry.model.min?'No llega al mínimo de '+fmtAmount(entry.model.min):'Estimación bruta acumulada a '+month+' '+(month===1?'mes':'meses'))+(Number.isFinite(entry.model.cap)?' · calcula hasta '+fmtAmount(entry.model.cap):'')+(entry.model.fee?' · resta '+fmtAmount(entry.model.fee)+'/mes de cuota':'');card.appendChild(nm);card.appendChild(val);card.appendChild(cap);summary.appendChild(card);});
     const leaders=[];for(let m=1;m<=24;m++){const idx=chosen.map(c=>c.model.values[m]).indexOf(Math.max(...chosen.map(c=>c.model.values[m])));leaders.push(idx);}
     const changes=[];for(let m=1;m<leaders.length;m++)if(leaders[m]!==leaders[m-1])changes.push(m);
@@ -6522,7 +6636,7 @@ document.getElementById('simBtn').addEventListener('click',()=>{
   range.addEventListener('input',()=>{number.value=range.value;render();});
   number.addEventListener('input',()=>{if(number.value==='')return;range.value=String(Math.max(500,Math.min(500000,Math.round(Number(number.value)/500)*500)));render();});
   number.addEventListener('change',()=>{number.value=String(Math.max(500,Math.min(500000,Number(number.value)||500)));render();});
-  monthRange.addEventListener('input',render);selects.forEach(s=>s.addEventListener('change',render));render();
+  monthRange.addEventListener('input',render);render();
 })();
 </script>
 </body>
