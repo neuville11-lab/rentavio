@@ -516,6 +516,33 @@ footer{border-color:var(--line);color:var(--ink-faint)}
   .vac-chart .vac-line-logo{pointer-events:none}
   @media(max-width:760px){.vac-controls{grid-template-columns:1fr}.vac-account-card{padding:15px}.vac-picker-shell{padding:17px}.vac-picker-list{grid-template-columns:1fr;max-height:50vh}.vac-option{grid-template-columns:42px minmax(0,1fr) auto}}
 </style>
+<style id="sim-summary-redesign">
+  .sim-summary{position:relative;overflow:hidden;margin-top:22px;padding:clamp(17px,2.5vw,26px);border:1px solid #d8e7dc;border-radius:20px;background:linear-gradient(145deg,#ffffff 12%,#f7fbf8 100%);box-shadow:0 12px 30px #173a2510}
+  .sim-summary-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:15px}
+  .sim-summary-kicker{display:block;margin-bottom:5px;color:#158066;font:800 9px/1.2 var(--mono);letter-spacing:.14em;text-transform:uppercase}
+  .sim-summary-title{margin:0;color:#40584b;font-size:13px;font-weight:700}
+  .sim-summary-period{display:grid;place-items:center;width:34px;height:34px;border:1px solid #d9e9df;border-radius:11px;background:#eef7f1;color:#13765e;font-size:19px;font-weight:800}
+  .sim-summary-hero{position:relative;display:flex;align-items:center;justify-content:space-between;gap:15px;overflow:hidden;margin-bottom:13px;padding:19px 21px;border-radius:15px;background:linear-gradient(112deg,#0e6855,#14836a);color:white}
+  .sim-summary-hero::after{content:"";position:absolute;right:11%;top:-58px;width:170px;height:170px;border:1px solid #ffffff22;border-radius:50%;box-shadow:0 0 0 20px #ffffff0c,0 0 0 42px #ffffff08}
+  .sim-summary-hero>div,.sim-summary-hero>strong{position:relative;z-index:1}
+  .sim-summary-hero>div{display:grid;gap:5px}
+  .sim-summary-hero>div span{font-size:12px;font-weight:800;letter-spacing:.02em}
+  .sim-summary-hero>div small{color:#d0e9df;font-size:10px}
+  .sim-summary-hero>strong{font:800 clamp(23px,3.5vw,31px)/1 var(--mono);white-space:nowrap}
+  .sim-summary-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+  .sim-summary-item{min-width:0;display:flex;flex-direction:column;justify-content:center;gap:7px;min-height:72px;padding:12px 14px;border:1px solid #e5ece6;border-radius:13px;background:#fff}
+  .sim-summary-item span{color:#718078;font-size:10px;font-weight:650;line-height:1.35}
+  .sim-summary-item strong{color:#19392d;font:750 clamp(14px,1.7vw,18px)/1.15 var(--mono);white-space:nowrap}
+  .sim-summary-item.deduction{background:#fbf8f3;border-color:#eee4d4}
+  .sim-summary-item.deduction strong{color:#9a6420}
+  .sim-summary-item.net-gain{background:#f0f8f2;border-color:#d8eadc}
+  .sim-summary-item.net-gain strong{color:#117257}
+  .sim-tax-note{display:flex;align-items:flex-start;gap:9px;margin:12px 0 0;padding:10px 12px;border-radius:11px;background:#f1f5f1;color:#65756a;font-size:10px;line-height:1.55}
+  .sim-tax-note p{margin:0}
+  .sim-tax-icon{display:grid;place-items:center;flex:0 0 17px;width:17px;height:17px;border:1px solid #bdcec1;border-radius:50%;color:#547462;font-size:10px;font-weight:800}
+  @media(max-width:700px){.sim-summary-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.sim-summary-hero{padding:16px}.sim-summary-hero>strong{font-size:23px}}
+  @media(max-width:420px){.sim-summary-item{padding:10px}.sim-summary-item span{font-size:9px}.sim-summary-item strong{font-size:13px}}
+</style>
 </head>
 <body>
 
@@ -6405,15 +6432,21 @@ function simEligible(item,months){
 function simSummaryHtml(amount,gross,months){
   const withheld=gross*0.19,net=gross-withheld;
   return `<section class="sim-summary" aria-label="Resultado estimado">
-    <div class="sim-summary-title">Estimación para ${months} meses sobre ${simMoney(amount)} invertidos</div>
-    <div class="sim-summary-grid">
-      <div class="sim-summary-item"><span>Rendimiento bruto estimado</span><strong>${simMoney(gross)}</strong></div>
-      <div class="sim-summary-item"><span>Retención estimada (19%)</span><strong>−${simMoney(withheld)}</strong></div>
-      <div class="sim-summary-item"><span>Rendimiento neto estimado</span><strong>${simMoney(net)}</strong></div>
-      <div class="sim-summary-item"><span>Total bruto al final</span><strong>${simMoney(amount+gross)}</strong></div>
-      <div class="sim-summary-item highlight"><span>Total neto tras retención</span><strong>${simMoney(amount+net)}</strong></div>
+    <header class="sim-summary-head">
+      <div><span class="sim-summary-kicker">Tu proyección</span><div class="sim-summary-title">En ${months} ${months===1?'mes':'meses'} · sobre ${simMoney(amount)} invertidos</div></div>
+      <span class="sim-summary-period" aria-hidden="true">↗</span>
+    </header>
+    <div class="sim-summary-hero">
+      <div><span>Saldo neto estimado al final</span><small>Capital inicial + rendimiento neto estimado</small></div>
+      <strong>${simMoney(amount+net)}</strong>
     </div>
-    <small class="sim-tax-note">El 19% es una retención a cuenta habitual, no el cálculo definitivo de tu IRPF. La proyección supone que el tipo actual se mantiene: las cuentas pueden cambiar su remuneración y las campañas caducar. Estimación orientativa, no asesoramiento financiero.</small>
+    <div class="sim-summary-grid">
+      <div class="sim-summary-item"><span>Rendimiento bruto</span><strong>${simMoney(gross)}</strong></div>
+      <div class="sim-summary-item deduction"><span>Retención estimada · 19%</span><strong>−${simMoney(withheld)}</strong></div>
+      <div class="sim-summary-item net-gain"><span>Ganancia neta estimada</span><strong>${simMoney(net)}</strong></div>
+      <div class="sim-summary-item"><span>Saldo bruto al final</span><strong>${simMoney(amount+gross)}</strong></div>
+    </div>
+    <div class="sim-tax-note"><span class="sim-tax-icon" aria-hidden="true">i</span><p>El 19% es una retención a cuenta habitual, no el cálculo definitivo de tu IRPF. La proyección supone que el tipo actual se mantiene: las cuentas pueden cambiar su remuneración y las campañas caducar. Estimación orientativa, no asesoramiento financiero.</p></div>
   </section>`;
 }
 function simCardHtml(item,amount,months,index){
