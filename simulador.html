@@ -6568,7 +6568,7 @@ document.getElementById('simBtn').addEventListener('click',()=>{
 <script id="visual-account-compare-script">
 (function(){
   const data=DATA;
-  const offers=data.map((item,index)=>({item,index})).filter(x=>x.item.cat==='remunerada'&&x.item.status!=='pending'&&x.item.status!=='expired'&&!x.item.isMoney&&Number.isFinite(Number(x.item.rate))&&Number(x.item.rate)>0&&Number(x.item.rate)<20&&/TAE|TIN/i.test(x.item.rateLabel||''));
+  const offers=data.map((item,index)=>({item,index})).filter(x=>{const item=x.item,label=String(item.rateLabel||'');return item.cat==='remunerada'&&item.status!=='pending'&&item.status!=='expired'&&!item.isMoney&&Number.isFinite(Number(item.rate))&&Number(item.rate)>0&&Number(item.rate)<20&&/TAE|TIN/i.test(label)&&!/equivalente|no es TAE|APY|cashback|ejemplo|estimada/i.test(label)&&(!item.simType||item.simType==='ibercaja_tiered')&&monthlyFee(item)===0;});
   if(!offers.length)return;
   const colors=['#087b63','#d28a18','#536fc4'];
   const eur=new Intl.NumberFormat('es-ES',{style:'currency',currency:'EUR',minimumFractionDigits:0,maximumFractionDigits:2});
