@@ -1356,7 +1356,7 @@ footer{border-color:var(--line)}
   </div>
 </section>
 
-<div class="wrap"><p class="revision-note"><strong>Últimas condiciones contrastadas: 14 nov 2026</strong><span>Se han actualizado las condiciones de Sabadell confirmadas para altas del 13/11 al 02/12. Las campañas con documentación incompleta o contradictoria siguen marcadas como pendientes. Cada oferta conserva su fecha propia. Intereses y bonificaciones en bruto salvo indicación expresa. Próxima revisión: 15 nov 2026.</span></p></div>
+<div class="wrap"><p class="revision-note"><strong>Últimas condiciones contrastadas: 16 nov 2026</strong><span>Actualizados los depósitos CBNK y la vigencia de los depósitos Premium de MyInvestor. La rentabilidad del Depósito Nómina CBNK queda pendiente por discrepancia entre el titular oficial (3,00% TAE) y el detalle (3,25%). Cada oferta conserva su fecha propia. Intereses y bonificaciones en bruto salvo indicación expresa. Próxima revisión: 17 nov 2026.</span></p></div>
 
 <div class="controls" id="controls">
   <div class="wrap">
@@ -3587,30 +3587,34 @@ const DATA =[
     "tipo": "tradicional",
     "entidad": "CBNK",
     "producto": "Depósito Extra 12 meses (nuevos ingresos)",
-    "rate": 2.371,
+    "rate": 2.88,
     "rateLabel": "TAE 12 meses",
-    "desc": "Depósito Extra a 12 meses al 2,371% TAE (2,35% TIN), para nuevos ingresos desde otra entidad desde 20.000€, sin máximo publicado. Vigente hasta el 31/10/2026. Permite cancelación total o parcial, con pérdida del 75% de los intereses percibidos sobre el importe cancelado.",
+    "desc": "Depósito Extra CBNK a 12 meses: 2,88% TAE (2,85% TIN), desde 20.000€ y sin máximo publicado. Requiere incremento de saldo; intereses trimestrales. La oferta oficial está vigente hasta el 30/11/2026. Cancelación total o parcial con pérdida del 75% de los intereses percibidos sobre el importe cancelado.",
     "cap": "Desde 20.000€; sin máximo publicado",
     "condiciones": [
       [
         "TAE / TIN",
-        "2,371% / 2,35%"
+        "2,88% / 2,85%"
+      ],
+      [
+        "Plazo",
+        "12 meses; intereses trimestrales"
       ],
       [
         "Importe",
-        "Desde 20.000€"
+        "Desde 20.000€; sin máximo"
       ],
       [
         "Requisito",
-        "Incremento de saldo desde otra entidad"
+        "Incremento de saldo"
       ],
       [
         "Cancelación",
-        "Pérdida del 75% de intereses percibidos"
+        "Pérdida del 75% de los intereses percibidos"
       ]
     ],
-    "verdict": "Tipo fijo y campaña temporal para dinero nuevo. Si cancelas antes de tiempo, pierdes el 75% de los intereses percibidos sobre la parte cancelada.",
-    "deadline": "Finalizó el 31/10/2026",
+    "verdict": "La oferta se ha prorrogado hasta el 30/11/2026. Si cancelas anticipadamente, pierdes el 75% de los intereses percibidos sobre la parte cancelada.",
+    "deadline": "Hasta el 30/11/2026",
     "top": false,
     "sinCondicion": false,
     "montoMin": 20000,
@@ -3622,8 +3626,7 @@ const DATA =[
     "extranjero": false,
     "dificultad": 2,
     "url": "https://cbnk.es/personas/depositos/Deposito-extra-a-12-meses",
-    "actualizado": "30/10/2026",
-    "status": "expired"
+    "actualizado": "16/11/2026"
   },
   {
     "cat": "deposito",
@@ -4049,26 +4052,42 @@ const DATA =[
     "tipo": "tradicional",
     "entidad": "CBNK",
     "producto": "Depósito con nómina 12 meses",
-    "rate": 2.75,
-    "rateLabel": "TAE 12 meses",
-    "desc": "Depósito Nómina CBNK con remuneración del 2,75% TAE a 12 meses; requiere nuevos ingresos desde otra entidad. Mínimo 10.000€, máximo 500.000€. Cancelable total o parcialmente según contrato.",
+    "rate": 3,
+    "rateLabel": "TAE 12 meses · pendiente de confirmar",
+    "desc": "La ficha oficial muestra 3,00% TAE en el titular, pero en el cuerpo y el ejemplo representativo indica 3,25% TAE/TIN. Hasta que CBNK aclare la discrepancia, la rentabilidad queda pendiente. La página detalla depósito a 12 meses, de 10.000€ a 500.000€, para nuevos ingresos, con nómina o pensión neta ≥2.000€/mes domiciliada desde 01/11/2026 y abonada en al menos 9 meses, incluido el último antes del vencimiento. Emisión limitada a 25 millones de euros.",
     "cap": "10.000€ – 500.000€",
     "condiciones": [
       [
+        "Rentabilidad",
+        "Titular: 3,00% TAE; cuerpo y ejemplo: 3,25% TAE/TIN · pendiente"
+      ],
+      [
         "Plazo",
-        "12 meses"
+        "12 meses; interés al vencimiento"
       ],
       [
-        "Mínimo",
-        "10.000€"
+        "Importe",
+        "10.000€–500.000€"
       ],
       [
-        "Dinero nuevo",
-        "Sí"
+        "Dinero",
+        "Nuevos ingresos desde otra entidad"
+      ],
+      [
+        "Nómina/pensión",
+        "≥2.000€ netos/mes; al menos 9 meses, incluido el último"
+      ],
+      [
+        "Cancelación",
+        "Pérdida del 100% de intereses percibidos sobre lo cancelado"
+      ],
+      [
+        "Disponibilidad",
+        "Hasta agotar emisión de 25 M€"
       ]
     ],
-    "verdict": "El requisito de importe mínimo es alto; confirma el alcance de cancelación y condiciones de la nómina en la ficha de contratación.",
-    "deadline": null,
+    "verdict": "Pendiente de confirmar la TAE: el titular de la página oficial indica 3,00%, mientras que su cuerpo y ejemplo representativo indican 3,25%. La cancelación anticipada supone perder los intereses del importe cancelado.",
+    "deadline": "Hasta agotar emisión de 25 millones de euros; rentabilidad pendiente de aclaración",
     "top": false,
     "sinCondicion": false,
     "montoMin": 10000,
@@ -4080,7 +4099,8 @@ const DATA =[
     "extranjero": false,
     "dificultad": 3,
     "url": "https://cbnk.es/personas/depositos/deposito-nomina",
-    "actualizado": "30/10/2026"
+    "actualizado": "16/11/2026",
+    "status": "pending"
   },
   {
     "cat": "deposito",
@@ -4186,32 +4206,36 @@ const DATA =[
     "producto": "Depósito Premium 12 meses",
     "rate": 3.5,
     "rateLabel": "TAE 12 meses; hasta 25.000€",
-    "desc": "Depósito Premium: 3,50% TAE a 12 meses para importes de 1.000€ a 25.000€, requiere plan Premium de pago. La oferta de depósitos Premium aparece anunciada hasta 31/10/2026 en la web de MyInvestor.",
-    "cap": "1.000€–25.000€; plan Premium",
+    "desc": "Depósito Premium MyInvestor a 12 meses al 3,50% TAE, desde 1.000€ hasta 25.000€. La página oficial anuncia disponibilidad hasta el 30/11/2026. Requiere suscripción Premium; comprueba su coste y los términos aplicables antes de contratar.",
+    "cap": "1.000€–25.000€; requiere Premium",
     "condiciones": [
-      [
-        "Plazo",
-        "12 meses"
-      ],
       [
         "TAE",
         "3,50%"
+      ],
+      [
+        "Plazo",
+        "12 meses"
       ],
       [
         "Importe",
         "1.000€–25.000€"
       ],
       [
-        "Plan",
-        "Premium de pago"
+        "Requisito",
+        "Suscripción Premium (coste a comprobar)"
       ],
       [
         "Campaña",
-        "Hasta 31/10/2026"
+        "Hasta 30/11/2026"
+      ],
+      [
+        "Intereses",
+        "Al vencimiento"
       ]
     ],
-    "verdict": "Resta el coste de la suscripción Premium y confirma que la campaña siga abierta antes de contratar.",
-    "deadline": "Finalizó el 31/10/2026",
+    "verdict": "Oferta temporal actualizada hasta el 30/11/2026. Valora el coste de la suscripción Premium frente a los intereses que obtendrías.",
+    "deadline": "Hasta el 30/11/2026",
     "top": true,
     "sinCondicion": false,
     "montoMin": 1000,
@@ -4224,8 +4248,7 @@ const DATA =[
     "extranjero": false,
     "dificultad": 3,
     "url": "https://myinvestor.es/depositos/",
-    "actualizado": "30/10/2026",
-    "status": "expired"
+    "actualizado": "16/11/2026"
   },
   {
     "cat": "deposito",
@@ -6599,38 +6622,42 @@ const DATA =[
     "producto": "Depósito Premium 3 meses",
     "rate": 3.25,
     "rateLabel": "TAE 3 meses hasta 25.000€",
-    "desc": "Depósito Premium a 3 meses al 3,25% TAE para importes de 1.000€ a 25.000€, con plan Premium de pago; oferta indicada hasta el 31/10/2026.",
-    "cap": "1.000€–25.000€; plan Premium",
+    "desc": "Depósito Premium MyInvestor a 3 meses al 3,25% TAE, desde 1.000€ hasta 25.000€. La página oficial anuncia disponibilidad hasta el 30/11/2026. Requiere suscripción Premium; comprueba su coste y los términos aplicables antes de contratar.",
+    "cap": "1.000€–25.000€; requiere Premium",
     "condiciones": [
-      [
-        "Plazo",
-        "3 meses"
-      ],
       [
         "TAE",
         "3,25%"
+      ],
+      [
+        "Plazo",
+        "3 meses"
       ],
       [
         "Importe",
         "1.000€–25.000€"
       ],
       [
-        "Plan",
-        "Premium de pago"
+        "Requisito",
+        "Suscripción Premium (coste a comprobar)"
       ],
       [
         "Campaña",
-        "Hasta 31/10/2026"
+        "Hasta 30/11/2026"
+      ],
+      [
+        "Intereses",
+        "Al vencimiento"
       ]
     ],
-    "verdict": "Resta el coste mensual del plan; el 3,50% de MyInvestor Premium corresponde al depósito de 12 meses.",
-    "deadline": "Finalizó el 31/10/2026",
+    "verdict": "Oferta temporal actualizada hasta el 30/11/2026. Valora el coste de la suscripción Premium frente a los intereses que obtendrías.",
+    "deadline": "Hasta el 30/11/2026",
     "url": "https://myinvestor.es/depositos/",
-    "actualizado": "30/10/2026",
+    "actualizado": "16/11/2026",
     "top": false,
-    "sinCondicion": true,
+    "sinCondicion": false,
     "montoMin": 100025000,
-    "montoMax": 999999999,
+    "montoMax": 25000,
     "plazos": [
       "corto",
       "medio",
@@ -6638,8 +6665,7 @@ const DATA =[
     ],
     "requiereNomina": false,
     "extranjero": false,
-    "dificultad": 1,
-    "status": "expired"
+    "dificultad": 3
   },
   {
     "cat": "deposito",
@@ -7303,6 +7329,61 @@ const DATA =[
     "dificultad": 3,
     "url": "https://www.laboralkutxa.com/es/personas/hazte-cliente-nomina-pension-noviembre26/",
     "actualizado": "04/11/2026"
+  },
+  {
+    "cat": "deposito",
+    "tipo": "tradicional",
+    "entidad": "CBNK",
+    "producto": "Nuevo Depósito 3,25% a 6 meses",
+    "rate": 3.25,
+    "rateLabel": "TAE 6 meses",
+    "desc": "Nuevo depósito CBNK a 6 meses: 3,25% TAE (3,22% TIN), desde 10.000€ y sin máximo. Solo para nuevos ingresos desde otra entidad, sin vinculación. Intereses al vencimiento, sin renovación automática. Contratable por personas físicas.",
+    "cap": "Desde 10.000€; sin máximo",
+    "condiciones": [
+      [
+        "TAE / TIN",
+        "3,25% / 3,22%"
+      ],
+      [
+        "Plazo",
+        "6 meses; intereses al vencimiento"
+      ],
+      [
+        "Importe",
+        "Desde 10.000€; sin máximo"
+      ],
+      [
+        "Requisito",
+        "Nuevos ingresos desde otra entidad"
+      ],
+      [
+        "Vinculación",
+        "No requerida"
+      ],
+      [
+        "Renovación",
+        "No se renueva automáticamente"
+      ],
+      [
+        "Cancelación",
+        "Pérdida del 75% de los intereses percibidos"
+      ]
+    ],
+    "verdict": "Tipo fijo por seis meses y sin vinculación, pero exige dinero nuevo. La cancelación anticipada implica perder el 75% de los intereses ya percibidos sobre el importe cancelado.",
+    "deadline": null,
+    "top": false,
+    "sinCondicion": false,
+    "montoMin": 10000,
+    "montoMax": 999999999,
+    "plazos": [
+      "corto",
+      "medio"
+    ],
+    "requiereNomina": false,
+    "extranjero": false,
+    "dificultad": 2,
+    "url": "https://www.cbnk.es/personas/depositos/nuevo-deposito-325",
+    "actualizado": "16/11/2026"
   }
 ].filter(item => !["expired", "unverified"].includes(item.status));
 
