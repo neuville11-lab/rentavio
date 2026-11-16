@@ -6697,7 +6697,7 @@ document.getElementById('simBtn').addEventListener('click',()=>{
     for(let m=0;m<=24;m+=3){const xx=x(m);chart.appendChild(svgEl('line',{x1:xx,y1:T+plotH,x2:xx,y2:T+plotH+5,class:'axis'}));chart.appendChild(svgEl('text',{x:xx,y:H-17,'text-anchor':'middle'},m===0?'Inicio':m+' m'));}
     chart.appendChild(svgEl('text',{x:L,y:12,class:'axis-label'},'INTERÉS ACUMULADO ESTIMADO'));chart.appendChild(svgEl('text',{x:W-R,y:H-2,class:'axis-label','text-anchor':'end'},'TIEMPO'));
     const cursorX=x(month);chart.appendChild(svgEl('line',{x1:cursorX,y1:T,x2:cursorX,y2:T+plotH,stroke:'#344b3a','stroke-width':1.4,'stroke-dasharray':'4 5',opacity:.38}));
-    chosen.forEach(item=>{
+    chosen.forEach((item,i)=>{
       let d='';item.model.values.forEach((v,i)=>{d+=(i===0?'M':'L')+x(i).toFixed(1)+' '+y(v).toFixed(1)+' ';});
       chart.appendChild(svgEl('path',{d:d.trim(),fill:'none',stroke:item.color,'stroke-width':3.4,'stroke-linecap':'round','stroke-linejoin':'round'}));
       const mx=x(month),my=y(item.model.values[month])+(i-1)*12;chart.appendChild(svgEl('circle',{cx:mx,cy:my,r:17,fill:'#fff',stroke:item.color,'stroke-width':3,class:'vac-logo-halo'}));const logo=svgEl('image',{x:mx-12,y:my-12,width:24,height:24,href:logoFor(item.item),preserveAspectRatio:'xMidYMid meet',class:'vac-line-logo'});logo.setAttributeNS('http://www.w3.org/1999/xlink','href',logoFor(item.item));chart.appendChild(logo);
