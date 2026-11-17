@@ -848,7 +848,7 @@ const DATA = [
   },
   {
     "cat": "remunerada",
-    "tipo": "neobanco",
+    "tipo": "tradicional",
     "entidad": "Pibank",
     "producto": "Cuenta Remunerada",
     "rate": 2.02,
@@ -930,7 +930,7 @@ const DATA = [
   },
   {
     "cat": "remunerada",
-    "tipo": "neobanco",
+    "tipo": "tradicional",
     "entidad": "Banco BiG",
     "producto": "Cuenta Remunerada",
     "rate": 2,
@@ -1053,7 +1053,7 @@ const DATA = [
   },
   {
     "cat": "remunerada",
-    "tipo": "neobanco",
+    "tipo": "tradicional",
     "entidad": "Self Bank",
     "producto": "Cuenta Remunerada (sin condiciones)",
     "rate": 1,
@@ -1094,7 +1094,7 @@ const DATA = [
   },
   {
     "cat": "remunerada",
-    "tipo": "neobanco",
+    "tipo": "tradicional",
     "entidad": "EBN Banco",
     "producto": "Cuenta Remunerada (sin condiciones)",
     "rate": 1,
@@ -1485,29 +1485,41 @@ const DATA = [
     "entidad": "Bankinter",
     "producto": "Cuenta Digital (nuevos clientes)",
     "rate": 3,
-    "rateLabel": "TAE hasta 100.000€",
-    "desc": "Cuenta Digital para nuevos clientes: 3,00% TAE hasta 100.000€, desde el primer euro y garantizada hasta el 30/04/2027. Campaña de contratación del 29/10 al 11/11/2026 o hasta que se abran las primeras 50.000 cuentas.",
-    "cap": "Hasta 100.000€",
+    "rateLabel": "3,00% TAE sin límite de saldo",
+    "desc": "Nueva oferta de Cuenta Digital para nuevos clientes: 3,00% TAE (2,96% TIN), desde el primer euro y sin límite máximo de saldo. Contratación hasta el 16/12/2026. El tipo TIN queda garantizado hasta el 16/12/2027. Sin comisiones, sin requisitos de vinculación y con liquidez inmediata. El comunicado de Bankinter confirma estas condiciones; la ficha general del producto aún puede mostrar el límite anterior, así que revisa las condiciones visibles al contratar.",
+    "cap": "Sin límite máximo de saldo, según comunicado oficial del 12/11/2026",
     "condiciones": [
       [
         "TAE",
         "3,00%"
       ],
       [
+        "TIN",
+        "2,96%"
+      ],
+      [
         "Saldo remunerado",
-        "Hasta 100.000€"
+        "Desde el primer euro, sin límite máximo"
       ],
       [
-        "Garantía del tipo",
-        "Hasta 30/04/2027"
+        "Fin de contratación",
+        "16/12/2026"
       ],
       [
-        "Alta",
-        "29/10–11/11/2026 o primeras 50.000 cuentas"
+        "Tipo garantizado",
+        "Hasta 16/12/2027"
+      ],
+      [
+        "Requisitos",
+        "Nuevos clientes; sin nómina ni recibos"
+      ],
+      [
+        "Comisiones y liquidez",
+        "Sin comisiones; dinero disponible"
       ]
     ],
-    "verdict": "La ficha muestra únicamente la rentabilidad; la bonificación de nómina se detalla por separado en Cuentas con bonificación.",
-    "deadline": "Alta hasta 11/11/2026 o primeras 50.000 cuentas",
+    "verdict": "Oferta anunciada para nuevos clientes. La nota oficial de Bankinter del 12/11/2026 elimina el anterior tope de 100.000€. Comprueba el resumen contractual que aparezca en el proceso de alta.",
+    "deadline": "Contratación hasta 16/12/2026",
     "top": true,
     "sinCondicion": false,
     "montoMin": 0,
@@ -1521,8 +1533,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 3,
-    "url": "https://www.bankinter.com/webcorporativa/sala-de-comunicacion/noticias/negocio/bankinter-eleva-al-3--tae-la-remuneracion-de-su-cuenta-digital-y-mantiene-el-incentivo-adicional-de-hasta-600-euros-por-domiciliacion-de-nomina",
-    "actualizado": "08/11/2026"
+    "url": "https://www.bankinter.com/webcorporativa/sala-de-comunicacion/noticias/negocio/bankinter-renueva-la-cuenta-digital-con-una-remuneracion-del-3-tae-eliminando-el-limite-de-saldo",
+    "actualizado": "13/11/2026"
   },
   {
     "cat": "remunerada",
@@ -1608,7 +1620,7 @@ const DATA = [
   },
   {
     "cat": "remunerada",
-    "tipo": "neobanco",
+    "tipo": "tradicional",
     "entidad": "Cetelem",
     "producto": "Cuenta Ahorro Cetelem",
     "rate": 2.49,
@@ -1663,23 +1675,43 @@ const DATA = [
     "cat": "remunerada",
     "tipo": "tradicional",
     "entidad": "Banco Sabadell",
-    "producto": "Cuenta Online",
+    "producto": "Cuenta Online Sabadell (promoción noviembre)",
     "rate": 2.75,
-    "rateLabel": "TAE hasta 100.000€",
-    "desc": "Para nuevos clientes: 2,75% TAE hasta 100.000€ durante la campaña vigente. La bonificación por nómina/Bizum y la devolución de recibos se detallan por separado en Cuentas con bonificación.",
-    "cap": "Hasta 100.000€",
+    "rateLabel": "2,75% TAE durante el primer año",
+    "desc": "Para nuevos clientes que abran la cuenta entre el 13/11/2026 y el 02/12/2026: 2,75% TAE (2,7201% TIN) sobre el saldo medio conjunto de la Cuenta Online y las Cuentas Ahorro Sabadell vinculadas, hasta 100.000€. Liquidación mensual; desde el segundo año se aplica la remuneración vigente en ese momento.",
+    "cap": "Hasta 100.000€ de saldo medio conjunto durante el primer año",
     "condiciones": [
       [
         "TAE",
         "2,75%"
       ],
       [
+        "TIN",
+        "2,7201%"
+      ],
+      [
         "Saldo máximo",
-        "100.000€"
+        "100.000€ conjunto"
+      ],
+      [
+        "Duración",
+        "Primer año"
+      ],
+      [
+        "Liquidación",
+        "Mensual; abono el día 15 del mes siguiente"
+      ],
+      [
+        "Alta válida",
+        "13/11/2026–02/12/2026"
+      ],
+      [
+        "Elegibilidad",
+        "Nuevos clientes; uso particular"
       ]
     ],
-    "verdict": "Esta ficha muestra solo el interés de la cuenta; consulta la ficha de bonificación para el efectivo y las devoluciones.",
-    "deadline": null,
+    "verdict": "La remuneración promocional se aplica durante el primer año. A partir del segundo, se aplican las condiciones de remuneración vigentes en ese momento. La oferta oficial no anuncia devolución de recibos en esta campaña.",
+    "deadline": "Alta entre 13/11/2026 y 02/12/2026",
     "top": false,
     "sinCondicion": false,
     "montoMin": 0,
@@ -1693,8 +1725,8 @@ const DATA = [
     "requiereNomina": "recomendada",
     "extranjero": false,
     "dificultad": 4,
-    "url": "https://cuentaonline.bancsabadell.com/",
-    "actualizado": "04/11/2026"
+    "url": "https://www.bancsabadell.com/cs/Satellite/SabAtl/Indexed_Deposits/1191332203017/en/",
+    "actualizado": "14/11/2026"
   },
   {
     "cat": "remunerada",
@@ -1782,16 +1814,24 @@ const DATA = [
     "producto": "Cuenta Online (nuevos clientes)",
     "rate": 2,
     "rateLabel": "TAE 12 meses, hasta 100.000€",
-    "desc": "Cuenta online para nuevos clientes: 2,00% TAE durante 12 meses, hasta 100.000€. La bonificación de 150€ por domiciliar nómina se muestra por separado en Cuentas con bonificación.",
+    "desc": "Cuenta online para nuevos clientes de la región de actuación de Globalcaja (Castilla-La Mancha, Comunidad de Madrid, Murcia, Comunidad Valenciana y provincia de Almería): 2,00% TAE durante 12 meses, hasta 100.000€. Se muestra la bonificación de nómina por separado.",
     "cap": "Hasta 100.000€",
     "condiciones": [
       [
         "Nuevo cliente",
-        "Sí"
+        "No haber sido titular de una cuenta a la vista en los 6 meses anteriores"
+      ],
+      [
+        "Residencia",
+        "Castilla-La Mancha, Comunidad de Madrid, Región de Murcia, Comunidad Valenciana o provincia de Almería"
       ],
       [
         "Duración",
         "12 meses"
+      ],
+      [
+        "Saldo máximo",
+        "100.000€"
       ]
     ],
     "verdict": "Esta ficha muestra solo la rentabilidad del saldo; la bonificación de nómina tiene su ficha separada.",
@@ -1885,7 +1925,7 @@ const DATA = [
     "top": false,
     "sinCondicion": true,
     "montoMin": 0,
-    "montoMax": 30000,
+    "montoMax": 100000,
     "plazos": [
       "disponible",
       "corto",
@@ -1896,11 +1936,11 @@ const DATA = [
     "extranjero": false,
     "dificultad": 2,
     "url": "https://portal.kutxabank.es/cs/Satellite/kb/es/particulares/cuenta-remunerada/pys",
-    "actualizado": "30/10/2026"
+    "actualizado": "04/11/2026"
   },
   {
     "cat": "remunerada",
-    "tipo": "neobanco",
+    "tipo": "tradicional",
     "entidad": "EBN Banco",
     "producto": "Cuenta Remunerada (con inversión)",
     "rate": 2.5,
@@ -2031,7 +2071,7 @@ const DATA = [
   },
   {
     "cat": "remunerada",
-    "tipo": "neobanco",
+    "tipo": "tradicional",
     "entidad": "Self Bank",
     "producto": "Cuenta Remunerada (con fondos/ETFs)",
     "rate": 1.5,
@@ -2199,7 +2239,7 @@ const DATA = [
   },
   {
     "cat": "remunerada",
-    "tipo": "neobanco",
+    "tipo": "tradicional",
     "entidad": "Cetelem",
     "producto": "Cuenta Remunerada Suma (cashback)",
     "rate": 1.5,
@@ -2281,7 +2321,7 @@ const DATA = [
   },
   {
     "cat": "deposito",
-    "tipo": "neobanco",
+    "tipo": "tradicional",
     "entidad": "Banco Finantia",
     "producto": "Depósito no cancelable 36 meses",
     "rate": 3.1,
@@ -2370,7 +2410,7 @@ const DATA = [
   },
   {
     "cat": "deposito",
-    "tipo": "neobanco",
+    "tipo": "tradicional",
     "entidad": "EBN Banco",
     "producto": "Depósito 48 meses",
     "rate": 3.1,
@@ -2420,7 +2460,7 @@ const DATA = [
   },
   {
     "cat": "deposito",
-    "tipo": "neobanco",
+    "tipo": "tradicional",
     "entidad": "Banco BiG",
     "producto": "Depósito no cancelable 12 meses",
     "rate": 2.75,
@@ -2458,7 +2498,7 @@ const DATA = [
   },
   {
     "cat": "deposito",
-    "tipo": "neobanco",
+    "tipo": "tradicional",
     "entidad": "Cetelem",
     "producto": "Depósito 24 meses",
     "rate": 3.25,
@@ -2500,7 +2540,7 @@ const DATA = [
   },
   {
     "cat": "deposito",
-    "tipo": "neobanco",
+    "tipo": "tradicional",
     "entidad": "Pibank",
     "producto": "Depósito cancelable 12 meses",
     "rate": 3.03,
@@ -2766,7 +2806,7 @@ const DATA = [
   },
   {
     "cat": "deposito",
-    "tipo": "neobanco",
+    "tipo": "tradicional",
     "entidad": "Self Bank",
     "producto": "Depósito cancelable 12 meses",
     "rate": 2.5,
@@ -2808,33 +2848,37 @@ const DATA = [
   },
   {
     "cat": "deposito",
-    "tipo": "neobanco",
+    "tipo": "tradicional",
     "entidad": "CBNK",
     "producto": "Depósito Extra 12 meses (nuevos ingresos)",
-    "rate": 2.371,
+    "rate": 2.88,
     "rateLabel": "TAE 12 meses",
-    "desc": "Depósito Extra a 12 meses al 2,371% TAE (2,35% TIN), para nuevos ingresos desde otra entidad desde 20.000€, sin máximo publicado. Vigente hasta el 31/10/2026. Permite cancelación total o parcial, con pérdida del 75% de los intereses percibidos sobre el importe cancelado.",
+    "desc": "Depósito Extra CBNK a 12 meses: 2,88% TAE (2,85% TIN), desde 20.000€ y sin máximo publicado. Requiere incremento de saldo; intereses trimestrales. La oferta oficial está vigente hasta el 30/11/2026. Cancelación total o parcial con pérdida del 75% de los intereses percibidos sobre el importe cancelado.",
     "cap": "Desde 20.000€; sin máximo publicado",
     "condiciones": [
       [
         "TAE / TIN",
-        "2,371% / 2,35%"
+        "2,88% / 2,85%"
+      ],
+      [
+        "Plazo",
+        "12 meses; intereses trimestrales"
       ],
       [
         "Importe",
-        "Desde 20.000€"
+        "Desde 20.000€; sin máximo"
       ],
       [
         "Requisito",
-        "Incremento de saldo desde otra entidad"
+        "Incremento de saldo"
       ],
       [
         "Cancelación",
-        "Pérdida del 75% de intereses percibidos"
+        "Pérdida del 75% de los intereses percibidos"
       ]
     ],
-    "verdict": "Tipo fijo y campaña temporal para dinero nuevo. Si cancelas antes de tiempo, pierdes el 75% de los intereses percibidos sobre la parte cancelada.",
-    "deadline": "Finalizó el 31/10/2026",
+    "verdict": "La oferta se ha prorrogado hasta el 30/11/2026. Si cancelas anticipadamente, pierdes el 75% de los intereses percibidos sobre la parte cancelada.",
+    "deadline": "Hasta el 30/11/2026",
     "top": false,
     "sinCondicion": false,
     "montoMin": 20000,
@@ -2846,8 +2890,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 2,
     "url": "https://cbnk.es/personas/depositos/Deposito-extra-a-12-meses",
-    "actualizado": "30/10/2026",
-    "status": "expired"
+    "actualizado": "16/11/2026"
   },
   {
     "cat": "deposito",
@@ -2931,25 +2974,41 @@ const DATA = [
     "entidad": "Laboral Kutxa",
     "producto": "Depósito Bienvenida",
     "rate": 3.5,
-    "rateLabel": "TAE 12 meses con actividad",
-    "desc": "Depósito Bienvenida para nuevos clientes, máximo 25.000€. Da 3,50% TAE si realizas pagos por al menos 50€/mes en la cuenta; sin actividad, 3,00% TAE. Oferta del 01/09 al 31/10/2026.",
+    "rateLabel": "TAE 12 meses; 3,00% base o 3,50% con actividad",
+    "desc": "Campaña del 01/11 al 31/12/2026 para nuevos clientes sin relación con LABORAL Kutxa en los últimos 12 meses. Depósito a 1 año, hasta 25.000€: 3,00% TAE base o 3,50% TAE si haces pagos elegibles de al menos 50€/mes.",
     "cap": "Hasta 25.000€",
     "condiciones": [
       [
-        "Nuevo cliente",
-        "Sí"
+        "Plazo",
+        "1 año"
       ],
       [
-        "Actividad",
-        "50€/mes para 3,50%"
+        "TAE base",
+        "3,00%"
       ],
       [
-        "Sin actividad",
-        "3,00% TAE"
+        "TAE con actividad",
+        "3,50% con pagos elegibles ≥50€/mes"
+      ],
+      [
+        "Importe máximo",
+        "25.000€"
+      ],
+      [
+        "Cliente nuevo",
+        "Sin posiciones en los 12 meses anteriores"
+      ],
+      [
+        "Contratación",
+        "01/11–31/12/2026"
+      ],
+      [
+        "Cancelación anticipada",
+        "3% TIN hasta cancelación y deducción por el plazo restante, limitada a los intereses devengados"
       ]
     ],
-    "verdict": "El tipo mayor necesita actividad mensual, pero no domiciliar nómina. Cancelar antes aplica una deducción sobre intereses.",
-    "deadline": "Contratación hasta 31/10/2026",
+    "verdict": "El 3,50% exige actividad mensual. Si cancelas antes, se aplica el tipo de cancelación y la deducción indicada en las condiciones.",
+    "deadline": "Contratación hasta 31/12/2026",
     "top": true,
     "sinCondicion": false,
     "montoMin": 0,
@@ -2963,8 +3022,8 @@ const DATA = [
     "requiereNomina": false,
     "extranjero": false,
     "dificultad": 2,
-    "url": "https://www.laboralkutxa.com/es/personas/ahorro-inversion/depositos/deposito-bienvenida/",
-    "actualizado": "30/10/2026"
+    "url": "https://www.laboralkutxa.com/es/personas/hazte-cliente-nomina-pension-noviembre26/",
+    "actualizado": "04/11/2026"
   },
   {
     "cat": "deposito",
@@ -3044,7 +3103,7 @@ const DATA = [
   },
   {
     "cat": "deposito",
-    "tipo": "neobanco",
+    "tipo": "tradicional",
     "entidad": "Banco BiG",
     "producto": "Gran Depósito 3 meses (nuevos clientes)",
     "rate": 4,
@@ -3254,29 +3313,45 @@ const DATA = [
   },
   {
     "cat": "deposito",
-    "tipo": "neobanco",
+    "tipo": "tradicional",
     "entidad": "CBNK",
     "producto": "Depósito con nómina 12 meses",
-    "rate": 2.75,
-    "rateLabel": "TAE 12 meses",
-    "desc": "Depósito Nómina CBNK con remuneración del 2,75% TAE a 12 meses; requiere nuevos ingresos desde otra entidad. Mínimo 10.000€, máximo 500.000€. Cancelable total o parcialmente según contrato.",
+    "rate": 3,
+    "rateLabel": "TAE 12 meses · pendiente de confirmar",
+    "desc": "La ficha oficial muestra 3,00% TAE en el titular, pero en el cuerpo y el ejemplo representativo indica 3,25% TAE/TIN. Hasta que CBNK aclare la discrepancia, la rentabilidad queda pendiente. La página detalla depósito a 12 meses, de 10.000€ a 500.000€, para nuevos ingresos, con nómina o pensión neta ≥2.000€/mes domiciliada desde 01/11/2026 y abonada en al menos 9 meses, incluido el último antes del vencimiento. Emisión limitada a 25 millones de euros.",
     "cap": "10.000€ – 500.000€",
     "condiciones": [
       [
+        "Rentabilidad",
+        "Titular: 3,00% TAE; cuerpo y ejemplo: 3,25% TAE/TIN · pendiente"
+      ],
+      [
         "Plazo",
-        "12 meses"
+        "12 meses; interés al vencimiento"
       ],
       [
-        "Mínimo",
-        "10.000€"
+        "Importe",
+        "10.000€–500.000€"
       ],
       [
-        "Dinero nuevo",
-        "Sí"
+        "Dinero",
+        "Nuevos ingresos desde otra entidad"
+      ],
+      [
+        "Nómina/pensión",
+        "≥2.000€ netos/mes; al menos 9 meses, incluido el último"
+      ],
+      [
+        "Cancelación",
+        "Pérdida del 100% de intereses percibidos sobre lo cancelado"
+      ],
+      [
+        "Disponibilidad",
+        "Hasta agotar emisión de 25 M€"
       ]
     ],
-    "verdict": "El requisito de importe mínimo es alto; confirma el alcance de cancelación y condiciones de la nómina en la ficha de contratación.",
-    "deadline": null,
+    "verdict": "Pendiente de confirmar la TAE: el titular de la página oficial indica 3,00%, mientras que su cuerpo y ejemplo representativo indican 3,25%. La cancelación anticipada supone perder los intereses del importe cancelado.",
+    "deadline": "Hasta agotar emisión de 25 millones de euros; rentabilidad pendiente de aclaración",
     "top": false,
     "sinCondicion": false,
     "montoMin": 10000,
@@ -3288,11 +3363,12 @@ const DATA = [
     "extranjero": false,
     "dificultad": 3,
     "url": "https://cbnk.es/personas/depositos/deposito-nomina",
-    "actualizado": "30/10/2026"
+    "actualizado": "16/11/2026",
+    "status": "pending"
   },
   {
     "cat": "deposito",
-    "tipo": "neobanco",
+    "tipo": "tradicional",
     "entidad": "Arquia",
     "producto": "Depósito Respira 6 meses",
     "rate": 3.25,
@@ -3393,32 +3469,36 @@ const DATA = [
     "producto": "Depósito Premium 12 meses",
     "rate": 3.5,
     "rateLabel": "TAE 12 meses; hasta 25.000€",
-    "desc": "Depósito Premium: 3,50% TAE a 12 meses para importes de 1.000€ a 25.000€, requiere plan Premium de pago. La oferta de depósitos Premium aparece anunciada hasta 31/10/2026 en la web de MyInvestor.",
-    "cap": "1.000€–25.000€; plan Premium",
+    "desc": "Depósito Premium MyInvestor a 12 meses al 3,50% TAE, desde 1.000€ hasta 25.000€. La página oficial anuncia disponibilidad hasta el 30/11/2026. Requiere suscripción Premium; comprueba su coste y los términos aplicables antes de contratar.",
+    "cap": "1.000€–25.000€; requiere Premium",
     "condiciones": [
-      [
-        "Plazo",
-        "12 meses"
-      ],
       [
         "TAE",
         "3,50%"
+      ],
+      [
+        "Plazo",
+        "12 meses"
       ],
       [
         "Importe",
         "1.000€–25.000€"
       ],
       [
-        "Plan",
-        "Premium de pago"
+        "Requisito",
+        "Suscripción Premium (coste a comprobar)"
       ],
       [
         "Campaña",
-        "Hasta 31/10/2026"
+        "Hasta 30/11/2026"
+      ],
+      [
+        "Intereses",
+        "Al vencimiento"
       ]
     ],
-    "verdict": "Resta el coste de la suscripción Premium y confirma que la campaña siga abierta antes de contratar.",
-    "deadline": "Finalizó el 31/10/2026",
+    "verdict": "Oferta temporal actualizada hasta el 30/11/2026. Valora el coste de la suscripción Premium frente a los intereses que obtendrías.",
+    "deadline": "Hasta el 30/11/2026",
     "top": true,
     "sinCondicion": false,
     "montoMin": 1000,
@@ -3431,8 +3511,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 3,
     "url": "https://myinvestor.es/depositos/",
-    "actualizado": "30/10/2026",
-    "status": "expired"
+    "actualizado": "16/11/2026"
   },
   {
     "cat": "deposito",
@@ -3480,16 +3559,16 @@ const DATA = [
     "rate": 760,
     "rateLabel": "Hasta 760€ brutos por nómina y uso de la cuenta",
     "isMoney": true,
-    "desc": "Hasta 760€ durante el primer año: 400€ por domiciliar nómina/pensión o cuota de autónomos elegible, y hasta 120€ por usar la tarjeta, 120€ por Bizum y 120€ por recibos. Código PLAN1060 al abrir antes del 11/01/2027. No incluye los 300€ por mantener 10.000€ de ahorro, que se muestran aparte como rendimiento promocional.",
+    "desc": "BBVA anuncia hasta 760€ durante el primer año: 400€ por domiciliar nómina/pensión o cuota de autónomos elegible, y hasta 120€ por tarjeta, 120€ por Bizum y 120€ por recibos. Las bases legales actualizadas fijan el código PLAN1060 hasta el 11/01/2027. Los 300€ por mantener 10.000€ se detallan aparte.",
     "cap": "Hasta 760€ en bonificaciones por ingresos y uso de la cuenta",
     "condiciones": [
       [
         "Código",
-        "PLAN1060 hasta 11/01/2027"
+        "PLAN1060 · hasta 11/01/2027"
       ],
       [
         "Ingresos",
-        ">800€"
+        "≥800€"
       ],
       [
         "Uso",
@@ -3518,36 +3597,40 @@ const DATA = [
     "cat": "nomina",
     "tipo": "tradicional",
     "entidad": "Banco Sabadell",
-    "producto": "Cuenta Online Sabadell (promoción octubre–noviembre)",
+    "producto": "Cuenta Online Sabadell (bonificación nómina + Bizum)",
     "rate": 400,
     "rateLabel": "400€ brutos por nómina y Bizum",
     "isMoney": true,
-    "desc": "400€ brutos por domiciliar una nueva nómina de al menos 1.000€/mes y mantenerla junto con Bizum durante 12 meses. La campaña devuelve además el 3% de recibos de luz y/o gas cargados en cuenta; ese cashback es variable y no se suma a los 400€ destacados.",
-    "cap": "400€ brutos de bonificación por nómina + Bizum",
+    "desc": "Para nuevos clientes que abran la Cuenta Online entre el 13/11/2026 y el 02/12/2026: domicilia una nueva nómina de al menos 1.000€ y activa Bizum en la misma cuenta dentro de los dos meses posteriores al alta. Recibirás 33,34€ brutos al mes durante 12 meses (400,08€ brutos en total) si mantienes ambos requisitos durante los 12 meses.",
+    "cap": "400,08€ brutos en 12 pagos mensuales de 33,34€",
     "condiciones": [
       [
         "Nómina nueva",
-        "≥1.000€/mes"
+        "Mínimo 1.000€/mes"
       ],
       [
         "Bizum",
-        "Mantenerlo junto a la nómina durante 12 meses"
+        "Activo en la misma cuenta"
       ],
       [
-        "Bonificación",
-        "400€ brutos"
+        "Plazo para cumplir",
+        "Dentro de los 2 meses desde el alta"
       ],
       [
-        "Recibos luz/gas",
-        "3% de devolución; importe variable"
+        "Permanencia",
+        "Mantener nómina y Bizum durante 12 meses"
       ],
       [
-        "Alta",
-        "08/10–12/11/2026"
+        "Abono",
+        "33,34€ brutos al mes · total 400,08€"
+      ],
+      [
+        "Periodo de alta",
+        "13/11/2026–02/12/2026"
       ]
     ],
-    "verdict": "El 3% de recibos es una devolución variable, separada del bono fijo de 400€ y del interés de la cuenta.",
-    "deadline": "Alta hasta 12/11/2026",
+    "verdict": "El incentivo depende de mantener la nómina y Bizum en la misma cuenta hasta el último pago. La promoción anunciada no incluye el cashback de compras Bizum de campañas anteriores.",
+    "deadline": "Alta entre 13/11/2026 y 02/12/2026",
     "top": true,
     "sinCondicion": false,
     "montoMin": 0,
@@ -3561,8 +3644,8 @@ const DATA = [
     "requiereNomina": true,
     "extranjero": false,
     "dificultad": 4,
-    "url": "https://cuentaonline.bancsabadell.com/",
-    "actualizado": "04/11/2026"
+    "url": "https://www.bancsabadell.com/cs/Satellite/SabAtl/Indexed_Deposits/1191332203017/en/",
+    "actualizado": "14/11/2026"
   },
   {
     "cat": "nomina",
@@ -3711,23 +3794,35 @@ const DATA = [
     "rate": 600,
     "rateLabel": "€ brutos máximo por nómina",
     "isMoney": true,
-    "desc": "Por primera nómina/pensión: 300€ desde 800€/mes; 600€ desde 2.500€/mes (o 1.800€ si tienes 30 años o menos). Requiere Bizum y 250€ de saldo. Permanencia 36 meses, salvo el caso joven de 300€ con 12 meses.",
+    "desc": "Por primera domiciliación de nómina o pensión hasta el 31/12/2026: 300€ brutos con nómina desde 800€/mes; 600€ desde 2.500€/mes (o 1.800€/mes para menores de 31 años). Requiere Bizum y saldo mínimo de 250€. Permanencia de 36 meses; para menores de 31 que obtengan 300€, 12 meses.",
     "cap": "300€ o 600€",
     "condiciones": [
       [
-        "Ingreso",
-        "≥800€/mes"
+        "Alta",
+        "Domiciliación por primera vez antes del 31/12/2026"
+      ],
+      [
+        "Nómina desde 800€/mes",
+        "300€ brutos; 36 meses de permanencia (12 meses para menores de 31 años)"
+      ],
+      [
+        "Nómina desde 2.500€/mes",
+        "600€ brutos; 36 meses de permanencia"
+      ],
+      [
+        "Nómina de menores de 31",
+        "600€ desde 1.800€/mes; 36 meses de permanencia"
       ],
       [
         "Bizum y saldo",
-        "Sí; saldo ≥250€"
+        "Bizum asociado y saldo mínimo 250€"
       ],
       [
-        "Permanencia",
-        "36 meses; 12 en caso joven indicado"
+        "Incumplimiento",
+        "Puede generar penalización"
       ]
     ],
-    "verdict": "Es independiente de la remuneración de la cuenta al 3,10%; ambas ofertas no deben sumarse sin verificar elegibilidad.",
+    "verdict": "La bonificación tiene una permanencia larga y penalización por incumplimiento. La remuneración de la cuenta se muestra por separado.",
     "deadline": "Hasta 31/12/2026",
     "top": false,
     "sinCondicion": false,
@@ -3743,8 +3838,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 4,
     "url": "https://portal.kutxabank.es/cs/Satellite/kb/es/particulares/trae-tu-nomina-1/pys",
-    "status": "expired",
-    "actualizado": "30/10/2026"
+    "actualizado": "04/11/2026"
   },
   {
     "cat": "nomina",
@@ -3793,34 +3887,42 @@ const DATA = [
     "tipo": "tradicional",
     "entidad": "Globalcaja",
     "producto": "Cuenta Online",
-    "rate": 480,
-    "rateLabel": "Hasta 480€ brutos por ingresos y actividad",
+    "rate": 500,
+    "rateLabel": "Hasta 500€ brutos por nómina y Bizum",
     "isMoney": true,
-    "desc": "Hasta 480€ brutos en 12 meses: hasta 300€ por nuevo ingreso (nómina, pensión, autónomos o ingresos recurrentes elegibles) y hasta 180€ por uso mensual de tarjeta, Bizum y recibos. Para acceder a la campaña se exige un nuevo ingreso y un saldo medio mínimo de 1.000€. La recompensa adicional por saldo se muestra por separado.",
-    "cap": "Hasta 480€ en bonificaciones por ingresos y actividad",
+    "desc": "Oferta de nómina de Globalcaja: hasta 500€ brutos en 12 meses con nómina nueva de al menos 2.000€ y un Bizum al mes; hasta 300€ brutos si la nómina es de 700€ a 1.999€. Sin permanencia. No acumulable con otras ofertas de nómina de Globalcaja.",
+    "cap": "Hasta 500€ brutos por nómina + Bizum",
     "condiciones": [
       [
-        "Nuevo ingreso elegible",
-        "Hasta 300€ en 12 meses"
+        "Nómina nueva ≥2.000€",
+        "380€ brutos al año"
       ],
       [
-        "Tarjeta",
-        "Hasta 60€ en 12 meses"
+        "Nómina nueva 700–1.999€",
+        "180€ brutos al año"
       ],
       [
         "Bizum",
-        "Hasta 60€ en 12 meses"
+        "10€ brutos/mes adicional; al menos una operación mensual"
       ],
       [
-        "Recibos",
-        "Hasta 60€ en 12 meses"
+        "Duración",
+        "12 meses"
       ],
       [
-        "Saldo mínimo",
-        "1.000€ de media mensual"
+        "Máximo",
+        "500€ brutos (nómina ≥2.000€) o 300€ (700–1.999€)"
+      ],
+      [
+        "Permanencia",
+        "No"
+      ],
+      [
+        "Acumulación",
+        "No acumulable con otras ofertas de nómina de Globalcaja"
       ]
     ],
-    "verdict": "La recompensa de hasta 300€ por mantener saldo medio se compara aparte en Cuentas remuneradas; no se suma a esta bonificación.",
+    "verdict": "Oferta distinta de Cuenta Suma y de la promoción de 150€ de alta. Globalcaja indica que sus campañas de nómina no son acumulables.",
     "deadline": null,
     "top": false,
     "sinCondicion": false,
@@ -3836,7 +3938,7 @@ const DATA = [
     "extranjero": false,
     "dificultad": 3,
     "url": "https://www.globalcaja.es/es/particulares/nominas",
-    "actualizado": "30/10/2026"
+    "actualizado": "04/11/2026"
   },
   {
     "cat": "nomina",
@@ -3888,7 +3990,7 @@ const DATA = [
     "rate": 600,
     "rateLabel": "Hasta 600€ brutos por nómina/pensión",
     "isMoney": true,
-    "desc": "Hasta 600€ brutos (486€ netos con retención del 19%) por domiciliar una nómina o pensión de al menos 850€/mes: 50€ brutos al mes durante 12 meses. Alta del 29/10 al 11/11/2026 o hasta alcanzar las primeras 50.000 Cuentas Digitales abiertas. Exige mantener la cuenta activa 12 meses.",
+    "desc": "Campaña anterior de hasta 600€ brutos por domiciliar nómina o pensión de al menos 850€/mes, con abonos mensuales durante 12 meses. Esta promoción terminó el 11/11/2026; la nueva campaña de Cuenta Digital no confirma su continuidad.",
     "cap": "Hasta 600€ brutos en bonificación de nómina",
     "condiciones": [
       [
@@ -3912,8 +4014,8 @@ const DATA = [
         "Cuenta activa durante 12 meses"
       ]
     ],
-    "verdict": "La bonificación de nómina se muestra separada del interés de la Cuenta Digital.",
-    "deadline": "Hasta 11/11/2026 o primeras 50.000 cuentas",
+    "verdict": "La campaña que ofrecía hasta 600€ brutos terminó el 11/11/2026. No se ha confirmado que Bankinter la haya renovado junto con la nueva oferta de remuneración.",
+    "deadline": "Promoción finalizada el 11/11/2026",
     "top": false,
     "sinCondicion": false,
     "montoMin": 0,
@@ -3928,7 +4030,8 @@ const DATA = [
     "extranjero": false,
     "dificultad": 4,
     "url": "https://www.bankinter.com/webcorporativa/sala-de-comunicacion/noticias/negocio/bankinter-eleva-al-3--tae-la-remuneracion-de-su-cuenta-digital-y-mantiene-el-incentivo-adicional-de-hasta-600-euros-por-domiciliacion-de-nomina",
-    "actualizado": "08/11/2026"
+    "actualizado": "13/11/2026",
+    "status": "expired"
   },
   {
     "cat": "nomina",
@@ -4020,27 +4123,31 @@ const DATA = [
     "tipo": "neobanco",
     "entidad": "imagin",
     "producto": "Cuenta Nómina imagin",
-    "rate": 308.64,
-    "rateLabel": "Hasta 308,64€ netos",
+    "rate": 250,
+    "rateLabel": "150€–250€ netos",
     "isMoney": true,
-    "desc": "308,64€ netos con primera nómina desde 1.500€/mes o 185,19€ netos entre 900€ y 1.499,99€. Permanencia de 48 meses según la documentación recibida.",
-    "cap": "185,19€ o 308,64€ netos",
+    "desc": "Importe neto ingresado en cuenta: 250€ con una nómina de al menos 1.500€/mes, o 150€ con una nómina de 900€ a 1.499,99€/mes. Exige domiciliar la nómina durante 24 meses y seguir como cliente otros 24 meses.",
+    "cap": "150€–250€ netos",
     "condiciones": [
       [
         "Nómina",
         "≥900€/mes"
       ],
       [
-        "Incentivo",
-        "185,19€ o 308,64€ netos"
+        "Bonificación",
+        "150€ netos (900€–1.499,99€) o 250€ netos (≥1.500€)"
       ],
       [
         "Permanencia",
-        "48 meses"
+        "24 meses con nómina + 24 meses como cliente"
+      ],
+      [
+        "Vigencia",
+        "Hasta el 31/12/2026"
       ]
     ],
-    "verdict": "La permanencia de cuatro años es larga; compara el incentivo con el tiempo comprometido.",
-    "deadline": null,
+    "verdict": "No acumulable con otras promociones de nómina realizadas desde el 01/01/2024 ni con nóminas que ya procedan de CaixaBank.",
+    "deadline": "2026-12-31",
     "top": false,
     "sinCondicion": false,
     "montoMin": 0,
@@ -4051,8 +4158,8 @@ const DATA = [
     "requiereNomina": true,
     "extranjero": false,
     "dificultad": 3,
-    "url": "https://www.imagin.com/",
-    "actualizado": "30/10/2026"
+    "url": "https://www.imagin.com/cuentas/domiciliar-nomina",
+    "actualizado": "05/11/2026"
   },
   {
     "cat": "nomina",
@@ -4229,7 +4336,7 @@ const DATA = [
   },
   {
     "cat": "remunerada",
-    "tipo": "neobanco",
+    "tipo": "tradicional",
     "entidad": "Pibank",
     "producto": "Cuenta Nómina (con nómina)",
     "rate": 2.52,
@@ -4349,7 +4456,7 @@ const DATA = [
   },
   {
     "cat": "deposito",
-    "tipo": "tradicional",
+    "tipo": "neobanco",
     "entidad": "Volkswagen Bank",
     "producto": "Depósito VW Bank",
     "rate": 3.15,
@@ -4740,7 +4847,7 @@ const DATA = [
   },
   {
     "cat": "deposito",
-    "tipo": "tradicional",
+    "tipo": "neobanco",
     "entidad": "Renault Bank",
     "producto": "Depósito 12 meses",
     "rate": 3.24,
@@ -4791,7 +4898,7 @@ const DATA = [
   },
   {
     "cat": "deposito",
-    "tipo": "tradicional",
+    "tipo": "neobanco",
     "entidad": "Renault Bank",
     "producto": "Depósito 24 meses",
     "rate": 3.44,
@@ -4970,7 +5077,7 @@ const DATA = [
   },
   {
     "cat": "deposito",
-    "tipo": "tradicional",
+    "tipo": "neobanco",
     "entidad": "MyInvestor",
     "producto": "Depósito 3 meses",
     "rate": 2.25,
@@ -5012,7 +5119,7 @@ const DATA = [
   },
   {
     "cat": "deposito",
-    "tipo": "tradicional",
+    "tipo": "neobanco",
     "entidad": "MyInvestor",
     "producto": "Depósito 6 meses",
     "rate": 2.75,
@@ -5055,7 +5162,7 @@ const DATA = [
   },
   {
     "cat": "deposito",
-    "tipo": "tradicional",
+    "tipo": "neobanco",
     "entidad": "MyInvestor",
     "producto": "Depósito 12 meses",
     "rate": 3,
@@ -5568,7 +5675,7 @@ const DATA = [
   },
   {
     "cat": "deposito",
-    "tipo": "tradicional",
+    "tipo": "neobanco",
     "entidad": "Volkswagen Bank",
     "producto": "Depósito cancelable 6 meses",
     "rate": 1.9,
@@ -5611,7 +5718,7 @@ const DATA = [
   },
   {
     "cat": "deposito",
-    "tipo": "tradicional",
+    "tipo": "neobanco",
     "entidad": "Volkswagen Bank",
     "producto": "Depósito cancelable 12 meses",
     "rate": 3.15,
@@ -5654,7 +5761,7 @@ const DATA = [
   },
   {
     "cat": "remunerada",
-    "tipo": "tradicional",
+    "tipo": "neobanco",
     "entidad": "Renault Bank",
     "producto": "Cuenta Remunerada (tipo base)",
     "rate": 2.27,
@@ -5778,43 +5885,47 @@ const DATA = [
   },
   {
     "cat": "deposito",
-    "tipo": "tradicional",
+    "tipo": "neobanco",
     "entidad": "MyInvestor",
     "producto": "Depósito Premium 3 meses",
     "rate": 3.25,
     "rateLabel": "TAE 3 meses hasta 25.000€",
-    "desc": "Depósito Premium a 3 meses al 3,25% TAE para importes de 1.000€ a 25.000€, con plan Premium de pago; oferta indicada hasta el 31/10/2026.",
-    "cap": "1.000€–25.000€; plan Premium",
+    "desc": "Depósito Premium MyInvestor a 3 meses al 3,25% TAE, desde 1.000€ hasta 25.000€. La página oficial anuncia disponibilidad hasta el 30/11/2026. Requiere suscripción Premium; comprueba su coste y los términos aplicables antes de contratar.",
+    "cap": "1.000€–25.000€; requiere Premium",
     "condiciones": [
-      [
-        "Plazo",
-        "3 meses"
-      ],
       [
         "TAE",
         "3,25%"
+      ],
+      [
+        "Plazo",
+        "3 meses"
       ],
       [
         "Importe",
         "1.000€–25.000€"
       ],
       [
-        "Plan",
-        "Premium de pago"
+        "Requisito",
+        "Suscripción Premium (coste a comprobar)"
       ],
       [
         "Campaña",
-        "Hasta 31/10/2026"
+        "Hasta 30/11/2026"
+      ],
+      [
+        "Intereses",
+        "Al vencimiento"
       ]
     ],
-    "verdict": "Resta el coste mensual del plan; el 3,50% de MyInvestor Premium corresponde al depósito de 12 meses.",
-    "deadline": "Finalizó el 31/10/2026",
+    "verdict": "Oferta temporal actualizada hasta el 30/11/2026. Valora el coste de la suscripción Premium frente a los intereses que obtendrías.",
+    "deadline": "Hasta el 30/11/2026",
     "url": "https://myinvestor.es/depositos/",
     "actualizado": "16/11/2026",
     "top": false,
-    "sinCondicion": true,
+    "sinCondicion": false,
     "montoMin": 1000,
-    "montoMax": 999999999,
+    "montoMax": 25000,
     "plazos": [
       "corto",
       "medio",
@@ -5822,8 +5933,7 @@ const DATA = [
     ],
     "requiereNomina": false,
     "extranjero": false,
-    "dificultad": 1,
-    "status": "expired"
+    "dificultad": 3
   },
   {
     "cat": "deposito",
@@ -6043,7 +6153,7 @@ const DATA = [
   },
   {
     "cat": "deposito",
-    "tipo": "tradicional",
+    "tipo": "neobanco",
     "entidad": "WiZink",
     "producto": "Depósito dinero nuevo 12 meses",
     "rate": 3,
@@ -6087,7 +6197,7 @@ const DATA = [
   },
   {
     "cat": "deposito",
-    "tipo": "tradicional",
+    "tipo": "neobanco",
     "entidad": "WiZink",
     "producto": "Depósito dinero nuevo 36 meses",
     "rate": 2.6,
@@ -6194,7 +6304,7 @@ const DATA = [
     "rate": 150,
     "rateLabel": "150€ brutos por nómina",
     "isMoney": true,
-    "desc": "La página oficial anuncia 150€ brutos por domiciliar nómina a clientes que abran la Cuenta Online, sujeto a condiciones propias de la campaña.",
+    "desc": "La web comercial de Globalcaja aún anuncia 150€ brutos por domiciliar nómina, pero su índice de bases legales clasifica la campaña de captación de nuevos clientes de 2026 como no vigente. Pendiente de confirmar la vigencia y bases actuales.",
     "cap": "150€ brutos de bonificación",
     "condiciones": [
       [
@@ -6210,8 +6320,8 @@ const DATA = [
         "150€ brutos"
       ]
     ],
-    "verdict": "La fuente trata esta bonificación como una campaña distinta del programa «Tu cuenta suma»; no se presupone que ambas puedan acumularse.",
-    "deadline": null,
+    "verdict": "No se muestra como oferta activa hasta que la vigencia quede confirmada en bases legales.",
+    "deadline": "Pendiente de confirmar vigencia en bases legales",
     "top": false,
     "sinCondicion": false,
     "montoMin": 0,
@@ -6226,7 +6336,8 @@ const DATA = [
     "extranjero": false,
     "dificultad": 2,
     "url": "https://www.globalcaja.es/es/hazte-cliente",
-    "actualizado": "04/11/2026"
+    "actualizado": "04/11/2026",
+    "status": "unverified"
   },
   {
     "cat": "remunerada",
@@ -6251,6 +6362,10 @@ const DATA = [
       [
         "Naturaleza",
         "Incentivo promocional; no es TAE"
+      ],
+      [
+        "Vigencia",
+        "Código PLAN1060 hasta 11/01/2027"
       ]
     ],
     "verdict": "La cifra del 3% es un equivalente calculado sobre 10.000€ durante 12 meses; no representa la TAE de la cuenta. Comprueba el resto de requisitos de PLAN1060.",
@@ -6320,30 +6435,38 @@ const DATA = [
     "entidad": "Globalcaja",
     "producto": "Cuenta Suma (retribución variable por saldo)",
     "rate": 1.5,
-    "rateLabel": "TAE equivalente variable según saldo",
+    "rateLabel": "Incentivo por saldo; no es una TAE",
     "isMoney": false,
     "simType": "globalcaja_balance_reward",
-    "desc": "Programa de remuneración mensual vinculado a un nuevo ingreso elegible y al saldo medio: 7,50€/mes con saldo entre 6.000€ y 19.999,99€, o 25€/mes desde 20.000€. Máximo 300€ brutos en 12 meses.",
-    "cap": "Hasta 300€ brutos en 12 meses; saldo medio desde 6.000€",
+    "desc": "Cuenta Suma recompensa el saldo medio con 7,50€/mes entre 6.000€ y 19.999,99€, o 25€/mes desde 20.000€; máximo 300€ brutos por saldo en 12 meses. El programa completo puede alcanzar 780€ brutos sumando ingresos, saldo y actividad. Es una bonificación, no intereses ni TAE, y no se acumula con otras ofertas de nómina.",
+    "cap": "Hasta 300€ brutos por saldo en 12 meses",
     "condiciones": [
       [
         "Nuevo ingreso",
-        "Nómina, pensión o ingreso elegible"
+        "Nómina, pensión o ingreso recurrente elegible"
       ],
       [
         "Saldo medio",
         "7,50€/mes desde 6.000€; 25€/mes desde 20.000€"
       ],
       [
-        "Duración",
-        "Máximo 12 meses"
+        "Componente por saldo",
+        "Hasta 300€ brutos en 12 meses"
       ],
       [
-        "Saldo mínimo del programa",
-        "1.000€ de media mensual"
+        "Saldo medio mínimo",
+        "1.000€"
+      ],
+      [
+        "Programa completo",
+        "Hasta 780€ brutos entre ingresos, saldo y actividad"
+      ],
+      [
+        "Acumulación",
+        "No acumulable con otras ofertas de nómina o pensión de Globalcaja"
       ]
     ],
-    "verdict": "Importe variable según saldo y requisitos mensuales; el porcentaje equivalente cambia con el saldo y no se suma automáticamente a otra campaña Globalcaja.",
+    "verdict": "El pago por saldo es una bonificación variable, no una TAE. Globalcaja separa sus componentes y excluye la acumulación con otras campañas de nómina.",
     "deadline": "Hasta 12 meses desde la adhesión",
     "top": false,
     "sinCondicion": false,
@@ -6414,6 +6537,119 @@ const DATA = [
     "dificultad": 2,
     "url": "https://robinhood.com/eu/es/invest/",
     "actualizado": "04/11/2026"
+  },
+  {
+    "cat": "nomina",
+    "tipo": "tradicional",
+    "entidad": "LABORAL Kutxa",
+    "producto": "Promoción nómina o pensión noviembre–diciembre 2026",
+    "rate": 400,
+    "rateLabel": "400€ brutos por domiciliar nómina o pensión",
+    "isMoney": true,
+    "desc": "400€ brutos (324€ netos) por una nueva domiciliación de nómina o pensión de al menos 800€/mes. Hay que adherirse online entre el 01/11 y el 31/12/2026, mantener el ingreso 12 meses y cumplir el resto de condiciones. Limitada a las primeras 1.000 adhesiones válidas.",
+    "cap": "400€ brutos por nómina o pensión",
+    "condiciones": [
+      [
+        "Adhesión online",
+        "01/11–31/12/2026"
+      ],
+      [
+        "Nómina o pensión",
+        "Nueva; mínimo 800€/mes"
+      ],
+      [
+        "Requisito previo",
+        "No haber domiciliado nómina/pensión/desempleo en los 6 meses anteriores"
+      ],
+      [
+        "Permanencia",
+        "12 meses"
+      ],
+      [
+        "Límite",
+        "Primeras 1.000 adhesiones válidas"
+      ],
+      [
+        "Fecha de abono",
+        "Segunda quincena de marzo de 2027"
+      ],
+      [
+        "Importe",
+        "400€ brutos (324€ netos)"
+      ]
+    ],
+    "verdict": "La campaña anuncia hasta 1.275€ al combinar el bono con el depósito, pero esos intereses del depósito no están incluidos en esta bonificación de 400€.",
+    "deadline": "Adhesión hasta 31/12/2026; nómina/pensión hasta 28/02/2027",
+    "top": false,
+    "sinCondicion": false,
+    "montoMin": 0,
+    "montoMax": 999999999,
+    "plazos": [
+      "disponible",
+      "corto",
+      "medio",
+      "largo"
+    ],
+    "requiereNomina": true,
+    "extranjero": false,
+    "dificultad": 3,
+    "url": "https://www.laboralkutxa.com/es/personas/hazte-cliente-nomina-pension-noviembre26/",
+    "actualizado": "04/11/2026"
+  },
+  {
+    "cat": "deposito",
+    "tipo": "tradicional",
+    "entidad": "CBNK",
+    "producto": "Nuevo Depósito 3,25% a 6 meses",
+    "rate": 3.25,
+    "rateLabel": "TAE 6 meses",
+    "desc": "Nuevo depósito CBNK a 6 meses: 3,25% TAE (3,22% TIN), desde 10.000€ y sin máximo. Solo para nuevos ingresos desde otra entidad, sin vinculación. Intereses al vencimiento, sin renovación automática. Contratable por personas físicas.",
+    "cap": "Desde 10.000€; sin máximo",
+    "condiciones": [
+      [
+        "TAE / TIN",
+        "3,25% / 3,22%"
+      ],
+      [
+        "Plazo",
+        "6 meses; intereses al vencimiento"
+      ],
+      [
+        "Importe",
+        "Desde 10.000€; sin máximo"
+      ],
+      [
+        "Requisito",
+        "Nuevos ingresos desde otra entidad"
+      ],
+      [
+        "Vinculación",
+        "No requerida"
+      ],
+      [
+        "Renovación",
+        "No se renueva automáticamente"
+      ],
+      [
+        "Cancelación",
+        "Pérdida del 75% de los intereses percibidos"
+      ]
+    ],
+    "verdict": "Tipo fijo por seis meses y sin vinculación, pero exige dinero nuevo. La cancelación anticipada implica perder el 75% de los intereses ya percibidos sobre el importe cancelado.",
+    "deadline": null,
+    "top": false,
+    "sinCondicion": false,
+    "montoMin": 10000,
+    "montoMax": 999999999,
+    "plazos": [
+      "corto",
+      "medio"
+    ],
+    "requiereNomina": false,
+    "extranjero": false,
+    "dificultad": 2,
+    "url": "https://www.cbnk.es/personas/depositos/nuevo-deposito-325",
+    "actualizado": "16/11/2026"
   }
 ].filter(item => !["expired", "unverified"].includes(item.status));
 
@@ -6460,8 +6696,20 @@ function simTermMatches(item,months){
   const productMonths=monthsMatch?Number(monthsMatch[1]):(yearsMatch?Number(yearsMatch[1])*12:null);
   return productMonths===months;
 }
+function simSelfBankMonthlyInterest(item,balance){
+  const linked=item.producto==='Cuenta Remunerada (con fondos/ETFs)';
+  const tin=linked?[1.489,1.736,2.227]:[0.995,1.489,1.981];
+  return Math.min(balance,50000)*tin[0]/1200
+    +Math.min(Math.max(balance-50000,0),100000)*tin[1]/1200
+    +Math.min(Math.max(balance-150000,0),850000)*tin[2]/1200;
+}
 function simGrossInterest(item,principal,months){
   const rate=Number(item.rate)||0;
+  if(item.entidad==='Self Bank'&&item.cat==='remunerada'){
+    let balance=principal;
+    for(let month=0;month<months;month++)balance+=simSelfBankMonthlyInterest(item,balance);
+    return balance-principal;
+  }
   if(item.entidad==='Bankinter'&&/Cuenta (?:No-Nómina|Nómina)/i.test(item.producto||'')){
     if(months<=12)return principal*(Math.pow(1+rate/100,months/12)-1);
     const y1=principal*rate/100,second=/2[,.]00%/.test(item.desc||'')?0.02:0;
@@ -6481,6 +6729,7 @@ function simGrossInterest(item,principal,months){
   return principal*(Math.pow(1+rate/100,months/12)-1);
 }
 function simEligible(item,months){
+  if(item.status==='pending'||item.status==='expired'||item.status==='unverified')return false;
   if(!['remunerada','deposito'].includes(item.cat)||item.isMoney||!Number.isFinite(item.rate)||item.rate<=0||item.rate>20)return false;
   if(simNominaValue==='sin'&&item.requiereNomina===true)return false;
   if(simNominaValue==='con'&&item.requiereNomina!==true)return false;
@@ -6510,7 +6759,7 @@ function simSummaryHtml(amount,gross,months){
 function simCardHtml(item,amount,months,index){
   const conditions=Array.isArray(item.condiciones)?item.condiciones.map(pair=>`<div class="sim-condition-item"><span>${pair[0]}</span><strong>${pair[1]}</strong></div>`).join(''):'';
   const deadline=item.deadline?`<div class="sim-card-detail-deadline"><strong>Vigencia:</strong> ${item.deadline}</div>`:'';
-  const rateKind=item.tipo==='fondo'?'APY promocional variable; fondo monetario (no es TAE)':item.simType==='bbva_balance_reward'?'Incentivo promocional equivalente; no TAE':item.simType==='globalcaja_balance_reward'?'Retribución variable según saldo':item.simType==='ibercaja_tiered'?'TAE por periodos (ver condiciones)':'TAE publicada';
+  const rateKind=item.tipo==='fondo'?'APY promocional variable; fondo monetario (no es TAE)':item.simType==='bbva_balance_reward'?'Incentivo promocional equivalente; no TAE':item.simType==='globalcaja_balance_reward'?'Retribución variable según saldo':item.simType==='ibercaja_tiered'?'TAE por periodos (ver condiciones)':item.entidad==='Self Bank'&&item.cat==='remunerada'?'TAE del primer tramo; cálculo por tramos':'TAE publicada';
   return `<article class="sim-card ${index===0?'sim-best':''}">
     ${index===0?`<span class="sim-rank">${item.tipo==='fondo'?'Mayor rendimiento anunciado; variable':'Mejor opción elegible'}</span>`:'' }
     <div class="sim-entity">${LOGOS[item.entidad]?'<img src="'+LOGOS[item.entidad]+'" alt="">':''}${item.entidad}</div>
@@ -6636,7 +6885,7 @@ document.getElementById('simBtn').addEventListener('click',()=>{
     for(let month=1;month<=24;month++){
       const seg=schedule.find(s=>month>s.from&&month<=s.to)||schedule[schedule.length-1];
       const eligible=Math.min(balanceNow,cap),periodRate=seg.unit==='tin'?seg.rate/1200:Math.pow(1+seg.rate/100,1/12)-1;
-      const interest=eligible*periodRate;total+=interest;balanceNow+=interest;
+      const interest=item.entidad==='Self Bank'&&item.cat==='remunerada'?simSelfBankMonthlyInterest(item,eligible):eligible*periodRate;total+=interest;balanceNow+=interest;
       results.push(total-fee*month);
     }
     return {values:results,min,cap,fee,schedule};
