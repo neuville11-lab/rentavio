@@ -649,7 +649,7 @@ footer{border-color:var(--line);color:var(--ink-faint)}
           <div class="sim-slider-value" id="simMontoLabel">10.000 €</div><input type="range" id="simMonto" min="0" max="500" step="1" value="10" aria-label="Importe a invertir"><div class="sim-slider-scale"><span>500 €</span><span>500.000 €</span></div>
           <div class="sim-manual-amount">
             <label for="simMontoManual">O escribe el importe</label>
-            <input type="number" id="simMontoManual" min="500" max="500000" step="1" value="10000" inputmode="numeric" aria-label="Importe manual en euros">
+            <input type="number" id="simMontoManual" min="500" max="500000" step="any" value="10000" inputmode="decimal" aria-label="Importe manual en euros">
             <span>€</span>
           </div>
         </div>
@@ -6528,7 +6528,7 @@ const simMonto=document.getElementById('simMonto'),simMontoLabel=document.getEle
 const sliderToAmount=value=>Number(value)===0?500:Number(value)*1000;
 const amountToSlider=value=>Number(value)===500?0:Number(value)/1000;
 const fmtSliderAmount=value=>new Intl.NumberFormat('es-ES',{maximumFractionDigits:0}).format(Number(value))+' €';
-const isValidAmount=value=>Number(value)===500||(Number(value)>=1000&&Number(value)<=500000&&Number(value)%1000===0);
+const isValidAmount=value=>Number.isFinite(Number(value))&&Number(value)>=500&&Number(value)<=500000;
 simMonto.addEventListener('input',()=>{
   const amount=sliderToAmount(simMonto.value);
   simMontoManual.value=amount;
@@ -6541,7 +6541,7 @@ simMontoManual.addEventListener('input',()=>{
     simMontoLabel.textContent=fmtSliderAmount(amount);
     simMontoManual.setCustomValidity('');
   }else{
-    simMontoManual.setCustomValidity('Usa 500 € o cantidades de 1.000 € en 1.000 €.');
+    simMontoManual.setCustomValidity('Introduce un importe entre 500 € y 500.000 €.');
   }
 });
 document.getElementById('simBtn').addEventListener('click',()=>{
