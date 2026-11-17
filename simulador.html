@@ -583,7 +583,13 @@ footer{border-color:var(--line);color:var(--ink-faint)}
   @media(max-width:880px){.sim-allocation-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
   @media(max-width:600px){.sim-allocation{padding:14px}.sim-allocation-grid{grid-template-columns:1fr}.sim-allocation-title strong{font-size:15px}.sim-allocation-card{padding:14px}}
 </style>
-</head>
+<style id="vac-top-six-style">
+  .vac-top-six-note{display:flex;align-items:center;gap:10px;margin:0 0 17px;padding:12px 15px;border:1px solid #cfe8d8;border-radius:13px;background:linear-gradient(100deg,#eaf7ef,#f8fbf8);color:#315e49;font-size:11px;font-weight:650;line-height:1.5}
+  .vac-top-six-note::before{content:"6";display:grid;place-items:center;flex:0 0 25px;width:25px;height:25px;border-radius:8px;background:#126b56;color:#fff;font:800 12px var(--mono)}
+  .vac-summary{grid-template-columns:repeat(3,minmax(0,1fr))}
+  @media(max-width:760px){.vac-summary{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:450px){.vac-summary{grid-template-columns:1fr}}
+</style></head>
 <body>
 
 <header>
@@ -656,17 +662,9 @@ footer{border-color:var(--line);color:var(--ink-faint)}
       <div id="simResult"></div>
       <section class="vac-section" id="visualAccountCompare" aria-labelledby="vacTitle">
   <div class="vac-head">
-    <div><span class="vac-eyebrow">Tu ahorro, mes a mes</span><h2 id="vacTitle">¿Qué cuenta te conviene según el tiempo?</h2><p>Las tres cuentas aparecen seleccionadas en tarjetas. Pulsa «Cambiar cuenta» para elegir otras; mueve el marcador mensual y compara cuándo cambia la ganadora.</p></div>
+    <div><span class="vac-eyebrow">Tu ahorro, mes a mes</span><h2 id="vacTitle">¿Qué cuenta te conviene según el tiempo?</h2><p>Compara directamente las seis cuentas remuneradas con mejor proyección para el importe indicado. Mueve el marcador mensual y observa cuándo cambia la que más acumula.</p></div>
   </div>
-  <div class="vac-controls" id="vacPicks" aria-label="Cuentas seleccionadas para comparar"></div>
-  <dialog class="vac-picker" id="vacPicker" aria-labelledby="vacPickerTitle">
-    <div class="vac-picker-shell">
-      <div class="vac-picker-head"><div><span class="vac-eyebrow">Comparador de cuentas</span><h3 id="vacPickerTitle">Elige una cuenta</h3></div><button class="vac-picker-close" type="button" aria-label="Cerrar" onclick="document.getElementById('vacPicker').close()">×</button></div>
-      <label class="vac-picker-search-label" for="vacPickerSearch">Busca por banco o cuenta</label><input id="vacPickerSearch" class="vac-picker-search" type="search" placeholder="Ej. Bankinter, Cetelem…" autocomplete="off">
-      <div class="vac-picker-filters" id="vacPickerFilters"><button type="button" data-filter="all" class="is-active">Todas</button><button type="button" data-filter="free">Sin nómina indicada</button><button type="button" data-filter="needs">Con requisitos</button></div>
-      <div class="vac-picker-list" id="vacPickerList"></div>
-    </div>
-  </dialog>
+  <div class="vac-top-six-note" id="vacTopSixNote" aria-live="polite">Mostramos las seis cuentas remuneradas con mejor proyección para el importe indicado.</div>
   <div class="vac-sliders">
     <div class="vac-slider-card">
       <div class="vac-slider-top"><label for="vacAmountRange">Dinero que quieres invertir</label><output id="vacAmountOutput" for="vacAmountRange">10.000 €</output></div>
@@ -6568,20 +6566,11 @@ document.getElementById('simBtn').addEventListener('click',()=>{
 <script id="visual-account-compare-script">
 (function(){
   const data=DATA;
-  const offers=data.map((item,index)=>({item,index})).filter(x=>{const item=x.item,label=String(item.rateLabel||'');return item.cat==='remunerada'&&item.status!=='pending'&&item.status!=='expired'&&!item.isMoney&&Number.isFinite(Number(item.rate))&&Number(item.rate)>0&&Number(item.rate)<20&&/TAE|TIN/i.test(label)&&!/equivalente|no es TAE|APY|cashback|ejemplo|estimada/i.test(label)&&(!item.simType||item.simType==='ibercaja_tiered')&&monthlyFee(item)===0;});
+  const offers=data.map((item,index)=>({item,index})).filter(x=>{const item=x.item,label=String(x.item.rateLabel||'');return item.cat==='remunerada'&&item.status!=='pending'&&item.status!=='expired'&&!item.isMoney&&Number.isFinite(Number(item.rate))&&Number(item.rate)>0&&Number(item.rate)<20&&/TAE|TIN/i.test(label)&&!/equivalente|no es TAE|APY|cashback|ejemplo|estimada/i.test(label)&&(!item.simType||item.simType==='ibercaja_tiered')&&monthlyFee(item)===0;});
   if(!offers.length)return;
-  const colors=['#087b63','#d28a18','#536fc4'];
+  const colors=['#087b63','#d28a18','#536fc4','#d05a46','#8657a5','#168ba0'];
   const eur=new Intl.NumberFormat('es-ES',{style:'currency',currency:'EUR',minimumFractionDigits:0,maximumFractionDigits:2});
-  const picks=document.getElementById('vacPicks');
-  const defaults=['Bankinter|Cuenta No-Nómina (combinable)','Ibercaja|Cuenta Vamos (nómina + recibos)','Cetelem|Cuenta Ahorro Cetelem'];
-  const selects=[];
-  const cards=[];
-  const picker=document.getElementById('vacPicker');
-  const pickerTitle=document.getElementById('vacPickerTitle');
-  const pickerSearch=document.getElementById('vacPickerSearch');
-  const pickerList=document.getElementById('vacPickerList');
-  const pickerFilters=document.getElementById('vacPickerFilters');
-  let activeSlot=0, activeFilter='all';
+  const topSixNote=document.getElementById('vacTopSixNote');
   function logoFor(item){
     const name=String(item.entidad||'');
     let src=(typeof LOGOS!=='undefined'&&LOGOS[name])||null;
@@ -6590,57 +6579,7 @@ document.getElementById('simBtn').addEventListener('click',()=>{
     const initials=name.split(/\\s+/).slice(0,2).map(x=>x[0]||'').join('').toUpperCase();
     return 'data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><rect width="40" height="40" rx="12" fill="#e8f5ef"/><text x="20" y="25" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#087b63">'+initials+'</text></svg>');
   }
-  function productName(item){return String(item.producto||item.entidad||'Cuenta remunerada');}
-  function selectValue(index,value){selects[index].value=String(value);refreshCards();render();picker.close();}
-  for(let i=0;i<3;i++){
-    const select=document.createElement('select');select.id='vacSelect'+i;select.setAttribute('aria-label','Cuenta comparada '+(i+1));select.className='vac-select-hidden';
-    offers.forEach((entry,j)=>{const opt=document.createElement('option');opt.value=String(j);opt.textContent=entry.item.entidad+' · '+entry.item.producto;select.appendChild(opt);});
-    const d=defaults[i],j=offers.findIndex(x=>x.item.entidad+'|'+x.item.producto===d);
-    if(j>=0)select.value=String(j);
-    picks.appendChild(select);selects.push(select);
-    const card=document.createElement('article');card.className='vac-account-card';card.style.setProperty('--vac-color',colors[i]);
-    card.innerHTML='<div class="vac-account-top"><span class="vac-account-index">CUENTA '+(i+1)+'</span><span class="vac-account-color"></span></div><div class="vac-account-main"><span class="vac-account-logo-box"><img class="vac-account-logo" alt=""></span><div class="vac-account-copy"><strong class="vac-account-bank"></strong><span class="vac-account-product"></span></div></div><div class="vac-account-bottom"><span class="vac-account-rate"></span><button type="button" class="vac-change-account">Cambiar cuenta <span aria-hidden="true">⌄</span></button></div><small class="vac-account-detail" id="vacDetail'+i+'"></small>';
-    const button=card.querySelector('.vac-change-account');button.addEventListener('click',()=>openPicker(i));
-    card.addEventListener('click',e=>{if(!e.target.closest('button'))openPicker(i);});
-    picks.appendChild(card);cards.push(card);
-  }
-  function accountDetail(item){return (item.requiereNomina?'Requiere nómina o ingreso domiciliado · ':'Sin nómina indicada · ')+'Dificultad '+(item.dificultad||1)+'/4 · '+(item.rateLabel||'Tipo publicado');}
-  function refreshCards(){
-    selects.forEach((s,i)=>{
-      const item=(offers[Number(s.value)]||offers[i]).item,card=cards[i],logo=card.querySelector('.vac-account-logo');
-      logo.src=logoFor(item);logo.alt='Logo de '+item.entidad;
-      card.querySelector('.vac-account-bank').textContent=item.entidad;
-      card.querySelector('.vac-account-product').textContent=productName(item);
-      card.querySelector('.vac-account-rate').textContent=item.rateLabel||((item.rate||'')+'%');
-      card.querySelector('.vac-account-detail').textContent=accountDetail(item);
-    });
-  }
-  function openPicker(slot){
-    activeSlot=slot;pickerTitle.textContent='Elige la cuenta '+(slot+1);pickerSearch.value='';activeFilter='all';
-    pickerFilters.querySelectorAll('[data-filter]').forEach(b=>b.classList.toggle('is-active',b.dataset.filter==='all'));
-    renderPicker();picker.showModal();pickerSearch.focus();
-  }
-  function renderPicker(){
-    const query=pickerSearch.value.trim().toLocaleLowerCase('es');
-    pickerList.innerHTML='';
-    offers.forEach((entry,j)=>{
-      const item=entry.item,needs=!!item.requiereNomina;
-      const matchesFilter=activeFilter==='all'||(activeFilter==='needs'&&needs)||(activeFilter==='free'&&!needs);
-      const hay=(item.entidad+' '+item.producto+' '+(item.rateLabel||'')).toLocaleLowerCase('es');
-      if(!matchesFilter||!hay.includes(query))return;
-      const card=document.createElement('button');card.type='button';card.className='vac-option'+(selects[activeSlot].value===String(j)?' is-selected':'');
-      card.innerHTML='<span class="vac-option-logo"><img alt=""></span><span class="vac-option-copy"><strong></strong><small></small></span><span class="vac-option-rate"></span><span class="vac-option-check" aria-hidden="true">✓</span>';
-      card.querySelector('img').src=logoFor(item);card.querySelector('img').alt='';card.querySelector('strong').textContent=item.entidad;
-      card.querySelector('.vac-option-copy small').textContent=productName(item)+' · '+(needs?'Con requisitos':'Sin nómina indicada');
-      card.querySelector('.vac-option-rate').textContent=item.rateLabel||((item.rate||'')+'%');
-      card.addEventListener('click',()=>selectValue(activeSlot,j));pickerList.appendChild(card);
-    });
-    if(!pickerList.children.length){const empty=document.createElement('p');empty.className='vac-picker-empty';empty.textContent='No hay cuentas que coincidan con la búsqueda.';pickerList.appendChild(empty);}
-  }
-  pickerSearch.addEventListener('input',renderPicker);
-  pickerFilters.addEventListener('click',e=>{const b=e.target.closest('[data-filter]');if(!b)return;activeFilter=b.dataset.filter;pickerFilters.querySelectorAll('[data-filter]').forEach(x=>x.classList.toggle('is-active',x===b));renderPicker();});
-  selects.forEach((s,i)=>s.addEventListener('change',()=>{refreshCards();render();}));
-  refreshCards();
+  function fmtAmount(n){return eur.format(Math.max(0,n));}
   const range=document.getElementById('vacAmountRange'),number=document.getElementById('vacAmountNumber'),amountOut=document.getElementById('vacAmountOutput');
   const monthRange=document.getElementById('vacMonthRange'),monthOut=document.getElementById('vacMonthOutput');
   const chart=document.getElementById('vacChart'),legend=document.getElementById('vacLegend'),summary=document.getElementById('vacSummary'),insight=document.getElementById('vacInsight');
@@ -6685,9 +6624,13 @@ document.getElementById('simBtn').addEventListener('click',()=>{
   function fmtAmount(n){return eur.format(Math.max(0,n));}
   function render(){
     let principal=Number(number.value);if(!Number.isFinite(principal))principal=10000;principal=Math.max(500,Math.min(500000,principal));range.value=String(Math.round(principal/500)*500);number.value=String(Math.round(principal));principal=Number(number.value);amountOut.textContent=fmtAmount(principal);
-    const chosen=selects.map((s,i)=>{let entry=offers[Number(s.value)]||offers[i];return {item:entry.item,model:simulate(entry.item,principal),color:colors[i]};});
+    const ranked=offers.map(entry=>({item:entry.item,model:simulate(entry.item,principal)})).filter(entry=>principal>=entry.model.min).sort((a,b)=>b.model.values[24]-a.model.values[24]);
+    const top=[],banks=new Set();for(const entry of ranked){if(banks.has(entry.item.entidad))continue;banks.add(entry.item.entidad);top.push(entry);if(top.length===6)break;}
+    const chosen=top.map((entry,i)=>({...entry,color:colors[i]}));
+    topSixNote.textContent=chosen.length===6?'Mostramos las 6 cuentas que más rendimiento bruto acumularían en 24 meses para este importe. Mueve el plazo para ver cómo cambia el liderazgo.':'Solo '+chosen.length+' cuentas cumplen los límites de importe para esta cantidad; prueba con otro saldo para completar las seis.';
+    if(!chosen.length){cleanSvg(chart);legend.replaceChildren();summary.replaceChildren();insight.textContent='No encontramos cuentas remuneradas que admitan este importe según los límites indicados.';return;}
+
     const month=Number(monthRange.value);monthOut.textContent=month+' '+(month===1?'mes':'meses');
-    selects.forEach((s,i)=>{const x=chosen[i];cards[i].querySelector('.vac-account-rate').textContent=x.item.rateLabel||((x.item.rate||'')+'%');cards[i].querySelector('.vac-account-detail').textContent=accountDetail(x.item);});
     const maxVal=Math.max(10,...chosen.flatMap(x=>x.model.values))*1.14;
     const W=900,H=350,L=70,R=22,T=22,B=46,plotW=W-L-R,plotH=H-T-B;
     const x=m=>L+(m/24)*plotW,y=v=>T+plotH-(v/maxVal)*plotH;
@@ -6700,7 +6643,7 @@ document.getElementById('simBtn').addEventListener('click',()=>{
     chosen.forEach((item,i)=>{
       let d='';item.model.values.forEach((v,i)=>{d+=(i===0?'M':'L')+x(i).toFixed(1)+' '+y(v).toFixed(1)+' ';});
       chart.appendChild(svgEl('path',{d:d.trim(),fill:'none',stroke:item.color,'stroke-width':3.4,'stroke-linecap':'round','stroke-linejoin':'round'}));
-      const mx=x(month),my=y(item.model.values[month])+(i-1)*12;chart.appendChild(svgEl('circle',{cx:mx,cy:my,r:17,fill:'#fff',stroke:item.color,'stroke-width':3,class:'vac-logo-halo'}));const logo=svgEl('image',{x:mx-12,y:my-12,width:24,height:24,href:logoFor(item.item),preserveAspectRatio:'xMidYMid meet',class:'vac-line-logo'});logo.setAttributeNS('http://www.w3.org/1999/xlink','href',logoFor(item.item));chart.appendChild(logo);
+      const mx=x(month),trueY=y(item.model.values[month]),my=Math.max(T+14,Math.min(T+plotH-14,trueY+(i-2.5)*21));if(Math.abs(my-trueY)>3)chart.appendChild(svgEl('line',{x1:mx,y1:trueY,x2:mx,y2:my,stroke:item.color,'stroke-width':1.5,opacity:.7}));chart.appendChild(svgEl('circle',{cx:mx,cy:my,r:13,fill:'#fff',stroke:item.color,'stroke-width':2.5,class:'vac-logo-halo'}));const logo=svgEl('image',{x:mx-9,y:my-9,width:18,height:18,href:logoFor(item.item),preserveAspectRatio:'xMidYMid meet',class:'vac-line-logo'});logo.setAttributeNS('http://www.w3.org/1999/xlink','href',logoFor(item.item));chart.appendChild(logo);
     });
 
     const scores=chosen.map((v,i)=>({i,value:v.model.values[month],item:v.item})).sort((a,b)=>b.value-a.value);const winner=scores[0];
