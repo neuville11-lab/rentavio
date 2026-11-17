@@ -6592,7 +6592,7 @@ document.getElementById('simBtn').addEventListener('click',()=>{
   const eur=new Intl.NumberFormat('es-ES',{style:'currency',currency:'EUR',minimumFractionDigits:0,maximumFractionDigits:2});
   const choices=document.getElementById('vacChoices');
   const choicesNote=document.getElementById('vacChoicesNote');
-  let selectedKeys=[],selectionInitialized=false;
+  let selectedKeys=[],selectionInitialized=false,fixedPool=null;
   function logoFor(item){
     const name=String(item.entidad||'');
     let src=(typeof LOGOS!=='undefined'&&LOGOS[name])||null;
@@ -6669,13 +6669,14 @@ document.getElementById('simBtn').addEventListener('click',()=>{
   }
   function render(preserveAmountInput=false){
     let principal=Number(number.value);if(!Number.isFinite(principal))principal=10000;principal=Math.max(500,Math.min(500000,principal));range.value=String(Math.max(500,Math.min(500000,Math.round(principal/500)*500)));if(!preserveAmountInput)number.value=String(principal);amountOut.textContent=fmtAmount(principal);
-    const ranked=offers.map(entry=>({item:entry.item,model:simulate(entry.item,principal)})).filter(entry=>principal>=entry.model.min).sort((a,b)=>b.model.values[24]-a.model.values[24]);
-    const pool=[],banks=new Set();for(const entry of ranked){if(banks.has(entry.item.entidad))continue;banks.add(entry.item.entidad);pool.push(entry);if(pool.length===8)break;}
-    const poolKeys=pool.map(x=>offerKey(x.item));
-    const kept=selectedKeys.filter(key=>poolKeys.includes(key)),poolChanged=kept.length!==selectedKeys.length;selectedKeys=kept;
-    if(!selectionInitialized||poolChanged){for(const entry of pool){if(selectedKeys.length>=2)break;const key=offerKey(entry.item);if(!selectedKeys.includes(key))selectedKeys.push(key);}selectionInitialized=true;}
+    if(!fixedPool){
+      const ranked=offers.map(entry=>({item:entry.item,model:simulate(entry.item,10000)})).filter(entry=>entry.model.min<=500).sort((a,b)=>b.model.values[24]-a.model.values[24]);
+      const banks=new Set();fixedPool=[];for(const entry of ranked){if(banks.has(entry.item.entidad))continue;banks.add(entry.item.entidad);fixedPool.push({item:entry.item});if(fixedPool.length===8)break;}
+    }
+    const pool=fixedPool.map(entry=>({item:entry.item,model:simulate(entry.item,principal)}));
+    if(!selectionInitialized){for(const entry of pool){if(selectedKeys.length>=2)break;selectedKeys.push(offerKey(entry.item));}selectionInitialized=true;}
     const chosen=pool.filter(entry=>selectedKeys.includes(offerKey(entry.item))).map((entry,i)=>({...entry,color:colors[i]}));
-    choicesNote.textContent='Elige hasta 2 cuentas entre las '+pool.length+' opciones ordenadas por rendimiento bruto estimado a 24 meses para este importe.';document.getElementById('vacChoiceTotal').textContent=pool.length+' opciones';
+    choicesNote.textContent='Las opciones y las cuentas seleccionadas se mantienen fijas mientras cambias el importe. Puedes elegir hasta 2 de las '+pool.length+' cuentas destacadas.';document.getElementById('vacChoiceTotal').textContent=pool.length+' opciones';
     drawChoices(pool);
     if(!chosen.length){cleanSvg(chart);legend.replaceChildren();summary.replaceChildren();insight.textContent='Selecciona una o dos cuentas para ver la comparación.';return;}
     const month=Number(monthRange.value);monthOut.textContent=month+' '+(month===1?'mes':'meses');
