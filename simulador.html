@@ -6935,7 +6935,8 @@ document.getElementById('simBtn').addEventListener('click',()=>{
     if(!chosen.length){cleanSvg(chart);legend.replaceChildren();summary.replaceChildren();insight.textContent='Selecciona una o dos cuentas para ver la comparación.';return;}
     const month=Number(monthRange.value);monthOut.textContent=month+' '+(month===1?'mes':'meses');graphMonth.textContent='Mes '+month;
     const maxVal=Math.max(10,...chosen.flatMap(x=>x.model.values))*1.14;
-    const W=Math.max(300,Math.round(chart.getBoundingClientRect().width)),compact=W<560,H=compact?290:350,L=compact?58:70,R=compact?12:22,T=26,B=46,plotW=W-L-R,plotH=H-T-B;
+    const chartWidth=Math.round(chart.getBoundingClientRect().width),W=Math.max(300,chartWidth),compact=W<560,H=compact?290:350,L=compact?58:70,R=compact?12:22,T=26,B=46,plotW=W-L-R,plotH=H-T-B;
+    chart.dataset.renderWidth=String(chartWidth);
     const x=m=>L+(m/24)*plotW,y=v=>T+plotH-(v/maxVal)*plotH;
     chart.setAttribute('viewBox','0 0 '+W+' '+H);
     cleanSvg(chart);
@@ -6977,7 +6978,10 @@ document.getElementById('simBtn').addEventListener('click',()=>{
   range.addEventListener('input',()=>{number.value=range.value;render();});
   number.addEventListener('input',()=>{if(number.value===''||!number.valueAsNumber||!Number.isFinite(number.valueAsNumber))return;const typed=number.valueAsNumber;if(typed<500||typed>500000)return;render(true);});
   number.addEventListener('change',()=>{let typed=number.valueAsNumber;if(!Number.isFinite(typed))typed=500;typed=Math.max(500,Math.min(500000,typed));number.value=String(typed);render(true);});
-  monthRange.addEventListener('input',render);render();
+  monthRange.addEventListener('input',render);
+  if('ResizeObserver' in window)new ResizeObserver(()=>{const width=Math.round(chart.getBoundingClientRect().width);if(chart.dataset.renderWidth!==String(width))render();}).observe(chart);
+  else window.addEventListener('resize',render,{passive:true});
+  render();
 })();
 </script>
 </body>
