@@ -186,11 +186,12 @@ const labels=[["Proyecto","name"],["Plataforma","platform"],["Estado","status"],
 function renderCompare(){
 const chosen=cards.filter(c=>selected.has(c.dataset.id));
 box.classList.toggle("visible",chosen.length>0);
+cards.forEach(c=>{const b=c.querySelector(".select-project");b.disabled=!selected.has(c.dataset.id)&&selected.size>=3;b.setAttribute("aria-pressed",String(selected.has(c.dataset.id)));b.lastChild.textContent=selected.has(c.dataset.id)?"Añadido":"Comparar"});
 if(!chosen.length){table.innerHTML="";return}
 let html="<thead><tr><th>Dato</th>"+chosen.map(c=>"<th>"+c.dataset.name+"</th>").join("")+"</tr></thead><tbody>";
 labels.forEach(row=>{html+="<tr><td>"+row[0]+"</td>"+chosen.map(c=>"<td>"+(c.dataset[row[1]]||"No publicado")+"</td>").join("")+"</tr>"});
 table.innerHTML=html+"</tbody>";
-cards.forEach(c=>{const b=c.querySelector(".select-project");b.disabled=!selected.has(c.dataset.id)&&selected.size>=3;b.setAttribute("aria-pressed",String(selected.has(c.dataset.id)));b.lastChild.textContent=selected.has(c.dataset.id)?"Añadido":"Comparar"});
+
 }
 cards.forEach(card=>card.querySelector(".select-project").addEventListener("click",function(){
 const id=card.dataset.id;
