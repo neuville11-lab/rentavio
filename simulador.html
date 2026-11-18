@@ -448,14 +448,19 @@ footer{border-color:var(--line);color:var(--ink-faint)}
   .vac-slider-inputs{display:grid;grid-template-columns:1fr 112px;align-items:center;gap:12px;margin-top:11px}
   .vac-range{width:100%;accent-color:#174d3a;cursor:pointer}
   .vac-amount-input{width:100%;min-height:38px;padding:7px 9px;border:1px solid #cfd9d0;border-radius:8px;background:#fafcf9;color:#1a2b22;font:700 13px var(--mono)}
-  .vac-chart-wrap{padding:10px 12px 4px;border:1px solid #d8e4d7;border-radius:16px;background:#fff;overflow:hidden}
-  .vac-chart{display:block;width:100%;height:auto;min-height:250px}
-  .vac-chart .grid{stroke:#e9eee8;stroke-width:1}
-  .vac-chart .axis{stroke:#aebbb0;stroke-width:1.2}
-  .vac-chart text{fill:#78867c;font:11px var(--sans)}
-  .vac-chart .axis-label{fill:#53645a;font-size:10px;font-weight:700}
+  .vac-chart-wrap{position:relative;overflow:hidden;padding:20px 20px 13px;border:1px solid #cfe4d9;border-radius:20px;background:linear-gradient(145deg,#f4fbf7 0%,#fff 56%,#fff9f0 100%);box-shadow:0 14px 32px #174d3a12}
+  .vac-chart-wrap:before{content:"";position:absolute;inset:0 0 auto;height:4px;background:linear-gradient(90deg,#087b63 0%,#35b89b 53%,#e5a138 100%)}
+  .vac-graph-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 2px 10px}
+  .vac-graph-head strong{display:block;color:#173a2b;font-size:14px;letter-spacing:-.02em}
+  .vac-graph-head small{display:block;margin-top:3px;color:#718078;font-size:10px}
+  .vac-graph-month{flex:0 0 auto;padding:7px 10px;border:1px solid #b8ddcc;border-radius:999px;background:#e8f7ee;color:#087b63;font:800 10px var(--mono);letter-spacing:.04em;text-transform:uppercase}
+  .vac-chart{display:block;width:100%;height:350px;min-height:0}
+  .vac-chart .grid{stroke:#dce9e1;stroke-width:1;stroke-dasharray:3 5}
+  .vac-chart .axis{stroke:#b7c9bc;stroke-width:1.2}
+  .vac-chart text{fill:#647d6d;font:11px var(--sans)}
+  .vac-chart .axis-label{fill:#426a54;font-size:10px;font-weight:800;letter-spacing:.04em}
   .vac-legend{display:flex;flex-wrap:wrap;gap:8px;margin:10px 2px 6px}
-  .vac-legend-item{display:inline-flex;align-items:center;gap:7px;padding:6px 9px;border:1px solid #e5ebe4;border-radius:999px;background:#fafcf9;color:#53645a;font-size:10px;font-weight:700}
+  .vac-legend-item{display:inline-flex;align-items:center;gap:7px;padding:7px 10px;border:1px solid #dce9df;border-radius:999px;background:#fff;color:#426052;font-size:10px;font-weight:700}
   .vac-dot{width:9px;height:9px;border-radius:50%;background:var(--vac-color);flex:0 0 auto}
   .vac-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:14px}
   .vac-result{padding:13px;border:1px solid #e3eae1;border-radius:12px;background:#fff}
@@ -465,7 +470,7 @@ footer{border-color:var(--line);color:var(--ink-faint)}
   .vac-result-caption{margin-top:3px;color:#78867c;font-size:10px;line-height:1.4}
   .vac-insight{margin:13px 0 0;padding:12px 14px;border-left:3px solid #79ad79;border-radius:0 10px 10px 0;background:#f1f7ef;color:#425b4b;font-size:12px;line-height:1.5}
   .vac-note{margin:11px 2px 0;color:#78867c;font-size:10px;line-height:1.55}
-  @media(max-width:760px){.vac-head{display:block}.vac-controls{grid-template-columns:1fr}.vac-pick small{min-height:0}.vac-sliders{grid-template-columns:1fr}.vac-summary{grid-template-columns:1fr}.vac-chart{min-height:210px}.vac-section{padding:18px 14px}}
+  @media(max-width:760px){.vac-head{display:block}.vac-controls{grid-template-columns:1fr}.vac-pick small{min-height:0}.vac-sliders{grid-template-columns:1fr}.vac-summary{grid-template-columns:1fr}.vac-chart{height:290px}.vac-chart-wrap{padding:18px 10px 10px;border-radius:16px}.vac-graph-head{align-items:flex-start}.vac-graph-head strong{font-size:12px}.vac-graph-head small{max-width:205px;line-height:1.35}.vac-section{padding:18px 14px}}
 
   .vac-controls{gap:15px;margin:0 0 20px}
   .vac-select-hidden{display:none!important}
@@ -695,7 +700,7 @@ footer{border-color:var(--line);color:var(--ink-faint)}
       <div class="vac-slider-inputs" style="grid-template-columns:1fr"><input class="vac-range" type="range" id="vacMonthRange" min="1" max="24" step="1" value="12" aria-label="Mes del resultado seleccionado"></div>
     </div>
   </div>
-  <div class="vac-chart-wrap"><svg class="vac-chart" id="vacChart" viewBox="0 0 900 350" role="img" aria-label="Gráfico de interés acumulado estimado por cuenta y mes"></svg><div class="vac-legend" id="vacLegend"></div></div>
+  <div class="vac-chart-wrap"><div class="vac-graph-head"><div><strong>Tu interés, mes a mes</strong><small>Estimación bruta acumulada para las cuentas elegidas</small></div><span class="vac-graph-month" id="vacGraphMonth">Mes 12</span></div><svg class="vac-chart" id="vacChart" viewBox="0 0 900 350" role="img" aria-label="Gráfico de interés acumulado estimado por cuenta y mes"></svg><div class="vac-legend" id="vacLegend"></div></div>
   <div class="vac-summary" id="vacSummary"></div>
   <div class="vac-insight" id="vacInsight" aria-live="polite"></div>
   <p class="vac-note" id="vacNote">Estimación bruta antes de impuestos. Los tramos publicados por año se aplican cuando constan en la ficha; para las demás cuentas se mantiene el tipo actual como hipótesis, que puede cambiar. El saldo por encima del máximo remunerado publicado no se incluye. Se tienen en cuenta las cuotas mensuales que figuran explícitamente en la ficha.</p>
@@ -6853,7 +6858,7 @@ document.getElementById('simBtn').addEventListener('click',()=>{
   function fmtAmount(n){return eur.format(Math.max(0,n));}
   const range=document.getElementById('vacAmountRange'),number=document.getElementById('vacAmountNumber'),amountOut=document.getElementById('vacAmountOutput');
   const monthRange=document.getElementById('vacMonthRange'),monthOut=document.getElementById('vacMonthOutput');
-  const chart=document.getElementById('vacChart'),legend=document.getElementById('vacLegend'),summary=document.getElementById('vacSummary'),insight=document.getElementById('vacInsight');
+  const chart=document.getElementById('vacChart'),legend=document.getElementById('vacLegend'),summary=document.getElementById('vacSummary'),insight=document.getElementById('vacInsight'),graphMonth=document.getElementById('vacGraphMonth');
   function rateFrom(text){const m=String(text||'').match(/(\d+(?:[.,]\d+)?)\s*%/);return m?Number(m[1].replace(',','.')):null;}
   function amountFrom(text){const m=String(text||'').match(/(\d{1,3}(?:\.\d{3})+|\d+)\s*€/);return m?Number(m[1].replace(/\./g,'')):null;}
   function scheduleFor(item){
@@ -6928,20 +6933,36 @@ document.getElementById('simBtn').addEventListener('click',()=>{
     choicesNote.textContent='Las opciones y las cuentas seleccionadas se mantienen fijas mientras cambias el importe. Puedes elegir hasta 2 de las '+pool.length+' cuentas destacadas.';document.getElementById('vacChoiceTotal').textContent=pool.length+' opciones';
     drawChoices(pool);
     if(!chosen.length){cleanSvg(chart);legend.replaceChildren();summary.replaceChildren();insight.textContent='Selecciona una o dos cuentas para ver la comparación.';return;}
-    const month=Number(monthRange.value);monthOut.textContent=month+' '+(month===1?'mes':'meses');
+    const month=Number(monthRange.value);monthOut.textContent=month+' '+(month===1?'mes':'meses');graphMonth.textContent='Mes '+month;
     const maxVal=Math.max(10,...chosen.flatMap(x=>x.model.values))*1.14;
-    const W=900,H=350,L=70,R=22,T=22,B=46,plotW=W-L-R,plotH=H-T-B;
+    const W=Math.max(300,Math.round(chart.getBoundingClientRect().width)),compact=W<560,H=compact?290:350,L=compact?58:70,R=compact?12:22,T=26,B=46,plotW=W-L-R,plotH=H-T-B;
     const x=m=>L+(m/24)*plotW,y=v=>T+plotH-(v/maxVal)*plotH;
+    chart.setAttribute('viewBox','0 0 '+W+' '+H);
     cleanSvg(chart);
+    chart.appendChild(svgEl('title',{},'Interés acumulado estimado por mes'));
+    chart.appendChild(svgEl('desc',{},'Comparación de '+chosen.map(entry=>entry.item.entidad).join(' y ')+' durante 24 meses. El mes seleccionado es '+month+'.'));
+    const defs=svgEl('defs');
+    chosen.forEach((entry,i)=>{const gradient=svgEl('linearGradient',{id:'vacArea'+i,x1:'0',y1:'0',x2:'0',y2:'1'});gradient.appendChild(svgEl('stop',{offset:'0%','stop-color':entry.color,'stop-opacity':'.23'}));gradient.appendChild(svgEl('stop',{offset:'100%','stop-color':entry.color,'stop-opacity':'0'}));defs.appendChild(gradient);});
+    chart.appendChild(defs);
+    const cursorX=x(month);
+    chart.appendChild(svgEl('rect',{x:cursorX-(compact?11:15),y:T,width:compact?22:30,height:plotH,rx:9,fill:'#087b63',opacity:'.055'}));
     for(let i=0;i<=4;i++){const val=maxVal*i/4,yy=y(val);chart.appendChild(svgEl('line',{x1:L,y1:yy,x2:W-R,y2:yy,class:'grid'}));chart.appendChild(svgEl('text',{x:L-10,y:yy+4,'text-anchor':'end'},fmtAmount(val)));}
     chart.appendChild(svgEl('line',{x1:L,y1:T,x2:L,y2:T+plotH,class:'axis'}));chart.appendChild(svgEl('line',{x1:L,y1:T+plotH,x2:W-R,y2:T+plotH,class:'axis'}));
-    for(let m=0;m<=24;m+=3){const xx=x(m);chart.appendChild(svgEl('line',{x1:xx,y1:T+plotH,x2:xx,y2:T+plotH+5,class:'axis'}));chart.appendChild(svgEl('text',{x:xx,y:H-17,'text-anchor':'middle'},m===0?'Inicio':m+' m'));}
-    chart.appendChild(svgEl('text',{x:L,y:12,class:'axis-label'},'INTERÉS ACUMULADO ESTIMADO'));chart.appendChild(svgEl('text',{x:W-R,y:H-2,class:'axis-label','text-anchor':'end'},'TIEMPO'));
-    const cursorX=x(month);chart.appendChild(svgEl('line',{x1:cursorX,y1:T,x2:cursorX,y2:T+plotH,stroke:'#344b3a','stroke-width':1.4,'stroke-dasharray':'4 5',opacity:.38}));
+    for(let m=0;m<=24;m+=compact?6:3){const xx=x(m);chart.appendChild(svgEl('line',{x1:xx,y1:T+plotH,x2:xx,y2:T+plotH+5,class:'axis'}));chart.appendChild(svgEl('text',{x:xx,y:H-17,'text-anchor':'middle'},m===0?'Inicio':m+' m'));}
+    chart.appendChild(svgEl('text',{x:L,y:13,class:'axis-label'},'INTERÉS ACUMULADO ESTIMADO'));chart.appendChild(svgEl('text',{x:W-R,y:H-2,class:'axis-label','text-anchor':'end'},'TIEMPO'));
+    chart.appendChild(svgEl('line',{x1:cursorX,y1:T,x2:cursorX,y2:T+plotH,stroke:'#187b61','stroke-width':1.6,'stroke-dasharray':'4 5',opacity:.55}));
     chosen.forEach((entry,i)=>{
       let d='';entry.model.values.forEach((v,m)=>{d+=(m===0?'M':'L')+x(m).toFixed(1)+' '+y(v).toFixed(1)+' ';});
+      const area=d+'L'+x(24).toFixed(1)+' '+y(0).toFixed(1)+' L'+x(0).toFixed(1)+' '+y(0).toFixed(1)+' Z';
+      chart.appendChild(svgEl('path',{d:area,fill:'url(#vacArea'+i+')'}));
+      chart.appendChild(svgEl('path',{d:d.trim(),fill:'none',stroke:'#fff','stroke-width':8,'stroke-linecap':'round','stroke-linejoin':'round',opacity:.78}));
       chart.appendChild(svgEl('path',{d:d.trim(),fill:'none',stroke:entry.color,'stroke-width':4,'stroke-linecap':'round','stroke-linejoin':'round'}));
-      const mx=x(month),trueY=y(entry.model.values[month]),my=Math.max(T+14,Math.min(T+plotH-14,trueY+(i===0?-16:16)));if(Math.abs(my-trueY)>3)chart.appendChild(svgEl('line',{x1:mx,y1:trueY,x2:mx,y2:my,stroke:entry.color,'stroke-width':1.5,opacity:.7}));chart.appendChild(svgEl('circle',{cx:mx,cy:my,r:14,fill:'#fff',stroke:entry.color,'stroke-width':2.5,class:'vac-logo-halo'}));const logo=svgEl('image',{x:mx-10,y:my-10,width:20,height:20,href:logoFor(entry.item),preserveAspectRatio:'xMidYMid meet',class:'vac-line-logo'});logo.setAttributeNS('http://www.w3.org/1999/xlink','href',logoFor(entry.item));chart.appendChild(logo);
+      const endY=y(entry.model.values[24]);chart.appendChild(svgEl('circle',{cx:x(24),cy:endY,r:9,fill:entry.color,opacity:.14}));chart.appendChild(svgEl('circle',{cx:x(24),cy:endY,r:4,fill:entry.color,stroke:'#fff','stroke-width':1.8}));
+      const mx=x(month),trueY=y(entry.model.values[month]),my=Math.max(T+14,Math.min(T+plotH-14,trueY+(i===0?-16:16)));
+      chart.appendChild(svgEl('circle',{cx:mx,cy:trueY,r:5,fill:entry.color,stroke:'#fff','stroke-width':2}));
+      if(Math.abs(my-trueY)>3)chart.appendChild(svgEl('line',{x1:mx,y1:trueY,x2:mx,y2:my,stroke:entry.color,'stroke-width':1.5,opacity:.7}));
+      chart.appendChild(svgEl('circle',{cx:mx,cy:my,r:14,fill:'#fff',stroke:entry.color,'stroke-width':2.5,class:'vac-logo-halo'}));
+      const logo=svgEl('image',{x:mx-10,y:my-10,width:20,height:20,href:logoFor(entry.item),preserveAspectRatio:'xMidYMid meet',class:'vac-line-logo'});logo.setAttributeNS('http://www.w3.org/1999/xlink','href',logoFor(entry.item));chart.appendChild(logo);
     });
     const scores=chosen.map((entry,i)=>({i,value:entry.model.values[month],item:entry.item})).sort((a,b)=>b.value-a.value);const winner=scores[0];
     legend.innerHTML='';chosen.forEach(entry=>{const chip=document.createElement('span');chip.className='vac-legend-item';chip.style.setProperty('--vac-color',entry.color);const img=document.createElement('img');img.className='vac-legend-logo';img.src=logoFor(entry.item);img.alt='';chip.appendChild(img);const txt=document.createElement('span');txt.textContent=entry.item.entidad+' · '+entry.item.producto;chip.appendChild(txt);legend.appendChild(chip);});
