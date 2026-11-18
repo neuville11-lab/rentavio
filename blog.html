@@ -69,16 +69,24 @@ footer p{max-width:720px;color:var(--faint);font-size:12px;line-height:1.6}
 .market-stat.accounts .market-stat-value{color:#C9692E}
 .market-stat-trend{font-size:11px;color:var(--faint);text-align:right}
 .market-stat-count{display:block;margin-top:4px;color:var(--faint);font-size:10.5px}
-.market-chart-card{padding:20px 20px 16px;border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:0 4px 16px rgba(14,21,18,.04)}
-.market-chart-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:8px}
-.market-chart-heading strong{font-size:13px}
-.market-chart-heading span{font-size:10.5px;color:var(--faint)}
+.market-chart-card{position:relative;overflow:hidden;padding:24px 24px 18px;border:1px solid #D6E5DF;border-radius:20px;background:linear-gradient(145deg,#F5FBF8 0%,#fff 52%,#FFF9F4 100%);box-shadow:0 16px 40px rgba(14,107,92,.09)}
+.market-chart-card:before{content:"";position:absolute;inset:0 0 auto;height:4px;background:linear-gradient(90deg,#0E6B5C 0%,#35B79C 52%,#E59A52 100%)}
+.market-chart-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:8px}
+.market-chart-heading strong{display:block;font-size:15px;letter-spacing:-.02em;color:#17372F}
+.market-chart-heading span{display:block;margin-top:4px;font-size:10.5px;color:var(--faint)}
+.market-chart-badges{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:6px}
+.market-chart-badge{min-width:98px;padding:7px 10px;border:1px solid #CBE6DC;border-radius:10px;background:#EAF7F2;color:#0E6B5C;text-align:left}
+.market-chart-badge.accounts{border-color:#F1DCC9;background:#FFF2E6;color:#B65B23}
+.market-chart-badge small{display:block;font:700 9px var(--sans);text-transform:uppercase;letter-spacing:.07em}
+.market-chart-badge b{display:block;margin-top:2px;font:700 17px var(--mono);letter-spacing:-.04em}
 .market-chart-svg{display:block;width:100%;height:320px;overflow:visible}
-.market-legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
-.market-legend button{display:inline-flex;align-items:center;gap:7px;padding:8px 10px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--dim);font:600 11px var(--sans);cursor:pointer}
+.market-legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.market-legend button{display:inline-flex;align-items:center;gap:7px;padding:8px 11px;border:1px solid #D8E5DE;border-radius:99px;background:#fff;color:#31564B;font:600 11px var(--sans);cursor:pointer;transition:background .2s,border-color .2s,transform .2s,opacity .2s}
+.market-legend button:hover{background:#EDF8F3;border-color:#9DCEBD;transform:translateY(-1px)}
+.market-legend button:focus-visible{outline:2px solid #0E6B5C;outline-offset:2px}
 .market-legend button[aria-pressed="false"]{opacity:.48}
-.legend-swatch{width:18px;height:3px;border-radius:2px;background:var(--teal)}
-.legend-swatch.accounts{height:0;border-top:3px dashed #C9692E;background:none}
+.legend-swatch{width:18px;height:3px;border-radius:2px;background:#0E7C66}
+.legend-swatch.accounts{height:0;border-top:3px dashed #D97732;background:none}
 .legend-swatch.bde{height:0;border-top:2px dotted #9AA19B;background:none}
 .market-source{margin-top:12px;color:var(--faint);font-size:10.5px;line-height:1.55}
 .market-source a{font-weight:700}
@@ -89,7 +97,7 @@ footer p{max-width:720px;color:var(--faint);font-size:12px;line-height:1.6}
 .market-table th,.market-table td{padding:7px 9px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
 .market-table th:first-child,.market-table td:first-child{text-align:left}
 .market-table th{color:var(--faint);font-weight:700}
-@media(max-width:700px){.market-section{padding:22px 0 28px}.market-intro{display:block}.market-date{display:inline-flex;margin-top:12px}.market-stats{gap:8px}.market-stat{padding:13px 12px}.market-stat-row{display:block}.market-stat-value{display:block}.market-stat-trend{text-align:left;margin-top:2px}.market-chart-card{padding:14px 12px;border-radius:14px}.market-chart-svg{height:270px}.market-chart-heading{align-items:flex-start;flex-direction:column;gap:2px}.market-legend{gap:6px}.market-legend button{font-size:10.5px;padding:7px 8px}}
+@media(max-width:700px){.market-section{padding:22px 0 28px}.market-intro{display:block}.market-date{display:inline-flex;margin-top:12px}.market-stats{gap:8px}.market-stat{padding:13px 12px}.market-stat-row{display:block}.market-stat-value{display:block}.market-stat-trend{text-align:left;margin-top:2px}.market-chart-card{padding:18px 12px 14px;border-radius:16px}.market-chart-svg{height:270px}.market-chart-heading{flex-direction:column;gap:10px}.market-chart-badges{width:100%;justify-content:flex-start}.market-chart-badge{min-width:92px}.market-legend{gap:6px}.market-legend button{font-size:10.5px;padding:7px 8px}}
 @media(max-width:360px){.market-stats{grid-template-columns:1fr}.market-stat-row{display:flex}.market-stat-trend{text-align:right;margin:0}}
 
 
@@ -123,7 +131,7 @@ footer p{max-width:720px;color:var(--faint);font-size:12px;line-height:1.6}
 <div class="market-stat accounts"><span class="market-stat-label">Media de cuentas remuneradas</span><div class="market-stat-row"><strong class="market-stat-value">3,09%</strong><span class="market-stat-trend">+1,44 puntos desde mayo</span></div><span class="market-stat-count">Panel de 20 ofertas · corte 7 nov 2026</span></div>
 </div>
 <div class="market-chart-card">
-<div class="market-chart-heading"><strong>Evolución semanal de la TAE media</strong><span>Promedio aritmético del panel publicado</span></div>
+<div class="market-chart-heading"><div><strong>Evolución semanal de la TAE media</strong><span>Promedio aritmético del panel publicado · mayo a noviembre de 2026</span></div><div class="market-chart-badges" aria-label="Último corte, 7 de noviembre"><div class="market-chart-badge"><small>Depósitos</small><b>3,29%</b></div><div class="market-chart-badge accounts"><small>Cuentas</small><b>3,09%</b></div></div></div>
 <svg class="market-chart-svg" id="marketTrendChart" width="960" height="320" viewBox="0 0 960 320" preserveAspectRatio="none" role="img" aria-label="Gráfico interactivo de evolución semanal de la TAE media en cuentas remuneradas y depósitos"><title id="marketChartTitle">Evolución semanal de las TAE medias publicadas</title><desc id="marketChartDesc">Desde mayo hasta noviembre de 2026: depósitos y cuentas remuneradas, con referencia del Banco de España.</desc><line x1="52" y1="284" x2="948" y2="284" stroke="#E8EBE8"/><text x="44" y="288" text-anchor="end" fill="#77827A" font-size="11">1,5 %</text><line x1="52" y1="217" x2="948" y2="217" stroke="#E8EBE8"/><text x="44" y="221" text-anchor="end" fill="#77827A" font-size="11">2,0 %</text><line x1="52" y1="150" x2="948" y2="150" stroke="#E8EBE8"/><text x="44" y="154" text-anchor="end" fill="#77827A" font-size="11">2,5 %</text><line x1="52" y1="83" x2="948" y2="83" stroke="#E8EBE8"/><text x="44" y="87" text-anchor="end" fill="#77827A" font-size="11">3,0 %</text><line x1="52" y1="16" x2="948" y2="16" stroke="#E8EBE8"/><text x="44" y="20" text-anchor="end" fill="#77827A" font-size="11">3,5 %</text><polyline points="52,215.66000000000003 85.18518518518519,215.66000000000003 118.37037037037037,215.66000000000003 151.55555555555554,215.66000000000003 184.74074074074073,215.66000000000003 217.92592592592592,215.66000000000003 251.11111111111111,215.66000000000003 284.2962962962963,215.66000000000003 317.48148148148147,215.66000000000003 350.6666666666667,215.66000000000003 383.85185185185185,215.66000000000003 417.037037037037,215.66000000000003 450.22222222222223,215.66000000000003 483.4074074074074,215.66000000000003 516.5925925925926,215.66000000000003 549.7777777777778,215.66000000000003 582.9629629629629,215.66000000000003 616.1481481481482,215.66000000000003 649.3333333333334,215.66000000000003 682.5185185185185,215.66000000000003 715.7037037037037,215.66000000000003 748.8888888888889,215.66000000000003 782.074074074074,215.66000000000003 815.2592592592592,215.66000000000003 848.4444444444445,215.66000000000003 881.6296296296297,215.66000000000003 914.8148148148148,215.66000000000003 948,215.66000000000003" fill="none" stroke="#9AA19B" stroke-width="1.5" stroke-dasharray="2 5"><title>Referencia BdE: 2,01%, agosto de 2026</title></polyline><polyline points="52,93.72000000000001 85.18518518518519,93.72000000000001 118.37037037037037,140.62 151.55555555555554,140.62 184.74074074074073,140.62 217.92592592592592,104.44000000000003 251.11111111111111,104.44000000000003 284.2962962962963,105.77999999999999 317.48148148148147,97.73999999999998 350.6666666666667,97.73999999999998 383.85185185185185,109.80000000000003 417.037037037037,105.77999999999999 450.22222222222223,105.77999999999999 483.4074074074074,105.77999999999999 516.5925925925926,104.44000000000003 549.7777777777778,104.44000000000003 582.9629629629629,81.66000000000003 616.1481481481482,77.63999999999999 649.3333333333334,68.26000000000002 682.5185185185185,66.91999999999999 715.7037037037037,66.91999999999999 748.8888888888889,42.800000000000026 782.074074074074,41.459999999999994 815.2592592592592,41.459999999999994 848.4444444444445,42.800000000000026 881.6296296296297,45.480000000000025 914.8148148148148,45.480000000000025 948,44.13999999999999" fill="none" stroke="#0E6B5C" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><title>Depósitos</title></polyline><polyline points="52,263.9 85.18518518518519,263.9 118.37037037037037,243.79999999999998 151.55555555555554,241.12 184.74074074074073,242.45999999999998 217.92592592592592,235.76 251.11111111111111,196.9 284.2962962962963,195.55999999999997 317.48148148148147,176.8 350.6666666666667,178.14 383.85185185185185,178.14 417.037037037037,174.12000000000003 450.22222222222223,174.12000000000003 483.4074074074074,174.12000000000003 516.5925925925926,174.12000000000003 549.7777777777778,172.78 582.9629629629629,163.4 616.1481481481482,166.08 649.3333333333334,164.73999999999998 682.5185185185185,162.05999999999997 715.7037037037037,160.72 748.8888888888889,141.95999999999998 782.074074074074,137.94000000000003 815.2592592592592,129.9 848.4444444444445,129.9 881.6296296296297,108.46 914.8148148148148,73.62000000000002 948,70.94000000000003" fill="none" stroke="#C9692E" stroke-width="3" stroke-dasharray="7 5" stroke-linejoin="round" stroke-linecap="round"><title>Cuentas remuneradas</title></polyline><text x="52" y="311" text-anchor="middle" fill="#77827A" font-size="11">may</text><text x="184.74074074074073" y="311" text-anchor="middle" fill="#77827A" font-size="11">jun</text><text x="317.48148148148147" y="311" text-anchor="middle" fill="#77827A" font-size="11">jul</text><text x="450.22222222222223" y="311" text-anchor="middle" fill="#77827A" font-size="11">ago</text><text x="616.1481481481482" y="311" text-anchor="middle" fill="#77827A" font-size="11">sept</text><text x="748.8888888888889" y="311" text-anchor="middle" fill="#77827A" font-size="11">oct</text><text x="948" y="311" text-anchor="middle" fill="#77827A" font-size="11">nov</text></svg>
 <div class="market-legend" aria-label="Mostrar u ocultar series del gráfico">
 <button type="button" data-market-series="deposits" aria-pressed="true"><span class="legend-swatch"></span>Depósitos</button>
@@ -147,32 +155,34 @@ footer p{max-width:720px;color:var(--faint);font-size:12px;line-height:1.6}
  const shortDate=value=>new Date(value+"T12:00:00Z").toLocaleDateString("es-ES",{day:"numeric",month:"short",timeZone:"UTC"});
  function draw(){
   const host=svg.parentElement;
-  const width=Math.max(290,Math.floor(host.getBoundingClientRect().width-28));
+  const width=Math.max(250,Math.floor(svg.getBoundingClientRect().width));
   const height=width<520?270:320;
-  const margin={top:16,right:12,bottom:36,left:42};
+  const margin={top:18,right:14,bottom:36,left:42};
   const plotWidth=width-margin.left-margin.right;
   const plotHeight=height-margin.top-margin.bottom;
   const x=i=>margin.left+(plotWidth*i/(data.length-1));
   const y=value=>margin.top+(yMax-value)*plotHeight/(yMax-yMin);
+  const baseline=y(yMin);
   const ticks=[1.5,2,2.5,3,3.5];
-  let html='<title id="marketChartTitle">Evolución semanal de las TAE medias publicadas</title><desc id="marketChartDesc">Desde mayo hasta el 7 de noviembre de 2026, la media del panel es del 3,29 por ciento en depósitos y del 3,09 por ciento en cuentas remuneradas.</desc>';
-  ticks.forEach(t=>{html+=`<line x1="${margin.left}" y1="${y(t)}" x2="${width-margin.right}" y2="${y(t)}" stroke="#E8EBE8" stroke-width="1"/><text x="${margin.left-8}" y="${y(t)+4}" text-anchor="end" fill="#77827A" font-size="11" font-family="Inter,Arial,sans-serif">${t.toFixed(1).replace(".",",")} %</text>`;});
-  const bdePoints=data.map((p,i)=>`${x(i)},${y(bdeValue)}`).join(" ");
-  if(visible.bde) html+=`<polyline points="${bdePoints}" fill="none" stroke="#9AA19B" stroke-width="1.5" stroke-dasharray="2 5"><title>Referencia BdE: 2,01%, agosto de 2026</title></polyline>`;
-  const series=[{key:"deposits",color:"#0E6B5C",value:"deposits",dash:""},{key:"accounts",color:"#C9692E",value:"accounts",dash:"7 5"}];
+  let html='<title id="marketChartTitle">Evolución semanal de las TAE medias publicadas</title><desc id="marketChartDesc">Desde mayo hasta el 7 de noviembre de 2026, la media del panel es del 3,29 por ciento en depósitos y del 3,09 por ciento en cuentas remuneradas.</desc><defs><linearGradient id="marketDepositFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0E9B7C" stop-opacity=".24"/><stop offset="100%" stop-color="#0E9B7C" stop-opacity="0"/></linearGradient><linearGradient id="marketAccountFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#E58B42" stop-opacity=".16"/><stop offset="100%" stop-color="#E58B42" stop-opacity="0"/></linearGradient></defs>';
+  ticks.forEach(t=>{html+=`<line x1="${margin.left}" y1="${y(t)}" x2="${width-margin.right}" y2="${y(t)}" stroke="#DDE9E3" stroke-width="1" ${t===1.5?'':'stroke-dasharray="3 5"'}/><text x="${margin.left-8}" y="${y(t)+4}" text-anchor="end" fill="#668077" font-size="11" font-family="Inter,Arial,sans-serif">${t.toFixed(1).replace(".",",")} %</text>`;});
+  const months=new Map();
+  data.forEach((p,i)=>{const key=p.date.slice(0,7);if(!months.has(key))months.set(key,i);});
+  months.forEach((i,key)=>{const label=new Date(key+"-01T12:00:00Z").toLocaleDateString("es-ES",{month:"short",timeZone:"UTC"});html+=`<text x="${x(i)}" y="${height-9}" text-anchor="middle" fill="#668077" font-size="11" font-family="Inter,Arial,sans-serif">${label}</text>`;});
+  if(visible.bde) html+=`<line x1="${margin.left}" y1="${y(bdeValue)}" x2="${width-margin.right}" y2="${y(bdeValue)}" stroke="#93A69C" stroke-width="1.6" stroke-dasharray="3 6"><title>Referencia BdE: 2,01%, agosto de 2026</title></line>`;
+  const series=[{key:"deposits",color:"#0E7C66",value:"deposits",fill:"marketDepositFill",dash:""},{key:"accounts",color:"#D97732",value:"accounts",fill:"marketAccountFill",dash:"6 5"}];
   for(const line of series){
    if(!visible[line.key]) continue;
    const points=data.map((p,i)=>`${x(i)},${y(p[line.value])}`).join(" ");
-   html+=`<polyline points="${points}" fill="none" stroke="${line.color}" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" ${line.dash?`stroke-dasharray="${line.dash}"`:""}/>`;
+   const area=`M ${x(0)} ${baseline} L ${data.map((p,i)=>`${x(i)} ${y(p[line.value])}`).join(" L ")} L ${x(data.length-1)} ${baseline} Z`;
+   html+=`<path d="${area}" fill="url(#${line.fill})"/><polyline points="${points}" fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" ${line.dash?`stroke-dasharray="${line.dash}"`:""}/><polyline points="${points}" fill="none" stroke="${line.color}" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round" ${line.dash?`stroke-dasharray="${line.dash}"`:""}/>`;
    data.forEach((p,i)=>{
     const label=`${shortDate(p.date)}: ${fmt(p[line.value])}`;
-    if(line.key==="accounts") html+=`<rect x="${x(i)-3}" y="${y(p[line.value])-3}" width="6" height="6" rx="1" fill="${line.color}"><title>${label}</title></rect>`;
-    else html+=`<circle cx="${x(i)}" cy="${y(p[line.value])}" r="3.5" fill="${line.color}" stroke="#fff" stroke-width="1.5"><title>${label}</title></circle>`;
+    if(i===data.length-1) html+=`<circle cx="${x(i)}" cy="${y(p[line.value])}" r="11" fill="${line.color}" opacity=".16"/><circle cx="${x(i)}" cy="${y(p[line.value])}" r="5.5" fill="${line.color}" stroke="#fff" stroke-width="2"/>`;
+    else if(i%4===0) html+=`<circle cx="${x(i)}" cy="${y(p[line.value])}" r="2.5" fill="#fff" stroke="${line.color}" stroke-width="1.7"/>`;
+    html+=`<circle cx="${x(i)}" cy="${y(p[line.value])}" r="9" fill="transparent"><title>${label}</title></circle>`;
    });
   }
-  const months=new Map();
-  data.forEach((p,i)=>{const key=p.date.slice(0,7);if(!months.has(key))months.set(key,i);});
-  months.forEach((i,key)=>{const label=new Date(key+"-01T12:00:00Z").toLocaleDateString("es-ES",{month:"short",timeZone:"UTC"});html+=`<text x="${x(i)}" y="${height-9}" text-anchor="middle" fill="#77827A" font-size="11" font-family="Inter,Arial,sans-serif">${label}</text>`;});
   svg.setAttribute("viewBox",`0 0 ${width} ${height}`);
   svg.setAttribute("height",String(height));
   svg.innerHTML=html;
