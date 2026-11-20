@@ -1505,12 +1505,12 @@ const DATA =[
     "producto": "Cuenta Contigo (nuevos clientes)",
     "rate": 2.61,
     "rateLabel": "TAE anual de ejemplo (12 meses)",
-    "desc": "Nueva alta del 21/10 al 18/11/2026: 3,00% TIN hasta el 31/03/2027. Después se aplicará el TIN vigente el 01/04/2027. Renault Bank ilustra una TAE anual del 2,61% suponiendo un 2,25% TIN después de la promoción; esa TAE no garantiza el tipo posterior.",
+    "desc": "Nueva alta del 21/10 al 02/12/2026: 3,00% TIN hasta el 31/03/2027. Después se aplicará el TIN vigente el 01/04/2027. Renault Bank ilustra una TAE anual del 2,61% suponiendo un 2,25% TIN después de la promoción; esa TAE no garantiza el tipo posterior.",
     "cap": "Sin importe mínimo ni máximo anunciado para esta campaña",
     "condiciones": [
       [
         "Alta promocional",
-        "21/10–18/11/2026"
+        "21/10–02/12/2026"
       ],
       [
         "Tipo inicial",
@@ -1530,7 +1530,7 @@ const DATA =[
       ]
     ],
     "verdict": "El 3,00% es TIN y dura solo hasta el 31/03/2027. La TAE del 2,61% es un ejemplo anualizado con una hipótesis para el tipo posterior, que no está garantizado.",
-    "deadline": "Alta hasta 18/11/2026",
+    "deadline": "Alta hasta 02/12/2026",
     "top": false,
     "sinCondicion": false,
     "montoMin": 0,
@@ -1545,7 +1545,7 @@ const DATA =[
     "extranjero": false,
     "dificultad": 1,
     "url": "https://renaultbank.es/cuenta-contigo-nuevos-clientes/",
-    "actualizado": "08/11/2026"
+    "actualizado": "20/11/2026"
   },
   {
     "cat": "remunerada",
@@ -2183,8 +2183,8 @@ const DATA =[
     "producto": "Cuenta Remunerada (nuevos clientes)",
     "rate": 3.25,
     "rateLabel": "TAE durante 1 año",
-    "desc": "3,25% TAE durante un año para nuevos clientes que traigan Bizum. Hasta 200€ brutos extra por domiciliar dos recibos: 20€/mes durante 10 meses; código hasta 16/11/2026.",
-    "cap": "Sin límite indicado",
+    "desc": "3,25% TAE (3,20% TIN) durante un año para nuevos clientes con el código OPEN325 que traigan Bizum, sin exigir nómina. Hasta 200€ netos adicionales por dos recibos mensuales diferentes cargados y no devueltos: 20€ netos al mes durante un máximo de 10 meses. Alta hasta el 30/11/2026.",
+    "cap": "Desde 1€ y sin límite máximo",
     "condiciones": [
       [
         "TAE",
@@ -2199,15 +2199,19 @@ const DATA =[
         "Requerido"
       ],
       [
+        "Código",
+        "OPEN325 hasta 30/11/2026"
+      ],
+      [
         "Recibos",
-        "Hasta 200€; alta hasta 16/11/2026"
+        "Hasta 200€ netos; 2 recibos mensuales cargados; alta hasta 30/11/2026"
       ]
     ],
-    "verdict": "Tras el primer año se aplica el tipo vigente de la Cuenta de Ahorro. El incentivo de recibos tiene fecha límite propia.",
-    "deadline": "Alta con código hasta 16/11/2026",
+    "verdict": "El 3,25% TAE exige Bizum, no nómina ni recibos. Los dos recibos mensuales corresponden al bono adicional de hasta 200€ netos y deben cargarse sin devolución.",
+    "deadline": "Código OPEN325 hasta 30/11/2026",
     "top": false,
     "sinCondicion": false,
-    "montoMin": 0,
+    "montoMin": 1,
     "montoMax": 999999999,
     "plazos": [
       "disponible",
@@ -2219,7 +2223,7 @@ const DATA =[
     "extranjero": false,
     "dificultad": 2,
     "url": "https://www.openbank.es/cuenta-remunerada",
-    "actualizado": "30/10/2026"
+    "actualizado": "20/11/2026"
   },
   {
     "cat": "remunerada",
@@ -3107,7 +3111,7 @@ const DATA =[
     "producto": "Depósito 3 años",
     "rate": 3.55,
     "rateLabel": "TAE 36 meses",
-    "desc": "Depósito Tú+ a 36 meses: 3,55% TAE, con abono trimestral de intereses. Mínimo 500€, máximo 1.000.000€. Condiciones válidas hasta el 18/11/2026.",
+    "desc": "Depósito Tú+ a 36 meses: 3,55% TAE, con abono trimestral de intereses. Mínimo 500€, máximo 1.000.000€. Condiciones válidas hasta el 02/12/2026.",
     "cap": "500€–1.000.000€",
     "condiciones": [
       [
@@ -3132,11 +3136,11 @@ const DATA =[
       ],
       [
         "Vigencia",
-        "Hasta 18/11/2026"
+        "Hasta 02/12/2026"
       ]
     ],
     "verdict": "Tipo promocional según la ficha oficial de Renault Bank; revisa las condiciones de cancelación y contratación antes de inmovilizar el dinero.",
-    "deadline": "Condiciones hasta 18/11/2026",
+    "deadline": "Condiciones hasta 02/12/2026",
     "top": false,
     "sinCondicion": true,
     "montoMin": 500,
@@ -3148,7 +3152,7 @@ const DATA =[
     "extranjero": false,
     "dificultad": 1,
     "url": "https://renaultbank.es/",
-    "actualizado": "08/11/2026"
+    "actualizado": "20/11/2026"
   },
   {
     "cat": "deposito",
@@ -3641,8 +3645,8 @@ const DATA =[
     "producto": "Depósito cancelable 6 meses (base)",
     "rate": 2.75,
     "rateLabel": "TAE 6 meses",
-    "desc": "Depósito cancelable al 2,75% TAE a 6 meses, según la documentación recibida. Openbank indica un tipo superior con nómina o ingresos elegibles.",
-    "cap": "Consultar mínimo",
+    "desc": "Depósito Open a 6 meses al 2,75% TAE (2,73% TIN), sin domiciliar ingresos. Desde 1€, sin límite máximo; cancelación anticipada al 0,20% TAE por el tiempo mantenido.",
+    "cap": "Desde 1€; sin límite máximo",
     "condiciones": [
       [
         "Plazo",
@@ -3655,13 +3659,17 @@ const DATA =[
       [
         "Con ingresos",
         "3,25% según campaña"
+      ],
+      [
+        "Cancelación anticipada",
+        "0,20% TAE por el tiempo mantenido"
       ]
     ],
-    "verdict": "La tasa base y la mejora por ingresos son dos ofertas distintas.",
+    "verdict": "Sin comisión de cancelación anticipada, pero al cancelar antes del vencimiento la remuneración baja al 0,20% TAE por el tiempo mantenido.",
     "deadline": null,
     "top": false,
     "sinCondicion": true,
-    "montoMin": 0,
+    "montoMin": 1,
     "montoMax": 999999999,
     "plazos": [
       "medio"
@@ -3670,7 +3678,7 @@ const DATA =[
     "extranjero": false,
     "dificultad": 1,
     "url": "https://www.openbank.es/deposito-a-plazo-fijo",
-    "actualizado": "30/10/2026"
+    "actualizado": "20/11/2026"
   },
   {
     "cat": "deposito",
@@ -3679,8 +3687,8 @@ const DATA =[
     "producto": "Depósito cancelable 6 meses (con ingresos)",
     "rate": 3.25,
     "rateLabel": "TAE 6 meses con ingresos",
-    "desc": "Depósito a 6 meses al 3,25% TAE con nómina o ingresos mensuales de al menos 900€, según la documentación recibida.",
-    "cap": "Consultar mínimo",
+    "desc": "Depósito Open a 6 meses al 3,25% TAE (3,22% TIN) con nómina, pensión, prestación u otros ingresos externos de al menos 900€ mensuales durante al menos 4 meses del plazo. Desde 1€, sin límite máximo; cancelación anticipada al 0,20% TAE por el tiempo mantenido.",
+    "cap": "Desde 1€; sin límite máximo",
     "condiciones": [
       [
         "Plazo",
@@ -3693,13 +3701,21 @@ const DATA =[
       [
         "Nómina/ingresos",
         "≥900€/mes"
+      ],
+      [
+        "Cancelación anticipada",
+        "0,20% TAE por el tiempo mantenido"
+      ],
+      [
+        "Ingresos",
+        "Al menos 900€/mes durante 4 meses"
       ]
     ],
-    "verdict": "El tipo superior requiere ingresos mensuales elegibles; revisa las bases.",
+    "verdict": "Sin comisión de cancelación anticipada, pero al cancelar antes del vencimiento la remuneración baja al 0,20% TAE por el tiempo mantenido.",
     "deadline": null,
     "top": false,
     "sinCondicion": false,
-    "montoMin": 0,
+    "montoMin": 1,
     "montoMax": 999999999,
     "plazos": [
       "medio"
@@ -3708,7 +3724,7 @@ const DATA =[
     "extranjero": false,
     "dificultad": 2,
     "url": "https://www.openbank.es/deposito-a-plazo-fijo",
-    "actualizado": "30/10/2026"
+    "actualizado": "20/11/2026"
   },
   {
     "cat": "deposito",
@@ -5594,7 +5610,7 @@ const DATA =[
     "producto": "Depósito 12 meses",
     "rate": 3.24,
     "rateLabel": "TAE 12 meses",
-    "desc": "Depósito Tú+ a 12 meses: 3,24% TAE, con abono trimestral de intereses. Mínimo 500€, máximo 1.000.000€. Condiciones válidas hasta el 18/11/2026.",
+    "desc": "Depósito Tú+ a 12 meses: 3,24% TAE, con abono trimestral de intereses. Mínimo 500€, máximo 1.000.000€. Condiciones válidas hasta el 02/12/2026.",
     "cap": "500€–1.000.000€",
     "condiciones": [
       [
@@ -5619,11 +5635,11 @@ const DATA =[
       ],
       [
         "Vigencia",
-        "Hasta 18/11/2026"
+        "Hasta 02/12/2026"
       ]
     ],
     "verdict": "Tipo promocional según la ficha oficial de Renault Bank; revisa las condiciones de cancelación y contratación antes de inmovilizar el dinero.",
-    "deadline": "Condiciones hasta 18/11/2026",
+    "deadline": "Condiciones hasta 02/12/2026",
     "top": false,
     "sinCondicion": true,
     "montoMin": 500,
@@ -5636,7 +5652,7 @@ const DATA =[
     "extranjero": false,
     "dificultad": 1,
     "url": "https://renaultbank.es/",
-    "actualizado": "08/11/2026"
+    "actualizado": "20/11/2026"
   },
   {
     "cat": "deposito",
@@ -5645,7 +5661,7 @@ const DATA =[
     "producto": "Depósito 24 meses",
     "rate": 3.44,
     "rateLabel": "TAE 24 meses",
-    "desc": "Depósito Tú+ a 24 meses: 3,44% TAE, con abono trimestral de intereses. Mínimo 500€, máximo 1.000.000€. Condiciones válidas hasta el 18/11/2026.",
+    "desc": "Depósito Tú+ a 24 meses: 3,44% TAE, con abono trimestral de intereses. Mínimo 500€, máximo 1.000.000€. Condiciones válidas hasta el 02/12/2026.",
     "cap": "500€–1.000.000€",
     "condiciones": [
       [
@@ -5670,11 +5686,11 @@ const DATA =[
       ],
       [
         "Vigencia",
-        "Hasta 18/11/2026"
+        "Hasta 02/12/2026"
       ]
     ],
     "verdict": "Tipo promocional según la ficha oficial de Renault Bank; revisa las condiciones de cancelación y contratación antes de inmovilizar el dinero.",
-    "deadline": "Condiciones hasta 18/11/2026",
+    "deadline": "Condiciones hasta 02/12/2026",
     "top": false,
     "sinCondicion": true,
     "montoMin": 500,
@@ -5687,7 +5703,7 @@ const DATA =[
     "extranjero": false,
     "dificultad": 1,
     "url": "https://renaultbank.es/",
-    "actualizado": "08/11/2026"
+    "actualizado": "20/11/2026"
   },
   {
     "cat": "deposito",
